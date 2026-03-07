@@ -99,8 +99,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Render theme files from palette JSON")
     parser.add_argument(
         "--palette",
-        default=str(ROOTPATH / "palettes" / "night.json"),
-        help="Path to palette JSON (default: palettes/night.json)",
+        default=str(ROOTPATH / "palettes" / "morok_dark.json"),
+        help="Path to palette JSON (default: palettes/morok_dark.json)",
     )
     parser.add_argument(
         "--templates-dir",

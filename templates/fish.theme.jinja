@@ -1,4 +1,4 @@
-[dark]
+[{{ iif(cond=flavor.dark, t='dark', f='light') }}]
 fish_color_normal {{ text.hex | replace('#', '') }}
 fish_color_command {{ blue.hex | replace('#', '') }}
 fish_color_param {{ flamingo.hex | replace('#', '') }}

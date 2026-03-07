@@ -1,7 +1,7 @@
 [delta "{{ name }}"]
 blame-palette = "{{ base.hex }} {{ mantle.hex }} {{ crust.hex }} {{ surface0.hex }} {{ surface1.hex }}"
 commit-decoration-style = "{{ overlay0.hex }}" bold box ul
-dark = true
+dark = {{ iif(cond=flavor.dark, t='true', f='false') }}
 file-decoration-style = "{{ overlay0.hex }}"
 file-style = "{{ text.hex }}"
 hunk-header-decoration-style = "{{ overlay0.hex }}" box ul

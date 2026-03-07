@@ -5,11 +5,11 @@
     <key>name</key>
     <string>{{ name }}</string>
     <key>semanticClass</key>
-    <string>theme.dark.{{ name | replace('_', '-') }}</string>
+    <string>theme.{{ iif(cond=flavor.dark, t='dark', f='light') }}.{{ name | replace('_', '-') }}</string>
     <key>uuid</key>
     <string>627ce890-fabb-4d39-9819-7be71f4bdca7</string>
     <key>author</key>
-    <string>Pivoshenko</string>
+    <string>pivoshenko.theme.morok</string>
     <key>colorSpaceName</key>
     <string>sRGB</string>
     <key>settings</key>

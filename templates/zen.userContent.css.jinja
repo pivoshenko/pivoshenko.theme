@@ -1,4 +1,4 @@
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: {{ iif(cond=flavor.dark, t='dark', f='light') }}) {
   @-moz-document url-prefix("about:") {
     :root {
       --in-content-page-color: {{ text.hex }} !important;

@@ -1,6 +1,6 @@
 {
   "name": "{{ name }}",
-  "type": "dark",
+  "type": "{{ iif(cond=flavor.dark, t='dark', f='light') }}",
   "colors": {
     "focusBorder": "#7f98bf",
     "foreground": "#e7e5e4",
