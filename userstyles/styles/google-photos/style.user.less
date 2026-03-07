@@ -38,7 +38,7 @@
     #lib.defaults();
 
     @inverse-theme: if(@flavor =latte, mocha, latte);
-    @inverse-accent: @catppuccin[@@inverse-theme][@@accentColor];
+    @inverse-accent: @morok[@@inverse-theme][@@accentColor];
     // @color-scheme: if(@flavor = latte, light, dark); // Seems like a bug, this should be `color-scheme` not `@color-scheme`? This variable is not used anywhere else.
 
     // GM3 base
