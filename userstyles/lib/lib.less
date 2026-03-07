@@ -74,6 +74,81 @@
 ;
 
 #lib {
+  .resolve-accent(@name) when (@name = rosewater) {
+    @accent: @rosewater;
+    @accent-filter: @rosewater-filter;
+  }
+
+  .resolve-accent(@name) when (@name = flamingo) {
+    @accent: @flamingo;
+    @accent-filter: @flamingo-filter;
+  }
+
+  .resolve-accent(@name) when (@name = pink) {
+    @accent: @pink;
+    @accent-filter: @pink-filter;
+  }
+
+  .resolve-accent(@name) when (@name = mauve) {
+    @accent: @mauve;
+    @accent-filter: @mauve-filter;
+  }
+
+  .resolve-accent(@name) when (@name = red) {
+    @accent: @red;
+    @accent-filter: @red-filter;
+  }
+
+  .resolve-accent(@name) when (@name = maroon) {
+    @accent: @maroon;
+    @accent-filter: @maroon-filter;
+  }
+
+  .resolve-accent(@name) when (@name = peach) {
+    @accent: @peach;
+    @accent-filter: @peach-filter;
+  }
+
+  .resolve-accent(@name) when (@name = yellow) {
+    @accent: @yellow;
+    @accent-filter: @yellow-filter;
+  }
+
+  .resolve-accent(@name) when (@name = green) {
+    @accent: @green;
+    @accent-filter: @green-filter;
+  }
+
+  .resolve-accent(@name) when (@name = teal) {
+    @accent: @teal;
+    @accent-filter: @teal-filter;
+  }
+
+  .resolve-accent(@name) when (@name = blue) {
+    @accent: @blue;
+    @accent-filter: @blue-filter;
+  }
+
+  .resolve-accent(@name) when (@name = sapphire) {
+    @accent: @sapphire;
+    @accent-filter: @sapphire-filter;
+  }
+
+  .resolve-accent(@name) when (@name = sky) {
+    @accent: @sky;
+    @accent-filter: @sky-filter;
+  }
+
+  .resolve-accent(@name) when (@name = lavender) {
+    @accent: @lavender;
+    @accent-filter: @lavender-filter;
+  }
+
+  .resolve-accent(@name) when (@name = subtext0) {
+    @accent: @subtext0;
+    @accent-filter: @subtext0-filter;
+  }
+
   .palette() {
     @rosewater: @pivoshenko[@@flavor][@rosewater];
     @flamingo: @pivoshenko[@@flavor][@flamingo];
@@ -101,8 +176,6 @@
     @base: @pivoshenko[@@flavor][@base];
     @mantle: @pivoshenko[@@flavor][@mantle];
     @crust: @pivoshenko[@@flavor][@crust];
-    @accent: @pivoshenko[@@flavor][@@accentColor];
-
     @rosewater-filter: @pivoshenko-filters[@@flavor][@rosewater];
     @flamingo-filter: @pivoshenko-filters[@@flavor][@flamingo];
     @pink-filter: @pivoshenko-filters[@@flavor][@pink];
@@ -129,7 +202,7 @@
     @base-filter: @pivoshenko-filters[@@flavor][@base];
     @mantle-filter: @pivoshenko-filters[@@flavor][@mantle];
     @crust-filter: @pivoshenko-filters[@@flavor][@crust];
-    @accent-filter: @pivoshenko-filters[@@flavor][@@accentColor];
+    .resolve-accent(@accentColor);
   }
 
   .defaults() {
