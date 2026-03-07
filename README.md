@@ -19,6 +19,7 @@
     - [Helix](#helix)
     - [K9s](#k9s)
     - [Lazygit](#lazygit)
+    - [Obsidian](#obsidian)
     - [Spicetify](#spicetify)
     - [Starship](#starship)
     - [VSCode](#vscode)
@@ -97,6 +98,12 @@ Examples below use `morok_dark`; swap to `morok_light` when needed (including `F
 
 1. Copy [`dist/lazygit/morok_dark.yml`](dist/lazygit/morok_dark.yml) to `~/.config/lazygit/config.yml`.
 2. Or merge only the `theme:` section into your existing config.
+
+### Obsidian
+
+1. Copy [`dist/obsidian/morok_dark.css`](dist/obsidian/morok_dark.css) to your Obsidian theme folder and rename it to `theme.css`.
+2. Optionally copy [`dist/obsidian/morok_dark.manifest.json`](dist/obsidian/morok_dark.manifest.json) and rename it to `manifest.json`.
+3. Enable the theme in Obsidian Appearance settings.
 
 ### Spicetify
 

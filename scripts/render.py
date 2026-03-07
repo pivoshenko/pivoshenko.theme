@@ -64,6 +64,11 @@ def _mix(value: typing.Any, color: typing.Any, amount: float = 0.5) -> dict[str,
     return {"hex": _rgb_to_hex(mixed)}
 
 
+def _rgb(value: typing.Any) -> str:
+    red, green, blue = _hex_to_rgb(_extract_hex(value))
+    return f"{red}, {green}, {blue}"
+
+
 def _get(value: typing.Any, key: str) -> typing.Any:
     if isinstance(value, dict):
         return value[key]
@@ -81,17 +86,41 @@ def _normalize_template(text: str) -> str:
     return text.replace("{{ if(", "{{ iif(").replace("=#{{", "={{")
 
 
-def _render_target_from_template(template_path: pathlib.Path, theme_name: str) -> pathlib.Path:
-    # e.g. ghostty.conf.jinja -> dist/ghostty/<theme_name>.conf
+def _render_target_from_template(
+    template_path: pathlib.Path,
+    templates_dir: pathlib.Path,
+    theme_name: str,
+) -> pathlib.Path:
+    # Supported forms:
+    # - legacy flat: templates/ghostty.conf.jinja -> dist/ghostty/<theme_name>.conf
+    # - nested: templates/ghostty/theme.conf.jinja -> dist/ghostty/<theme_name>.conf
     if not template_path.name.endswith(".jinja"):
         msg = f"Template must end with .jinja: {template_path.name}"
         logger.error(msg)
         raise ValueError(msg)
 
+    rel_parts = template_path.relative_to(templates_dir).parts
     base = template_path.name[: -len(".jinja")]
-    parts = base.split(".")
-    tool = parts[0]
-    extension = ".".join(parts[1:]) if len(parts) > 1 else "txt"
+
+    if len(rel_parts) == 1:
+        parts = base.split(".")
+        tool = parts[0]
+        extension = ".".join(parts[1:]) if len(parts) > 1 else "txt"
+        return ROOTPATH / "dist" / tool / f"{theme_name}.{extension}"
+
+    tool = rel_parts[0]
+    if base.startswith(f"{tool}."):
+        extension = base.removeprefix(f"{tool}.")
+    elif base.startswith("theme."):
+        extension = base.removeprefix("theme.")
+    else:
+        extension = base
+
+    if not extension:
+        msg = f"Unable to infer extension from template: {template_path}"
+        logger.error(msg)
+        raise ValueError(msg)
+
     return ROOTPATH / "dist" / tool / f"{theme_name}.{extension}"
 
 
@@ -151,8 +180,9 @@ def main() -> None:
     env.globals["iif"] = _iif
     env.filters["mix"] = _mix
     env.filters["get"] = _get
+    env.filters["rgb"] = _rgb
 
-    templates = sorted(templates_dir.glob("*.jinja"))
+    templates = sorted(templates_dir.rglob("*.jinja"))
     if not templates:
         msg = f"No templates found in {templates_dir.name}"
         logger.error(msg)
@@ -160,12 +190,13 @@ def main() -> None:
     logger.info(f"Found {len(templates)} templates to render")
 
     for template_path in templates:
-        logger.info(f"Rendering template {template_path.name}")
+        template_rel = template_path.relative_to(templates_dir)
+        logger.info(f"Rendering template {template_rel}")
         raw_template = template_path.read_text()
         template = env.from_string(_normalize_template(raw_template))
         rendered = template.render(context)
 
-        output_path = _render_target_from_template(template_path, theme_name)
+        output_path = _render_target_from_template(template_path, templates_dir, theme_name)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(rendered.rstrip() + "\n")
         logger.info(f"Wrote rendered file to {output_path.name}")
