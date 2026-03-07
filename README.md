@@ -11,4 +11,4 @@
 
 ## Overview
 
-pivoshenko's theme focused on minimalism, simplicity and cross-tool consistency.
+My theme focused on minimalism, simplicity and cross-tool consistency.
