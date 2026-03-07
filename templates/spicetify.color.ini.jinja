@@ -1,0 +1,45 @@
+[{{ name }}]
+# Spicetify
+text = {{ text.hex | replace('#', '') }}
+subtext = {{ text.hex | replace('#', '') }}
+main = {{ base.hex | replace('#', '') }}
+main-elevated = {{ surface0.hex | replace('#', '') }}
+highlight = {{ surface0 | mix(color=surface1, amount=0.35) | get(key='hex') | replace('#', '') }}
+highlight-elevated = {{ surface1.hex | replace('#', '') }}
+sidebar = {{ mantle.hex | replace('#', '') }}
+player = {{ crust.hex | replace('#', '') }}
+card = {{ surface0.hex | replace('#', '') }}
+shadow = {{ mantle.hex | replace('#', '') }}
+selected-row = {{ overlay2.hex | replace('#', '') }}
+button = {{ overlay1.hex | replace('#', '') }}
+button-active = {{ overlay2.hex | replace('#', '') }}
+button-disabled = {{ overlay0.hex | replace('#', '') }}
+tab-active = {{ surface0.hex | replace('#', '') }}
+notification = {{ surface0.hex | replace('#', '') }}
+notification-error = {{ red.hex | replace('#', '') }}
+equalizer = 000000
+misc = {{ surface1.hex | replace('#', '') }}
+
+crust = {{ crust.hex | replace('#', '') }}
+mantle = {{ mantle.hex | replace('#', '') }}
+base = {{ base.hex | replace('#', '') }}
+surface0 = {{ surface0.hex | replace('#', '') }}
+surface1 = {{ surface1.hex | replace('#', '') }}
+surface2 = {{ surface2.hex | replace('#', '') }}
+overlay0 = {{ overlay0.hex | replace('#', '') }}
+overlay1 = {{ overlay1.hex | replace('#', '') }}
+overlay2 = {{ overlay2.hex | replace('#', '') }}
+rosewater = {{ rosewater.hex | replace('#', '') }}
+flamingo = {{ flamingo.hex | replace('#', '') }}
+pink = {{ pink.hex | replace('#', '') }}
+maroon = {{ maroon.hex | replace('#', '') }}
+red = {{ red.hex | replace('#', '') }}
+peach = {{ peach.hex | replace('#', '') }}
+yellow = {{ yellow.hex | replace('#', '') }}
+green = {{ green.hex | replace('#', '') }}
+teal = {{ teal.hex | replace('#', '') }}
+sapphire = {{ sapphire.hex | replace('#', '') }}
+blue = {{ blue.hex | replace('#', '') }}
+sky = {{ sky.hex | replace('#', '') }}
+mauve = {{ mauve.hex | replace('#', '') }}
+lavender = {{ lavender.hex | replace('#', '') }}

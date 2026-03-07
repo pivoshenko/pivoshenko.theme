@@ -1,0 +1,15 @@
+themes {
+pivoshenko-night {
+bg "#44403c" // Surface2
+fg "#e7e5e4" // Text
+red "#c98787"
+green "#8ea98c"
+blue "#7f98bf"
+yellow "#c7b07a"
+magenta "#d1b2c9" // Pink
+orange "#d0a178" // Peach
+cyan "#7da2b5" // Sky
+black "#0c0a09" // Mantle
+white "#e7e5e4" // Text
+}
+}
