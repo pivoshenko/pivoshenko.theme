@@ -10,9 +10,9 @@
 @license MIT
 
 @preprocessor less
-
-@var select darkFlavor @var select flavor "Flavor" ["night:Night*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+@var select lightFlavor "Light Flavor" ["night:Night"]
+@var select darkFlavor "Dark Flavor" ["night:Night*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 
 @var text urls "URL(s) for Syncthing" "127\.0\.0\.1\:8384,0\.0\.0\.0\:8384,localhost\:8384"
 ==/UserStyle== */
@@ -23,7 +23,7 @@
   `replace(<stuff> ," ", "", "g")` is here to remove extra spaces (if any)
 */
 
-@-moz-document regexp(replace(replace(%("https?://(%s)/.*", @urls), ",", "|", "g"), " ", "", "g")) {
+@-moz-document regexp(replace(replace(%("https?://(%s)/.", @urls), ",", "|", "g"), " ", "", "g")) {
   :root {
 
     @media (prefers-color-scheme: dark) {
