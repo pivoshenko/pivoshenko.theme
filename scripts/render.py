@@ -1,12 +1,32 @@
-"""Script that renders theme files from a palette JSON and Jinja templates."""
+"""Script that renders theme files from a palette JSON and Jinja templates."""  # noqa: EXE002
 
-import argparse
+from __future__ import annotations
+
+import sys
 import json
-import pathlib
 import types
 import typing
+import pathlib
+import argparse
 
 import jinja2
+import loguru
+
+
+def _log_format(record: dict[str, typing.Any]) -> str:
+    level = record["level"].name
+    color = {
+        "INFO": "green",
+        "WARNING": "yellow",
+        "ERROR": "red",
+        "CRITICAL": "red",
+    }.get(level, "white")
+    return f"<{color}>[render] {{message}}</{color}>\n"
+
+
+logger = loguru.logger
+logger.remove()
+logger.add(sys.stdout, format=_log_format, colorize=True)
 
 ROOTPATH = pathlib.Path(__file__).resolve().parent.parent
 
@@ -17,14 +37,14 @@ def _hex_to_rgb(value: str) -> tuple[int, int, int]:
 
 
 def _rgb_to_hex(rgb: tuple[int, int, int]) -> str:
-    return "#%02x%02x%02x" % rgb
+    return "#%02x%02x%02x" % rgb  # noqa: UP031
 
 
 def _extract_hex(value: typing.Any) -> str:
     if isinstance(value, dict):
         return str(value["hex"])
     if hasattr(value, "hex"):
-        return str(getattr(value, "hex"))
+        return str(getattr(value, "hex"))  # noqa: B009
     return str(value)
 
 
@@ -52,7 +72,7 @@ def _get(value: typing.Any, key: str) -> typing.Any:
     return getattr(value, key)
 
 
-def _iif(cond: bool, t: typing.Any, f: typing.Any) -> typing.Any:
+def _iif(cond: bool, t: typing.Any, f: typing.Any) -> typing.Any:  # noqa: FBT001
     return t if cond else f
 
 
@@ -61,12 +81,12 @@ def _normalize_template(text: str) -> str:
     return text.replace("{{ if(", "{{ iif(").replace("=#{{", "={{")
 
 
-def _render_target_from_template(
-    template_path: pathlib.Path, theme_name: str
-) -> pathlib.Path:
+def _render_target_from_template(template_path: pathlib.Path, theme_name: str) -> pathlib.Path:
     # e.g. ghostty.conf.jinja -> dist/ghostty/<theme_name>.conf
     if not template_path.name.endswith(".jinja"):
-        raise ValueError(f"Template must end with .jinja: {template_path}")
+        msg = f"Template must end with .jinja: {template_path.name}"
+        logger.error(msg)
+        raise ValueError(msg)
 
     base = template_path.name[: -len(".jinja")]
     parts = base.split(".")
@@ -91,26 +111,40 @@ def main() -> None:
 
     palette_path = pathlib.Path(args.palette)
     templates_dir = pathlib.Path(args.templates_dir)
+    logger.info(
+        f"Starting theme render with palette={palette_path.name} templates_dir={templates_dir.name}"
+    )
 
+    if not palette_path.exists():
+        msg = f"Palette file not found: {palette_path.name}"
+        logger.error(msg)
+        raise FileNotFoundError(msg)
+
+    if not templates_dir.exists():
+        msg = f"Templates directory not found: {templates_dir.name}"
+        logger.error(msg)
+        raise FileNotFoundError(msg)
+
+    logger.info(f"Loading palette from {palette_path.name}")
     data = json.loads(palette_path.read_text())
     theme_name = data["name"]
     flavor_name = data.get("flavor", "dark")
     colors: dict[str, str] = data.get("colors", {})
+    logger.info(f"Loaded palette name={theme_name} flavor={flavor_name} colors={len(colors)}")
 
-    color_ctx = {
-        name: types.SimpleNamespace(hex=value) for name, value in colors.items()
-    }
+    if not colors:
+        logger.warning(f"Palette {palette_path.name} does not define any colors")
+
+    color_ctx = {name: types.SimpleNamespace(hex=value) for name, value in colors.items()}
     context = {
         "name": theme_name,
-        "flavor": types.SimpleNamespace(
-            dark=flavor_name == "dark", light=flavor_name == "light"
-        ),
+        "flavor": types.SimpleNamespace(dark=flavor_name == "dark", light=flavor_name == "light"),
         **color_ctx,
     }
 
     env = jinja2.Environment(
         undefined=jinja2.StrictUndefined,
-        autoescape=False,
+        autoescape=False,  # noqa: S701
         trim_blocks=False,
         lstrip_blocks=False,
     )
@@ -120,9 +154,13 @@ def main() -> None:
 
     templates = sorted(templates_dir.glob("*.jinja"))
     if not templates:
-        raise SystemExit(f"No templates found in {templates_dir}")
+        msg = f"No templates found in {templates_dir.name}"
+        logger.error(msg)
+        raise SystemExit(msg)
+    logger.info(f"Found {len(templates)} templates to render")
 
     for template_path in templates:
+        logger.info(f"Rendering template {template_path.name}")
         raw_template = template_path.read_text()
         template = env.from_string(_normalize_template(raw_template))
         rendered = template.render(context)
@@ -130,6 +168,9 @@ def main() -> None:
         output_path = _render_target_from_template(template_path, theme_name)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(rendered.rstrip() + "\n")
+        logger.info(f"Wrote rendered file to {output_path.name}")
+
+    logger.info(f"Finished rendering theme {theme_name}")
 
 
 if __name__ == "__main__":
