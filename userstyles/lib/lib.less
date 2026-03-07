@@ -202,14 +202,17 @@
     @base-filter: @pivoshenko-filters[@@flavor][@base];
     @mantle-filter: @pivoshenko-filters[@@flavor][@mantle];
     @crust-filter: @pivoshenko-filters[@@flavor][@crust];
+    @accent: @blue;
+    @accent-filter: @blue-filter;
     .resolve-accent(@accentColor);
   }
 
   .defaults() {
     color-scheme: dark;
+    @selection-accent: if(iscolor(@accent), @accent, @blue);
 
     ::selection {
-      background-color: fade(@accent, 30%);
+      background-color: fade(@selection-accent, 30%);
     }
 
     input,
