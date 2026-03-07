@@ -1,3 +1,3 @@
 render:
-    uv run scripts/render.py --palette palettes/morok_dark.json
-    uv run scripts/render.py --palette palettes/morok_light.json
+    uv run scripts/render.py --palette palettes/morok.json
+    uv run scripts/bundle.py
