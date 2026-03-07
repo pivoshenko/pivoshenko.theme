@@ -1,0 +1,67 @@
+/* ==UserStyle==
+@name Graphite
+@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/graphite
+@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/graphite
+@version 2025.11.07
+@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/graphite/style.user.less
+@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Agraphite
+@description Soothing pastel theme for Graphite
+@author Pivoshenko
+@license MIT
+
+@preprocessor less
+
+@var select darkFlavor @var select flavor "Flavor" ["night:Night*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://gist.githubusercontent.com/pivoshenko/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
+
+@-moz-document domain("app.graphite.com") {
+  :root[data-theme="light"] {
+    #pivoshenko(@lightFlavor);
+  }
+
+  :root[data-theme="dark"] {
+    #pivoshenko(@darkFlavor);
+  }
+
+  #createset(@color, @type) {
+    --color-@{type}-default: @color;
+    --color-@{type}-lowest-contrast: darken(@color, 60%);
+    --color-@{type}-low-contrast: @color;
+    --color-@{type}-high-contrast: @color;
+    --color-@{type}-highest-contrast: lighten(@color, 10%);
+  }
+
+  #pivoshenko(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --color-bg-light: @base;
+    --color-bg-med: @mantle;
+    --color-bg-dark: @crust;
+
+    --text-color-light: @crust; // this means on a light background
+    --text-color-default: @text;
+    --text-color-low-contrast: @text;
+    --text-color-high-contrast: @text;
+    --text-color-disabled: @subtext0;
+
+    --btn-color-neutral-selected: @surface0;
+    --btn-color-neutral-default: @surface0;
+    --btn-color-neutral-hover: @surface0;
+
+    --icon-color-default: @text;
+
+    --border-color-default: @surface1;
+
+    --color-gray-60: @surface0;
+
+    #createset(@accent, emphasis);
+    #createset(@green, positive);
+    #createset(@peach, caution);
+    #createset(@red, negative);
+    #createset(@mauve, action);
+  }
+}
