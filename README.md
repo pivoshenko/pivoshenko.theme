@@ -23,6 +23,7 @@
     - [VSCode](#vscode)
     - [Zen](#zen)
     - [Zellij](#zellij)
+  - [Userstyles](#userstyles)
 
 ## Overview
 
@@ -109,3 +110,146 @@ The repository uses one palette and a set of Jinja templates to generate theme f
 
 1. Copy the theme block from [`dist/zellij/pivoshenko_night.kdl`](dist/zellij/pivoshenko_night.kdl) into your Zellij config, or place it in a sourced theme file.
 2. Set the active theme to `pivoshenko_night`.
+
+## Userstyles
+
+1. Install the [Stylus browser extension](https://add0n.com/stylus.html).
+2. In Stylus, open the extension popup, go to `Manage`, then `Import`.
+3. Select [`dist/stylus/pivoshenko.json`](dist/stylus/pivoshenko.json).
+
+Default accent color is **blue**.
+
+**Available styles:**
+- advent-of-code
+- alacritty.org
+- alternativeto
+- amplenote
+- anilist
+- anonymous-overflow
+- arch-wiki
+- boringproxy
+- brave-search
+- bsky
+- bstats
+- canvas-lms
+- chatgpt
+- chatreplay
+- chess.com
+- cinny
+- claude
+- cobalt
+- codeberg
+- crates.io
+- crowdin
+- deepl
+- deepseek
+- desmos
+- dev.to
+- devdocs
+- docs.deno.com
+- docs.rs
+- duckduckgo
+- ecosia
+- elk
+- freedesktop
+- ghostty.org
+- github
+- gleam.run
+- gmail
+- go.dev
+- google
+- google-drive
+- google-gemini
+- google-photos
+- grabify
+- graphite
+- hackage
+- hacker-news
+- have-i-been-pwned
+- holodex
+- home-manager-options-search
+- homepage
+- hoogle
+- hoppscotch
+- hyperpipe
+- ichi.moe
+- indie-wiki-buddy
+- inoreader
+- instagram
+- invidious
+- invokeai
+- jisho
+- keybr.com
+- keyoxide
+- lastfm
+- learn-x-in-y-minutes
+- lemmy
+- libreddit
+- lichess
+- lingva
+- linkedin
+- listenbrainz
+- lobste.rs
+- mastodon
+- mdbook
+- mdn
+- microsoft-word
+- migadu-webmail
+- minesweeper
+- modrinth
+- mullvad-leta
+- namemc
+- neovim.io
+- nitter
+- nixos-manual
+- nixos-search
+- npm
+- ollama
+- openmediavault
+- paste.rs
+- perplexity
+- phanpy
+- picrew
+- pinterest
+- planet-minecraft
+- poe
+- porkbun
+- pronouns.cc
+- pronouns.page
+- proton
+- pypi
+- pythonanywhere
+- quizlet
+- raindrop
+- react.dev
+- reddit
+- regex101
+- rentry.co
+- scalar
+- searchix
+- searxng
+- seventv
+- shinigami-eyes
+- snapchat-web
+- spotify-web
+- stack-overflow
+- startpage
+- status.cafe
+- stylus
+- substack
+- syncthing
+- tabnews
+- tldraw
+- trinket
+- tuta
+- twitch
+- twitter
+- vercel
+- vikunja
+- web.dev
+- whatsapp-web
+- wiki.nixos.org
+- wikipedia
+- wikiwand
+- youtube
+- zen-browser-docs
