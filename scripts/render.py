@@ -112,7 +112,7 @@ def main() -> None:
     palette_path = pathlib.Path(args.palette)
     templates_dir = pathlib.Path(args.templates_dir)
     logger.info(
-        f"Starting theme render with palette={palette_path.name} templates_dir={templates_dir.name}"
+        f"Starting theme render with palette={palette_path.name} templates_dir={templates_dir.name}",  # noqa: E501
     )
 
     if not palette_path.exists():
