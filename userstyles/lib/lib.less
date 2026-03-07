@@ -209,10 +209,9 @@
 
   .defaults() {
     color-scheme: dark;
-    @selection-accent: if(iscolor(@accent), @accent, @blue);
 
     ::selection {
-      background-color: fade(@selection-accent, 30%);
+      background-color: @accent;
     }
 
     input,
