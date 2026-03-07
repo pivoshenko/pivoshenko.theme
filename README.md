@@ -113,11 +113,9 @@ Repository contains ports for various terminal applications and userstyles for p
 
 ### VSCode
 
-1. Copy [`dist/vscode/morok.json`](dist/vscode/morok.json) to a stable location, for example `~/.config/vscode/themes/morok.json`.
-2. Reference it from a small local VS Code theme extension, or import it into your existing theme workflow.
-
-> [!NOTE]
-> VSCode does not load an arbitrary standalone theme JSON directly from settings alone. Treat this file as a generated theme source.
+1. Install a Catppuccin VSCode theme (for example `Catppuccin Mocha`).
+2. Open the generated override snippet [`dist/vscode/morok.json`](dist/vscode/morok.json).
+3. Merge its `catppuccin.colorOverrides` block into your VSCode `settings.json`.
 
 ### Zed
 
