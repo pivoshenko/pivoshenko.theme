@@ -57,43 +57,12 @@
     background: #1c1917 !important;
   }
 
-  .identity-color-blue {
-    --identity-tab-color: #7f98bf !important;
-    --identity-icon-color: #7f98bf !important;
-  }
-
-  .identity-color-turquoise {
-    --identity-tab-color: #7ea59d !important;
-    --identity-icon-color: #7ea59d !important;
-  }
-
-  .identity-color-green {
-    --identity-tab-color: #8ea98c !important;
-    --identity-icon-color: #8ea98c !important;
-  }
-
-  .identity-color-yellow {
-    --identity-tab-color: #c7b07a !important;
-    --identity-icon-color: #c7b07a !important;
-  }
-
-  .identity-color-orange {
-    --identity-tab-color: #d0a178 !important;
-    --identity-icon-color: #d0a178 !important;
-  }
-
-  .identity-color-red {
-    --identity-tab-color: #c98787 !important;
-    --identity-icon-color: #c98787 !important;
-  }
-
-  .identity-color-pink {
-    --identity-tab-color: #d1b2c9 !important;
-    --identity-icon-color: #d1b2c9 !important;
-  }
-
-  .identity-color-purple {
-    --identity-tab-color: #a78cc4 !important;
-    --identity-icon-color: #a78cc4 !important;
-  }
+  .identity-color-blue { --identity-tab-color: #7f98bf !important; --identity-icon-color: #7f98bf !important; }
+  .identity-color-turquoise { --identity-tab-color: #7ea59d !important; --identity-icon-color: #7ea59d !important; }
+  .identity-color-green { --identity-tab-color: #8ea98c !important; --identity-icon-color: #8ea98c !important; }
+  .identity-color-yellow { --identity-tab-color: #c7b07a !important; --identity-icon-color: #c7b07a !important; }
+  .identity-color-orange { --identity-tab-color: #d0a178 !important; --identity-icon-color: #d0a178 !important; }
+  .identity-color-red { --identity-tab-color: #c98787 !important; --identity-icon-color: #c98787 !important; }
+  .identity-color-pink { --identity-tab-color: #d1b2c9 !important; --identity-icon-color: #d1b2c9 !important; }
+  .identity-color-purple { --identity-tab-color: #a78cc4 !important; --identity-icon-color: #a78cc4 !important; }
 }
