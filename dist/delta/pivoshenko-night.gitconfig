@@ -1,0 +1,25 @@
+[delta "pivoshenko-night"]
+blame-palette = "#20273a #1a2031 #13182a #323a51 #454d66"
+commit-decoration-style = "#69718b" bold box ul
+dark = true
+file-decoration-style = "#69718b"
+file-style = "#cad4f2"
+hunk-header-decoration-style = "#69718b" box ul
+hunk-header-file-style = bold
+hunk-header-line-number-style = bold "#9fa9c8"
+hunk-header-style = file line-number syntax
+line-numbers-left-style = "#69718b"
+line-numbers-minus-style = bold "#ef8a9e"
+line-numbers-plus-style = bold "#a6d7a2"
+line-numbers-right-style = "#69718b"
+line-numbers-zero-style = "#69718b"
+minus-emph-style = bold syntax "#694d5a"
+minus-style = syntax "#4a3a4c"
+plus-emph-style = bold syntax "#51675a"
+plus-style = syntax "#3d4c4c"
+map-styles = \
+  bold purple => syntax "#5b527f", \
+  bold blue => syntax "#47577f", \
+  bold cyan => syntax "#4b6778", \
+  bold yellow => syntax "#6c665e"
+syntax-theme = pivoshenko-night
