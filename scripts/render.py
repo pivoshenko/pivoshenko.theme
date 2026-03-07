@@ -77,7 +77,7 @@ def _iif(cond: bool, t: typing.Any, f: typing.Any) -> typing.Any:  # noqa: FBT00
 
 
 def _normalize_template(text: str) -> str:
-    """Handle a couple of Catppuccin-style constructs in template examples."""
+    """Handle a couple of style constructs in template examples."""
     return text.replace("{{ if(", "{{ iif(").replace("=#{{", "={{")
 
 
