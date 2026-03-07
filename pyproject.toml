@@ -2,7 +2,10 @@
 name = "pivoshenko.theme"
 version = "1.0.0"
 requires-python = ">=3.13"
-dependencies = ["jinja2~=3.1.6"]
+dependencies = [
+    "jinja2~=3.1.6",
+    "loguru~=0.7.3",
+]
 
 [dependency-groups]
 formatters = ["ruff~=0.15.4"]
@@ -15,7 +18,7 @@ target-version = "py313"
 unsafe-fixes = true
 
 [tool.ruff.lint]
-ignore = ["D", "G004", "INP001"]
+ignore = ["ANN401", "D", "EM102", "TRY", "G004", "INP001"]
 select = ["ALL"]
 
 [tool.ruff.lint.isort]
