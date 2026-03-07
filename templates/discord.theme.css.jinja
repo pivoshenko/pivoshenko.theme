@@ -1,0 +1,300 @@
+{% set ref_flavor = iif(cond=flavor.dark, t='mocha', f='latte') %}
+{% set theme_class = iif(cond=flavor.dark, t='theme-dark', f='theme-light') %}
+/**
+ * @name {{ name }}
+ * @author pivoshenko
+ * @version 1.0.0
+ * @description Morok theme for Discord
+ * @website https://github.com/volodymyr-pivoshenko/pivoshenko.theme
+ */
+
+@import url("https://catppuccin.github.io/discord/dist/catppuccin-{{ ref_flavor }}-blue.theme.css");
+
+.visual-refresh.{{ theme_class }},
+.visual-refresh .{{ theme_class }} {
+  --brand-100: {{ blue | mix(color="#ffffff", amount=0.45) | get(key="hex") }};
+  --brand-130: {{ blue | mix(color="#ffffff", amount=0.425) | get(key="hex") }};
+  --brand-160: {{ blue | mix(color="#ffffff", amount=0.4) | get(key="hex") }};
+  --brand-200: {{ blue | mix(color="#ffffff", amount=0.375) | get(key="hex") }};
+  --brand-230: {{ blue | mix(color="#ffffff", amount=0.35) | get(key="hex") }};
+  --brand-260: {{ blue | mix(color="#ffffff", amount=0.325) | get(key="hex") }};
+  --brand-300: {{ blue | mix(color="#ffffff", amount=0.3) | get(key="hex") }};
+  --brand-330: {{ blue | mix(color="#ffffff", amount=0.25) | get(key="hex") }};
+  --brand-360: {{ blue | mix(color="#ffffff", amount=0.2) | get(key="hex") }};
+  --brand-400: {{ blue | mix(color="#ffffff", amount=0.15) | get(key="hex") }};
+  --brand-430: {{ blue | mix(color="#ffffff", amount=0.1) | get(key="hex") }};
+  --brand-460: {{ blue | mix(color="#ffffff", amount=0.05) | get(key="hex") }};
+  --brand-500: {{ blue.hex }} !important;
+  --brand-530: {{ blue | mix(color="#000000", amount=0.05) | get(key="hex") }};
+  --brand-560: {{ blue | mix(color="#000000", amount=0.1) | get(key="hex") }};
+  --brand-600: {{ blue | mix(color="#000000", amount=0.15) | get(key="hex") }};
+  --brand-630: {{ blue | mix(color="#000000", amount=0.2) | get(key="hex") }};
+  --brand-660: {{ blue | mix(color="#000000", amount=0.25) | get(key="hex") }};
+  --brand-700: {{ blue | mix(color="#000000", amount=0.3) | get(key="hex") }};
+  --brand-730: {{ blue | mix(color="#000000", amount=0.325) | get(key="hex") }};
+  --brand-760: {{ blue | mix(color="#000000", amount=0.35) | get(key="hex") }};
+  --brand-800: {{ blue | mix(color="#000000", amount=0.375) | get(key="hex") }};
+  --brand-830: {{ blue | mix(color="#000000", amount=0.4) | get(key="hex") }};
+  --brand-860: {{ blue | mix(color="#000000", amount=0.425) | get(key="hex") }};
+  --brand-900: {{ blue | mix(color="#000000", amount=0.45) | get(key="hex") }};
+  --brand-05a: {{ blue.hex }}0d;
+  --brand-10a: {{ blue.hex }}1a;
+  --brand-15a: {{ blue.hex }}26;
+  --brand-20a: {{ blue.hex }}33;
+  --brand-25a: {{ blue.hex }}40;
+  --brand-30a: {{ blue.hex }}4d;
+  --brand-35a: {{ blue.hex }}59;
+  --brand-40a: {{ blue.hex }}66;
+  --brand-45a: {{ blue.hex }}73;
+  --brand-50a: {{ blue.hex }}80;
+  --brand-55a: {{ blue.hex }}8c;
+  --brand-60a: {{ blue.hex }}99;
+  --brand-65a: {{ blue.hex }}a6;
+  --brand-70a: {{ blue.hex }}b3;
+  --brand-75a: {{ blue.hex }}bf;
+  --brand-80a: {{ blue.hex }}cc;
+  --brand-85a: {{ blue.hex }}d9;
+  --brand-90a: {{ blue.hex }}e6;
+  --brand-95a: {{ blue.hex }}f2;
+
+  --__header-bar-background: {{ mantle.hex }} !important;
+  --text-default: {{ text.hex }};
+  --text-muted: {{ subtext0.hex }} !important;
+  --text-link: {{ blue.hex }} !important;
+  --text-brand: {{ blue.hex }};
+  --text-strong: {{ text.hex }} !important;
+  --text-subtle: {{ subtext1.hex }};
+
+  --text-feedback-positive: {{ green.hex }};
+  --text-feedback-critical: {{ red.hex }};
+  --text-feedback-warning: {{ yellow.hex }};
+  --text-feedback-info: {{ blue.hex }};
+
+  --message-reacted-background-default: {{ blue.hex }}4d !important;
+  --message-reacted-text-default: {{ blue.hex }};
+
+  --opacity-blurple-8: {{ blue.hex }}14;
+  --opacity-blurple-16: {{ blue.hex }}29;
+  --opacity-blurple-24: {{ blue.hex }}3d;
+  --opacity-blurple-32: {{ blue.hex }}52;
+  --opacity-blurple-60: {{ blue.hex }}99;
+  --blurple-50: {{ blue.hex }};
+  --blurple-60: {{ blue | mix(color="#000000", amount=0.1) | get(key="hex") }};
+
+  --app-frame-background: {{ crust | mix(color="#000000", amount=0.02) | get(key="hex") }};
+  --background-secondary-alt: {{ base | mix(color="#000000", amount=0.01) | get(key="hex") }} !important;
+  --background-accent: {{ surface1.hex }} !important;
+  --background-surface-highest: {{ surface0.hex }} !important;
+  --background-surface-higher: {{ surface0 | mix(color="#000000", amount=0.03) | get(key="hex") }} !important;
+  --background-surface-high: {{ base.hex }} !important;
+  --background-base-lowest: {{ crust.hex }} !important;
+  --background-base-lower: {{ mantle.hex }} !important;
+  --background-base-low: {{ base | mix(color="#000000", amount=0.01) | get(key="hex") }} !important;
+  --bg-surface-raised: {{ mantle.hex }};
+  --background-gradient-highest: {{ base | mix(color="#000000", amount=0.01) | get(key="hex") }};
+  --home-background: {{ base.hex }};
+  --chat-background: {{ base.hex }};
+  --chat-background-default: {{ base.hex }};
+  --chat-border: {{ crust.hex }};
+  --chat-text-muted: {{ subtext0.hex }};
+
+  --checkbox-icon-active: {{ crust.hex }};
+  --checkbox-border-default: {{ overlay0.hex }};
+  --radio-thumb-background-active: {{ crust.hex }};
+
+  --border-muted: {{ surface0.hex }};
+  --border-strong: {{ mantle.hex }};
+  --border-normal: {{ crust.hex }};
+  --border-subtle: {{ base.hex }} !important;
+  --background-mod-muted: {{ surface2.hex }}0d;
+  --background-mod-normal: {{ surface2.hex }}26;
+  --background-mod-subtle: {{ surface2.hex }}40 !important;
+  --background-mod-strong: {{ surface2.hex }}73 !important;
+  --custom-channel-members-bg: {{ mantle.hex }};
+  --custom-status-bubble-background: {{ crust.hex }} !important;
+  --custom-status-bubble-background-color: {{ mantle.hex }} !important;
+  --card-background-default: {{ surface0.hex }} !important;
+
+  --background-feedback-positive: {{ green.hex }}26;
+  --icon-feedback-positive: {{ green.hex }};
+  --background-feedback-warning: {{ yellow.hex }}26;
+  --icon-feedback-warning: {{ yellow.hex }};
+  --background-feedback-critical: {{ red.hex }}26;
+  --icon-feedback-critical: {{ red.hex }};
+  --background-feedback-info: {{ sky.hex }}26;
+  --icon-feedback-info: {{ sky.hex }};
+  --background-feedback-notification: {{ red.hex }};
+  --icon-feedback-notification: {{ red.hex }};
+  --badge-notification-background: {{ red.hex }};
+
+  --status-positive: {{ green.hex }};
+  --status-positive-background: {{ green.hex }};
+  --status-positive-text: {{ base.hex }};
+  --status-warning: {{ yellow.hex }};
+  --status-warning-background: {{ yellow.hex }};
+  --status-warning-text: {{ base.hex }};
+  --status-danger: {{ red.hex }};
+
+  --black-500: {{ crust.hex }};
+  --green-360: {{ green.hex }};
+  --green-300: {{ green.hex }};
+  --yellow-360: {{ yellow.hex }};
+  --yellow-300: {{ yellow.hex }};
+  --red-400: {{ red.hex }};
+  --red-430: {{ red | mix(color="#000000", amount=0.1) | get(key="hex") }};
+  --red-500: {{ red | mix(color="#000000", amount=0.15) | get(key="hex") }};
+  --blue-500: {{ blue | mix(color="#000000", amount=0.1) | get(key="hex") }};
+  --blue-530: {{ blue | mix(color="#000000", amount=0.15) | get(key="hex") }};
+  --primary-100: {{ subtext1.hex }};
+  --primary-200: {{ subtext0.hex }};
+  --primary-300: {{ subtext1.hex }};
+  --primary-400: {{ subtext1.hex }};
+  --primary-630: {{ surface0.hex }};
+  --primary-700: {{ surface1.hex }};
+  --primary-800: {{ crust.hex }};
+  --white: {{ text.hex }};
+  --white-500: {{ text.hex }};
+
+  --guild-boosting-pink: {{ pink.hex }};
+  --guild-boosting-blue: {{ blue.hex }};
+  --guild-boosting-purple: {{ mauve.hex }};
+  --premium-perk-yellow: {{ yellow.hex }};
+  --premium-perk-purple: {{ mauve.hex }};
+  --premium-perk-dark-blue: {{ blue | mix(color="#000000", amount=0.1) | get(key="hex") }};
+  --premium-perk-light-blue: {{ blue | mix(color="#ffffff", amount=0.05) | get(key="hex") }};
+  --premium-perk-blue: {{ blue.hex }};
+  --premium-perk-green: {{ green.hex }};
+  --premium-perk-pink: {{ pink.hex }};
+  --premium-perk-orange: {{ peach.hex }};
+  --premium-tier-0-blue: {{ blue.hex }};
+  --premium-tier-0-purple: {{ mauve.hex }};
+  --premium-tier-1-blue-for-gradients: {{ sapphire.hex }};
+  --premium-tier-1-dark-blue-for-gradients: {{ blue.hex }};
+  --premium-tier-2-purple-for-gradients: {{ mauve | mix(color="#000000", amount=0.1) | get(key="hex") }};
+  --premium-tier-2-purple-for-gradients-2: {{ mauve.hex }};
+  --premium-tier-2-pink-for-gradients: {{ pink.hex }};
+
+  --control-primary-background-default: {{ blue.hex }};
+  --control-primary-background-hover: {{ blue | mix(color="#000000", amount=0.075) | get(key="hex") }};
+  --control-primary-background-active: {{ blue | mix(color="#000000", amount=0.125) | get(key="hex") }};
+  --control-secondary-background-default: {{ surface1.hex }} !important;
+  --control-secondary-background-hover: {{ surface1 | mix(color="#000000", amount=0.05) | get(key="hex") }};
+  --control-secondary-background-active: {{ surface1 | mix(color="#000000", amount=0.075) | get(key="hex") }};
+  --control-secondary-border-default: {{ surface0.hex }};
+  --control-secondary-text-default: {{ text.hex }} !important;
+  --control-secondary-text-hover: {{ text.hex }};
+
+  --control-critical-primary-background-default: {{ red.hex }};
+  --control-critical-primary-background-hover: {{ red | mix(color="#000000", amount=0.05) | get(key="hex") }};
+  --control-critical-primary-background-active: {{ red | mix(color="#000000", amount=0.1) | get(key="hex") }};
+  --control-critical-primary-text-default: {{ base.hex }};
+  --control-critical-primary-text-hover: {{ base.hex }};
+  --control-critical-secondary-background-default: transparent;
+  --control-critical-secondary-background-hover: {{ red | mix(color="#000000", amount=0.025) | get(key="hex") }};
+  --control-critical-secondary-background-active: {{ red | mix(color="#000000", amount=0.05) | get(key="hex") }};
+  --control-critical-secondary-border-default: {{ red.hex }};
+  --control-critical-secondary-border-hover: {{ red | mix(color="#000000", amount=0.025) | get(key="hex") }};
+  --control-critical-secondary-border-active: {{ red | mix(color="#000000", amount=0.025) | get(key="hex") }};
+  --control-critical-secondary-text-default: {{ text.hex }};
+  --control-critical-secondary-text-hover: {{ base.hex }};
+  --control-critical-secondary-text-active: {{ base.hex }};
+
+  --control-connected-background-default: {{ green.hex }};
+  --control-connected-background-hover: {{ green | mix(color="#000000", amount=0.05) | get(key="hex") }};
+  --control-connected-background-active: {{ green | mix(color="#000000", amount=0.075) | get(key="hex") }};
+  --control-connected-border-default: {{ green.hex }};
+  --control-connected-border-hover: {{ green | mix(color="#000000", amount=0.025) | get(key="hex") }};
+  --control-connected-border-active: {{ green | mix(color="#000000", amount=0.025) | get(key="hex") }};
+
+  --button-outline-primary-text: {{ text.hex }};
+  --button-outline-brand-text: {{ text.hex }};
+  --button-outline-brand-background-hover: {{ blue | mix(color="#000000", amount=0.025) | get(key="hex") }};
+  --button-outline-brand-border-active: {{ blue | mix(color="#000000", amount=0.025) | get(key="hex") }};
+
+  --modal-background: {{ base.hex }} !important;
+  --modal-footer-background: {{ base.hex }};
+  --scrollbar-thin-thumb: {{ blue.hex }};
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-thumb: {{ blue.hex }};
+  --scrollbar-auto-track: {{ crust.hex }};
+  --scrollbar-auto-scrollbar-color-thumb: {{ blue.hex }};
+  --scrollbar-auto-scrollbar-color-track: {{ crust.hex }};
+
+  --input-background-default: {{ crust.hex }};
+  --input-text-default: {{ text.hex }};
+  --input-placeholder-text-default: {{ subtext1.hex }};
+  --input-border-default: {{ overlay0.hex }};
+  --logo-primary: {{ text.hex }};
+  --control-brand-foreground: {{ blue.hex }};
+  --control-brand-foreground-new: {{ blue.hex }};
+  --mention-foreground: {{ blue.hex }};
+  --mention-background: {{ blue.hex }}4d;
+
+  --message-mentioned-background-default: {{ yellow.hex }}1a;
+  --message-mentioned-background-hover: {{ yellow.hex }}14;
+  --message-background-hover: {{ crust.hex }}4d !important;
+  --message-automod-background-default: {{ rosewater.hex }}0d;
+  --message-automod-background-hover: {{ rosewater.hex }}1a;
+  --message-highlight-background-default: {{ blue.hex }}14;
+  --message-highlight-background-hover: {{ blue.hex }}0f;
+
+  --background-code: {{ base.hex }};
+  --channels-default: {{ subtext0 | mix(color="#000000", amount=0.05) | get(key="hex") }} !important;
+  --channel-icon: {{ subtext0 | mix(color="#000000", amount=0.05) | get(key="hex") }} !important;
+  --channel-text-area-placeholder: {{ text.hex }}80;
+  --channeltextarea-background: {{ mantle.hex }};
+  --icon-muted: {{ subtext0 | mix(color="#000000", amount=0.05) | get(key="hex") }} !important;
+  --icon-voice-muted: {{ red.hex }};
+  --icon-default: {{ text.hex }};
+  --icon-strong: {{ text.hex }};
+  --icon-subtle: {{ subtext1.hex }};
+  --textbox-markdown-syntax: {{ overlay0.hex }};
+  --spoiler-revealed-background: {{ surface0.hex }};
+  --spoiler-hidden-background: {{ surface2.hex }};
+  --__adaptive-focus-ring-color: {{ blue.hex }};
+
+  --interactive-icon-default: {{ text.hex }} !important;
+  --interactive-icon-hover: {{ text.hex }};
+  --interactive-icon-active: {{ text.hex }};
+  --interactive-text-default: {{ text.hex }} !important;
+  --interactive-text-hover: {{ text.hex }};
+  --interactive-text-active: {{ text.hex }};
+  --interactive-muted: {{ overlay0.hex }};
+  --interactive-background-hover: {{ overlay2.hex }}26;
+  --interactive-background-selected: {{ overlay0.hex }}33;
+  --interactive-background-active: {{ text.hex }}2b;
+
+  --__spoiler-background-color--hidden: {{ surface2.hex }};
+  --__spoiler-warning-background-color: {{ surface2 | mix(color="#ffffff", amount=0.05) | get(key="hex") }};
+  --user-profile-overlay-background: {{ mantle.hex }};
+  --user-profile-overlay-background-hover: {{ surface0.hex }};
+  --plum-23: {{ base.hex }};
+  --badge-text-brand: {{ base.hex }};
+
+  --text-status-online: {{ green.hex }};
+  --text-status-idle: {{ yellow.hex }};
+  --text-status-dnd: {{ red.hex }};
+  --text-status-offline: {{ subtext1.hex }};
+  --icon-status-online: {{ green.hex }};
+  --icon-status-idle: {{ yellow.hex }};
+  --icon-status-dnd: {{ red.hex }};
+  --icon-status-offline: {{ subtext1.hex }};
+
+  --twitch: {{ mauve | mix(color="#000000", amount=0.1) | get(key="hex") }};
+  --playstation: {{ blue | mix(color="#000000", amount=0.1) | get(key="hex") }};
+  --spotify: {{ green.hex }};
+
+  --notice-background-critical: {{ red.hex }};
+  --notice-background-info: {{ blue.hex }};
+  --notice-background-positive: {{ green.hex }};
+  --notice-background-warning: {{ yellow.hex }};
+  --notice-text-critical: {{ crust.hex }};
+  --notice-text-info: {{ crust.hex }};
+  --notice-text-positive: {{ crust.hex }};
+  --notice-text-warning: {{ crust.hex }};
+}
+
+.visual-refresh.{{ theme_class }} ::selection,
+.visual-refresh .{{ theme_class }} ::selection {
+  background-color: {{ blue.hex }}99;
+}
