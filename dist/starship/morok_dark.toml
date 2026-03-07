@@ -1,6 +1,6 @@
-palette = "pivoshenko_night"
+palette = "morok_dark"
 
-[palettes.pivoshenko_night]
+[palettes.morok_dark]
 rosewater = "#e2cfc6"
 flamingo = "#d8b8aa"
 pink = "#d1b2c9"

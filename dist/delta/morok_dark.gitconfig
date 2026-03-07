@@ -1,4 +1,4 @@
-[delta "pivoshenko_night"]
+[delta "morok_dark"]
 blame-palette = "#000000 #0c0a09 #080706 #1c1917 #292524"
 commit-decoration-style = "#57534e" bold box ul
 dark = true
@@ -22,4 +22,4 @@ bold purple => syntax "#3a3145", \
 bold blue => syntax "#2c3543", \
 bold cyan => syntax "#28353d", \
 bold yellow => syntax "#463e2b"
-syntax-theme = pivoshenko_night
+syntax-theme = morok_dark

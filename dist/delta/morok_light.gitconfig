@@ -1,0 +1,25 @@
+[delta "morok_light"]
+blame-palette = "#ffffff #f8f7f5 #f1efec #fafaf9 #f5f5f4"
+commit-decoration-style = "#d6d3d1" bold box ul
+dark = false
+file-decoration-style = "#d6d3d1"
+file-style = "#292524"
+hunk-header-decoration-style = "#d6d3d1" box ul
+hunk-header-file-style = bold
+hunk-header-line-number-style = bold "#57534e"
+hunk-header-style = file line-number syntax
+line-numbers-left-style = "#d6d3d1"
+line-numbers-minus-style = bold "#c98787"
+line-numbers-plus-style = bold "#8ea98c"
+line-numbers-right-style = "#d6d3d1"
+line-numbers-zero-style = "#d6d3d1"
+minus-emph-style = bold syntax "#ecd5d5"
+minus-style = syntax "#f4e7e7"
+plus-emph-style = bold syntax "#d7e1d7"
+plus-style = syntax "#e8eee8"
+map-styles = \
+bold purple => syntax "#e0d7ea", \
+bold blue => syntax "#d2dbe9", \
+bold cyan => syntax "#cedbe2", \
+bold yellow => syntax "#ebe3d0"
+syntax-theme = morok_light

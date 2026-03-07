@@ -1,4 +1,4 @@
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: {{ iif(cond=flavor.dark, t='dark', f='light') }}) {
   :root {
     --zen-colors-primary: {{ surface0.hex }} !important;
     --zen-primary-color: {{ blue.hex }} !important;

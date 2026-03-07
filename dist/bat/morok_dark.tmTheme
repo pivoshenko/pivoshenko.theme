@@ -3,13 +3,13 @@
 <plist version="1.0">
   <dict>
     <key>name</key>
-    <string>pivoshenko_night</string>
+    <string>morok_dark</string>
     <key>semanticClass</key>
-    <string>theme.dark.pivoshenko-night</string>
+    <string>theme.dark.morok-dark</string>
     <key>uuid</key>
     <string>627ce890-fabb-4d39-9819-7be71f4bdca7</string>
     <key>author</key>
-    <string>Pivoshenko</string>
+    <string>pivoshenko.theme.morok</string>
     <key>colorSpaceName</key>
     <string>sRGB</string>
     <key>settings</key>

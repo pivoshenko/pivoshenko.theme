@@ -1,0 +1,15 @@
+themes {
+  morok_light {
+    bg "#e7e5e4"
+    fg "#292524"
+    red "#c98787"
+    green "#8ea98c"
+    blue "#7f98bf"
+    yellow "#c7b07a"
+    magenta "#d1b2c9"
+    orange "#d0a178"
+    cyan "#7da2b5"
+    black "#f8f7f5"
+    white "#292524"
+  }
+}
