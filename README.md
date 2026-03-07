@@ -12,6 +12,7 @@
     - [Bat](#bat)
     - [Bottom](#bottom)
     - [Delta](#delta)
+    - [Discord](#discord)
     - [Fish](#fish)
     - [Fzf](#fzf)
     - [Ghostty](#ghostty)
@@ -60,6 +61,11 @@ Examples below use `morok_dark`; swap to `morok_light` when needed (including `F
 1. Copy [`dist/delta/morok_dark.gitconfig`](dist/delta/morok_dark.gitconfig) to `~/.config/delta/themes/morok_dark.gitconfig`.
 2. Add `include = ~/.config/delta/themes/morok_dark.gitconfig` under `[include]` in `~/.gitconfig`.
 3. Set `features = morok_dark` under `[delta]` in `~/.gitconfig`.
+
+### Discord
+
+1. Copy [`dist/discord/morok_dark.theme.css`](dist/discord/morok_dark.theme.css) to your Discord themes folder (`~/.config/vesktop/themes/` for Vesktop, or BetterDiscord themes directory).
+2. Enable the theme in your Discord client.
 
 ### Fish
 
