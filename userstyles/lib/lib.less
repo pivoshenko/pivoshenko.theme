@@ -1,0 +1,183 @@
+/* deno-fmt-ignore */
+@pivoshenko: {
+  @night: {
+    @rosewater: "#e2cfc6";
+    @flamingo: "#d8b8aa";
+    @pink: "#d1b2c9";
+    @mauve: "#a78cc4";
+    @red: "#c98787";
+    @maroon: "#b97a74";
+    @peach: "#d0a178";
+    @yellow: "#c7b07a";
+    @green: "#8ea98c";
+    @teal: "#7ea59d";
+    @sky: "#7da2b5";
+    @sapphire: "#7398ad";
+    @blue: "#7f98bf";
+    @lavender: "#9faece";
+    @text: "#e7e5e4";
+    @subtext1: "#d6d3d1";
+    @subtext0: "#a8a29e";
+    @overlay2: "#a8a29e";
+    @overlay1: "#78716c";
+    @overlay0: "#57534e";
+    @surface2: "#44403c";
+    @surface1: "#292524";
+    @surface0: "#1c1917";
+    @base: "#000000";
+    @mantle: "#0c0a09";
+    @crust: "#080706";
+  }
+
+  ;
+}
+
+;
+
+/* deno-fmt-ignore */
+@pivoshenko-filters: {
+  @night: {
+    @rosewater: brightness(0) saturate(100%) invert(84%) sepia(22%) saturate(508%) hue-rotate(312deg) brightness(113%) contrast(91%);
+    @flamingo: brightness(0) saturate(100%) invert(79%) sepia(23%) saturate(510%) hue-rotate(311deg) brightness(110%) contrast(90%);
+    @pink: brightness(0) saturate(100%) invert(76%) sepia(28%) saturate(508%) hue-rotate(290deg) brightness(112%) contrast(92%);
+    @mauve: brightness(0) saturate(100%) invert(63%) sepia(71%) saturate(1021%) hue-rotate(208deg) brightness(110%) contrast(94%);
+    @red: brightness(0) saturate(100%) invert(61%) sepia(33%) saturate(540%) hue-rotate(293deg) brightness(101%) contrast(90%);
+    @maroon: brightness(0) saturate(100%) invert(70%) sepia(25%) saturate(536%) hue-rotate(301deg) brightness(100%) contrast(84%);
+    @peach: brightness(0) saturate(100%) invert(73%) sepia(36%) saturate(519%) hue-rotate(332deg) brightness(100%) contrast(93%);
+    @yellow: brightness(0) saturate(100%) invert(85%) sepia(27%) saturate(512%) hue-rotate(336deg) brightness(108%) contrast(96%);
+    @green: brightness(0) saturate(100%) invert(86%) sepia(22%) saturate(538%) hue-rotate(63deg) brightness(97%) contrast(88%);
+    @teal: brightness(0) saturate(100%) invert(90%) sepia(24%) saturate(532%) hue-rotate(105deg) brightness(95%) contrast(85%);
+    @sky: brightness(0) saturate(100%) invert(81%) sepia(27%) saturate(522%) hue-rotate(141deg) brightness(99%) contrast(86%);
+    @sapphire: brightness(0) saturate(100%) invert(73%) sepia(43%) saturate(529%) hue-rotate(166deg) brightness(95%) contrast(93%);
+    @blue: brightness(0) saturate(100%) invert(57%) sepia(66%) saturate(1020%) hue-rotate(195deg) brightness(115%) contrast(96%);
+    @lavender: brightness(0) saturate(100%) invert(68%) sepia(33%) saturate(517%) hue-rotate(197deg) brightness(105%) contrast(98%);
+    @text: brightness(0) saturate(100%) invert(75%) sepia(82%) saturate(1008%) hue-rotate(189deg) brightness(120%) contrast(90%);
+    @subtext1: brightness(0) saturate(100%) invert(81%) sepia(11%) saturate(522%) hue-rotate(191deg) brightness(100%) contrast(81%);
+    @subtext0: brightness(0) saturate(100%) invert(79%) sepia(13%) saturate(517%) hue-rotate(191deg) brightness(93%) contrast(71%);
+    @overlay2: brightness(0) saturate(100%) invert(70%) sepia(13%) saturate(523%) hue-rotate(191deg) brightness(88%) contrast(75%);
+    @overlay1: brightness(0) saturate(100%) invert(61%) sepia(17%) saturate(527%) hue-rotate(193deg) brightness(85%) contrast(66%);
+    @overlay0: brightness(0) saturate(100%) invert(67%) sepia(15%) saturate(533%) hue-rotate(193deg) brightness(62%) contrast(82%);
+    @surface2: brightness(0) saturate(100%) invert(58%) sepia(30%) saturate(515%) hue-rotate(196deg) brightness(45%) contrast(62%);
+    @surface1: brightness(0) saturate(100%) invert(44%) sepia(36%) saturate(521%) hue-rotate(198deg) brightness(39%) contrast(70%);
+    @surface0: brightness(0) saturate(100%) invert(10%) sepia(79%) saturate(1035%) hue-rotate(212deg) brightness(62%) contrast(70%);
+    @base: brightness(0) saturate(100%) invert(7%) sepia(23%) saturate(3759%) hue-rotate(219deg) brightness(67%) contrast(84%);
+    @mantle: brightness(0) saturate(100%) invert(22%) sepia(29%) saturate(493%) hue-rotate(204deg) brightness(44%) contrast(102%);
+    @crust: brightness(0) saturate(100%) invert(25%) sepia(44%) saturate(549%) hue-rotate(204deg) brightness(18%) contrast(96%);
+  }
+
+  ;
+}
+
+;
+
+#lib {
+  .palette() {
+    @rosewater: @pivoshenko[@@flavor][@rosewater];
+    @flamingo: @pivoshenko[@@flavor][@flamingo];
+    @pink: @pivoshenko[@@flavor][@pink];
+    @mauve: @pivoshenko[@@flavor][@mauve];
+    @red: @pivoshenko[@@flavor][@red];
+    @maroon: @pivoshenko[@@flavor][@maroon];
+    @peach: @pivoshenko[@@flavor][@peach];
+    @yellow: @pivoshenko[@@flavor][@yellow];
+    @green: @pivoshenko[@@flavor][@green];
+    @teal: @pivoshenko[@@flavor][@teal];
+    @sky: @pivoshenko[@@flavor][@sky];
+    @sapphire: @pivoshenko[@@flavor][@sapphire];
+    @blue: @pivoshenko[@@flavor][@blue];
+    @lavender: @pivoshenko[@@flavor][@lavender];
+    @text: @pivoshenko[@@flavor][@text];
+    @subtext1: @pivoshenko[@@flavor][@subtext1];
+    @subtext0: @pivoshenko[@@flavor][@subtext0];
+    @overlay2: @pivoshenko[@@flavor][@overlay2];
+    @overlay1: @pivoshenko[@@flavor][@overlay1];
+    @overlay0: @pivoshenko[@@flavor][@overlay0];
+    @surface2: @pivoshenko[@@flavor][@surface2];
+    @surface1: @pivoshenko[@@flavor][@surface1];
+    @surface0: @pivoshenko[@@flavor][@surface0];
+    @base: @pivoshenko[@@flavor][@base];
+    @mantle: @pivoshenko[@@flavor][@mantle];
+    @crust: @pivoshenko[@@flavor][@crust];
+    @accent: @pivoshenko[@@flavor][@@accentColor];
+
+    @rosewater-filter: @pivoshenko-filters[@@flavor][@rosewater];
+    @flamingo-filter: @pivoshenko-filters[@@flavor][@flamingo];
+    @pink-filter: @pivoshenko-filters[@@flavor][@pink];
+    @mauve-filter: @pivoshenko-filters[@@flavor][@mauve];
+    @red-filter: @pivoshenko-filters[@@flavor][@red];
+    @maroon-filter: @pivoshenko-filters[@@flavor][@maroon];
+    @peach-filter: @pivoshenko-filters[@@flavor][@peach];
+    @yellow-filter: @pivoshenko-filters[@@flavor][@yellow];
+    @green-filter: @pivoshenko-filters[@@flavor][@green];
+    @teal-filter: @pivoshenko-filters[@@flavor][@teal];
+    @sky-filter: @pivoshenko-filters[@@flavor][@sky];
+    @sapphire-filter: @pivoshenko-filters[@@flavor][@sapphire];
+    @blue-filter: @pivoshenko-filters[@@flavor][@blue];
+    @lavender-filter: @pivoshenko-filters[@@flavor][@lavender];
+    @text-filter: @pivoshenko-filters[@@flavor][@text];
+    @subtext1-filter: @pivoshenko-filters[@@flavor][@subtext1];
+    @subtext0-filter: @pivoshenko-filters[@@flavor][@subtext0];
+    @overlay2-filter: @pivoshenko-filters[@@flavor][@overlay2];
+    @overlay1-filter: @pivoshenko-filters[@@flavor][@overlay1];
+    @overlay0-filter: @pivoshenko-filters[@@flavor][@overlay0];
+    @surface2-filter: @pivoshenko-filters[@@flavor][@surface2];
+    @surface1-filter: @pivoshenko-filters[@@flavor][@surface1];
+    @surface0-filter: @pivoshenko-filters[@@flavor][@surface0];
+    @base-filter: @pivoshenko-filters[@@flavor][@base];
+    @mantle-filter: @pivoshenko-filters[@@flavor][@mantle];
+    @crust-filter: @pivoshenko-filters[@@flavor][@crust];
+    @accent-filter: @pivoshenko-filters[@@flavor][@@accentColor];
+  }
+
+  .defaults() {
+    color-scheme: dark;
+
+    ::selection {
+      background-color: fade(@accent, 30%);
+    }
+
+    input,
+    textarea {
+      &::placeholder {
+        color: @subtext0 !important;
+      }
+    }
+  }
+
+  .rgbify(@color) {
+    @rgb: red(@color), green(@color), blue(@color);
+  }
+
+  .hslify(@color) {
+    @raw: e(%("%s, %s%, %s%", hue(@color), saturation(@color), lightness(@color)));
+  }
+
+  .css-variables() {
+    --pivoshenko-rosewater: @rosewater;
+    --pivoshenko-flamingo: @flamingo;
+    --pivoshenko-pink: @pink;
+    --pivoshenko-mauve: @mauve;
+    --pivoshenko-red: @red;
+    --pivoshenko-maroon: @maroon;
+    --pivoshenko-peach: @peach;
+    --pivoshenko-yellow: @yellow;
+    --pivoshenko-green: @green;
+    --pivoshenko-teal: @teal;
+    --pivoshenko-sky: @sky;
+    --pivoshenko-sapphire: @sapphire;
+    --pivoshenko-blue: @blue;
+    --pivoshenko-lavender: @lavender;
+    --pivoshenko-text: @text;
+    --pivoshenko-subtext1: @subtext1;
+    --pivoshenko-subtext0: @subtext0;
+    --pivoshenko-overlay2: @overlay2;
+    --pivoshenko-overlay1: @overlay1;
+    --pivoshenko-overlay0: @overlay0;
+    --pivoshenko-surface2: @surface2;
+    --pivoshenko-surface1: @surface1;
+    --pivoshenko-surface0: @surface0;
+    --pivoshenko-base: @base;
+    --pivoshenko-mantle: @mantle;
+    --pivoshenko-crust: @crust;
+  }
+}
