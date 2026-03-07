@@ -40,86 +40,80 @@ Repository contains ports for various terminal applications and userstyles for p
 
 ## Ports
 
-Generated palettes:
-- `morok_dark` (dark flavor)
-- `morok_light` (light flavor)
-
-Examples below use `morok_dark`; swap to `morok_light` when needed (including `FZF_MOROK_LIGHT` for FZF).
-
 ### Bat
 
-1. Copy [`dist/bat/morok_dark.tmTheme`](dist/bat/morok_dark.tmTheme) to `~/.config/bat/themes/`.
+1. Copy [`dist/bat/morok.tmTheme`](dist/bat/morok.tmTheme) to `~/.config/bat/themes/`.
 2. Run `bat cache --build`.
-3. Set `--theme="morok_dark"` in `~/.config/bat/config`.
+3. Set `--theme="morok"` in `~/.config/bat/config`.
 
 ### Bottom
 
-1. Copy [`dist/bottom/morok_dark.toml`](dist/bottom/morok_dark.toml) to `~/.config/bottom/bottom.toml`.
+1. Copy [`dist/bottom/morok.toml`](dist/bottom/morok.toml) to `~/.config/bottom/bottom.toml`.
 2. Start `btm`.
 
 ### Delta
 
-1. Copy [`dist/delta/morok_dark.gitconfig`](dist/delta/morok_dark.gitconfig) to `~/.config/delta/themes/morok_dark.gitconfig`.
-2. Add `include = ~/.config/delta/themes/morok_dark.gitconfig` under `[include]` in `~/.gitconfig`.
-3. Set `features = morok_dark` under `[delta]` in `~/.gitconfig`.
+1. Copy [`dist/delta/morok.gitconfig`](dist/delta/morok.gitconfig) to `~/.config/delta/themes/morok.gitconfig`.
+2. Add `include = ~/.config/delta/themes/morok.gitconfig` under `[include]` in `~/.gitconfig`.
+3. Set `features = morok` under `[delta]` in `~/.gitconfig`.
 
 ### Discord
 
-1. Copy [`dist/discord/morok_dark.theme.css`](dist/discord/morok_dark.theme.css) to your Discord themes folder (`~/.config/vesktop/themes/` for Vesktop, or BetterDiscord themes directory).
+1. Copy [`dist/discord/morok.theme.css`](dist/discord/morok.theme.css) to your Discord themes folder (`~/.config/vesktop/themes/` for Vesktop, or BetterDiscord themes directory).
 2. Enable the theme in your Discord client.
 
 ### Fish
 
-1. Copy [`dist/fish/morok_dark.theme`](dist/fish/morok_dark.theme) to `~/.config/fish/themes/`.
-2. Run `fish_config theme save morok_dark`.
+1. Copy [`dist/fish/morok.theme`](dist/fish/morok.theme) to `~/.config/fish/themes/`.
+2. Run `fish_config theme save morok`.
 
 ### Fzf
 
-1. Copy [`dist/fzf/morok_dark.fish`](dist/fzf/morok_dark.fish) to `~/.config/fish/conf.d/`.
+1. Copy [`dist/fzf/morok.fish`](dist/fzf/morok.fish) to `~/.config/fish/conf.d/`.
 2. Start a new Fish session, or source the file manually.
 3. Set `FZF_DEFAULT_OPTS="$FZF_MOROK_DARK"` or append `$FZF_MOROK_DARK` to your existing `FZF_DEFAULT_OPTS`.
 
 ### Ghostty
 
-1. Copy [`dist/ghostty/morok_dark.conf`](dist/ghostty/morok_dark.conf) to `~/.config/ghostty/themes/morok_dark`.
-2. Set `theme = morok_dark` in `~/.config/ghostty/config`.
+1. Copy [`dist/ghostty/morok.conf`](dist/ghostty/morok.conf) to `~/.config/ghostty/themes/morok`.
+2. Set `theme = morok` in `~/.config/ghostty/config`.
 
 ### Helix
 
-1. Copy [`dist/helix/morok_dark.toml`](dist/helix/morok_dark.toml) to `~/.config/helix/themes/morok_dark.toml`.
-2. Set `theme = "morok_dark"` in `~/.config/helix/config.toml`.
+1. Copy [`dist/helix/morok.toml`](dist/helix/morok.toml) to `~/.config/helix/themes/morok.toml`.
+2. Set `theme = "morok"` in `~/.config/helix/config.toml`.
 
 ### K9s
 
-1. Copy [`dist/k9s/morok_dark.yaml`](dist/k9s/morok_dark.yaml) to `~/.config/k9s/skins/morok_dark.yaml`.
-2. Set `skin: morok_dark` in `~/.config/k9s/config.yaml`.
+1. Copy [`dist/k9s/morok.yaml`](dist/k9s/morok.yaml) to `~/.config/k9s/skins/morok.yaml`.
+2. Set `skin: morok` in `~/.config/k9s/config.yaml`.
 
 ### Lazygit
 
-1. Copy [`dist/lazygit/morok_dark.yml`](dist/lazygit/morok_dark.yml) to `~/.config/lazygit/config.yml`.
+1. Copy [`dist/lazygit/morok.yml`](dist/lazygit/morok.yml) to `~/.config/lazygit/config.yml`.
 2. Or merge only the `theme:` section into your existing config.
 
 ### Obsidian
 
-1. Copy [`dist/obsidian/morok_dark.css`](dist/obsidian/morok_dark.css) to your Obsidian theme folder and rename it to `theme.css`.
-2. Optionally copy [`dist/obsidian/morok_dark.manifest.json`](dist/obsidian/morok_dark.manifest.json) and rename it to `manifest.json`.
+1. Copy [`dist/obsidian/morok.css`](dist/obsidian/morok.css) to your Obsidian theme folder and rename it to `theme.css`.
+2. Optionally copy [`dist/obsidian/morok.manifest.json`](dist/obsidian/morok.manifest.json) and rename it to `manifest.json`.
 3. Enable the theme in Obsidian Appearance settings.
 
 ### Spicetify
 
-1. Copy [`dist/spicetify/morok_dark.color.ini`](dist/spicetify/morok_dark.color.ini) to `~/.config/spicetify/Themes/morok_dark/color.ini`.
-2. Set `current_theme = morok_dark` in your Spicetify config.
+1. Copy [`dist/spicetify/morok.color.ini`](dist/spicetify/morok.color.ini) to `~/.config/spicetify/Themes/morok/color.ini`.
+2. Set `current_theme = morok` in your Spicetify config.
 3. Run `spicetify apply`.
 
 ### Starship
 
-1. Copy the palette from [`dist/starship/morok_dark.toml`](dist/starship/morok_dark.toml) to your [Starship configuration file](https://starship.rs/config/).
-2. Set `palette = "morok_dark"`, preferably near the top of your config.
+1. Copy the palette from [`dist/starship/morok.toml`](dist/starship/morok.toml) to your [Starship configuration file](https://starship.rs/config/).
+2. Set `palette = "morok"`, preferably near the top of your config.
 3. Save and reload your prompt.
 
 ### VSCode
 
-1. Copy [`dist/vscode/morok_dark.json`](dist/vscode/morok_dark.json) to a stable location, for example `~/.config/vscode/themes/morok_dark.json`.
+1. Copy [`dist/vscode/morok.json`](dist/vscode/morok.json) to a stable location, for example `~/.config/vscode/themes/morok.json`.
 2. Reference it from a small local VS Code theme extension, or import it into your existing theme workflow.
 
 > [!NOTE]
@@ -127,18 +121,18 @@ Examples below use `morok_dark`; swap to `morok_light` when needed (including `F
 
 ### Zed
 
-1. Copy [`dist/zed/morok_dark.json`](dist/zed/morok_dark.json) to a stable location, for example `~/.config/zed/themes/morok_dark.json`.
+1. Copy [`dist/zed/morok.json`](dist/zed/morok.json) to a stable location, for example `~/.config/zed/themes/morok.json`.
 2. Open Zed and choose the theme from `Theme Selector` (or set it in your Zed settings).
 
 ### Zen
 
-1. Copy [`dist/zen/morok_dark.userChrome.css`](dist/zen/morok_dark.userChrome.css) and [`dist/zen/morok_dark.userContent.css`](dist/zen/morok_dark.userContent.css) into your Zen profile `chrome/` directory as `userChrome.css` and `userContent.css`.
+1. Copy [`dist/zen/morok.userChrome.css`](dist/zen/morok.userChrome.css) and [`dist/zen/morok.userContent.css`](dist/zen/morok.userContent.css) into your Zen profile `chrome/` directory as `userChrome.css` and `userContent.css`.
 2. Restart Zen Browser.
 
 ### Zellij
 
-1. Copy the theme block from [`dist/zellij/morok_dark.kdl`](dist/zellij/morok_dark.kdl) into your Zellij config, or place it in a sourced theme file.
-2. Set the active theme to `morok_dark`.
+1. Copy the theme block from [`dist/zellij/morok.kdl`](dist/zellij/morok.kdl) into your Zellij config, or place it in a sourced theme file.
+2. Set the active theme to `morok`.
 
 ## Userstyles
 
