@@ -97,7 +97,7 @@ def _parse_var_line(line: str) -> tuple[str, str, str, str] | None:
         )
 
     # Recover malformed lines like:
-    # @var select darkFlavor @var select flavor "Flavor" ["dark:dark*"]
+    # @var select darkFlavor @var select flavor "Flavor" ["dark:Dark*"]
     # We keep the intended variable name from the first segment and parse label/value from the second.  # noqa: E501
     duplicate_marker = " @var "
     if duplicate_marker not in line:
