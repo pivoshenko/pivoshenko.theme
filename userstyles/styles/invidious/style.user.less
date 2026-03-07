@@ -1,23 +1,23 @@
 /* ==UserStyle==
 @name Invidious
-@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/invidious
-@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/invidious
+@namespace github.com/morok/morok.theme/userstyles/styles/invidious
+@homepageURL https://github.com/morok/morok.theme/tree/main/userstyles/styles/invidious
 @version 2025.09.06
-@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/invidious/style.user.less
-@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Ainvidious
+@updateURL https://github.com/morok/morok.theme/raw/main/userstyles/styles/invidious/style.user.less
+@supportURL https://github.com/morok/morok.theme/issues?q=is%3Aopen+is%3Aissue+label%3Ainvidious
 @description Soothing pastel theme for Invidious
-@author Pivoshenko
+@author morok
 @license MIT
 
 @preprocessor less
-@var select lightFlavor "Light Flavor" ["night:Night"]
-@var select darkFlavor "Dark Flavor" ["night:Night*"]
+@var select lightFlavor "Light Flavor" ["dark:dark"]
+@var select darkFlavor "Dark Flavor" ["dark:dark*"]
 @var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 
 @var checkbox styleVideoPlayer "Style Video Player" 1
 ==/UserStyle== */
 
-@import "https://gist.githubusercontent.com/pivoshenko/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
+@import "https://gist.githubusercontent.com/morok/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
 
 /**
  * kept up-to-date with
@@ -59,19 +59,19 @@ domain("yt.oelrichsgarcia.de") {
   .no-theme {
 
     @media (prefers-color-scheme: dark) {
-      #pivoshenko(@darkFlavor);
+      #morok(@darkFlavor);
     }
   }
 
   .light-theme {
-    #pivoshenko(@lightFlavor);
+    #morok(@lightFlavor);
   }
 
   .dark-theme {
-    #pivoshenko(@darkFlavor);
+    #morok(@darkFlavor);
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
     #lib.defaults();
 

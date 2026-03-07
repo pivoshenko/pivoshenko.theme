@@ -1,31 +1,31 @@
 /* ==UserStyle==
 @name Quizlet
-@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/quizlet
-@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/quizlet
+@namespace github.com/morok/morok.theme/userstyles/styles/quizlet
+@homepageURL https://github.com/morok/morok.theme/tree/main/userstyles/styles/quizlet
 @version 2025.09.06
-@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/quizlet/style.user.less
-@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Aquizlet
+@updateURL https://github.com/morok/morok.theme/raw/main/userstyles/styles/quizlet/style.user.less
+@supportURL https://github.com/morok/morok.theme/issues?q=is%3Aopen+is%3Aissue+label%3Aquizlet
 @description Soothing pastel theme for Quizlet
-@author Pivoshenko
+@author morok
 @license MIT
 
 @preprocessor less
-@var select lightFlavor "Light Flavor" ["night:Night"]
-@var select darkFlavor "Dark Flavor" ["night:Night*"]
+@var select lightFlavor "Light Flavor" ["dark:dark"]
+@var select darkFlavor "Dark Flavor" ["dark:dark*"]
 @var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 ==/UserStyle== */
 
-@import "https://gist.githubusercontent.com/pivoshenko/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
+@import "https://gist.githubusercontent.com/morok/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
 
 @-moz-document domain("quizlet.com") {
   :root {
 
     @media (prefers-color-scheme: dark) {
-      #pivoshenko(@darkFlavor);
+      #morok(@darkFlavor);
     }
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
     #lib.defaults();
 
@@ -465,7 +465,7 @@
     }
 
     .i1v4i7rf.textbookIcon {
-      background-image: url("https://assets.quizlet.com/a/j/dist/app/i/explanations/textbook_night.1ff39f68b703b28.svg");
+      background-image: url("https://assets.quizlet.com/a/j/dist/app/i/explanations/textbook_dark.1ff39f68b703b28.svg");
     }
 
     .sinah8x {
@@ -1461,7 +1461,7 @@
       border-color: @overlay2;
     }
 
-    .theme-night .h1uvmh9x,
+    .theme-dark .h1uvmh9x,
     .h1uvmh9x {
       background: @mantle;
     }
@@ -1486,7 +1486,7 @@
       background-color: @mantle;
     }
 
-    .theme-night .g84nzqs {
+    .theme-dark .g84nzqs {
       background: none;
     }
 
@@ -2176,7 +2176,7 @@
       background: @crust;
     }
 
-    .theme-night .TeacherLobbyView .UIFloatedCard {
+    .theme-dark .TeacherLobbyView .UIFloatedCard {
       border-color: @overlay2;
     }
 

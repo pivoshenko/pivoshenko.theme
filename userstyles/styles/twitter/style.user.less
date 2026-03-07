@@ -1,34 +1,34 @@
 /* ==UserStyle==
 @name Twitter
-@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/twitter
-@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/twitter
+@namespace github.com/morok/morok.theme/userstyles/styles/twitter
+@homepageURL https://github.com/morok/morok.theme/tree/main/userstyles/styles/twitter
 @version 2025.09.06
-@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/twitter/style.user.less
-@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Atwitter
+@updateURL https://github.com/morok/morok.theme/raw/main/userstyles/styles/twitter/style.user.less
+@supportURL https://github.com/morok/morok.theme/issues?q=is%3Aopen+is%3Aissue+label%3Atwitter
 @description Soothing pastel theme for Twitter
-@author Pivoshenko
+@author morok
 @license MIT
 
 @preprocessor less
-@var select lightFlavor "Light Flavor" ["night:Night"]
-@var select darkFlavor "Dark Flavor" ["night:Night*"]
+@var select lightFlavor "Light Flavor" ["dark:dark"]
+@var select darkFlavor "Dark Flavor" ["dark:dark*"]
 @var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 
 @var checkbox colorizeLogo "Colorize Logo" 0
 @var checkbox darkenShadows "Darken Shadows on Dark Themes" 1
 ==/UserStyle== */
 
-@import "https://gist.githubusercontent.com/pivoshenko/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
+@import "https://gist.githubusercontent.com/morok/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
 
 @-moz-document domain("twitter.com"), domain("x.com") {
   :root {
 
     @media (prefers-color-scheme: dark) {
-      #pivoshenko(@darkFlavor);
+      #morok(@darkFlavor);
     }
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
     #lib.defaults();
 
@@ -681,11 +681,11 @@
   :root {
 
     @media (prefers-color-scheme: dark) {
-      #pivoshenko(@darkFlavor);
+      #morok(@darkFlavor);
     }
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
 
     html {
@@ -772,11 +772,11 @@
   :root {
 
     @media (prefers-color-scheme: dark) {
-      #pivoshenko(@darkFlavor);
+      #morok(@darkFlavor);
     }
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
 
     #session a,
@@ -811,7 +811,7 @@
     }
 
     // report page? why isn't this themed
-    .ResponsiveLayout--Night .PageContainer {
+    .ResponsiveLayout--dark .PageContainer {
       background-color: @base;
     }
 
@@ -819,7 +819,7 @@
       color: @subtext0;
     }
 
-    .ResponsiveLayout--Night .list-btn {
+    .ResponsiveLayout--dark .list-btn {
       &:first-of-type {
         border-top-color: @mantle;
       }

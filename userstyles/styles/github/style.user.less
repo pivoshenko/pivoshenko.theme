@@ -1,21 +1,21 @@
 /* ==UserStyle==
 @name GitHub
-@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/github
-@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/github
+@namespace github.com/morok/morok.theme/userstyles/styles/github
+@homepageURL https://github.com/morok/morok.theme/tree/main/userstyles/styles/github
 @version 2026.02.17
-@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/github/style.user.less
-@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Agithub
+@updateURL https://github.com/morok/morok.theme/raw/main/userstyles/styles/github/style.user.less
+@supportURL https://github.com/morok/morok.theme/issues?q=is%3Aopen+is%3Aissue+label%3Agithub
 @description Soothing pastel theme for GitHub
-@author Pivoshenko
+@author morok
 @license MIT
 
 @preprocessor less
-@var select lightFlavor "Light Flavor" ["night:Night"]
-@var select darkFlavor "Dark Flavor" ["night:Night*"]
+@var select lightFlavor "Light Flavor" ["dark:dark"]
+@var select darkFlavor "Dark Flavor" ["dark:dark*"]
 @var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 ==/UserStyle== */
 
-@import "https://gist.githubusercontent.com/pivoshenko/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
+@import "https://gist.githubusercontent.com/morok/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
 
 @-moz-document
 /* Match every page on GitHub except github.com/home, github.com/features/*, and github.com/organizations/plan. */
@@ -28,24 +28,24 @@ domain("viewscreen.githubusercontent.com") {
   [data-color-mode][data-color-mode="auto"] {
     @media (prefers-color-scheme: light) {
       &[data-light-theme="light"] {
-        #pivoshenko(@lightFlavor);
+        #morok(@lightFlavor);
       }
 
       &[data-light-theme="dark"] {
-        #pivoshenko(@darkFlavor);
+        #morok(@darkFlavor);
       }
     }
 
     @media (prefers-color-scheme: dark) {
       &[data-dark-theme="light"] {
-        #pivoshenko(@lightFlavor);
+        #morok(@lightFlavor);
       }
 
       &[data-dark-theme="dark"] {
-        #pivoshenko(@darkFlavor);
+        #morok(@darkFlavor);
 
         header[data-color-mode] {
-          #pivoshenko(@darkFlavor);
+          #morok(@darkFlavor);
         }
       }
     }
@@ -53,15 +53,15 @@ domain("viewscreen.githubusercontent.com") {
 
   [data-color-mode="light"][data-light-theme="dark"],
   [data-color-mode="dark"][data-dark-theme="dark"] {
-    #pivoshenko(@darkFlavor);
+    #morok(@darkFlavor);
   }
 
   [data-color-mode="light"][data-light-theme="light"],
   [data-color-mode="dark"][data-dark-theme="light"] {
-    #pivoshenko(@lightFlavor);
+    #morok(@lightFlavor);
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
     #lib.defaults();
 
@@ -606,36 +606,36 @@ domain("viewscreen.githubusercontent.com") {
   [data-color-mode="auto"] {
     @media (prefers-color-scheme: light) {
       &[data-light-theme="light"] {
-        #pivoshenko(@lightFlavor);
+        #morok(@lightFlavor);
       }
 
       &[data-light-theme="dark"] {
-        #pivoshenko(@darkFlavor);
+        #morok(@darkFlavor);
       }
     }
 
     @media (prefers-color-scheme: dark) {
       &[data-dark-theme="light"] {
-        #pivoshenko(@lightFlavor);
+        #morok(@lightFlavor);
       }
 
       &[data-dark-theme="dark"] {
-        #pivoshenko(@darkFlavor);
+        #morok(@darkFlavor);
       }
     }
   }
 
   [data-color-mode="light"][data-light-theme="dark"],
   [data-color-mode="dark"][data-dark-theme="dark"] {
-    #pivoshenko(@darkFlavor);
+    #morok(@darkFlavor);
   }
 
   [data-color-mode="light"][data-light-theme="light"],
   [data-color-mode="dark"][data-dark-theme="light"] {
-    #pivoshenko(@lightFlavor);
+    #morok(@lightFlavor);
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
 
     ::selection {
@@ -716,10 +716,10 @@ domain("viewscreen.githubusercontent.com") {
 
 ) {
   :root {
-    #pivoshenko(@darkFlavor);
+    #morok(@darkFlavor);
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
     #lib.defaults();
 

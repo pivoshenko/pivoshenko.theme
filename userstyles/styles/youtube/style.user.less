@@ -1,17 +1,17 @@
 /* ==UserStyle==
 @name YouTube
-@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/youtube
-@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/youtube
+@namespace github.com/morok/morok.theme/userstyles/styles/youtube
+@homepageURL https://github.com/morok/morok.theme/tree/main/userstyles/styles/youtube
 @version 2026.02.18.1
-@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/youtube/style.user.less
-@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Ayoutube
+@updateURL https://github.com/morok/morok.theme/raw/main/userstyles/styles/youtube/style.user.less
+@supportURL https://github.com/morok/morok.theme/issues?q=is%3Aopen+is%3Aissue+label%3Ayoutube
 @description Soothing pastel theme for YouTube
-@author Pivoshenko
+@author morok
 @license MIT
 
 @preprocessor less
-@var select lightFlavor "Light Flavor" ["night:Night"]
-@var select darkFlavor "Dark Flavor" ["night:Night*"]
+@var select lightFlavor "Light Flavor" ["dark:dark"]
+@var select darkFlavor "Dark Flavor" ["dark:dark*"]
 @var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 
 @var checkbox logo "Enable YouTube logo" 1
@@ -20,18 +20,18 @@
 @var checkbox hideColorSampleTint "Hide color-sampled tint" 1
 ==/UserStyle== */
 
-@import "https://gist.githubusercontent.com/pivoshenko/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
+@import "https://gist.githubusercontent.com/morok/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
 
 @-moz-document domain("youtube.com") {
   :root[dark] {
-    #pivoshenko(@darkFlavor) !important;
+    #morok(@darkFlavor) !important;
   }
 
   :root:not([dark]) {
-    #pivoshenko(@lightFlavor) !important;
+    #morok(@lightFlavor) !important;
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
     #lib.defaults();
 
@@ -1260,14 +1260,14 @@
 
 @-moz-document url-prefix("https://studio.youtube.com") {
   :root[dark] {
-    #pivoshenko(@darkFlavor);
+    #morok(@darkFlavor);
   }
 
   :root {
-    #pivoshenko(@lightFlavor);
+    #morok(@lightFlavor);
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
 
     [src="https://www.gstatic.com/youtube/img/creator/yt_studio_logo_white.svg"] {
@@ -1399,14 +1399,14 @@
 
 @-moz-document domain("m.youtube.com") {
   html[darker-dark-theme] {
-    #pivoshenko(@darkFlavor);
+    #morok(@darkFlavor);
   }
 
   html {
-    #pivoshenko(@lightFlavor);
+    #morok(@lightFlavor);
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
 
     background-color: @base !important;

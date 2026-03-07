@@ -1,27 +1,27 @@
 /* ==UserStyle==
 @name Rentry.co
-@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/rentry.co
-@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/rentry.co
+@namespace github.com/morok/morok.theme/userstyles/styles/rentry.co
+@homepageURL https://github.com/morok/morok.theme/tree/main/userstyles/styles/rentry.co
 @version 2025.09.06
-@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/rentry.co/style.user.less
-@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Arentry.co
+@updateURL https://github.com/morok/morok.theme/raw/main/userstyles/styles/rentry.co/style.user.less
+@supportURL https://github.com/morok/morok.theme/issues?q=is%3Aopen+is%3Aissue+label%3Arentry.co
 @description Soothing pastel theme for Rentry.co
-@author Pivoshenko
+@author morok
 @license MIT
 
 @preprocessor less
-@var select lightFlavor "Light Flavor" ["night:Night"]
-@var select darkFlavor "Dark Flavor" ["night:Night*"]
+@var select lightFlavor "Light Flavor" ["dark:dark"]
+@var select darkFlavor "Dark Flavor" ["dark:dark*"]
 @var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 ==/UserStyle== */
 
-@import "https://gist.githubusercontent.com/pivoshenko/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
+@import "https://gist.githubusercontent.com/morok/5a2889a943fe2c8a9dff7523a3188b08/raw/e7da1bfeace038c0c5d64b3162d0735627ab307e/lib.less";
 
 @-moz-document domain("rentry.org"), domain("rentry.co") {
   @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
 
   .dark-mode {
-    #pivoshenko(@darkFlavor);
+    #morok(@darkFlavor);
 
     #darkModeBtn::before {
       @svg: escape('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="@{overlay2}" class="bi bi-moon-fill" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/></svg>'
@@ -31,7 +31,7 @@
   }
 
   :root:not(.dark-mode) {
-    #pivoshenko(@lightFlavor);
+    #morok(@lightFlavor);
 
     #darkModeBtn::before {
       @svg: escape('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="@{overlay2}" class="bi bi-brightness-high-fill" viewBox="0 0 16 16"><path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>'
@@ -40,7 +40,7 @@
     }
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
     #lib.defaults();
     #lib.css-variables();
@@ -437,11 +437,11 @@ domain("export3.rentry.co") {
   :root {
 
     @media (prefers-color-scheme: dark) {
-      #pivoshenko(@darkFlavor);
+      #morok(@darkFlavor);
     }
   }
 
-  #pivoshenko(@flavor) {
+  #morok(@flavor) {
     #lib.palette();
 
     // TODO: Can we use defaults? Currently doesn't have input/textarea placeholder styling.
