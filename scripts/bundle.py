@@ -74,7 +74,9 @@ def _parse_var_value(var_type: str, raw: str) -> dict[str, typing.Any]:
         options = _parse_select_options(raw)
         if not options:
             return {"options": [], "default": None, "value": None}
-        default_option = next((option for option in options if option["default"] == "1"), options[0])
+        default_option = next(
+            (option for option in options if option["default"] == "1"), options[0]
+        )
         default_value = default_option["name"]
         return {"options": options, "default": default_value, "value": default_value}
 
@@ -95,7 +97,7 @@ def _parse_var_line(line: str) -> tuple[str, str, str, str] | None:
         )
 
     # Recover malformed lines like:
-    # @var select darkFlavor @var select flavor "Flavor" ["night:Night*"]
+    # @var select darkFlavor @var select flavor "Flavor" ["dark:dark*"]
     # We keep the intended variable name from the first segment and parse label/value from the second.  # noqa: E501
     duplicate_marker = " @var "
     if duplicate_marker not in line:
@@ -204,7 +206,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--output",
-        default=str(ROOTPATH / "dist" / "stylus" / "pivoshenko.json"),
+        default=str(ROOTPATH / "dist" / "stylus" / "morok.json"),
         help="Output import JSON path",
     )
     args = parser.parse_args()

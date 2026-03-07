@@ -125,7 +125,7 @@ Examples below use `morok_dark`; swap to `morok_light` when needed (including `F
 
 1. Install the [Stylus browser extension](https://add0n.com/stylus.html).
 2. In Stylus, open the extension popup, go to `Manage`, then `Import`.
-3. Select [`dist/stylus/pivoshenko.json`](dist/stylus/pivoshenko.json).
+3. Select [`dist/stylus/morok.json`](dist/stylus/morok.json).
 
 Default accent color is **blue**.
 
