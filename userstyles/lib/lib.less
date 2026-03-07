@@ -1,7 +1,4 @@
 /* deno-fmt-ignore */
-@accentColor: blue;
-
-/* deno-fmt-ignore */
 @pivoshenko: {
   @night: {
     @rosewater: "#e2cfc6";
@@ -74,81 +71,6 @@
 ;
 
 #lib {
-  .resolve-accent(@name) when (@name = rosewater) {
-    @accent: @rosewater;
-    @accent-filter: @rosewater-filter;
-  }
-
-  .resolve-accent(@name) when (@name = flamingo) {
-    @accent: @flamingo;
-    @accent-filter: @flamingo-filter;
-  }
-
-  .resolve-accent(@name) when (@name = pink) {
-    @accent: @pink;
-    @accent-filter: @pink-filter;
-  }
-
-  .resolve-accent(@name) when (@name = mauve) {
-    @accent: @mauve;
-    @accent-filter: @mauve-filter;
-  }
-
-  .resolve-accent(@name) when (@name = red) {
-    @accent: @red;
-    @accent-filter: @red-filter;
-  }
-
-  .resolve-accent(@name) when (@name = maroon) {
-    @accent: @maroon;
-    @accent-filter: @maroon-filter;
-  }
-
-  .resolve-accent(@name) when (@name = peach) {
-    @accent: @peach;
-    @accent-filter: @peach-filter;
-  }
-
-  .resolve-accent(@name) when (@name = yellow) {
-    @accent: @yellow;
-    @accent-filter: @yellow-filter;
-  }
-
-  .resolve-accent(@name) when (@name = green) {
-    @accent: @green;
-    @accent-filter: @green-filter;
-  }
-
-  .resolve-accent(@name) when (@name = teal) {
-    @accent: @teal;
-    @accent-filter: @teal-filter;
-  }
-
-  .resolve-accent(@name) when (@name = blue) {
-    @accent: @blue;
-    @accent-filter: @blue-filter;
-  }
-
-  .resolve-accent(@name) when (@name = sapphire) {
-    @accent: @sapphire;
-    @accent-filter: @sapphire-filter;
-  }
-
-  .resolve-accent(@name) when (@name = sky) {
-    @accent: @sky;
-    @accent-filter: @sky-filter;
-  }
-
-  .resolve-accent(@name) when (@name = lavender) {
-    @accent: @lavender;
-    @accent-filter: @lavender-filter;
-  }
-
-  .resolve-accent(@name) when (@name = subtext0) {
-    @accent: @subtext0;
-    @accent-filter: @subtext0-filter;
-  }
-
   .palette() {
     @rosewater: @pivoshenko[@@flavor][@rosewater];
     @flamingo: @pivoshenko[@@flavor][@flamingo];
@@ -176,6 +98,8 @@
     @base: @pivoshenko[@@flavor][@base];
     @mantle: @pivoshenko[@@flavor][@mantle];
     @crust: @pivoshenko[@@flavor][@crust];
+    @accent: @pivoshenko[@@flavor][@@accentColor];
+
     @rosewater-filter: @pivoshenko-filters[@@flavor][@rosewater];
     @flamingo-filter: @pivoshenko-filters[@@flavor][@flamingo];
     @pink-filter: @pivoshenko-filters[@@flavor][@pink];
@@ -202,16 +126,14 @@
     @base-filter: @pivoshenko-filters[@@flavor][@base];
     @mantle-filter: @pivoshenko-filters[@@flavor][@mantle];
     @crust-filter: @pivoshenko-filters[@@flavor][@crust];
-    @accent: @blue;
-    @accent-filter: @blue-filter;
-    .resolve-accent(@accentColor);
+    @accent-filter: @pivoshenko-filters[@@flavor][@@accentColor];
   }
 
   .defaults() {
-    color-scheme: dark;
+    color-scheme: if(@flavor =latte, light, dark);
 
     ::selection {
-      background-color: @accent;
+      background-color: fade(@accent, 30%);
     }
 
     input,
@@ -231,31 +153,31 @@
   }
 
   .css-variables() {
-    --pivoshenko-rosewater: @rosewater;
-    --pivoshenko-flamingo: @flamingo;
-    --pivoshenko-pink: @pink;
-    --pivoshenko-mauve: @mauve;
-    --pivoshenko-red: @red;
-    --pivoshenko-maroon: @maroon;
-    --pivoshenko-peach: @peach;
-    --pivoshenko-yellow: @yellow;
-    --pivoshenko-green: @green;
-    --pivoshenko-teal: @teal;
-    --pivoshenko-sky: @sky;
-    --pivoshenko-sapphire: @sapphire;
-    --pivoshenko-blue: @blue;
-    --pivoshenko-lavender: @lavender;
-    --pivoshenko-text: @text;
-    --pivoshenko-subtext1: @subtext1;
-    --pivoshenko-subtext0: @subtext0;
-    --pivoshenko-overlay2: @overlay2;
-    --pivoshenko-overlay1: @overlay1;
-    --pivoshenko-overlay0: @overlay0;
-    --pivoshenko-surface2: @surface2;
-    --pivoshenko-surface1: @surface1;
-    --pivoshenko-surface0: @surface0;
-    --pivoshenko-base: @base;
-    --pivoshenko-mantle: @mantle;
-    --pivoshenko-crust: @crust;
+    --ctp-rosewater: @rosewater;
+    --ctp-flamingo: @flamingo;
+    --ctp-pink: @pink;
+    --ctp-mauve: @mauve;
+    --ctp-red: @red;
+    --ctp-maroon: @maroon;
+    --ctp-peach: @peach;
+    --ctp-yellow: @yellow;
+    --ctp-green: @green;
+    --ctp-teal: @teal;
+    --ctp-sky: @sky;
+    --ctp-sapphire: @sapphire;
+    --ctp-blue: @blue;
+    --ctp-lavender: @lavender;
+    --ctp-text: @text;
+    --ctp-subtext1: @subtext1;
+    --ctp-subtext0: @subtext0;
+    --ctp-overlay2: @overlay2;
+    --ctp-overlay1: @overlay1;
+    --ctp-overlay0: @overlay0;
+    --ctp-surface2: @surface2;
+    --ctp-surface1: @surface1;
+    --ctp-surface0: @surface0;
+    --ctp-base: @base;
+    --ctp-mantle: @mantle;
+    --ctp-crust: @crust;
   }
 }
