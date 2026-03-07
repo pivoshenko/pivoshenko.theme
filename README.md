@@ -21,6 +21,7 @@
     - [Spicetify](#spicetify)
     - [Starship](#starship)
     - [VSCode](#vscode)
+    - [Zed](#zed)
     - [Zen](#zen)
     - [Zellij](#zellij)
   - [Userstyles](#userstyles)
@@ -110,6 +111,11 @@ Examples below use `morok_dark`; swap to `morok_light` when needed (including `F
 
 > [!NOTE]
 > VSCode does not load an arbitrary standalone theme JSON directly from settings alone. Treat this file as a generated theme source.
+
+### Zed
+
+1. Copy [`dist/zed/morok_dark.json`](dist/zed/morok_dark.json) to a stable location, for example `~/.config/zed/themes/morok_dark.json`.
+2. Open Zed and choose the theme from `Theme Selector` (or set it in your Zed settings).
 
 ### Zen
 
