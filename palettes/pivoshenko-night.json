@@ -28,15 +28,5 @@
     "base": "#20273a",
     "mantle": "#1a2031",
     "crust": "#13182a"
-  },
-  "derived": {
-    "minus_style": "#4a3a4c",
-    "minus_emph_style": "#694d5a",
-    "plus_style": "#3d4c4c",
-    "plus_emph_style": "#51675a",
-    "map_purple": "#5b527f",
-    "map_blue": "#47577f",
-    "map_cyan": "#4b6778",
-    "map_yellow": "#6c665e"
   }
 }

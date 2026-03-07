@@ -12,7 +12,7 @@ Goal: keep one source palette and generate consistent themes for multiple tools.
 
 ## Structure
 
-- `palettes/*.json` - semantic color tokens
+- `palettes/*.json` - Catppuccin-compatible semantic color tokens (rosewater..crust)
 - `templates/*` - tool templates with token placeholders
 - `scripts/render.py` - generator
 - `dist/` - generated outputs
