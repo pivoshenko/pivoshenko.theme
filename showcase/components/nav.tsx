@@ -23,6 +23,14 @@ export function Nav() {
         </Link>
 
         <div className="flex items-center">
+          <a
+            href="https://pivoshenko.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="type-ui px-3 py-1.5 rounded fg-subtle hover-primary transition-colors"
+          >
+            Blog
+          </a>
           {tabs.map((tab) => {
             const isActive = pathname.startsWith(tab.href)
             return (
