@@ -17,6 +17,8 @@ downloads/
 eggs/
 .eggs/
 lib/
+!showcase/lib/
+!showcase/lib/**
 lib64/
 parts/
 sdist/
