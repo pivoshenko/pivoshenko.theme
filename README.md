@@ -9,6 +9,23 @@
 - [pivoshenko.theme](#pivoshenkotheme)
   - [Overview](#overview)
   - [Ports](#ports)
+      - [Bat](#bat)
+      - [Bottom](#bottom)
+      - [Delta](#delta)
+      - [Discord](#discord)
+      - [Fish](#fish)
+      - [Fzf](#fzf)
+      - [Ghostty](#ghostty)
+      - [Helix](#helix)
+      - [K9s](#k9s)
+      - [Lazygit](#lazygit)
+      - [Obsidian](#obsidian)
+      - [Spicetify](#spicetify)
+      - [Starship](#starship)
+      - [VSCode](#vscode)
+      - [Zed](#zed)
+      - [Zen](#zen)
+      - [Zellij](#zellij)
   - [Userstyles](#userstyles)
 
 ## Overview
@@ -23,94 +40,94 @@ Repository contains ports for various terminal applications and userstyles for p
 
 ## Ports
 
-**Bat**
+#### Bat
 
 1. Copy [`dist/bat/morok.tmTheme`](dist/bat/morok.tmTheme) to `~/.config/bat/themes/`.
 2. Run `bat cache --build`.
 3. Set `--theme="morok"` in `~/.config/bat/config`.
 
-**Bottom**
+#### Bottom
 
 1. Copy [`dist/bottom/morok.toml`](dist/bottom/morok.toml) to `~/.config/bottom/bottom.toml`.
 2. Start `btm`.
 
-**Delta**
+#### Delta
 
 1. Copy [`dist/delta/morok.gitconfig`](dist/delta/morok.gitconfig) to `~/.config/delta/themes/morok.gitconfig`.
 2. Add `include = ~/.config/delta/themes/morok.gitconfig` under `[include]` in `~/.gitconfig`.
 3. Set `features = morok` under `[delta]` in `~/.gitconfig`.
 
-**Discord**
+#### Discord
 
 1. Copy [`dist/discord/morok.theme.css`](dist/discord/morok.theme.css) to your Discord themes folder (`~/.config/vesktop/themes/` for Vesktop, or BetterDiscord themes directory).
 2. Enable the theme in your Discord client.
 
-**Fish**
+#### Fish
 
 1. Copy [`dist/fish/morok.theme`](dist/fish/morok.theme) to `~/.config/fish/themes/`.
 2. Run `fish_config theme save morok`.
 
-**Fzf**
+#### Fzf
 
 1. Copy [`dist/fzf/morok.fish`](dist/fzf/morok.fish) to `~/.config/fish/conf.d/`.
 2. Start a new Fish session, or source the file manually.
 3. Set `FZF_DEFAULT_OPTS="$FZF_MOROK_DARK"` or append `$FZF_MOROK_DARK` to your existing `FZF_DEFAULT_OPTS`.
 
-**Ghostty**
+#### Ghostty
 
 1. Copy [`dist/ghostty/morok.conf`](dist/ghostty/morok.conf) to `~/.config/ghostty/themes/morok`.
 2. Set `theme = morok` in `~/.config/ghostty/config`.
 
-**Helix**
+#### Helix
 
 1. Copy [`dist/helix/morok.toml`](dist/helix/morok.toml) to `~/.config/helix/themes/morok.toml`.
 2. Set `theme = "morok"` in `~/.config/helix/config.toml`.
 
-**K9s**
+#### K9s
 
 1. Copy [`dist/k9s/morok.yaml`](dist/k9s/morok.yaml) to `~/.config/k9s/skins/morok.yaml`.
 2. Set `skin: morok` in `~/.config/k9s/config.yaml`.
 
-**Lazygit**
+#### Lazygit
 
 1. Copy [`dist/lazygit/morok.yml`](dist/lazygit/morok.yml) to `~/.config/lazygit/config.yml`.
 2. Or merge only the `theme:` section into your existing config.
 
-**Obsidian**
+#### Obsidian
 
 1. Copy [`dist/obsidian/morok.css`](dist/obsidian/morok.css) to your Obsidian theme folder and rename it to `theme.css`.
 2. Optionally copy [`dist/obsidian/morok.manifest.json`](dist/obsidian/morok.manifest.json) and rename it to `manifest.json`.
 3. Enable the theme in Obsidian Appearance settings.
 
-**Spicetify**
+#### Spicetify
 
 1. Copy [`dist/spicetify/morok.color.ini`](dist/spicetify/morok.color.ini) to `~/.config/spicetify/Themes/morok/color.ini`.
 2. Set `current_theme = morok` in your Spicetify config.
 3. Run `spicetify apply`.
 
-**Starship**
+#### Starship
 
 1. Copy the palette from [`dist/starship/morok.toml`](dist/starship/morok.toml) to your [Starship configuration file](https://starship.rs/config/).
 2. Set `palette = "morok"`, preferably near the top of your config.
 3. Save and reload your prompt.
 
-**VSCode**
+#### VSCode
 
 1. Install a Catppuccin VSCode theme (for example `Catppuccin Mocha`).
 2. Open the generated override snippet [`dist/vscode/morok.json`](dist/vscode/morok.json).
 3. Merge its `catppuccin.colorOverrides` block into your VSCode `settings.json`.
 
-**Zed**
+#### Zed
 
 1. Copy [`dist/zed/morok.json`](dist/zed/morok.json) to a stable location, for example `~/.config/zed/themes/morok.json`.
 2. Open Zed and choose the theme from `Theme Selector` (or set it in your Zed settings).
 
-**Zen**
+#### Zen
 
 1. Copy [`dist/zen/morok.userChrome.css`](dist/zen/morok.userChrome.css) and [`dist/zen/morok.userContent.css`](dist/zen/morok.userContent.css) into your Zen profile `chrome/` directory as `userChrome.css` and `userContent.css`.
 2. Restart Zen Browser.
 
-**Zellij**
+#### Zellij
 
 1. Copy the theme block from [`dist/zellij/morok.kdl`](dist/zellij/morok.kdl) into your Zellij config, or place it in a sourced theme file.
 2. Set the active theme to `morok`.
