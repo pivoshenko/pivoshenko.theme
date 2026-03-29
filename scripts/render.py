@@ -13,7 +13,7 @@ import jinja2
 import loguru
 
 
-def _log_format(record: dict[str, typing.Any]) -> str:
+def _log_format(record: loguru.Record) -> str:
     level = record["level"].name
     color = {
         "INFO": "green",
@@ -33,7 +33,8 @@ ROOTPATH = pathlib.Path(__file__).resolve().parent.parent
 
 def _hex_to_rgb(value: str) -> tuple[int, int, int]:
     value = value.lstrip("#")
-    return tuple(int(value[i : i + 2], 16) for i in (0, 2, 4))
+    r, g, b = (int(value[i : i + 2], 16) for i in (0, 2, 4))
+    return r, g, b
 
 
 def _rgb_to_hex(rgb: tuple[int, int, int]) -> str:
@@ -177,7 +178,7 @@ def main() -> None:
         trim_blocks=False,
         lstrip_blocks=False,
     )
-    env.globals["iif"] = _iif
+    typing.cast("dict[str, typing.Any]", env.globals)["iif"] = _iif
     env.filters["mix"] = _mix
     env.filters["get"] = _get
     env.filters["rgb"] = _rgb
