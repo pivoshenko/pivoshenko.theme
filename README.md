@@ -1,32 +1,10 @@
 # pivoshenko.theme
 
-<p align="center">
+<p align="left">
   <a href="https://stand-with-ukraine.pp.ua/">
     <img alt="StandWithUkraine" src="https://img.shields.io/badge/Support-Ukraine-FFC93C?style=flat-square&labelColor=07689F">
   </a>
 </p>
-
-- [pivoshenko.theme](#pivoshenkotheme)
-  - [Overview](#overview)
-  - [Ports](#ports)
-      - [Bat](#bat)
-      - [Bottom](#bottom)
-      - [Delta](#delta)
-      - [Discord](#discord)
-      - [Fish](#fish)
-      - [Fzf](#fzf)
-      - [Ghostty](#ghostty)
-      - [Helix](#helix)
-      - [K9s](#k9s)
-      - [Lazygit](#lazygit)
-      - [Obsidian](#obsidian)
-      - [Spicetify](#spicetify)
-      - [Starship](#starship)
-      - [VSCode](#vscode)
-      - [Zed](#zed)
-      - [Zen](#zen)
-      - [Zellij](#zellij)
-  - [Userstyles](#userstyles)
 
 ## Overview
 
