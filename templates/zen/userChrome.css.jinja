@@ -22,10 +22,12 @@
     --zen-themed-toolbar-bg: {{ mantle.hex }} !important;
     --zen-main-browser-background: {{ mantle.hex }} !important;
     --toolbox-bgcolor-inactive: {{ mantle.hex }} !important;
+    --zen-element-separation: 8px !important;
+    --zen-webview-border-radius: 10px !important;
   }
 
   #permissions-granted-icon {
-    color: {{ mantle.hex }} !important;
+    --identity-icon-color: {{ mauve.hex }} !important;
   }
 
   .sidebar-placesTree,
@@ -35,9 +37,67 @@
   }
 
   #TabsToolbar,
-  hbox#titlebar,
   #zen-appcontent-navbar-container {
     background-color: {{ mantle.hex }} !important;
+  }
+
+  /* Safer Zen Twilight acrylic/seam fix */
+  #sidebar-splitter,
+  #zen-sidebar-splitter {
+    --themed-splitter-idle: {{ mantle.hex }};
+    --themed-splitter-hover: color-mix(
+      in srgb,
+      white 28%,
+      {{ mantle.hex }} 72%
+    );
+    border: none !important;
+    opacity: 1 !important;
+    background: var(--themed-splitter-idle) !important;
+    background-color: var(--themed-splitter-idle) !important;
+    transition:
+      background-color 0.18s ease-in-out,
+      background 0.18s ease-in-out,
+      opacity 0.18s ease-in-out !important;
+  }
+
+  #sidebar-splitter::before,
+  #zen-sidebar-splitter::before {
+    display: none !important;
+    opacity: 0 !important;
+  }
+
+  #sidebar-splitter:hover,
+  #zen-sidebar-splitter:hover {
+    background: var(--themed-splitter-hover) !important;
+    background-color: var(--themed-splitter-hover) !important;
+  }
+
+  /* Wrapper appearance reset */
+  #zen-main-app-wrapper,
+  #zen-appcontent-wrapper,
+  #zen-sidebar-splitter,
+  #zen-browser-background {
+    appearance: unset !important;
+    -moz-default-appearance: none !important;
+  }
+
+  /* Wrapper/background painting */
+  #zen-main-app-wrapper,
+  #zen-appcontent-wrapper,
+  #zen-browser-background,
+  .zen-browser-generic-background,
+  .zen-toolbar-background,
+  #navigator-toolbox,
+  #tabbrowser-tabbox,
+  #main-window {
+    background: {{ mantle.hex }} !important;
+    background-color: {{ mantle.hex }} !important;
+  }
+
+  /* Remove seam shadows at sidebar/content corners */
+  #zen-tabbox-wrapper #sidebar-box,
+  #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+    box-shadow: none !important;
   }
 
   .content-shortcuts {
