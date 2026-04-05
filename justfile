@@ -11,7 +11,6 @@ format-py:
 lint-py:
   uv run ty check .
   uv run ruff check .
-  uv run cz check --rev-range .
 
 update-py:
   uv lock --upgrade
