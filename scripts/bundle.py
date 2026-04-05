@@ -75,7 +75,8 @@ def _parse_var_value(var_type: str, raw: str) -> dict[str, typing.Any]:
         if not options:
             return {"options": [], "default": None, "value": None}
         default_option = next(
-            (option for option in options if option["default"] == "1"), options[0],
+            (option for option in options if option["default"] == "1"),
+            options[0],
         )
         default_value = default_option["name"]
         return {"options": options, "default": default_value, "value": default_value}
