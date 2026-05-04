@@ -6,8 +6,8 @@ dependencies = ["jinja2~=3.1.6", "loguru~=0.7.3"]
 
 [dependency-groups]
 ci = ["python-semantic-release~=10.5.3"]
-formatters = ["pyupgrade~=3.21.2", "ruff~=0.15.9"]
-linters = ["ruff~=0.15.9", "ty~=0.0.28"]
+formatters = ["pyupgrade~=3.21.2", "ruff~=0.15.12"]
+linters = ["ruff~=0.15.12", "ty~=0.0.34"]
 
 [tool.ruff]
 fix = true
