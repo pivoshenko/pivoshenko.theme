@@ -5,7 +5,6 @@ requires-python = ">=3.13"
 dependencies = ["jinja2~=3.1.6", "loguru~=0.7.3"]
 
 [dependency-groups]
-ci = ["python-semantic-release~=10.5.3"]
 formatters = ["pyupgrade~=3.21.2", "ruff~=0.15.12"]
 linters = ["ruff~=0.15.12", "ty~=0.0.34"]
 
@@ -26,8 +25,6 @@ length-sort-straight = true
 lines-after-imports = 2
 lines-between-types = 1
 required-imports = ["from __future__ import annotations"]
-
-[tool.ruff.lint.per-file-ignores]
 
 [tool.ruff.format]
 docstring-code-format = true
