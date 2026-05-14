@@ -1,7 +1,7 @@
 [styles.cpu]
 all_entry_color = "#e2cfc6"
 avg_entry_color = "#b97a74"
-cpu_core_colors = ["#c98787", "#d0a178", "#c7b07a", "#8ea98c", "#7398ad", "#a78cc4"]
+cpu_core_colors = ["#c98787", "#d0a178", "#c7b07a",  "#8ea98c", "#7398ad", "#a78cc4"]
 
 [styles.memory]
 ram_color = "#8ea98c"
