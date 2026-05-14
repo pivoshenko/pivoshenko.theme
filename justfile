@@ -17,15 +17,18 @@ update-py:
     uvx uv-upsync
 
 format-next:
-    cd showcase && pnpm format
+    cd site && pnpm format
 
 lint-next:
-    cd showcase && pnpm check
-    cd showcase && pnpm build
+    cd site && pnpm check
+    cd site && pnpm build
 
 update-next:
-    cd showcase && pnpm update
+    cd site && pnpm update
 
 render:
     uv run scripts/render.py --palette palettes/morok.json
     uv run scripts/bundle.py
+
+clean:
+    rm -rf dist
