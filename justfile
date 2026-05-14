@@ -27,8 +27,8 @@ update-next:
     cd site && pnpm update
 
 render:
-    uv run scripts/render.py --palette palettes/morok.json
-    uv run scripts/bundle.py
+    uv run scripts/render.py --palette morok/palettes/morok.json
+    uv run scripts/bundle.py --styles-dir morok/userstyles/styles --output morok/dist/stylus/morok.json
 
 clean:
-    rm -rf dist
+    rm -rf morok/dist

@@ -197,8 +197,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Bundle userstyles into Stylus import JSON")
     parser.add_argument(
         "--styles-dir",
-        default=str(ROOTPATH / "userstyles" / "styles"),
-        help="Directory containing userstyle subdirectories",
+        required=True,
+        help="Directory containing userstyle subdirectories (e.g. morok/userstyles/styles)",
     )
     parser.add_argument(
         "--style-filename",
@@ -207,8 +207,8 @@ def main() -> None:
     )
     parser.add_argument(
         "--output",
-        default=str(ROOTPATH / "dist" / "stylus" / "morok.json"),
-        help="Output import JSON path",
+        required=True,
+        help="Output import JSON path (e.g. morok/dist/stylus/morok.json)",
     )
     args = parser.parse_args()
 

@@ -68,7 +68,10 @@ function colorGroup(name: string): PaletteColor['group'] {
 }
 
 export function getPalette() {
-  const raw = readFileSync(join(repoRoot, 'palettes', 'morok.json'), 'utf8')
+  const raw = readFileSync(
+    join(repoRoot, 'morok', 'palettes', 'morok.json'),
+    'utf8',
+  )
   const palette = JSON.parse(raw) as PaletteFile
 
   const colors: PaletteColor[] = Object.entries(palette.colors).map(
@@ -87,7 +90,7 @@ export function getPalette() {
 }
 
 export function getPorts(): Port[] {
-  const distDir = join(repoRoot, 'dist')
+  const distDir = join(repoRoot, 'morok', 'dist')
   const ports = readdirSync(distDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && !entry.name.startsWith('.'))
     .map((entry) => {
@@ -97,7 +100,7 @@ export function getPorts(): Port[] {
         .filter((file) => file.isFile() && !file.name.startsWith('.'))
         .map((file) => ({
           name: file.name,
-          githubUrl: `${githubRepo}/blob/main/dist/${entry.name}/${file.name}`,
+          githubUrl: `${githubRepo}/blob/main/morok/dist/${entry.name}/${file.name}`,
         }))
         .sort((a, b) => a.name.localeCompare(b.name))
 
