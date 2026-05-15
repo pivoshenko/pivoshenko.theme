@@ -10,23 +10,29 @@ export default function HomePage() {
   return (
     <div className="space-y-10">
       <section className="space-y-4">
-        <p className="type-body fg-body max-w-2xl">
-          Morok is a warm, low-contrast palette built around stone neutrals and
-          muted accents. One source-of-truth JSON renders into ports for
-          terminals, editors, browsers, and notes — generated from Jinja
-          templates and committed to the repo so consumers never need a build
-          step.
+        <p className="type-body fg-body">
+          <a
+            href="https://github.com/pivoshenko/pivoshenko.theme"
+            className="underline decoration-[#c7b07a]/40 hover:decoration-[#c7b07a] underline-offset-2 transition-colors"
+            style={{ color: '#c7b07a' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Morok
+          </a>{' '}
+          — a theme focused on minimalism, simplicity, and cross-tool
+          consistency.
         </p>
-      </section>
-
-      <section className="space-y-4">
-        <SectionHeader title="colors" count={palette.colors.length} />
-        <PaletteExplorer colors={palette.colors} />
       </section>
 
       <section className="space-y-4">
         <SectionHeader title="ports" count={ports.length} />
         <PortsGrid ports={ports} />
+      </section>
+
+      <section className="space-y-4">
+        <SectionHeader title="colors" count={palette.colors.length} />
+        <PaletteExplorer colors={palette.colors} />
       </section>
     </div>
   )
