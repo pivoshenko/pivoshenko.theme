@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { ThemeProvider } from 'next-themes'
 import { JetBrains_Mono } from 'next/font/google'
+import { ScrollToTop } from 'pivoshenko.ui'
 import './globals.css'
 
 const jetbrainsMono = JetBrains_Mono({
@@ -42,6 +43,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          <ScrollToTop />
         </ThemeProvider>
         <Analytics />
       </body>
