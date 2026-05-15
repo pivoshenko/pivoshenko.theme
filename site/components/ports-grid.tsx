@@ -1,16 +1,54 @@
 import type { Port } from '@/lib/theme-data'
-import { Boxes, ExternalLink } from 'lucide-react'
+import {
+  Activity,
+  BookOpen,
+  Code,
+  ExternalLink,
+  GitBranch,
+  Globe,
+  type LucideIcon,
+  MessageCircle,
+  Music,
+  Palette,
+  Search,
+  Send,
+  Terminal,
+} from 'lucide-react'
 
 type Props = {
   ports: Port[]
 }
 
+const portIcons: Record<string, LucideIcon> = {
+  bat: Terminal,
+  bottom: Activity,
+  'css-vars': Palette,
+  delta: GitBranch,
+  discord: MessageCircle,
+  fish: Terminal,
+  fzf: Search,
+  ghostty: Terminal,
+  helix: Code,
+  k9s: Activity,
+  lazygit: GitBranch,
+  obsidian: BookOpen,
+  spicetify: Music,
+  starship: Terminal,
+  stylus: Palette,
+  tailwind: Palette,
+  telegram: Send,
+  vscode: Code,
+  zed: Code,
+  zellij: Terminal,
+  zen: Globe,
+}
+
 export function PortsGrid({ ports }: Props) {
   return (
-    <section className="space-y-4">
-      <h2 className="type-heading fg-primary">Ports</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {ports.map((port) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {ports.map((port) => {
+        const Icon = portIcons[port.name] ?? Palette
+        return (
           <a
             key={port.name}
             href={port.readmeUrl}
@@ -19,13 +57,13 @@ export function PortsGrid({ ports }: Props) {
             className="rounded border border-ui bg-white dark:bg-stone-950 p-3 type-ui fg-primary hover-secondary transition-colors flex items-center justify-between gap-2"
           >
             <span className="inline-flex items-center gap-2">
-              <Boxes aria-hidden="true" className="w-4 h-4" />
+              <Icon aria-hidden="true" className="w-4 h-4" />
               {port.name}
             </span>
             <ExternalLink aria-hidden="true" className="w-3 h-3 fg-muted" />
           </a>
-        ))}
-      </div>
-    </section>
+        )
+      })}
+    </div>
   )
 }

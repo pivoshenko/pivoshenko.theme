@@ -28,72 +28,68 @@ export function PaletteExplorer({ colors }: Props) {
   }
 
   return (
-    <section className="space-y-4">
-      <h2 className="type-heading fg-primary">Colors</h2>
+    <div className="overflow-x-auto rounded border border-ui bg-white dark:bg-stone-950">
+      <table className="w-full min-w-[760px] border-collapse">
+        <thead>
+          <tr className="border-b border-ui">
+            <th className="text-left px-3 py-2 type-label fg-muted">Color</th>
+            <th className="text-left px-3 py-2 type-label fg-muted">Hex</th>
+            <th className="text-left px-3 py-2 type-label fg-muted">RGB</th>
+            <th className="text-left px-3 py-2 type-label fg-muted">HSL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {colors.map((color) => {
+            const rgb = hexToRgb(color.hex)
+            const rgbValue = rgb ? `${rgb.r}, ${rgb.g}, ${rgb.b}` : '-'
+            const hslValue = rgb ? rgbToHslString(rgb) : '-'
 
-      <div className="overflow-x-auto rounded border border-ui bg-white dark:bg-stone-950">
-        <table className="w-full min-w-[760px] border-collapse">
-          <thead>
-            <tr className="border-b border-ui">
-              <th className="text-left px-3 py-2 type-label fg-muted">Color</th>
-              <th className="text-left px-3 py-2 type-label fg-muted">Hex</th>
-              <th className="text-left px-3 py-2 type-label fg-muted">RGB</th>
-              <th className="text-left px-3 py-2 type-label fg-muted">HSL</th>
-            </tr>
-          </thead>
-          <tbody>
-            {colors.map((color) => {
-              const rgb = hexToRgb(color.hex)
-              const rgbValue = rgb ? `${rgb.r}, ${rgb.g}, ${rgb.b}` : '-'
-              const hslValue = rgb ? rgbToHslString(rgb) : '-'
-
-              return (
-                <tr
-                  key={color.name}
-                  className="border-b border-faint last:border-b-0"
-                >
-                  <td className="px-3 py-2">
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="w-4 h-4 rounded-full border border-ui"
-                        style={{ backgroundColor: color.hex }}
-                      />
-                      <span className="type-ui fg-primary">{color.name}</span>
-                      <CopyButton
-                        value={color.name}
-                        copied={copied === color.name}
-                        onCopy={onCopy}
-                      />
-                    </div>
-                  </td>
-                  <td className="px-3 py-2">
-                    <ValueCell
-                      value={color.hex}
-                      copied={copied === color.hex}
+            return (
+              <tr
+                key={color.name}
+                className="border-b border-faint last:border-b-0"
+              >
+                <td className="px-3 py-2">
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="w-4 h-4 rounded-full border border-ui"
+                      style={{ backgroundColor: color.hex }}
+                    />
+                    <span className="type-ui fg-primary">{color.name}</span>
+                    <CopyButton
+                      value={color.name}
+                      copied={copied === color.name}
                       onCopy={onCopy}
                     />
-                  </td>
-                  <td className="px-3 py-2">
-                    <ValueCell
-                      value={rgbValue}
-                      copied={copied === rgbValue}
-                      onCopy={onCopy}
-                    />
-                  </td>
-                  <td className="px-3 py-2">
-                    <ValueCell
-                      value={hslValue}
-                      copied={copied === hslValue}
-                      onCopy={onCopy}
-                    />
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
-    </section>
+                  </div>
+                </td>
+                <td className="px-3 py-2">
+                  <ValueCell
+                    value={color.hex}
+                    copied={copied === color.hex}
+                    onCopy={onCopy}
+                  />
+                </td>
+                <td className="px-3 py-2">
+                  <ValueCell
+                    value={rgbValue}
+                    copied={copied === rgbValue}
+                    onCopy={onCopy}
+                  />
+                </td>
+                <td className="px-3 py-2">
+                  <ValueCell
+                    value={hslValue}
+                    copied={copied === hslValue}
+                    onCopy={onCopy}
+                  />
+                </td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
