@@ -57,7 +57,7 @@ pivoshenko.theme/
 
 Two ports target the brand's web stack:
 
-- `morok/templates/tailwind/theme.js.jinja` → `morok/dist/tailwind/morok.js` — Tailwind preset (CommonJS) exposing `colors.morok.<token>` and JetBrains Mono font stack. Consumed by `pivoshenko.ui/packages/tailwind-preset` (vendored on tag bumps).
+- `morok/templates/tailwind/theme.js.jinja` → `morok/dist/tailwind/morok.js` — Tailwind preset (CommonJS) exposing `colors.morok.<token>` and JetBrains Mono font stack. Consumed by `pivoshenko.ui/tailwind-preset` (vendored on release; sites import via `pivoshenko.ui/tailwind-preset` subpath).
 - `morok/templates/css-vars/theme.css.jinja` → `morok/dist/css-vars/morok.css` — `:root` custom properties named `--morok-<token>`. Consumed by the `pivoshenko-brand` skill's HTML reference and any plain-CSS surfaces.
 
 ### Userstyles
