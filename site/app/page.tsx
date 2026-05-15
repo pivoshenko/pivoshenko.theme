@@ -23,6 +23,12 @@ export default function HomePage() {
           — a theme focused on minimalism, simplicity, and cross-tool
           consistency.
         </p>
+        <p className="type-body fg-body">
+          <em>Morok</em> (pronounced [mo-rok]) is a Ukrainian word that means
+          “darkness” or “gloom”. It is often used to describe a state of
+          melancholy, sadness, or despair, and can also refer to a dark and
+          gloomy atmosphere or environment.
+        </p>
       </section>
 
       <section className="space-y-4">
