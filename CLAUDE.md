@@ -68,6 +68,8 @@ Two ports target the brand's web stack:
 
 `site/` — Next.js app for visual preview of palette + ports. Managed separately with `pnpm` inside that directory. Renamed from `showcase/` to align with the `me/` repo convention where every web preview lives in `site/`.
 
+Chrome is composed via `<PageShell brand="pivoshenko.theme">` from `pivoshenko.ui` (`Nav` + `Footer` + `ThemeToggle` + `ScrollToTop`). No local nav/footer/theme-toggle copies — see the shared UI invariant in `me/CLAUDE.md`.
+
 ## Key conventions
 
 - Hex values in `morok/palettes/morok.json` include the `#` prefix — templates do **not** add their own `#`.
