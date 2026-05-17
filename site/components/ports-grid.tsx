@@ -54,9 +54,9 @@ export function PortsGrid({ ports }: Props) {
             href={port.readmeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded border border-ui bg-white dark:bg-stone-950 p-3 type-ui fg-primary hover-secondary transition-colors flex items-center justify-between gap-2"
+            className="group rounded-lg border border-ui bg-white dark:bg-stone-950 p-3 flex items-center justify-between gap-3 hover:border-stone-400 dark:hover:border-stone-700 transition-colors"
           >
-            <span className="inline-flex items-center gap-2">
+            <span className="inline-flex items-center gap-2 type-ui fg-primary">
               <Icon aria-hidden="true" className="w-4 h-4" />
               {port.name}
             </span>
