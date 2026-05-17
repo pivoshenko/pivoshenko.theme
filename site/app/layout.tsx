@@ -11,13 +11,30 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://theme.pivoshenko.dev'),
   title: {
     template: '%s — pivoshenko.theme',
-    default: 'pivoshenko.theme',
+    default: 'pivoshenko.theme — morok',
   },
-  description: 'Morok theme showcase with palette and ports explorer.',
+  description:
+    'Morok — a theme focused on minimalism, simplicity, and cross-tool consistency. Palette and ports explorer.',
   icons: {
     icon: '/icon',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://theme.pivoshenko.dev',
+    siteName: 'pivoshenko.theme',
+    title: 'pivoshenko.theme — morok',
+    description:
+      'Morok — a theme focused on minimalism, simplicity, and cross-tool consistency. Palette and ports explorer.',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'pivoshenko.theme — morok',
+    description:
+      'Morok — a theme focused on minimalism, simplicity, and cross-tool consistency.',
   },
 }
 
