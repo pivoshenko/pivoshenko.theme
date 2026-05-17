@@ -1,5 +1,6 @@
 'use client'
 
+import { hexToRgb, rgbToHslString } from '@/lib/contrast'
 import type { PaletteColor } from '@/lib/theme-data'
 import { Copy } from 'lucide-react'
 import { useState } from 'react'
@@ -8,13 +9,7 @@ type Props = {
   colors: PaletteColor[]
 }
 
-type RGB = {
-  r: number
-  g: number
-  b: number
-}
-
-export function PaletteExplorer({ colors }: Props) {
+export function PaletteTable({ colors }: Props) {
   const [copied, setCopied] = useState<string>('')
 
   const onCopy = async (value: string) => {
@@ -43,7 +38,6 @@ export function PaletteExplorer({ colors }: Props) {
             const rgb = hexToRgb(color.hex)
             const rgbValue = rgb ? `${rgb.r}, ${rgb.g}, ${rgb.b}` : '-'
             const hslValue = rgb ? rgbToHslString(rgb) : '-'
-
             return (
               <tr
                 key={color.name}
@@ -103,7 +97,6 @@ function ValueCell({
   onCopy: (value: string) => void
 }) {
   const canCopy = value !== '-'
-
   return (
     <div className="inline-flex items-center gap-2">
       <span className="type-ui fg-secondary">{value}</span>
@@ -143,47 +136,4 @@ function CopyButton({
       <Copy aria-hidden="true" className="w-3 h-3" />
     </button>
   )
-}
-
-function hexToRgb(hex: string): RGB | null {
-  const normalized = hex.trim().replace('#', '')
-  if (!/^[0-9a-fA-F]{6}$/.test(normalized)) {
-    return null
-  }
-
-  return {
-    r: Number.parseInt(normalized.slice(0, 2), 16),
-    g: Number.parseInt(normalized.slice(2, 4), 16),
-    b: Number.parseInt(normalized.slice(4, 6), 16),
-  }
-}
-
-function rgbToHslString({ r, g, b }: RGB): string {
-  const rN = r / 255
-  const gN = g / 255
-  const bN = b / 255
-
-  const max = Math.max(rN, gN, bN)
-  const min = Math.min(rN, gN, bN)
-  const delta = max - min
-
-  let h = 0
-  const l = (max + min) / 2
-  const s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1))
-
-  if (delta !== 0) {
-    if (max === rN) {
-      h = ((gN - bN) / delta) % 6
-    } else if (max === gN) {
-      h = (bN - rN) / delta + 2
-    } else {
-      h = (rN - gN) / delta + 4
-    }
-    h = Math.round(h * 60)
-    if (h < 0) {
-      h += 360
-    }
-  }
-
-  return `${h} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`
 }

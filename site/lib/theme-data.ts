@@ -10,12 +10,14 @@ export type PaletteColor = {
 export type PortFile = {
   name: string
   githubUrl: string
+  rawUrl: string
 }
 
 export type Port = {
   name: string
   files: PortFile[]
   readmeUrl: string
+  swatches: string[]
 }
 
 type PaletteFile = {
@@ -26,6 +28,8 @@ type PaletteFile = {
 
 const repoRoot = join(process.cwd(), '..')
 const githubRepo = 'https://github.com/pivoshenko/pivoshenko.theme'
+const githubRaw =
+  'https://raw.githubusercontent.com/pivoshenko/pivoshenko.theme/main'
 const readmeAnchors: Record<string, string> = {
   bat: 'bat',
   bottom: 'bottom',
@@ -46,6 +50,30 @@ const readmeAnchors: Record<string, string> = {
   zellij: 'zellij',
 }
 
+const portSwatches: Record<string, [string, string, string]> = {
+  bat: ['base', 'text', 'yellow'],
+  bottom: ['base', 'green', 'mauve'],
+  'css-vars': ['base', 'text', 'lavender'],
+  delta: ['base', 'green', 'red'],
+  discord: ['mantle', 'text', 'blue'],
+  fish: ['base', 'text', 'sky'],
+  fzf: ['base', 'subtext1', 'mauve'],
+  ghostty: ['base', 'text', 'mauve'],
+  helix: ['base', 'text', 'mauve'],
+  k9s: ['base', 'green', 'sapphire'],
+  lazygit: ['base', 'green', 'mauve'],
+  obsidian: ['crust', 'text', 'mauve'],
+  spicetify: ['base', 'text', 'green'],
+  starship: ['base', 'mauve', 'green'],
+  stylus: ['base', 'text', 'lavender'],
+  tailwind: ['base', 'text', 'lavender'],
+  telegram: ['base', 'text', 'sky'],
+  vscode: ['base', 'text', 'mauve'],
+  zed: ['base', 'text', 'mauve'],
+  zellij: ['base', 'text', 'sky'],
+  zen: ['base', 'text', 'mauve'],
+}
+
 function colorGroup(name: string): PaletteColor['group'] {
   if (
     name === 'text' ||
@@ -54,7 +82,6 @@ function colorGroup(name: string): PaletteColor['group'] {
   ) {
     return 'text'
   }
-
   if (
     name === 'base' ||
     name === 'mantle' ||
@@ -63,7 +90,6 @@ function colorGroup(name: string): PaletteColor['group'] {
   ) {
     return 'surface'
   }
-
   return 'accent'
 }
 
@@ -75,23 +101,20 @@ export function getPalette() {
   const palette = JSON.parse(raw) as PaletteFile
 
   const colors: PaletteColor[] = Object.entries(palette.colors).map(
-    ([name, hex]) => ({
-      name,
-      hex,
-      group: colorGroup(name),
-    }),
+    ([name, hex]) => ({ name, hex, group: colorGroup(name) }),
   )
 
   return {
     name: palette.name,
     flavor: palette.flavor,
     colors,
+    map: palette.colors,
   }
 }
 
 export function getPorts(): Port[] {
   const distDir = join(repoRoot, 'morok', 'dist')
-  const ports = readdirSync(distDir, { withFileTypes: true })
+  return readdirSync(distDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && !entry.name.startsWith('.'))
     .map((entry) => {
       const files = readdirSync(join(distDir, entry.name), {
@@ -101,16 +124,36 @@ export function getPorts(): Port[] {
         .map((file) => ({
           name: file.name,
           githubUrl: `${githubRepo}/blob/main/morok/dist/${entry.name}/${file.name}`,
+          rawUrl: `${githubRaw}/morok/dist/${entry.name}/${file.name}`,
         }))
         .sort((a, b) => a.name.localeCompare(b.name))
+
+      const palette = getPalette()
+      const tokens = portSwatches[entry.name] ?? ['base', 'text', 'mauve']
+      const swatches = tokens.map((t) => palette.map[t] ?? '#000000')
 
       return {
         name: entry.name,
         files,
         readmeUrl: `${githubRepo}#${readmeAnchors[entry.name] ?? 'ports'}`,
+        swatches,
       }
     })
     .sort((a, b) => a.name.localeCompare(b.name))
+}
 
-  return ports
+export function getPortContent(
+  port: string,
+  file: string,
+  maxLines = 60,
+): string {
+  try {
+    const content = readFileSync(
+      join(repoRoot, 'morok', 'dist', port, file),
+      'utf8',
+    )
+    return content.split('\n').slice(0, maxLines).join('\n')
+  } catch {
+    return ''
+  }
 }
