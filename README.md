@@ -150,3 +150,7 @@ Every palette token becomes a `--morok-<token>` custom property on `:root`.
 Default accent color is **blue**.
 
 Browse the available styles under [`morok/userstyles/styles/`](morok/userstyles/styles/).
+
+## Thanks
+
+Palette structure and token naming inspired by [Catppuccin](https://github.com/catppuccin/catppuccin).
