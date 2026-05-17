@@ -12,6 +12,8 @@
 
 Repository contains ports for various terminal applications and userstyles for popular websites. All ports are generated from a single source palette, ensuring a cohesive look across different tools and platforms.
 
+See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming `morok` across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, and stylus.
+
 **About the name**
 
 *Morok* (pronounced [mo-rok]) is a Ukrainian word that means "darkness" or "gloom". It is often used to describe a state of melancholy, sadness, or despair. The word can also refer to a dark and gloomy atmosphere or environment.
