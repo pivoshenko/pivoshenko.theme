@@ -22,11 +22,11 @@
     "overlay2": "#a8a29e",
     "overlay1": "#78716c",
     "overlay0": "#57534e",
-    "surface2": "#322f2d",
-    "surface1": "#2a2725",
-    "surface0": "#221f1d",
-    "base": "#1a1715",
-    "mantle": "#120f0d",
-    "crust": "#0a0705"
+    "surface2": "#2c2927",
+    "surface1": "#24211f",
+    "surface0": "#1c1917",
+    "base": "#14110f",
+    "mantle": "#100d0b",
+    "crust": "#0c0908"
   }
 }
