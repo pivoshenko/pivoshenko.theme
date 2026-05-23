@@ -18,13 +18,13 @@
         <key>settings</key>
         <dict>
           <key>background</key>
-          <string>#1c1917</string>
+          <string>#1a1715</string>
           <key>foreground</key>
           <string>#e7e5e4</string>
           <key>caret</key>
           <string>#e2cfc6</string>
           <key>lineHighlight</key>
-          <string>#292524</string>
+          <string>#221f1d</string>
           <key>misspelling</key>
           <string>#c98787</string>
           <key>accent</key>
@@ -32,9 +32,9 @@
           <key>selection</key>
           <string>#a8a29e40</string>
           <key>activeGuide</key>
-          <string>#363130</string>
+          <string>#2a2725</string>
           <key>findHighlight</key>
-          <string>#3e494e</string>
+          <string>#3d484d</string>
           <key>gutterForeground</key>
           <string>#78716c</string>
         </dict>

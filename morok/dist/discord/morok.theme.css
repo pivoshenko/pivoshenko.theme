@@ -57,7 +57,7 @@
   --brand-90a: #7f98bfe6;
   --brand-95a: #7f98bff2;
 
-  --__header-bar-background: #141110 !important;
+  --__header-bar-background: #120f0d !important;
   --text-default: #e7e5e4;
   --text-muted: #a8a29e !important;
   --text-link: #7f98bf !important;
@@ -81,39 +81,39 @@
   --blurple-50: #7f98bf;
   --blurple-60: #7289ac;
 
-  --app-frame-background: #0c0a09;
-  --background-secondary-alt: #1c1917 !important;
-  --background-accent: #363130 !important;
-  --background-surface-highest: #292524 !important;
-  --background-surface-higher: #282423 !important;
-  --background-surface-high: #1c1917 !important;
-  --background-base-lowest: #0c0a09 !important;
-  --background-base-lower: #141110 !important;
-  --background-base-low: #1c1917 !important;
-  --bg-surface-raised: #141110;
-  --background-gradient-highest: #1c1917;
-  --home-background: #1c1917;
-  --chat-background: #1c1917;
-  --chat-background-default: #1c1917;
-  --chat-border: #0c0a09;
+  --app-frame-background: #0a0705;
+  --background-secondary-alt: #1a1715 !important;
+  --background-accent: #2a2725 !important;
+  --background-surface-highest: #221f1d !important;
+  --background-surface-higher: #211e1c !important;
+  --background-surface-high: #1a1715 !important;
+  --background-base-lowest: #0a0705 !important;
+  --background-base-lower: #120f0d !important;
+  --background-base-low: #1a1715 !important;
+  --bg-surface-raised: #120f0d;
+  --background-gradient-highest: #1a1715;
+  --home-background: #1a1715;
+  --chat-background: #1a1715;
+  --chat-background-default: #1a1715;
+  --chat-border: #0a0705;
   --chat-text-muted: #a8a29e;
 
-  --checkbox-icon-active: #0c0a09;
+  --checkbox-icon-active: #0a0705;
   --checkbox-border-default: #57534e;
-  --radio-thumb-background-active: #0c0a09;
+  --radio-thumb-background-active: #0a0705;
 
-  --border-muted: #292524;
-  --border-strong: #141110;
-  --border-normal: #0c0a09;
-  --border-subtle: #1c1917 !important;
-  --background-mod-muted: #44403c0d;
-  --background-mod-normal: #44403c26;
-  --background-mod-subtle: #44403c40 !important;
-  --background-mod-strong: #44403c73 !important;
-  --custom-channel-members-bg: #141110;
-  --custom-status-bubble-background: #0c0a09 !important;
-  --custom-status-bubble-background-color: #141110 !important;
-  --card-background-default: #292524 !important;
+  --border-muted: #221f1d;
+  --border-strong: #120f0d;
+  --border-normal: #0a0705;
+  --border-subtle: #1a1715 !important;
+  --background-mod-muted: #322f2d0d;
+  --background-mod-normal: #322f2d26;
+  --background-mod-subtle: #322f2d40 !important;
+  --background-mod-strong: #322f2d73 !important;
+  --custom-channel-members-bg: #120f0d;
+  --custom-status-bubble-background: #0a0705 !important;
+  --custom-status-bubble-background-color: #120f0d !important;
+  --card-background-default: #221f1d !important;
 
   --background-feedback-positive: #8ea98c26;
   --icon-feedback-positive: #8ea98c;
@@ -129,13 +129,13 @@
 
   --status-positive: #8ea98c;
   --status-positive-background: #8ea98c;
-  --status-positive-text: #1c1917;
+  --status-positive-text: #1a1715;
   --status-warning: #c7b07a;
   --status-warning-background: #c7b07a;
-  --status-warning-text: #1c1917;
+  --status-warning-text: #1a1715;
   --status-danger: #c98787;
 
-  --black-500: #0c0a09;
+  --black-500: #0a0705;
   --green-360: #8ea98c;
   --green-300: #8ea98c;
   --yellow-360: #c7b07a;
@@ -149,9 +149,9 @@
   --primary-200: #a8a29e;
   --primary-300: #d6d3d1;
   --primary-400: #d6d3d1;
-  --primary-630: #292524;
-  --primary-700: #363130;
-  --primary-800: #0c0a09;
+  --primary-630: #221f1d;
+  --primary-700: #2a2725;
+  --primary-800: #0a0705;
   --white: #e7e5e4;
   --white-500: #e7e5e4;
 
@@ -177,18 +177,18 @@
   --control-primary-background-default: #7f98bf;
   --control-primary-background-hover: #758db1;
   --control-primary-background-active: #6f85a7;
-  --control-secondary-background-default: #363130 !important;
-  --control-secondary-background-hover: #332f2e;
-  --control-secondary-background-active: #322d2c;
-  --control-secondary-border-default: #292524;
+  --control-secondary-background-default: #2a2725 !important;
+  --control-secondary-background-hover: #282523;
+  --control-secondary-background-active: #272422;
+  --control-secondary-border-default: #221f1d;
   --control-secondary-text-default: #e7e5e4 !important;
   --control-secondary-text-hover: #e7e5e4;
 
   --control-critical-primary-background-default: #c98787;
   --control-critical-primary-background-hover: #bf8080;
   --control-critical-primary-background-active: #b57a7a;
-  --control-critical-primary-text-default: #1c1917;
-  --control-critical-primary-text-hover: #1c1917;
+  --control-critical-primary-text-default: #1a1715;
+  --control-critical-primary-text-hover: #1a1715;
   --control-critical-secondary-background-default: transparent;
   --control-critical-secondary-background-hover: #c48484;
   --control-critical-secondary-background-active: #bf8080;
@@ -196,8 +196,8 @@
   --control-critical-secondary-border-hover: #c48484;
   --control-critical-secondary-border-active: #c48484;
   --control-critical-secondary-text-default: #e7e5e4;
-  --control-critical-secondary-text-hover: #1c1917;
-  --control-critical-secondary-text-active: #1c1917;
+  --control-critical-secondary-text-hover: #1a1715;
+  --control-critical-secondary-text-active: #1a1715;
 
   --control-connected-background-default: #8ea98c;
   --control-connected-background-hover: #87a185;
@@ -211,16 +211,16 @@
   --button-outline-brand-background-hover: #7c94ba;
   --button-outline-brand-border-active: #7c94ba;
 
-  --modal-background: #1c1917 !important;
-  --modal-footer-background: #1c1917;
+  --modal-background: #1a1715 !important;
+  --modal-footer-background: #1a1715;
   --scrollbar-thin-thumb: #7f98bf;
   --scrollbar-thin-track: transparent;
   --scrollbar-auto-thumb: #7f98bf;
-  --scrollbar-auto-track: #0c0a09;
+  --scrollbar-auto-track: #0a0705;
   --scrollbar-auto-scrollbar-color-thumb: #7f98bf;
-  --scrollbar-auto-scrollbar-color-track: #0c0a09;
+  --scrollbar-auto-scrollbar-color-track: #0a0705;
 
-  --input-background-default: #0c0a09;
+  --input-background-default: #0a0705;
   --input-text-default: #e7e5e4;
   --input-placeholder-text-default: #d6d3d1;
   --input-border-default: #57534e;
@@ -232,25 +232,25 @@
 
   --message-mentioned-background-default: #c7b07a1a;
   --message-mentioned-background-hover: #c7b07a14;
-  --message-background-hover: #0c0a094d !important;
+  --message-background-hover: #0a07054d !important;
   --message-automod-background-default: #e2cfc60d;
   --message-automod-background-hover: #e2cfc61a;
   --message-highlight-background-default: #7f98bf14;
   --message-highlight-background-hover: #7f98bf0f;
 
-  --background-code: #1c1917;
+  --background-code: #1a1715;
   --channels-default: #a09a96 !important;
   --channel-icon: #a09a96 !important;
   --channel-text-area-placeholder: #e7e5e480;
-  --channeltextarea-background: #141110;
+  --channeltextarea-background: #120f0d;
   --icon-muted: #a09a96 !important;
   --icon-voice-muted: #c98787;
   --icon-default: #e7e5e4;
   --icon-strong: #e7e5e4;
   --icon-subtle: #d6d3d1;
   --textbox-markdown-syntax: #57534e;
-  --spoiler-revealed-background: #292524;
-  --spoiler-hidden-background: #44403c;
+  --spoiler-revealed-background: #221f1d;
+  --spoiler-hidden-background: #322f2d;
   --__adaptive-focus-ring-color: #7f98bf;
 
   --interactive-icon-default: #e7e5e4 !important;
@@ -264,12 +264,12 @@
   --interactive-background-selected: #57534e33;
   --interactive-background-active: #e7e5e42b;
 
-  --__spoiler-background-color--hidden: #44403c;
-  --__spoiler-warning-background-color: #4d4a46;
-  --user-profile-overlay-background: #141110;
-  --user-profile-overlay-background-hover: #292524;
-  --plum-23: #1c1917;
-  --badge-text-brand: #1c1917;
+  --__spoiler-background-color--hidden: #322f2d;
+  --__spoiler-warning-background-color: #3c3938;
+  --user-profile-overlay-background: #120f0d;
+  --user-profile-overlay-background-hover: #221f1d;
+  --plum-23: #1a1715;
+  --badge-text-brand: #1a1715;
 
   --text-status-online: #8ea98c;
   --text-status-idle: #c7b07a;
@@ -288,10 +288,10 @@
   --notice-background-info: #7f98bf;
   --notice-background-positive: #8ea98c;
   --notice-background-warning: #c7b07a;
-  --notice-text-critical: #0c0a09;
-  --notice-text-info: #0c0a09;
-  --notice-text-positive: #0c0a09;
-  --notice-text-warning: #0c0a09;
+  --notice-text-critical: #0a0705;
+  --notice-text-info: #0a0705;
+  --notice-text-positive: #0a0705;
+  --notice-text-warning: #0a0705;
 }
 
 .visual-refresh.theme-dark ::selection,
