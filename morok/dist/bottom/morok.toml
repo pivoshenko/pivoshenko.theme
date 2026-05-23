@@ -33,5 +33,5 @@ border_color = "#44403c"
 selected_border_color = "#d1b2c9"
 widget_title = { color = "#d8b8aa" }
 text = { color = "#e7e5e4" }
-selected_text = { color = "#080706", bg_color = "#a78cc4" }
-disabled_text = { color = "#000000" }
+selected_text = { color = "#0c0a09", bg_color = "#a78cc4" }
+disabled_text = { color = "#1c1917" }

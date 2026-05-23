@@ -1435,11 +1435,11 @@ settings:
   --ctp-overlay1: 120, 113, 108;
   --ctp-overlay0: 87, 83, 78;
   --ctp-surface2: 68, 64, 60;
-  --ctp-surface1: 41, 37, 36;
-  --ctp-surface0: 28, 25, 23;
-  --ctp-base: 0, 0, 0;
-  --ctp-mantle: 12, 10, 9;
-  --ctp-crust: 8, 7, 6;
+  --ctp-surface1: 54, 49, 48;
+  --ctp-surface0: 41, 37, 36;
+  --ctp-base: 28, 25, 23;
+  --ctp-mantle: 20, 17, 16;
+  --ctp-crust: 12, 10, 9;
   --hex-pink: #d1b2c9;
   --hex-mauve: #a78cc4;
   --hex-red: #c98787;
