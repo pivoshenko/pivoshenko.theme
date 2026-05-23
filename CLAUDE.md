@@ -53,6 +53,8 @@ pivoshenko.theme/
 
 `morok/templates/<tool>/theme.<ext>.jinja` — Jinja2 templates that reference palette colors as `{{ color.hex }}` (which outputs the full `#rrggbb` string). Available filters: `mix(color=..., amount=0.5)`, `get(key='hex')`, `rgb`. The `iif(cond, t, f)` global is available for conditionals. Templates render to `morok/dist/<tool>/morok.<ext>`.
 
+**Multi-file ports** (a tool with several fixed-name artifacts, e.g. `telegram` → `macos`/`desktop`/`ios`): use the verbatim form `morok/templates/<tool>/<name>.jinja` → `morok/dist/<tool>/<name>` (literal filename, no `morok.` prefix, no extension). Triggered when the template basename has no dot and isn't `theme`. Tokenize hex literals to `{{ token.hex }}`; keep deliberately port-specific colors (e.g. telegram outgoing-bubble tints) and true-black opacity scrims (`#000000CC`) as literals.
+
 ### Web ports
 
 Two ports target the brand's web stack:

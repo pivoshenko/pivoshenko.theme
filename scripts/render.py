@@ -111,6 +111,13 @@ def _render_target_from_template(
         return output_dir / tool / f"{theme_name}.{extension}"
 
     tool = rel_parts[0]
+    # verbatim form: templates/<tool>/<name>.jinja (no dot, not "theme")
+    # -> <output_dir>/<tool>/<name> (literal filename, no theme prefix/extension).
+    # Used by multi-file ports whose artifacts have fixed names (e.g. telegram
+    # macos/desktop/ios) rather than <theme>.<ext>.
+    if "." not in base and base not in (tool, "theme"):
+        return output_dir / tool / base
+
     if base.startswith(f"{tool}."):
         extension = base.removeprefix(f"{tool}.")
     elif base.startswith("theme."):
