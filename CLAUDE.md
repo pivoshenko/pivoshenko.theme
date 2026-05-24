@@ -8,14 +8,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Render all dist files from palette + templates
 just render
 
-# Wipe morok/dist
+# Wipe dist/
 just clean
+
+# Render a single flavor
+just render-morok   # pitch black
+just render-popil   # warm ash
 
 # Lint Python scripts
 just lint-py
 
 # Format Python scripts
 just format-py
+
+# Run the site dev server (Next.js, turbopack)
+just dev-next
 
 # Lint/build the site (Next.js)
 just lint-next
@@ -28,43 +35,45 @@ All Python tasks use `uv run`. The render step runs both `scripts/render.py` and
 
 ## Architecture
 
-The repository hosts brand themes generated from palette JSON sources. Each palette is a self-contained directory at the repo root; today there is one (`morok/`). Shared Python tooling lives at the root and operates against any palette via CLI flags.
+The repository hosts a single brand theme rendered in two flavors from two palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ only in their background ramp: `morok` (pitch black, neutral greys on `#000000`) and `popil` (warm ash off-black). Accents, neutrals, and every port template are identical between them. Shared Python tooling in `scripts/` renders any palette via `--palette`.
 
 ### Layout
 
 ```
 pivoshenko.theme/
-  scripts/                  # shared render + bundle scripts (Python, uv)
-  pyproject.toml, uv.lock   # one Python env serves all palettes
-  morok/                    # the morok palette + its outputs
-    palettes/morok.json     # source of truth — colors, name, flavor
-    templates/<tool>/       # Jinja templates per port
-    userstyles/styles/<site>/
-    dist/<tool>/morok.<ext> # generated artifacts (committed)
-  site/                     # Next.js port showcase (renamed from showcase/)
+  scripts/                          # shared render + bundle scripts (Python, uv)
+  pyproject.toml, uv.lock           # one Python env serves all palettes
+  themes/
+    palettes/morok.json             # pitch-black flavor — source of truth
+    palettes/popil.json             # warm-ash flavor — source of truth
+    templates/<tool>/               # Jinja templates per port (shared by both flavors)
+    userstyles/styles/<site>/       # Less userstyles (morok bundle only)
+    dist/<tool>/morok.<ext>         # generated artifacts (committed)
+    dist/<tool>/popil.<ext>         #   both flavors land in the same dir
+  site/                             # Next.js port showcase
   justfile, CLAUDE.md, ...
 ```
 
-### Palette
+### Palettes
 
-`morok/palettes/morok.json` defines all colors with `#rrggbb` hex values (including the `#` prefix). This is the only file to edit when changing colors.
+`themes/palettes/morok.json` and `themes/palettes/popil.json` each define all colors with `#rrggbb` hex values (including the `#` prefix). To change colors, edit the relevant palette. **Only the background ramp** (`surface2 surface1 surface0 base mantle crust`) differs between the two; keep accents and neutrals in sync across both unless deliberately forking a flavor. `morok` crust is true `#000000` with neutral greys; `popil` uses a warm-tinted ramp lifted off black.
 
 ### Templates
 
-`morok/templates/<tool>/theme.<ext>.jinja` — Jinja2 templates that reference palette colors as `{{ color.hex }}` (which outputs the full `#rrggbb` string). Available filters: `mix(color=..., amount=0.5)`, `get(key='hex')`, `rgb`. The `iif(cond, t, f)` global is available for conditionals. Templates render to `morok/dist/<tool>/morok.<ext>`.
+`themes/templates/<tool>/theme.<ext>.jinja` — Jinja2 templates that reference palette colors as `{{ color.hex }}` (full `#rrggbb` string) and the flavor name as `{{ name }}`. Available filters: `mix(color=..., amount=0.5)`, `get(key='hex')`, `rgb`. The `iif(cond, t, f)` global is available for conditionals. One template renders both flavors: `morok` → `themes/dist/<tool>/morok.<ext>`, `popil` → `themes/dist/<tool>/popil.<ext>`. Use `{{ name }}` (never a literal `morok`) for any in-file theme identifier (telegram `shortname`, bat scope, obsidian style-settings `id`s) so the shared template stays flavor-correct.
 
-**Multi-file ports** (a tool with several fixed-name artifacts, e.g. `telegram` → `macos`/`desktop`/`ios`): use the verbatim form `morok/templates/<tool>/<name>.jinja` → `morok/dist/<tool>/<name>` (literal filename, no `morok.` prefix, no extension). Triggered when the template basename has no dot and isn't `theme`. Tokenize hex literals to `{{ token.hex }}`; keep deliberately port-specific colors (e.g. telegram outgoing-bubble tints) and true-black opacity scrims (`#000000CC`) as literals.
+**Multi-file ports** (a tool with several fixed-name artifacts, e.g. `telegram` → `macos`/`desktop`/`ios`): use the verbatim form `themes/templates/<tool>/<name>.jinja` → `themes/dist/<tool>/<flavor>-<name>` (e.g. `themes/dist/telegram/morok-macos`, no extension). Triggered when the template basename has no dot and isn't `theme`. The `<flavor>-` prefix prevents the two palettes colliding in the shared dir. Tokenize hex literals to `{{ token.hex }}`; keep deliberately port-specific colors (e.g. telegram outgoing-bubble tints) and true-black opacity scrims (`#000000CC`) as literals.
 
 ### Web ports
 
 Two ports target the brand's web stack:
 
-- `morok/templates/tailwind/theme.js.jinja` → `morok/dist/tailwind/morok.js` — Tailwind preset (CommonJS) exposing `colors.morok.<token>` and JetBrains Mono font stack. Consumed by `pivoshenko.ui/tailwind-preset` (vendored on release; sites import via `pivoshenko.ui/tailwind-preset` subpath).
-- `morok/templates/css-vars/theme.css.jinja` → `morok/dist/css-vars/morok.css` — `:root` custom properties named `--morok-<token>`. Consumed by the `pivoshenko-brand` skill's HTML reference and any plain-CSS surfaces.
+- `themes/templates/tailwind/theme.js.jinja` → `themes/dist/tailwind/morok.js` (+ `popil.js`) — Tailwind preset (CommonJS) exposing `colors.<flavor>.<token>` and JetBrains Mono font stack. Consumed by `pivoshenko.ui/tailwind-preset` (vendored on release; sites import via `pivoshenko.ui/tailwind-preset` subpath).
+- `themes/templates/css-vars/theme.css.jinja` → `themes/dist/css-vars/morok.css` (+ `popil.css`) — `:root` custom properties named `--<flavor>-<token>`. Consumed by the `pivoshenko-brand` skill's HTML reference and any plain-CSS surfaces.
 
 ### Userstyles
 
-`morok/userstyles/styles/<site>/style.user.less` — Less-based userstyles for browser injection via Stylus. Each file has a `==UserStyle==` metadata header. They import the shared palette from `morok/userstyles/lib/lib.less` via a hosted gist URL and use `#lib.palette()` / `#lib.defaults()` mixins. `scripts/bundle.py` collects all `style.user.less` files and produces `morok/dist/stylus/morok.json` (Stylus import bundle).
+`themes/userstyles/styles/<site>/style.user.less` — Less-based userstyles for browser injection via Stylus. Each file has a `==UserStyle==` metadata header. They import the shared palette from `themes/userstyles/lib/lib.less` via a hosted gist URL and use `#lib.palette()` / `#lib.defaults()` mixins. `scripts/bundle.py` collects all `style.user.less` files and produces `themes/dist/stylus/morok.json` (Stylus import bundle). Userstyles are morok-only for now (the hosted gist carries the morok palette); popil ships no stylus bundle.
 
 ### Site
 
@@ -74,10 +83,10 @@ Chrome is composed via `<PageShell brand="pivoshenko.theme">` from `pivoshenko.u
 
 ## Key conventions
 
-- Hex values in `morok/palettes/morok.json` include the `#` prefix — templates do **not** add their own `#`.
+- Hex values in `themes/palettes/*.json` include the `#` prefix — templates do **not** add their own `#`.
 - `render.py`'s `_normalize_template` replaces `=#{{` → `={{` to handle a common Tera-style mistake; avoid writing templates with `#{{ color.hex }}`.
 - Userstyle `@var` options use `"value:Label*"` syntax where `*` marks the default.
-- `render.py` derives output dir from the palette path: `palette.parent.parent / "dist"`. Pass `--palette <path>` and `--templates-dir` / `--output-dir` to override. The script writes only inside the palette's directory tree — never into sibling repos. Consumers vendor `morok/dist/tailwind/morok.js` into their own repos on tag bumps. See `me/openspec/changes/shared-frontend-foundation/` for the full consumer pipeline.
-- Adding a new palette: create `<name>/palettes/<name>.json`, `<name>/templates/`, optional `<name>/userstyles/`. Add a `just render-<name>` recipe (or extend `render`) to invoke the scripts against the new palette path.
-- All files in `morok/dist/` are committed to git so downstream consumers don't need to run Python or `uv`.
+- `render.py` derives templates + output dirs from the palette path: `palette.parent.parent / "templates"` and `/ "dist"`. With palettes at `themes/palettes/*.json`, both resolve to `themes/`, so all flavors share `themes/templates/` and write to `themes/dist/`. Pass `--templates-dir` / `--output-dir` to override. Consumers vendor `themes/dist/tailwind/morok.js` into their own repos on tag bumps. See `me/openspec/changes/shared-frontend-foundation/` for the full consumer pipeline.
+- Adding a new flavor: drop `themes/palettes/<name>.json` (start from a copy, change `name` + the background ramp), add a `just render-<name>` recipe, and extend `render` to depend on it. Templates are shared — no new template dir.
+- All files in `themes/dist/` are committed to git so downstream consumers don't need to run Python or `uv`.
 - Commit messages must follow Commitizen conventions (checked by `just lint-py` via `cz check`).
