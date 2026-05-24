@@ -1,6 +1,25 @@
+default:
+    @just --list
+
+install:
+    uv sync
+    pnpm -C site install
+
+dev:
+    pnpm -C site dev
+
 format: format-py format-next
 
 lint: lint-py lint-next
+
+check: check-py check-next
+
+# Theme's build artifact is the rendered ports
+build: render
+
+start:
+    pnpm -C site build
+    pnpm -C site start
 
 update: update-py update-next
 
@@ -9,25 +28,27 @@ format-py:
     uv run ruff format .
 
 lint-py:
-    uv run ty check .
     uv run ruff check .
+    uv run ty check .
+
+check-py: lint-py
 
 update-py:
     uv lock --upgrade
     uvx uv-upsync
 
-dev-next:
-    cd site && pnpm dev
-
 format-next:
-    cd site && pnpm format
+    pnpm -C site format
 
 lint-next:
-    cd site && pnpm check
-    cd site && pnpm build
+    pnpm -C site lint
+
+check-next:
+    pnpm -C site check
+    pnpm -C site build
 
 update-next:
-    cd site && pnpm update
+    pnpm -C site update
 
 render: render-morok render-popil
 

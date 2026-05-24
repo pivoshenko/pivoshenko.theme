@@ -15,21 +15,26 @@ just clean
 just render-morok   # pitch black
 just render-popil   # warm ash
 
-# Lint Python scripts
+# Lint Python scripts (ruff + ty)
 just lint-py
 
 # Format Python scripts
 just format-py
 
 # Run the site dev server (Next.js, turbopack)
-just dev-next
+just dev
 
-# Lint/build the site (Next.js)
+# Lint the site (Biome lint only)
 just lint-next
+
+# Full gate for the site (Biome check + Next build)
+just check-next
 
 # Format the site
 just format-next
 ```
+
+Top-level aggregates fan out to both halves: `just lint` = `lint-py` + `lint-next`, `just check` = `check-py` + `check-next`, `just format` = `format-py` + `format-next`, `just update` = `update-py` + `update-next`. `just build` runs `render`.
 
 All Python tasks use `uv run`. The render step runs both `scripts/render.py` and `scripts/bundle.py`.
 
