@@ -100,6 +100,13 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 2. Set `palette = "morok"`, preferably near the top of your config.
 3. Save and reload your prompt.
 
+#### Telegram
+
+1. Open the theme deep link in Telegram: [`pivoshenko_theme_morok`](https://t.me/addtheme/pivoshenko_theme_morok) or [`pivoshenko_theme_popil`](https://t.me/addtheme/pivoshenko_theme_popil).
+2. Tap "Apply Theme".
+
+Platform-specific source files live in [`themes/dist/telegram/`](themes/dist/telegram/) (`*-desktop`, `*-ios`, `*-macos`).
+
 #### VSCode
 
 1. Install a Catppuccin VSCode theme (for example `Catppuccin Mocha`).
