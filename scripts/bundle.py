@@ -210,6 +210,15 @@ def main() -> None:
         required=True,
         help="Output import JSON path (e.g. morok/dist/stylus/morok.json)",
     )
+    parser.add_argument(
+        "--rewrite-import",
+        nargs=2,
+        metavar=("OLD_URL", "NEW_URL"),
+        help=(
+            "Swap a lib @import URL before bundling (e.g. point a non-morok flavor at its own "
+            "hosted lib gist). Style sources stay single-copy; only the import line differs."
+        ),
+    )
     args = parser.parse_args()
 
     styles_dir = pathlib.Path(args.styles_dir)
@@ -243,6 +252,11 @@ def main() -> None:
     for style_file in style_files:
         logger.info(f"Bundling {style_file.parent.name}")
         content = style_file.read_text(encoding="utf-8")
+        if args.rewrite_import is not None:
+            old_url, new_url = args.rewrite_import
+            if old_url in content:
+                content = content.replace(old_url, new_url)
+                logger.info(f"Rewrote lib import in {style_file.parent.name}")
         metadata = parse_usercss_metadata(content, style_file)
 
         style: dict[str, typing.Any] = {

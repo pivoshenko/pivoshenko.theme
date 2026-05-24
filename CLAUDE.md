@@ -78,7 +78,14 @@ Two ports target the brand's web stack:
 
 ### Userstyles
 
-`themes/userstyles/styles/<site>/style.user.less` — Less-based userstyles for browser injection via Stylus. Each file has a `==UserStyle==` metadata header. They import the shared palette from `themes/userstyles/lib/lib.less` via a hosted gist URL and use `#lib.palette()` / `#lib.defaults()` mixins. `scripts/bundle.py` collects all `style.user.less` files and produces `themes/dist/stylus/morok.json` (Stylus import bundle). Userstyles are morok-only for now (the hosted gist carries the morok palette); popil ships no stylus bundle.
+`themes/userstyles/styles/<site>/style.user.less` — Less-based userstyles for browser injection via Stylus. Each file has a `==UserStyle==` metadata header. They import the shared palette via a hosted gist URL and use `#lib.palette()` / `#lib.defaults()` mixins. `scripts/bundle.py` collects all `style.user.less` files and produces a Stylus import bundle.
+
+Both flavors ship a bundle from the **same** single-copy style sources — they're never duplicated per flavor. The only per-flavor difference is the lib `@import` URL: each flavor hosts its own `lib.less` gist (identical accents/neutrals, differing only in the 6-color bg ramp, keeping the `@morok` map name + `#lib` mixins so style files need no other change). The lib sources live at `themes/userstyles/lib/lib.less` (morok) and `themes/userstyles/lib/popil.less` (popil) — both hand-maintained mirrors, **gitignored** (`lib/`): they're the editing source for the hosted gists, not committed. A fresh clone won't have them; the committed artifact is the bundle (`themes/dist/stylus/*.json`), which references the gists by URL. Editing a lib means re-hosting its gist. `bundle.py`'s `--rewrite-import OLD NEW` swaps the morok gist URL for the flavor's own at bundle time:
+
+- `morok` → `themes/dist/stylus/morok.json` (stock gist URL, no rewrite)
+- `popil` → `themes/dist/stylus/popil.json` (rewrites to the popil lib gist via `--rewrite-import`)
+
+The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`). **`popil_lib_url` must point at a hosted raw URL of `popil.less`** before `just render-popil` produces a usable bundle — until that gist exists, the popil bundle's import won't resolve in Stylus. When `popil.less`'s bg ramp changes, re-host the gist and bump `popil_lib_url`.
 
 ### Site
 
