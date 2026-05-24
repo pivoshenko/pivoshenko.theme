@@ -1,5 +1,6 @@
 'use client'
 
+import { useFlavor } from '@/lib/flavor-context'
 import { Tab, Tabs } from 'pivoshenko.ui'
 import { useState } from 'react'
 import { TerminalPreview } from './terminal-preview'
@@ -22,6 +23,7 @@ const blockClass =
   'shiki-host text-[13px] overflow-x-auto [&>pre]:p-4 [&>pre]:m-0 [&>pre]:font-mono [&>pre]:leading-relaxed [&_code]:font-mono'
 
 export function ExamplesSection({ examples, palette }: Props) {
+  const { flavor } = useFlavor()
   const [active, setActive] = useState('terminal')
   const current = examples.find((e) => e.id === active)
 
@@ -49,7 +51,7 @@ export function ExamplesSection({ examples, palette }: Props) {
         <TerminalPreview palette={palette} />
       ) : current ? (
         <WindowFrame
-          title={`morok — ${current.language}`}
+          title={`${flavor} — ${current.language}`}
           chromeBg={palette.mantle}
           chromeFg={palette.subtext0}
           dotColors={[palette.red, palette.yellow, palette.green]}

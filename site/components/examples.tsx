@@ -1,7 +1,6 @@
 import { morokShikiTheme } from '@/lib/shiki-theme'
-import { getPalette } from '@/lib/theme-data'
 import { codeToHtml } from 'shiki'
-import { type CodeExample, ExamplesSection } from './examples-section'
+import type { CodeExample } from './examples-section'
 
 const samples: {
   id: string
@@ -197,11 +196,14 @@ style = "#d0a178"
   },
 ]
 
-export async function Examples() {
-  const palette = getPalette()
-  const theme = morokShikiTheme(palette.map)
+// Pre-render the syntax-highlighted samples for a given flavor's palette.
+// Called once per flavor on the server; the client swaps between the sets.
+export async function renderExamples(
+  map: Record<string, string>,
+): Promise<CodeExample[]> {
+  const theme = morokShikiTheme(map)
 
-  const examples: CodeExample[] = await Promise.all(
+  return Promise.all(
     samples.map(async (s) => {
       const html = await codeToHtml(s.code, { lang: s.language, theme })
       return {
@@ -213,6 +215,4 @@ export async function Examples() {
       }
     }),
   )
-
-  return <ExamplesSection examples={examples} palette={palette.map} />
 }

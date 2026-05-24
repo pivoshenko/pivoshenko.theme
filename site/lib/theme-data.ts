@@ -26,7 +26,7 @@ type PaletteFile = {
   colors: Record<string, string>
 }
 
-const repoRoot = join(process.cwd(), '..')
+const themesRoot = join(process.cwd(), '..', 'themes')
 const githubRepo = 'https://github.com/pivoshenko/pivoshenko.theme'
 const githubRaw =
   'https://raw.githubusercontent.com/pivoshenko/pivoshenko.theme/main'
@@ -93,9 +93,9 @@ function colorGroup(name: string): PaletteColor['group'] {
   return 'accent'
 }
 
-export function getPalette() {
+export function getPalette(flavor: 'morok' | 'popil' = 'morok') {
   const raw = readFileSync(
-    join(repoRoot, 'morok', 'palettes', 'morok.json'),
+    join(themesRoot, 'palettes', `${flavor}.json`),
     'utf8',
   )
   const palette = JSON.parse(raw) as PaletteFile
@@ -113,7 +113,7 @@ export function getPalette() {
 }
 
 export function getPorts(): Port[] {
-  const distDir = join(repoRoot, 'morok', 'dist')
+  const distDir = join(themesRoot, 'dist')
   return readdirSync(distDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && !entry.name.startsWith('.'))
     .map((entry) => {
@@ -123,8 +123,8 @@ export function getPorts(): Port[] {
         .filter((file) => file.isFile() && !file.name.startsWith('.'))
         .map((file) => ({
           name: file.name,
-          githubUrl: `${githubRepo}/blob/main/morok/dist/${entry.name}/${file.name}`,
-          rawUrl: `${githubRaw}/morok/dist/${entry.name}/${file.name}`,
+          githubUrl: `${githubRepo}/blob/main/themes/dist/${entry.name}/${file.name}`,
+          rawUrl: `${githubRaw}/themes/dist/${entry.name}/${file.name}`,
         }))
         .sort((a, b) => a.name.localeCompare(b.name))
 
@@ -148,10 +148,7 @@ export function getPortContent(
   maxLines = 60,
 ): string {
   try {
-    const content = readFileSync(
-      join(repoRoot, 'morok', 'dist', port, file),
-      'utf8',
-    )
+    const content = readFileSync(join(themesRoot, 'dist', port, file), 'utf8')
     return content.split('\n').slice(0, maxLines).join('\n')
   } catch {
     return ''

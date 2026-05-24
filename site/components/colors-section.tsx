@@ -1,13 +1,15 @@
 'use client'
 
-import type { PaletteColor } from '@/lib/theme-data'
+import { useFlavor } from '@/lib/flavor-context'
 import { Grid3x3, Table } from 'lucide-react'
 import { Tab, Tabs } from 'pivoshenko.ui'
 import { useState } from 'react'
 import { PaletteTable } from './palette-table'
 import { PaletteWall } from './palette-wall'
 
-export function ColorsSection({ colors }: { colors: PaletteColor[] }) {
+export function ColorsSection() {
+  const { palette } = useFlavor()
+  const colors = palette.colors
   const [view, setView] = useState<'grid' | 'table'>('grid')
 
   return (

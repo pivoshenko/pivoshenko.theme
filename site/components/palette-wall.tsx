@@ -20,6 +20,22 @@ export function PaletteWall({ colors }: Props) {
 
   return (
     <div className="space-y-6" onPointerLeave={() => setHovered(null)}>
+      <Group title="surface" cols="grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+        {surfaces.map((c) => (
+          <Swatch
+            key={c.name}
+            color={c}
+            dimmed={hovered !== null && hovered !== c.name}
+            pinned={false}
+            copied={copied === c.hex}
+            onHover={setHovered}
+            onClick={() => {
+              void copy(c.hex)
+            }}
+          />
+        ))}
+      </Group>
+
       <Group title="accent" cols="grid-cols-2 sm:grid-cols-4 lg:grid-cols-7">
         {accents.map((c) => (
           <Swatch
@@ -40,22 +56,6 @@ export function PaletteWall({ colors }: Props) {
 
       <Group title="text" cols="grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
         {texts.map((c) => (
-          <Swatch
-            key={c.name}
-            color={c}
-            dimmed={hovered !== null && hovered !== c.name}
-            pinned={false}
-            copied={copied === c.hex}
-            onHover={setHovered}
-            onClick={() => {
-              void copy(c.hex)
-            }}
-          />
-        ))}
-      </Group>
-
-      <Group title="surface" cols="grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-        {surfaces.map((c) => (
           <Swatch
             key={c.name}
             color={c}

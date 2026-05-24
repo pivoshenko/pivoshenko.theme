@@ -1,8 +1,4 @@
-type Props = {
-  accents: { name: string; hex: string }[]
-}
-
-export function Hero({ accents: _accents }: Props) {
+export function Hero() {
   return (
     <section className="space-y-4">
       <p className="type-body fg-body">
@@ -13,15 +9,26 @@ export function Hero({ accents: _accents }: Props) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Morok
+          A dark theme
         </a>{' '}
-        — a theme focused on minimalism, simplicity, and cross-tool consistency.
+        focused on minimalism, simplicity and cross-tool consistency, shipped in
+        two flavors:
       </p>
+      <ul className="type-body fg-body space-y-1 list-disc pl-5">
+        <li>
+          <strong>Morok</strong> features pitch black — neutral greys on a
+          true-black floor.
+        </li>
+        <li>
+          <strong>Popil</strong> features warm ash — the same palette lifted off
+          black with a warm tint.
+        </li>
+      </ul>
       <p className="type-body fg-body">
-        <em>Morok</em> (pronounced [mo-rok]) is a Ukrainian word that means
-        “darkness” or “gloom”. It is often used to describe a state of
-        melancholy, sadness, or despair, and can also refer to a dark and gloomy
-        atmosphere or environment.
+        Both flavors share identical accents, neutrals, and ports — only the
+        background ramp differs (cold black vs warm). Pick{' '}
+        <code className="font-mono">morok</code> for maximum contrast,{' '}
+        <code className="font-mono">popil</code> for a softer, warmer dark.
       </p>
     </section>
   )

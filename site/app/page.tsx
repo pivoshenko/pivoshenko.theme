@@ -1,58 +1,79 @@
 import { ColorsSection } from '@/components/colors-section'
-import { Examples } from '@/components/examples'
+import { renderExamples } from '@/components/examples'
+import { ExamplesClient } from '@/components/examples-client'
+import { FlavorDescription } from '@/components/flavor-description'
+import { FlavorToggle } from '@/components/flavor-toggle'
 import { Hero } from '@/components/hero'
 import { PortsGrid } from '@/components/ports-grid'
 import { AccentProvider } from '@/lib/accent-context'
+import { FlavorProvider } from '@/lib/flavor-context'
 import { getPalette, getPorts } from '@/lib/theme-data'
 import { SectionHeader } from 'pivoshenko.ui'
 
-export default function HomePage() {
-  const palette = getPalette()
+export default async function HomePage() {
+  const morok = getPalette('morok')
+  const popil = getPalette('popil')
   const ports = getPorts()
-  const accents = palette.colors
+
+  // accents + neutrals are identical across flavors — derive once from morok.
+  const accents = morok.colors
     .filter((c) => c.group === 'accent')
     .map((c) => ({ name: c.name, hex: c.hex }))
 
+  // shiki backgrounds track the bg ramp, so render a set per flavor.
+  const exampleSets = {
+    morok: await renderExamples(morok.map),
+    popil: await renderExamples(popil.map),
+  }
+
   return (
-    <AccentProvider accents={accents} defaultAccent="mauve">
-      <div className="space-y-10">
-        <Hero accents={accents} />
+    <FlavorProvider palettes={{ morok, popil }} defaultFlavor="morok">
+      <AccentProvider accents={accents} defaultAccent="mauve">
+        <div className="space-y-10">
+          <Hero />
 
-        <section className="space-y-4">
-          <SectionHeader title="palette" />
-          <ColorsSection colors={palette.colors} />
-        </section>
+          <section className="space-y-4">
+            <SectionHeader title="flavors" />
+            <FlavorToggle />
+            <FlavorDescription />
+          </section>
 
-        <section className="space-y-4">
-          <SectionHeader title="ports" count={ports.length} />
-          <PortsGrid ports={ports} />
-        </section>
+          <section className="space-y-4">
+            <SectionHeader title="palette" />
+            <ColorsSection />
+          </section>
 
-        <section className="space-y-4">
-          <SectionHeader title="examples" />
-          <p className="type-body fg-muted">
-            Live previews — pick a tab to swap between the terminal mock and
-            syntax-highlighted samples across languages.
-          </p>
-          <Examples />
-        </section>
+          <section className="space-y-4">
+            <SectionHeader title="ports" count={ports.length} />
+            <PortsGrid ports={ports} />
+          </section>
 
-        <section className="space-y-4">
-          <SectionHeader title="thanks" />
-          <p className="type-body fg-body">
-            Palette structure and token naming inspired by{' '}
-            <a
-              href="https://github.com/catppuccin/catppuccin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-current/40 hover:decoration-current underline-offset-2 transition-colors"
-            >
-              Catppuccin
-            </a>
-            .
-          </p>
-        </section>
-      </div>
-    </AccentProvider>
+          <section className="space-y-4">
+            <SectionHeader title="examples" />
+            <p className="type-body fg-muted">
+              Live previews — pick a tab to swap between the terminal mock and
+              syntax-highlighted samples across languages.
+            </p>
+            <ExamplesClient sets={exampleSets} />
+          </section>
+
+          <section className="space-y-4">
+            <SectionHeader title="thanks" />
+            <p className="type-body fg-body">
+              Palette structure and token naming inspired by{' '}
+              <a
+                href="https://github.com/catppuccin/catppuccin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-current/40 hover:decoration-current underline-offset-2 transition-colors"
+              >
+                Catppuccin
+              </a>
+              .
+            </p>
+          </section>
+        </div>
+      </AccentProvider>
+    </FlavorProvider>
   )
 }

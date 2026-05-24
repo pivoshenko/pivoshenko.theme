@@ -1,6 +1,7 @@
 'use client'
 
 import { useAccent } from '@/lib/accent-context'
+import { useFlavor } from '@/lib/flavor-context'
 import { WindowFrame } from './window-frame'
 
 type Props = {
@@ -9,6 +10,9 @@ type Props = {
 
 export function TerminalPreview({ palette }: Props) {
   const { pinned } = useAccent()
+  const { flavor } = useFlavor()
+  const dir = `~/dev/${flavor}`
+  const paletteFile = `themes/palettes/${flavor}.json`
 
   const bg = palette.base
   const chrome = palette.mantle
@@ -28,7 +32,7 @@ export function TerminalPreview({ palette }: Props) {
 
   return (
     <WindowFrame
-      title="morok — fish"
+      title={`${flavor} — fish`}
       chromeBg={chrome}
       chromeFg={dim}
       dotColors={[palette.red, palette.yellow, palette.green]}
@@ -40,7 +44,7 @@ export function TerminalPreview({ palette }: Props) {
         <Prompt
           palette={palette}
           accent={accent}
-          dir="~/dev/morok"
+          dir={dir}
           branch="main"
           symbols={symbols}
         >
@@ -57,7 +61,7 @@ export function TerminalPreview({ palette }: Props) {
         <Prompt
           palette={palette}
           accent={accent}
-          dir="~/dev/morok"
+          dir={dir}
           branch="feat/lavender-accent"
           symbols={symbols}
         >
@@ -68,14 +72,12 @@ export function TerminalPreview({ palette }: Props) {
         <div className="py-0.5">
           <div>
             <span style={{ color: palette.green }}>M </span>
-            <span style={{ color: palette.subtext1 }}>
-              morok/palettes/morok.json
-            </span>
+            <span style={{ color: palette.subtext1 }}>{paletteFile}</span>
           </div>
           <div>
             <span style={{ color: palette.yellow }}>M </span>
             <span style={{ color: palette.subtext1 }}>
-              morok/templates/helix/theme.toml.jinja
+              themes/templates/helix/theme.toml.jinja
             </span>
           </div>
           <div>
@@ -89,15 +91,13 @@ export function TerminalPreview({ palette }: Props) {
         <Prompt
           palette={palette}
           accent={accent}
-          dir="~/dev/morok"
+          dir={dir}
           branch="feat/lavender-accent"
           symbols={symbols}
         >
           <span style={{ color: palette.sky }}>bat</span>{' '}
           <span style={{ color: palette.peach }}>--style=numbers</span>{' '}
-          <span style={{ color: palette.green }}>
-            morok/palettes/morok.json
-          </span>
+          <span style={{ color: palette.green }}>{paletteFile}</span>
         </Prompt>
         <div className="py-0.5" style={{ color: punct }}>
           <div className="flex gap-2">
@@ -114,7 +114,7 @@ export function TerminalPreview({ palette }: Props) {
               <span style={{ paddingLeft: '0.5rem' }} />
               <span style={{ color: palette.blue }}>"name"</span>
               <span style={{ color: punct }}>: </span>
-              <span style={{ color: palette.green }}>"morok"</span>
+              <span style={{ color: palette.green }}>"{flavor}"</span>
               <span style={{ color: punct }}>,</span>
             </div>
           </div>
@@ -168,7 +168,7 @@ export function TerminalPreview({ palette }: Props) {
         <Prompt
           palette={palette}
           accent={accent}
-          dir="~/dev/morok"
+          dir={dir}
           branch="feat/lavender-accent"
           symbols={symbols}
         >
