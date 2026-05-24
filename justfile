@@ -16,6 +16,9 @@ update-py:
     uv lock --upgrade
     uvx uv-upsync
 
+dev-next:
+    cd site && pnpm dev
+
 format-next:
     cd site && pnpm format
 
@@ -26,9 +29,14 @@ lint-next:
 update-next:
     cd site && pnpm update
 
-render:
-    uv run scripts/render.py --palette morok/palettes/morok.json
-    uv run scripts/bundle.py --styles-dir morok/userstyles/styles --output morok/dist/stylus/morok.json
+render: render-morok render-popil
+
+render-morok:
+    uv run scripts/render.py --palette themes/palettes/morok.json
+    uv run scripts/bundle.py --styles-dir themes/userstyles/styles --output themes/dist/stylus/morok.json
+
+render-popil:
+    uv run scripts/render.py --palette themes/palettes/popil.json
 
 clean:
-    rm -rf morok/dist
+    rm -rf themes/dist

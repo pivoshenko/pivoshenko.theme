@@ -1,0 +1,25 @@
+[delta "popil"]
+blame-palette = "#14110f #100d0b #0c0908 #1c1917 #24211f"
+commit-decoration-style = "#57534e" bold box ul
+dark = true
+file-decoration-style = "#57534e"
+file-style = "#e7e5e4"
+hunk-header-decoration-style = "#57534e" box ul
+hunk-header-file-style = bold
+hunk-header-line-number-style = bold "#a8a29e"
+hunk-header-style = file line-number syntax
+line-numbers-left-style = "#57534e"
+line-numbers-minus-style = bold "#c98787"
+line-numbers-plus-style = bold "#8ea98c"
+line-numbers-right-style = "#57534e"
+line-numbers-zero-style = "#57534e"
+minus-emph-style = bold syntax "#533a39"
+minus-style = syntax "#382927"
+plus-emph-style = bold syntax "#3f463b"
+plus-style = syntax "#2c2f28"
+map-styles = \
+bold purple => syntax "#473c4e", \
+bold blue => syntax "#39404d", \
+bold cyan => syntax "#354046", \
+bold yellow => syntax "#534934"
+syntax-theme = popil
