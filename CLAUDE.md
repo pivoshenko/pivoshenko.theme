@@ -103,7 +103,7 @@ Chrome is composed via `<PageShell brand="pivoshenko.theme">` from `pivoshenko.u
 - Hex values in `themes/palettes/*.json` include the `#` prefix — templates do **not** add their own `#`.
 - `render.py`'s `_normalize_template` replaces `=#{{` → `={{` to handle a common Tera-style mistake; avoid writing templates with `#{{ color.hex }}`.
 - Userstyle `@var` options use `"value:Label*"` syntax where `*` marks the default.
-- `render.py` derives templates + output dirs from the palette path: `palette.parent.parent / "templates"` and `/ "dist"`. With palettes at `themes/palettes/*.json`, both resolve to `themes/`, so all flavors share `themes/templates/` and write to `themes/dist/`. Pass `--templates-dir` / `--output-dir` to override. Consumers vendor `themes/dist/tailwind/morok.js` into their own repos on tag bumps. See `me/openspec/changes/shared-frontend-foundation/` for the full consumer pipeline.
+- `render.py` derives templates + output dirs from the palette path: `palette.parent.parent / "templates"` and `/ "dist"`. With palettes at `themes/palettes/*.json`, both resolve to `themes/`, so all flavors share `themes/templates/` and write to `themes/dist/`. Pass `--templates-dir` / `--output-dir` to override. Consumers vendor `themes/dist/tailwind/morok.js` into their own repos on tag bumps.
 - Adding a new flavor: drop `themes/palettes/<name>.json` (start from a copy, change `name` + the background ramp), add a `just render-<name>` recipe, and extend `render` to depend on it. Templates are shared — no new template dir.
 - All files in `themes/dist/` are committed to git so downstream consumers don't need to run Python or `uv`.
-- Commit messages must follow Commitizen conventions (checked by `just lint-py` via `cz check`).
+- `just lint-py` runs `ruff check` + `ty check` only (no commit-message linting configured).
