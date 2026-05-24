@@ -112,11 +112,12 @@ def _render_target_from_template(
 
     tool = rel_parts[0]
     # verbatim form: templates/<tool>/<name>.jinja (no dot, not "theme")
-    # -> <output_dir>/<tool>/<name> (literal filename, no theme prefix/extension).
+    # -> <output_dir>/<tool>/<theme_name>-<name> (no extension).
     # Used by multi-file ports whose artifacts have fixed names (e.g. telegram
-    # macos/desktop/ios) rather than <theme>.<ext>.
+    # macos/desktop/ios) rather than <theme>.<ext>. The theme prefix keeps
+    # multiple palettes from colliding in the shared dist/<tool>/ dir.
     if "." not in base and base not in (tool, "theme"):
-        return output_dir / tool / base
+        return output_dir / tool / f"{theme_name}-{base}"
 
     if base.startswith(f"{tool}."):
         extension = base.removeprefix(f"{tool}.")
@@ -157,9 +158,7 @@ def main() -> None:
     templates_dir = (
         pathlib.Path(args.templates_dir) if args.templates_dir else palette_root / "templates"
     )
-    output_dir = (
-        pathlib.Path(args.output_dir) if args.output_dir else palette_root / "dist"
-    )
+    output_dir = pathlib.Path(args.output_dir) if args.output_dir else palette_root / "dist"
     logger.info(
         f"Starting theme render with palette={palette_path.name} templates_dir={templates_dir.name}",  # noqa: E501
     )
@@ -217,7 +216,10 @@ def main() -> None:
         rendered = template.render(context)
 
         output_path = _render_target_from_template(
-            template_path, templates_dir, output_dir, theme_name,
+            template_path,
+            templates_dir,
+            output_dir,
+            theme_name,
         )
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(rendered.rstrip() + "\n")

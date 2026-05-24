@@ -1,0 +1,129 @@
+/* ==UserStyle==
+@name Raindrop
+@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/raindrop
+@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/raindrop
+@version 2026.03.07
+@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/raindrop/style.user.less
+@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Araindrop
+@description Soothing pastel theme for Raindrop
+@author Pivoshenko
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["light:Light"]
+@var select darkFlavor "Dark Flavor" ["dark:Dark*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://gist.githubusercontent.com/pivoshenko/a4b48bfdc60be6a6a35ea5f3da732be1/raw/f0a66b5138c45dd5fb91e7fa42b601f2a6b890d6/lib.less";
+
+@-moz-document domain("app.raindrop.io") {
+  [data-theme="dark"] {
+    #morok(@darkFlavor) !important;
+  }
+
+  [data-theme="day"],
+  [data-theme="sunset"] {
+    #morok(@lightFlavor);
+  }
+
+  // theme selector previews
+  [class^="theme-"] {
+
+    &[data-index="0"],
+    &[data-index="2"]>[class^="main-"],
+    &[data-index="3"] {
+      #morok(@lightFlavor) !important;
+    }
+
+    &[data-index="1"],
+    &[data-index="2"]>[class^="sidebar-"] {
+      #morok(@darkFlavor) !important;
+    }
+  }
+
+  #morok(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    &,
+    [data-theme] {
+      --background-color: @base;
+      --disable-background-color: @crust;
+      --disable-text-color: @overlay1;
+      --accent-color: @accent;
+      --alternative-background-color: @mantle;
+      --sidebar-background-color: @mantle;
+      --hover-background-color: fade(@overlay0, 20%);
+      --active-background-color: @surface1;
+      --primary-text-color: @text;
+      --secondary-text-color: @subtext0;
+      --shadow-color: fade(@text, 10%);
+      --shadow-light-color: fade(@text, 10%);
+      --danger-color: @red;
+      --important-color: @red;
+      --success-color: @green;
+      --highlights-color: @mauve;
+      --reminder-color: @peach;
+      --note-color: @yellow;
+      --article-color: @peach;
+      --audio-color: @mauve;
+      --document-color: @subtext0;
+      --book-color: @rosewater;
+      --image-color: @green;
+      --video-color: @blue;
+      --broken-color: @maroon;
+      --duplicate-color: @sapphire;
+      --tag-color: @subtext0;
+      --filter-color: @subtext0;
+
+      [data-variant="active"] {
+        background: fade(@accent, 10%) !important;
+      }
+
+      // bookmark edit page header
+      [class^="header-"][data-fancy="true"] {
+        background: linear-gradient(to bottom,
+            var(--background-color) 30%,
+            fade(@base, 60%) 100%);
+      }
+
+      // bookmark edit page cover selector
+      [class^="cover-"]>[class^="more-"] {
+        background: fade(@accent, 85%);
+      }
+
+      // add bookmark button text color
+      [title="Add Bookmark"] {
+        color: @base;
+      }
+
+      // disabled add bookmark button
+      [class^="button-"][data-variant="primary"][disabled] {
+        filter: none;
+        opacity: 100%;
+        background: @overlay0;
+        color: @crust;
+      }
+
+      // dropping bookmark to collection color overlay
+      [class*="isDropping-"] {
+        background-color: fade(@accent, 10%);
+      }
+
+      // sidebar background color
+      .svSidebar {
+        background: var(--sidebar-background-color);
+      }
+
+      color: @text;
+    }
+
+    // google login button
+    [href^="https://api.raindrop.io/v1/auth/google"]>span {
+      color: @text;
+    }
+
+    // todo: recolor "Colors circle" icons using custom images (like the chess.com theme)
+  }
+}

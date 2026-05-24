@@ -1,0 +1,106 @@
+/* ==UserStyle==
+@name Lingva
+@namespace github.com/pivoshenko/pivoshenko.theme/userstyles/styles/lingva
+@homepageURL https://github.com/pivoshenko/pivoshenko.theme/tree/main/userstyles/styles/lingva
+@version 2026.03.07
+@updateURL https://github.com/pivoshenko/pivoshenko.theme/raw/main/userstyles/styles/lingva/style.user.less
+@supportURL https://github.com/pivoshenko/pivoshenko.theme/issues?q=is%3Aopen+is%3Aissue+label%3Alingva
+@description Soothing pastel theme for Lingva
+@author Pivoshenko
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["light:Light"]
+@var select darkFlavor "Dark Flavor" ["dark:Dark*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue*", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://gist.githubusercontent.com/pivoshenko/a4b48bfdc60be6a6a35ea5f3da732be1/raw/f0a66b5138c45dd5fb91e7fa42b601f2a6b890d6/lib.less";
+
+@-moz-document domain("lingva.ml"),
+domain("translate.plausibility.cloud"),
+domain("lingva.lunar.icu"),
+domain("translate.projectsegfau.lt"),
+domain("lingva.garudalinux.org") {
+  .chakra-ui-light {
+    #morok(@lightFlavor);
+  }
+
+  .chakra-ui-dark {
+    #morok(@darkFlavor);
+  }
+
+  #morok(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    body {
+      background: @base;
+      color: @text;
+    }
+
+    header {
+      background-color: @accent;
+
+      .chakra-button {
+        color: darken(@accent, 50%);
+        background: lighten(@accent, 5%);
+
+        &:hover {
+          background: darken(@accent, 5%);
+        }
+      }
+    }
+
+    footer {
+      background-color: @accent;
+      color: darken(@accent, 50%);
+    }
+
+    #__next>div {
+      background: @base;
+    }
+
+    main {
+      background: @base;
+      color: @text;
+
+      select {
+        border-color: @accent;
+        color: @text;
+      }
+
+      .chakra-select__icon {
+        color: @text;
+      }
+
+      .chakra-button {
+        color: @accent;
+        border-color: @accent;
+
+        &:hover:not(:disabled) {
+          background-color: fade(@accent, 12%);
+        }
+
+        // Auto translate button (clicked) (Dark and Light classes)
+        &.css-1huvcr7,
+        &.css-q22xb2 {
+          background: @accent;
+          color: @crust;
+        }
+      }
+
+      .chakra-stack {
+        border-color: @accent;
+      }
+
+      textarea {
+        color: @text;
+      }
+
+      .chakra-text {
+        color: @subtext1;
+      }
+    }
+  }
+}
