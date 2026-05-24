@@ -85,7 +85,12 @@ Both flavors ship a bundle from the **same** single-copy style sources — they'
 - `morok` → `themes/dist/stylus/morok.json` (stock gist URL, no rewrite)
 - `popil` → `themes/dist/stylus/popil.json` (rewrites to the popil lib gist via `--rewrite-import`)
 
-The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`). **`popil_lib_url` must point at a hosted raw URL of `popil.less`** before `just render-popil` produces a usable bundle — until that gist exists, the popil bundle's import won't resolve in Stylus. When `popil.less`'s bg ramp changes, re-host the gist and bump `popil_lib_url`.
+The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`). The hosted gists (owner `pivoshenko`):
+
+- `morok` → gist `a4b48bfdc60be6a6a35ea5f3da732be1`, file `lib.less` (source: `themes/userstyles/lib/lib.less`)
+- `popil` → gist `ee8090a682bb964031d51705d9ffd697`, file `popil.less` (source: `themes/userstyles/lib/popil.less`)
+
+**`popil_lib_url` must point at a hosted raw URL of `popil.less`** before `just render-popil` produces a usable bundle — until that gist exists, the popil bundle's import won't resolve in Stylus. When a lib's bg ramp changes, **re-host that gist** (push the edited local `lib/*.less` to the gist above) and bump the matching justfile var to the new raw URL (the raw URL embeds a commit SHA that changes on every gist edit). The pinned SHA in the URL means the bundle keeps resolving the exact ramp it was built against until you bump it.
 
 ### Site
 
