@@ -2,11 +2,14 @@ k9s:
   body:
     fgColor: "{{ text.hex }}"
     bgColor: "{{ base.hex }}"
-    logoColor: "{{ mauve.hex }}"
+    logoColor: "{{ blue.hex }}"
   prompt:
     fgColor: "{{ text.hex }}"
     bgColor: "{{ base.hex }}"
     suggestColor: "{{ blue.hex }}"
+    border:
+      defaultColor: "{{ overlay1.hex }}"
+      commandColor: "{{ overlay1.hex }}"
   help:
     fgColor: "{{ text.hex }}"
     bgColor: "{{ base.hex }}"

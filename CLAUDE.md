@@ -40,7 +40,7 @@ All Python tasks use `uv run`. The render step runs both `scripts/render.py` and
 
 ## Architecture
 
-The repository hosts a single brand theme rendered in two flavors from two palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ only in their background ramp: `morok` (pitch black, neutral greys on `#000000`) and `popil` (warm ash off-black). Accents, neutrals, and every port template are identical between them. Shared Python tooling in `scripts/` renders any palette via `--palette`.
+The repository hosts a single brand theme rendered in two flavors from two palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ in their background ramp **and** foreground neutrals: `morok` (pitch black, near-white text on `#000000`) and `popil` (near-neutral dark-grey base `#1f1f1e`, faintly warm, with softened text). Accents (and every port template) are identical between them — accents are the shared brand thread. Shared Python tooling in `scripts/` renders any palette via `--palette`.
 
 ### Layout
 
@@ -61,7 +61,7 @@ pivoshenko.theme/
 
 ### Palettes
 
-`themes/palettes/morok.json` and `themes/palettes/popil.json` each define all colors with `#rrggbb` hex values (including the `#` prefix). To change colors, edit the relevant palette. **Only the background ramp** (`surface2 surface1 surface0 base mantle crust`) differs between the two; keep accents and neutrals in sync across both unless deliberately forking a flavor. `morok` crust is true `#000000` with neutral greys; `popil` uses a warm-tinted ramp lifted off black.
+`themes/palettes/morok.json` and `themes/palettes/popil.json` each define all colors with `#rrggbb` hex values (including the `#` prefix). To change colors, edit the relevant palette. The **background ramp** (`surface2 surface1 surface0 base mantle crust`) and the **foreground neutrals** (`text subtext1 subtext0`) are forked between the two; keep **accents** (and `overlay*`) in sync across both unless deliberately forking. `morok` crust is true `#000000` with near-white text; `popil` anchors `base` to Claude-app grey `#1f1f1e` (near-neutral, faintly warm) with softened text (`text #e4e2de`).
 
 ### Templates
 
@@ -80,7 +80,7 @@ Two ports target the brand's web stack:
 
 `themes/userstyles/styles/<site>/style.user.less` — Less-based userstyles for browser injection via Stylus. Each file has a `==UserStyle==` metadata header. They import the shared palette via a hosted gist URL and use `#lib.palette()` / `#lib.defaults()` mixins. `scripts/bundle.py` collects all `style.user.less` files and produces a Stylus import bundle.
 
-Both flavors ship a bundle from the **same** single-copy style sources — they're never duplicated per flavor. The only per-flavor difference is the lib `@import` URL: each flavor hosts its own `lib.less` gist (identical accents/neutrals, differing only in the 6-color bg ramp, keeping the `@morok` map name + `#lib` mixins so style files need no other change). The lib sources live at `themes/userstyles/lib/lib.less` (morok) and `themes/userstyles/lib/popil.less` (popil) — both hand-maintained mirrors, **gitignored** (`lib/`): they're the editing source for the hosted gists, not committed. A fresh clone won't have them; the committed artifact is the bundle (`themes/dist/stylus/*.json`), which references the gists by URL. Editing a lib means re-hosting its gist. `bundle.py`'s `--rewrite-import OLD NEW` swaps the morok gist URL for the flavor's own at bundle time:
+Both flavors ship a bundle from the **same** single-copy style sources — they're never duplicated per flavor. The only per-flavor difference is the lib `@import` URL: each flavor hosts its own `lib.less` gist (identical accents, differing in the 6-color bg ramp + the 3 foreground neutrals `text`/`subtext1`/`subtext0`, keeping the `@morok` map name + `#lib` mixins so style files need no other change). The lib sources live at `themes/userstyles/lib/lib.less` (morok) and `themes/userstyles/lib/popil.less` (popil) — both hand-maintained mirrors, **gitignored** (`lib/`): they're the editing source for the hosted gists, not committed. A fresh clone won't have them; the committed artifact is the bundle (`themes/dist/stylus/*.json`), which references the gists by URL. Editing a lib means re-hosting its gist. `bundle.py`'s `--rewrite-import OLD NEW` swaps the morok gist URL for the flavor's own at bundle time:
 
 - `morok` → `themes/dist/stylus/morok.json` (stock gist URL, no rewrite)
 - `popil` → `themes/dist/stylus/popil.json` (rewrites to the popil lib gist via `--rewrite-import`)

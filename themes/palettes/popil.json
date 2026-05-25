@@ -16,17 +16,17 @@
     "sapphire": "#7398ad",
     "blue": "#7f98bf",
     "lavender": "#9faece",
-    "text": "#e7e5e4",
-    "subtext1": "#d6d3d1",
-    "subtext0": "#a8a29e",
+    "text": "#e4e2de",
+    "subtext1": "#cecbc6",
+    "subtext0": "#a09c97",
     "overlay2": "#a8a29e",
     "overlay1": "#78716c",
     "overlay0": "#57534e",
-    "surface2": "#36302b",
-    "surface1": "#2c2622",
-    "surface0": "#231e1a",
-    "base": "#1c1917",
-    "mantle": "#161210",
-    "crust": "#15110e"
+    "surface2": "#373634",
+    "surface1": "#2e2e2c",
+    "surface0": "#262625",
+    "base": "#1f1f1e",
+    "mantle": "#1a1a19",
+    "crust": "#151514"
   }
 }
