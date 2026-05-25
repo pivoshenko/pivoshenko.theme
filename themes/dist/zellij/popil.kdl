@@ -1,0 +1,15 @@
+themes {
+  popil {
+    bg "#373634"
+    fg "#e4e2de"
+    red "#c98787"
+    green "#8ea98c"
+    blue "#7f98bf"
+    yellow "#c7b07a"
+    magenta "#d1b2c9"
+    orange "#d0a178"
+    cyan "#7da2b5"
+    black "#1a1a19"
+    white "#e4e2de"
+  }
+}
