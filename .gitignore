@@ -241,3 +241,6 @@ target
 #.idea/
 
 !morok/userstyles/lib
+
+# Generated theme artifacts (regenerate via `just render`)
+/themes/dist/
