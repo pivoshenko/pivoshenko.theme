@@ -555,7 +555,7 @@ body {
 }
 
 /* @settings
-name: "Morok: Morok Accents"
+name: "{{ name | capitalize }}: {{ name | capitalize }} Accents"
 id: {{ name }}-theme-settings
 settings:
   -
@@ -630,7 +630,7 @@ settings:
         value: ctp-accent-lavender
 */
 /* @settings
-name: "Morok: Icon Styles"
+name: "{{ name | capitalize }}: Icon Styles"
 id: {{ name }}-icon-styles
 settings:
   -
@@ -640,7 +640,7 @@ settings:
     type: class-toggle
 */
 /* @settings
-name: "Morok: Interface Styles"
+name: "{{ name | capitalize }}: Interface Styles"
 id: {{ name }}-interface-styles
 settings:
   -
@@ -650,7 +650,7 @@ settings:
     type: class-toggle
 */
 /* @settings
-name: "Morok: Font Styles"
+name: "{{ name | capitalize }}: Font Styles"
 id: {{ name }}-font-styles
 settings:
   -
@@ -889,7 +889,7 @@ settings:
   -
   */
 /* @settings
-name: "Morok: File Name and Headings"
+name: "{{ name | capitalize }}: File Name and Headings"
 id: {{ name }}-heading-settings
 settings:
   -
@@ -1307,7 +1307,7 @@ settings:
         value: var(--ctp-subtext0)
 */
 /* @settings
-name: "Morok: PDF Settings"
+name: "{{ name | capitalize }}: PDF Settings"
 id: {{ name }}-pdf
 settings:
   -
@@ -1327,7 +1327,7 @@ settings:
     type: class-toggle
 */
 /* @settings
-name: "Morok: Tag Styles"
+name: "{{ name | capitalize }}: Tag Styles"
 id: {{ name }}-tag-styles
 settings:
   -
@@ -1397,7 +1397,7 @@ settings:
 */
 /* @settings
 
-name: "Morok: Credits and Source Code"
+name: "{{ name | capitalize }}: Credits and Source Code"
 id: source-code
 settings:
   -
@@ -2865,7 +2865,7 @@ button.mod-cta:hover {
 }
 
 /**
-* Some tweaks for the light/Morok Latte theme.
+* Some tweaks for the light/{{ name | capitalize }} Latte theme.
 */
 .theme-dark:not(.css-settings-manager),
 .theme-light:not(.css-settings-manager),
@@ -3442,7 +3442,7 @@ button.mod-cta:hover {
 }
 
 /*
-* Adds some padding for larger Morok separator
+* Adds some padding for larger {{ name | capitalize }} separator
 */
 .another-quick-switcher__status__search-command {
   padding-bottom: 0.5rem;
