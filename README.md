@@ -8,16 +8,17 @@
 
 ## Overview
 
-A dark theme focused on minimalism, simplicity and cross-tool consistency, shipped in two flavors:
+A dark theme focused on minimalism, simplicity and cross-tool consistency, shipped in three flavors:
 
-- **`Morok`** features pitch black — neutral greys on a true-black floor.
-- **`Popil`** features warm ash — the same palette lifted off black with a warm tint.
+- **`Morok`** — pitch black, neutral greys on a true-black floor, cool Catppuccin-frappe-style accents.
+- **`Popil`** — warm ash. Claude-app grey base with neutral warm-grey subtext and Anthropic-brand-aligned muted terracotta accents. The "house" flavor for brand surfaces.
+- **`Vatra`** — Carpathian hearth fire. Same warm `#1f1f1e` base as popil but with golden-tan subtext and gruvbox-material-warm accents (orange primary). Punchier, more saturated take on the warm flavor.
 
-Both flavors share the same 14 named color slots and every port template — but the values diverge: `morok` runs cool Catppuccin-frappe-style accents on pitch black, `popil` runs gruvbox-material-warm accents (orange primary) on Claude-app grey. Pick `morok` for maximum contrast, `popil` for warm, eye-friendly dark.
+All three flavors share the same 14 named color slots and every port template — only the *values* in those slots diverge. Pick `morok` for maximum contrast, `popil` for restrained warm minimalism, `vatra` for the gruvbox-coded sibling.
 
 > Preview the palette, compare both flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**.
 
-Repository contains ports for various terminal applications and userstyles for popular websites. All ports are generated from the source palettes (`themes/palettes/morok.json`, `themes/palettes/popil.json`) against shared templates, ensuring a cohesive look across different tools and platforms. Every port below ships as both `themes/dist/<tool>/morok.<ext>` and `themes/dist/<tool>/popil.<ext>` — swap the filename to use the warm flavor.
+Repository contains ports for various terminal applications and userstyles for popular websites. All ports are generated from the source palettes (`themes/palettes/morok.json`, `themes/palettes/popil.json`, `themes/palettes/vatra.json`) against shared templates, ensuring a cohesive look across different tools and platforms. Every port below ships as `themes/dist/<tool>/morok.<ext>`, `themes/dist/<tool>/popil.<ext>`, and `themes/dist/<tool>/vatra.<ext>` — swap the filename to use a different flavor.
 
 See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, and stylus.
 
@@ -26,6 +27,8 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 *Morok* (pronounced [mo-rok]) is a Ukrainian word that means "darkness" or "gloom". It is often used to describe a state of melancholy, sadness, or despair, or a dark and gloomy atmosphere.
 
 *Popil* (pronounced [po-pil]) is a Ukrainian word that means "ash". It evokes the warm grey embers smouldering after a fire has burned down — a faint, lingering heat in the dark. It carries a sense of quiet aftermath: of what remains, still warm, once the flame is gone — mirroring this flavor's warm off-black ramp.
+
+*Vatra* (pronounced [va-tra]) is a Ukrainian word that means "Carpathian hearth fire" or "bonfire" — the open flame around which highland shepherds gather. Where popil is the ash, vatra is the fire still burning: warmer, more saturated, alive with orange and ember-yellow. The two flavors are the same scene at different moments.
 
 ## Ports
 

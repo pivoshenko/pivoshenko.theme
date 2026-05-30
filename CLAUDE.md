@@ -40,7 +40,13 @@ All Python tasks use `uv run`. The render step runs both `scripts/render.py` and
 
 ## Architecture
 
-The repository hosts a single brand theme rendered in two flavors from two palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ in their background ramp, foreground neutrals, **and accents**: `morok` (pitch black, near-white text on `#000000`, cool Catppuccin-frappe-style accents) and `popil` (near-neutral dark-grey base `#1f1f1e`, faintly warm, softened cream text, gruvbox-material-warm accents — orange primary). Both palettes share the same 14 named color slots (`rosewater`/`flamingo`/.../`lavender`) so port templates stay flavor-agnostic; the *values* in those slots differ. Shared Python tooling in `scripts/` renders any palette via `--palette`.
+The repository hosts a single brand theme rendered in **three flavors** from three palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ in their background ramp, foreground neutrals, and accents:
+
+- `morok` — pitch black, near-white text on `#000000`, cool Catppuccin-frappe-style accents (`accent.primary = blue`).
+- `popil` — Claude-app grey base `#1f1f1e`, neutral warm-grey subtext, **Anthropic-brand-aligned muted accents** (`accent.primary = terracotta #d97757`). The "house" flavor for brand surfaces.
+- `vatra` — same warm `#1f1f1e` base, golden-tan subtext, **gruvbox-material-warm accents** (`accent.primary = orange #ec7f3e`). Carpathian hearth fire — the warmer, punchier sibling of popil.
+
+All three palettes share the same 14 named color slots (`rosewater`/`flamingo`/.../`lavender`) so port templates stay flavor-agnostic; the *values* in those slots differ. Shared Python tooling in `scripts/` renders any palette via `--palette`.
 
 ### Layout
 
@@ -61,12 +67,12 @@ pivoshenko.theme/
 
 ### Palettes
 
-`themes/palettes/morok.json` and `themes/palettes/popil.json` each define all colors with `#rrggbb` hex values (including the `#` prefix). To change colors, edit the relevant palette. Each palette has two top-level blocks:
+`themes/palettes/morok.json`, `themes/palettes/popil.json`, and `themes/palettes/vatra.json` each define all colors with `#rrggbb` hex values (including the `#` prefix). To change colors, edit the relevant palette. Each palette has two top-level blocks:
 
 - **`colors`** — the 14 raw named slots (`rosewater`/`flamingo`/`pink`/`mauve`/`red`/`maroon`/`peach`/`yellow`/`green`/`teal`/`sky`/`sapphire`/`blue`/`lavender`) + `text`/`subtext*` + `overlay*` + `surface*`/`base`/`mantle`/`crust`. Same keys in both flavors; values diverge per flavor. Port templates that target apps with literal-hue slot expectations (zed, discord, obsidian) read these directly.
 - **`roles`** — semantic layer mapping role keys to color names: `bg.{canvas,surface,raised,sunken,overlay}`, `fg.{default,muted,subtle,faint}`, `border.{subtle,default,strong}`, `accent.{primary,secondary,success,warning,danger,info}`. Each value is a `colors` key string (e.g. `"accent.primary": "blue"` for morok, `"peach"` for popil). Roles are how flavor identity gets expressed: same role, different color name per flavor. Web ports + frontend frameworks should consume *only* roles so a flavor swap re-resolves color intent automatically.
 
-`morok` crust is true `#000000` with near-white text and `accent.primary = blue`; `popil` anchors `base` to Claude-app grey `#1f1f1e` (near-neutral, faintly warm), softened text (`text #e4e2de`), and `accent.primary = peach` (gruvbox-warm orange `#ec7f3e`).
+`morok` crust is true `#000000` with near-white text and `accent.primary = blue`; `popil` anchors `base` to Claude-app grey `#1f1f1e` (near-neutral, faintly warm), neutral warm-grey subtext, and `accent.primary = peach` (Anthropic terracotta `#d97757`); `vatra` shares popil's bg ramp but layers golden-tan subtext and `accent.primary = peach` (gruvbox-material orange `#ec7f3e`) for a warmer, more saturated take.
 
 ### Templates
 
@@ -88,17 +94,19 @@ Four ports target the brand's web stack. Use **tokens** + **tailwind-tokens** fo
 
 `themes/userstyles/styles/<site>/style.user.less` — Less-based userstyles for browser injection via Stylus. Each file has a `==UserStyle==` metadata header. They import the shared palette via a hosted gist URL and use `#lib.palette()` / `#lib.defaults()` mixins. `scripts/bundle.py` collects all `style.user.less` files and produces a Stylus import bundle.
 
-Both flavors ship a bundle from the **same** single-copy style sources — they're never duplicated per flavor. The only per-flavor difference is the lib `@import` URL: each flavor hosts its own `lib.less` gist (identical accents, differing in the 6-color bg ramp + the 3 foreground neutrals `text`/`subtext1`/`subtext0`, keeping the `@morok` map name + `#lib` mixins so style files need no other change). The lib sources live at `themes/userstyles/lib/lib.less` (morok) and `themes/userstyles/lib/popil.less` (popil) — both hand-maintained mirrors, **gitignored** (`lib/`): they're the editing source for the hosted gists, not committed. A fresh clone won't have them; the committed artifact is the bundle (`themes/dist/stylus/*.json`), which references the gists by URL. Editing a lib means re-hosting its gist. `bundle.py`'s `--rewrite-import OLD NEW` swaps the morok gist URL for the flavor's own at bundle time:
+All three flavors ship a bundle from the **same** single-copy style sources — they're never duplicated per flavor. The only per-flavor difference is the lib `@import` URL: each flavor hosts its own `lib.less` gist (differing bg ramp, foreground neutrals, and accents — but keeping the `@morok` map name + `#lib` mixins so style files need no other change). The lib sources live at `themes/userstyles/lib/lib.less` (morok), `themes/userstyles/lib/popil.less` (popil), and `themes/userstyles/lib/vatra.less` (vatra) — all hand-maintained mirrors, **gitignored** (`lib/`): they're the editing source for the hosted gists, not committed. A fresh clone won't have them; the committed artifact is the bundle (`themes/dist/stylus/*.json`), which references the gists by URL. Editing a lib means re-hosting its gist. `bundle.py`'s `--rewrite-import OLD NEW` swaps the morok gist URL for the flavor's own at bundle time:
 
 - `morok` → `themes/dist/stylus/morok.json` (stock gist URL, no rewrite)
 - `popil` → `themes/dist/stylus/popil.json` (rewrites to the popil lib gist via `--rewrite-import`)
+- `vatra` → `themes/dist/stylus/vatra.json` (rewrites to the vatra lib gist via `--rewrite-import`)
 
-The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`). The hosted gists (owner `pivoshenko`):
+The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`, `vatra_lib_url`). The hosted gists (owner `pivoshenko`):
 
 - `morok` → gist `a4b48bfdc60be6a6a35ea5f3da732be1`, file `lib.less` (source: `themes/userstyles/lib/lib.less`)
 - `popil` → gist `ee8090a682bb964031d51705d9ffd697`, file `popil.less` (source: `themes/userstyles/lib/popil.less`)
+- `vatra` → gist `4966a9fda130dbd531f9884c11ae156b`, file `vatra.less` (source: `themes/userstyles/lib/vatra.less`)
 
-**`popil_lib_url` must point at a hosted raw URL of `popil.less`** before `just render-popil` produces a usable bundle — until that gist exists, the popil bundle's import won't resolve in Stylus. When a lib's bg ramp changes, **re-host that gist** (push the edited local `lib/*.less` to the gist above) and bump the matching justfile var to the new raw URL (the raw URL embeds a commit SHA that changes on every gist edit). The pinned SHA in the URL means the bundle keeps resolving the exact ramp it was built against until you bump it.
+**Each `*_lib_url` must point at a hosted raw URL of its lib file** before `just render-<flavor>` produces a usable bundle. When a lib changes, **re-host that gist** (push the edited local `lib/*.less` to the gist above) and bump the matching justfile var to the new raw URL (the raw URL embeds a commit SHA that changes on every gist edit). The pinned SHA in the URL means the bundle keeps resolving the exact ramp it was built against until you bump it.
 
 ### Site
 

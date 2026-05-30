@@ -1,0 +1,300 @@
+
+
+/**
+ * @name vatra
+ * @author pivoshenko
+ * @version 1.0.0
+ * @description Vatra theme for Discord
+ * @website https://github.com/volodymyr-pivoshenko/pivoshenko.theme
+ */
+
+@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");
+
+.visual-refresh.theme-dark,
+.visual-refresh .theme-dark {
+  --brand-100: #b8d2cc;
+  --brand-130: #b4d0ca;
+  --brand-160: #b1cec8;
+  --brand-200: #aeccc6;
+  --brand-230: #aacac3;
+  --brand-260: #a7c8c1;
+  --brand-300: #a4c6bf;
+  --brand-330: #9ec2ba;
+  --brand-360: #97beb5;
+  --brand-400: #90bab1;
+  --brand-430: #8ab6ac;
+  --brand-460: #84b2a8;
+  --brand-500: #7daea3 !important;
+  --brand-530: #77a59b;
+  --brand-560: #709d93;
+  --brand-600: #6a948b;
+  --brand-630: #648b82;
+  --brand-660: #5e827a;
+  --brand-700: #587a72;
+  --brand-730: #54756e;
+  --brand-760: #51716a;
+  --brand-800: #4e6d66;
+  --brand-830: #4b6862;
+  --brand-860: #48645e;
+  --brand-900: #45605a;
+  --brand-05a: #7daea30d;
+  --brand-10a: #7daea31a;
+  --brand-15a: #7daea326;
+  --brand-20a: #7daea333;
+  --brand-25a: #7daea340;
+  --brand-30a: #7daea34d;
+  --brand-35a: #7daea359;
+  --brand-40a: #7daea366;
+  --brand-45a: #7daea373;
+  --brand-50a: #7daea380;
+  --brand-55a: #7daea38c;
+  --brand-60a: #7daea399;
+  --brand-65a: #7daea3a6;
+  --brand-70a: #7daea3b3;
+  --brand-75a: #7daea3bf;
+  --brand-80a: #7daea3cc;
+  --brand-85a: #7daea3d9;
+  --brand-90a: #7daea3e6;
+  --brand-95a: #7daea3f2;
+
+  --__header-bar-background: #1a1a19 !important;
+  --text-default: #e4e2de;
+  --text-muted: #a89984 !important;
+  --text-link: #7daea3 !important;
+  --text-brand: #7daea3;
+  --text-strong: #e4e2de !important;
+  --text-subtle: #d4be98;
+
+  --text-feedback-positive: #a9b665;
+  --text-feedback-critical: #ea6962;
+  --text-feedback-warning: #e0b04a;
+  --text-feedback-info: #7daea3;
+
+  --message-reacted-background-default: #7daea34d !important;
+  --message-reacted-text-default: #7daea3;
+
+  --opacity-blurple-8: #7daea314;
+  --opacity-blurple-16: #7daea329;
+  --opacity-blurple-24: #7daea33d;
+  --opacity-blurple-32: #7daea352;
+  --opacity-blurple-60: #7daea399;
+  --blurple-50: #7daea3;
+  --blurple-60: #709d93;
+
+  --app-frame-background: #151514;
+  --background-secondary-alt: #1f1f1e !important;
+  --background-accent: #2e2e2c !important;
+  --background-surface-highest: #262625 !important;
+  --background-surface-higher: #252524 !important;
+  --background-surface-high: #1f1f1e !important;
+  --background-base-lowest: #151514 !important;
+  --background-base-lower: #1a1a19 !important;
+  --background-base-low: #1f1f1e !important;
+  --bg-surface-raised: #1a1a19;
+  --background-gradient-highest: #1f1f1e;
+  --home-background: #1f1f1e;
+  --chat-background: #1f1f1e;
+  --chat-background-default: #1f1f1e;
+  --chat-border: #151514;
+  --chat-text-muted: #a89984;
+
+  --checkbox-icon-active: #151514;
+  --checkbox-border-default: #57534e;
+  --radio-thumb-background-active: #151514;
+
+  --border-muted: #262625;
+  --border-strong: #1a1a19;
+  --border-normal: #151514;
+  --border-subtle: #1f1f1e !important;
+  --background-mod-muted: #3736340d;
+  --background-mod-normal: #37363426;
+  --background-mod-subtle: #37363440 !important;
+  --background-mod-strong: #37363473 !important;
+  --custom-channel-members-bg: #1a1a19;
+  --custom-status-bubble-background: #151514 !important;
+  --custom-status-bubble-background-color: #1a1a19 !important;
+  --card-background-default: #262625 !important;
+
+  --background-feedback-positive: #a9b66526;
+  --icon-feedback-positive: #a9b665;
+  --background-feedback-warning: #e0b04a26;
+  --icon-feedback-warning: #e0b04a;
+  --background-feedback-critical: #ea696226;
+  --icon-feedback-critical: #ea6962;
+  --background-feedback-info: #7daea326;
+  --icon-feedback-info: #7daea3;
+  --background-feedback-notification: #ea6962;
+  --icon-feedback-notification: #ea6962;
+  --badge-notification-background: #ea6962;
+
+  --status-positive: #a9b665;
+  --status-positive-background: #a9b665;
+  --status-positive-text: #1f1f1e;
+  --status-warning: #e0b04a;
+  --status-warning-background: #e0b04a;
+  --status-warning-text: #1f1f1e;
+  --status-danger: #ea6962;
+
+  --black-500: #151514;
+  --green-360: #a9b665;
+  --green-300: #a9b665;
+  --yellow-360: #e0b04a;
+  --yellow-300: #e0b04a;
+  --red-400: #ea6962;
+  --red-430: #d35e58;
+  --red-500: #c75953;
+  --blue-500: #709d93;
+  --blue-530: #6a948b;
+  --primary-100: #d4be98;
+  --primary-200: #a89984;
+  --primary-300: #d4be98;
+  --primary-400: #d4be98;
+  --primary-630: #262625;
+  --primary-700: #2e2e2c;
+  --primary-800: #151514;
+  --white: #e4e2de;
+  --white-500: #e4e2de;
+
+  --guild-boosting-pink: #ec7f3e;
+  --guild-boosting-blue: #7daea3;
+  --guild-boosting-purple: #d3869b;
+  --premium-perk-yellow: #e0b04a;
+  --premium-perk-purple: #d3869b;
+  --premium-perk-dark-blue: #709d93;
+  --premium-perk-light-blue: #84b2a8;
+  --premium-perk-blue: #7daea3;
+  --premium-perk-green: #a9b665;
+  --premium-perk-pink: #ec7f3e;
+  --premium-perk-orange: #ec7f3e;
+  --premium-tier-0-blue: #7daea3;
+  --premium-tier-0-purple: #d3869b;
+  --premium-tier-1-blue-for-gradients: #89b482;
+  --premium-tier-1-dark-blue-for-gradients: #7daea3;
+  --premium-tier-2-purple-for-gradients: #be798c;
+  --premium-tier-2-purple-for-gradients-2: #d3869b;
+  --premium-tier-2-pink-for-gradients: #ec7f3e;
+
+  --control-primary-background-default: #7daea3;
+  --control-primary-background-hover: #74a197;
+  --control-primary-background-active: #6d988f;
+  --control-secondary-background-default: #2e2e2c !important;
+  --control-secondary-background-hover: #2c2c2a;
+  --control-secondary-background-active: #2b2b29;
+  --control-secondary-border-default: #262625;
+  --control-secondary-text-default: #e4e2de !important;
+  --control-secondary-text-hover: #e4e2de;
+
+  --control-critical-primary-background-default: #ea6962;
+  --control-critical-primary-background-hover: #de645d;
+  --control-critical-primary-background-active: #d35e58;
+  --control-critical-primary-text-default: #1f1f1e;
+  --control-critical-primary-text-hover: #1f1f1e;
+  --control-critical-secondary-background-default: transparent;
+  --control-critical-secondary-background-hover: #e46660;
+  --control-critical-secondary-background-active: #de645d;
+  --control-critical-secondary-border-default: #ea6962;
+  --control-critical-secondary-border-hover: #e46660;
+  --control-critical-secondary-border-active: #e46660;
+  --control-critical-secondary-text-default: #e4e2de;
+  --control-critical-secondary-text-hover: #1f1f1e;
+  --control-critical-secondary-text-active: #1f1f1e;
+
+  --control-connected-background-default: #a9b665;
+  --control-connected-background-hover: #a1ad60;
+  --control-connected-background-active: #9ca85d;
+  --control-connected-border-default: #a9b665;
+  --control-connected-border-hover: #a5b162;
+  --control-connected-border-active: #a5b162;
+
+  --button-outline-primary-text: #e4e2de;
+  --button-outline-brand-text: #e4e2de;
+  --button-outline-brand-background-hover: #7aaa9f;
+  --button-outline-brand-border-active: #7aaa9f;
+
+  --modal-background: #1f1f1e !important;
+  --modal-footer-background: #1f1f1e;
+  --scrollbar-thin-thumb: #7daea3;
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-thumb: #7daea3;
+  --scrollbar-auto-track: #151514;
+  --scrollbar-auto-scrollbar-color-thumb: #7daea3;
+  --scrollbar-auto-scrollbar-color-track: #151514;
+
+  --input-background-default: #151514;
+  --input-text-default: #e4e2de;
+  --input-placeholder-text-default: #d4be98;
+  --input-border-default: #57534e;
+  --logo-primary: #e4e2de;
+  --control-brand-foreground: #7daea3;
+  --control-brand-foreground-new: #7daea3;
+  --mention-foreground: #7daea3;
+  --mention-background: #7daea34d;
+
+  --message-mentioned-background-default: #e0b04a1a;
+  --message-mentioned-background-hover: #e0b04a14;
+  --message-background-hover: #1515144d !important;
+  --message-automod-background-default: #ddc7a10d;
+  --message-automod-background-hover: #ddc7a11a;
+  --message-highlight-background-default: #7daea314;
+  --message-highlight-background-hover: #7daea30f;
+
+  --background-code: #1f1f1e;
+  --channels-default: #a0917d !important;
+  --channel-icon: #a0917d !important;
+  --channel-text-area-placeholder: #e4e2de80;
+  --channeltextarea-background: #1a1a19;
+  --icon-muted: #a0917d !important;
+  --icon-voice-muted: #ea6962;
+  --icon-default: #e4e2de;
+  --icon-strong: #e4e2de;
+  --icon-subtle: #d4be98;
+  --textbox-markdown-syntax: #57534e;
+  --spoiler-revealed-background: #262625;
+  --spoiler-hidden-background: #373634;
+  --__adaptive-focus-ring-color: #7daea3;
+
+  --interactive-icon-default: #e4e2de !important;
+  --interactive-icon-hover: #e4e2de;
+  --interactive-icon-active: #e4e2de;
+  --interactive-text-default: #e4e2de !important;
+  --interactive-text-hover: #e4e2de;
+  --interactive-text-active: #e4e2de;
+  --interactive-muted: #57534e;
+  --interactive-background-hover: #a8a29e26;
+  --interactive-background-selected: #57534e33;
+  --interactive-background-active: #e4e2de2b;
+
+  --__spoiler-background-color--hidden: #373634;
+  --__spoiler-warning-background-color: #41403e;
+  --user-profile-overlay-background: #1a1a19;
+  --user-profile-overlay-background-hover: #262625;
+  --plum-23: #1f1f1e;
+  --badge-text-brand: #1f1f1e;
+
+  --text-status-online: #a9b665;
+  --text-status-idle: #e0b04a;
+  --text-status-dnd: #ea6962;
+  --text-status-offline: #d4be98;
+  --icon-status-online: #a9b665;
+  --icon-status-idle: #e0b04a;
+  --icon-status-dnd: #ea6962;
+  --icon-status-offline: #d4be98;
+
+  --twitch: #be798c;
+  --playstation: #709d93;
+  --spotify: #a9b665;
+
+  --notice-background-critical: #ea6962;
+  --notice-background-info: #7daea3;
+  --notice-background-positive: #a9b665;
+  --notice-background-warning: #e0b04a;
+  --notice-text-critical: #151514;
+  --notice-text-info: #151514;
+  --notice-text-positive: #151514;
+  --notice-text-warning: #151514;
+}
+
+.visual-refresh.theme-dark ::selection,
+.visual-refresh .theme-dark ::selection {
+  background-color: #7daea399;
+}

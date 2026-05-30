@@ -555,11 +555,11 @@ body {
 }
 
 /* @settings
-name: "Popil: Popil Accents"
-id: popil-theme-settings
+name: "Vatra: Vatra Accents"
+id: vatra-theme-settings
 settings:
   -
-    id: popil-theme-dark
+    id: vatra-theme-dark
     title: Dark theme flavor
     description: Select your preferred dark mode flavor
     type: class-select
@@ -576,7 +576,7 @@ settings:
         label: Mocha
         value: ctp-mocha
   -
-    id: popil-theme-accents
+    id: vatra-theme-accents
     title: Theme accent
     description: Select your preferred accent
     type: class-select
@@ -630,8 +630,8 @@ settings:
         value: ctp-accent-lavender
 */
 /* @settings
-name: "Popil: Icon Styles"
-id: popil-icon-styles
+name: "Vatra: Icon Styles"
+id: vatra-icon-styles
 settings:
   -
     id: ctp-icon-hide
@@ -640,8 +640,8 @@ settings:
     type: class-toggle
 */
 /* @settings
-name: "Popil: Interface Styles"
-id: popil-interface-styles
+name: "Vatra: Interface Styles"
+id: vatra-interface-styles
 settings:
   -
     id: ctp-bold-folder-title
@@ -650,8 +650,8 @@ settings:
     type: class-toggle
 */
 /* @settings
-name: "Popil: Font Styles"
-id: popil-font-styles
+name: "Vatra: Font Styles"
+id: vatra-font-styles
 settings:
   -
     id: ctp-bold
@@ -889,8 +889,8 @@ settings:
   -
   */
 /* @settings
-name: "Popil: File Name and Headings"
-id: popil-heading-settings
+name: "Vatra: File Name and Headings"
+id: vatra-heading-settings
 settings:
   -
     id: ctp-page-title
@@ -1307,8 +1307,8 @@ settings:
         value: var(--ctp-subtext0)
 */
 /* @settings
-name: "Popil: PDF Settings"
-id: popil-pdf
+name: "Vatra: PDF Settings"
+id: vatra-pdf
 settings:
   -
     id: ctp-seamless-pdf
@@ -1327,8 +1327,8 @@ settings:
     type: class-toggle
 */
 /* @settings
-name: "Popil: Tag Styles"
-id: popil-tag-styles
+name: "Vatra: Tag Styles"
+id: vatra-tag-styles
 settings:
   -
     id: ctp-tag-pill
@@ -1397,11 +1397,11 @@ settings:
 */
 /* @settings
 
-name: "Popil: Credits and Source Code"
+name: "Vatra: Credits and Source Code"
 id: source-code
 settings:
   -
-    id: popil-theme-credits-link
+    id: vatra-theme-credits-link
     title: Credits and Source Code
     type: heading
     level: 1
@@ -1414,23 +1414,23 @@ settings:
 .theme-dark.ctp-frappe,
 .theme-dark.ctp-macchiato,
 .theme-dark.ctp-mocha {
-  --ctp-rosewater: 221, 199, 194;
-  --ctp-flamingo: 217, 119, 87;
-  --ctp-pink: 200, 154, 164;
-  --ctp-mauve: 184, 138, 160;
-  --ctp-red: 200, 122, 114;
-  --ctp-maroon: 176, 106, 94;
-  --ctp-peach: 217, 119, 87;
-  --ctp-yellow: 212, 168, 90;
-  --ctp-green: 138, 157, 104;
-  --ctp-teal: 135, 168, 150;
-  --ctp-sky: 123, 160, 196;
-  --ctp-sapphire: 112, 149, 184;
-  --ctp-blue: 123, 160, 196;
-  --ctp-lavender: 168, 155, 181;
+  --ctp-rosewater: 221, 199, 161;
+  --ctp-flamingo: 236, 127, 62;
+  --ctp-pink: 236, 127, 62;
+  --ctp-mauve: 211, 134, 155;
+  --ctp-red: 234, 105, 98;
+  --ctp-maroon: 214, 93, 14;
+  --ctp-peach: 236, 127, 62;
+  --ctp-yellow: 224, 176, 74;
+  --ctp-green: 169, 182, 101;
+  --ctp-teal: 137, 180, 130;
+  --ctp-sky: 125, 174, 163;
+  --ctp-sapphire: 137, 180, 130;
+  --ctp-blue: 125, 174, 163;
+  --ctp-lavender: 211, 134, 155;
   --ctp-text: 228, 226, 222;
-  --ctp-subtext1: 184, 179, 168;
-  --ctp-subtext0: 155, 149, 138;
+  --ctp-subtext1: 212, 190, 152;
+  --ctp-subtext0: 168, 153, 132;
   --ctp-overlay2: 168, 162, 158;
   --ctp-overlay1: 120, 113, 108;
   --ctp-overlay0: 87, 83, 78;
@@ -1440,17 +1440,17 @@ settings:
   --ctp-base: 31, 31, 30;
   --ctp-mantle: 26, 26, 25;
   --ctp-crust: 21, 21, 20;
-  --hex-pink: #c89aa4;
-  --hex-mauve: #b88aa0;
-  --hex-red: #c87a72;
-  --hex-peach: #d97757;
-  --hex-yellow: #d4a85a;
-  --hex-green: #8a9d68;
-  --hex-teal: #87a896;
-  --hex-sky: #7ba0c4;
-  --hex-sapphire: #7095b8;
-  --hex-blue: #7ba0c4;
-  --hex-lavender: #a89bb5;
+  --hex-pink: #ec7f3e;
+  --hex-mauve: #d3869b;
+  --hex-red: #ea6962;
+  --hex-peach: #ec7f3e;
+  --hex-yellow: #e0b04a;
+  --hex-green: #a9b665;
+  --hex-teal: #89b482;
+  --hex-sky: #7daea3;
+  --hex-sapphire: #89b482;
+  --hex-blue: #7daea3;
+  --hex-lavender: #d3869b;
 }
 
 .theme-light,
@@ -2849,12 +2849,12 @@ button.mod-cta:hover {
   border-color: rgb(var(--ctp-surface1));
 }
 
-.style-settings-heading[data-id=popil-theme-credits-link]+.style-settings-container,
-.style-settings-heading[data-id=popil-theme-credits-link] .style-settings-collapse-indicator {
+.style-settings-heading[data-id=vatra-theme-credits-link]+.style-settings-container,
+.style-settings-heading[data-id=vatra-theme-credits-link] .style-settings-collapse-indicator {
   display: none;
 }
 
-.style-settings-heading[data-id=popil-theme-credits-link]:not(.is-collapsed) {
+.style-settings-heading[data-id=vatra-theme-credits-link]:not(.is-collapsed) {
   margin-bottom: 0;
 }
 
@@ -2865,7 +2865,7 @@ button.mod-cta:hover {
 }
 
 /**
-* Some tweaks for the light/Popil Latte theme.
+* Some tweaks for the light/Vatra Latte theme.
 */
 .theme-dark:not(.css-settings-manager),
 .theme-light:not(.css-settings-manager),
@@ -3442,7 +3442,7 @@ button.mod-cta:hover {
 }
 
 /*
-* Adds some padding for larger Popil separator
+* Adds some padding for larger Vatra separator
 */
 .another-quick-switcher__status__search-command {
   padding-bottom: 0.5rem;

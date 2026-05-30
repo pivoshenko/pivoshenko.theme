@@ -1,9 +1,9 @@
-/* popil — semantic design tokens (role layer)
+/* vatra — semantic design tokens (role layer)
  * Values are space-separated R G B triples for use with
  * rgb(var(--token) / <alpha-value>) in Tailwind / shadcn-style configs.
- * Apply by setting `data-flavor="popil"` on the root element.
+ * Apply by setting `data-flavor="vatra"` on the root element.
  */
-[data-flavor="popil"] {
+[data-flavor="vatra"] {
   /* Background */
   --bg-canvas: 31 31 30;
   --bg-surface: 38 38 37;
@@ -13,8 +13,8 @@
 
   /* Foreground */
   --fg-default: 228 226 222;
-  --fg-muted: 184 179 168;
-  --fg-subtle: 155 149 138;
+  --fg-muted: 212 190 152;
+  --fg-subtle: 168 153 132;
   --fg-faint: 120 113 108;
 
   /* Border */
@@ -23,10 +23,10 @@
   --border-strong: 55 54 52;
 
   /* Accent */
-  --accent-primary: 217 119 87;
-  --accent-secondary: 212 168 90;
-  --accent-success: 138 157 104;
-  --accent-warning: 212 168 90;
-  --accent-danger: 200 122 114;
-  --accent-info: 123 160 196;
+  --accent-primary: 236 127 62;
+  --accent-secondary: 224 176 74;
+  --accent-success: 169 182 101;
+  --accent-warning: 224 176 74;
+  --accent-danger: 234 105 98;
+  --accent-info: 137 180 130;
 }

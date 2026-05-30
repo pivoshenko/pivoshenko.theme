@@ -2,23 +2,23 @@
 /* Source: palettes/popil.json */
 
 :root {
-  --popil-rosewater: #ddc7a1;
-  --popil-flamingo: #ec7f3e;
-  --popil-pink: #ec7f3e;
-  --popil-mauve: #d3869b;
-  --popil-red: #ea6962;
-  --popil-maroon: #d65d0e;
-  --popil-peach: #ec7f3e;
-  --popil-yellow: #e0b04a;
-  --popil-green: #a9b665;
-  --popil-teal: #89b482;
-  --popil-sky: #7daea3;
-  --popil-sapphire: #89b482;
-  --popil-blue: #7daea3;
-  --popil-lavender: #d3869b;
+  --popil-rosewater: #ddc7c2;
+  --popil-flamingo: #d97757;
+  --popil-pink: #c89aa4;
+  --popil-mauve: #b88aa0;
+  --popil-red: #c87a72;
+  --popil-maroon: #b06a5e;
+  --popil-peach: #d97757;
+  --popil-yellow: #d4a85a;
+  --popil-green: #8a9d68;
+  --popil-teal: #87a896;
+  --popil-sky: #7ba0c4;
+  --popil-sapphire: #7095b8;
+  --popil-blue: #7ba0c4;
+  --popil-lavender: #a89bb5;
   --popil-text: #e4e2de;
-  --popil-subtext1: #d4be98;
-  --popil-subtext0: #a89984;
+  --popil-subtext1: #b8b3a8;
+  --popil-subtext0: #9b958a;
   --popil-overlay2: #a8a29e;
   --popil-overlay1: #78716c;
   --popil-overlay0: #57534e;
