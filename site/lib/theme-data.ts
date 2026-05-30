@@ -93,7 +93,7 @@ function colorGroup(name: string): PaletteColor['group'] {
   return 'accent'
 }
 
-export function getPalette(flavor: 'morok' | 'popil' = 'morok') {
+export function getPalette(flavor: 'morok' | 'popil' | 'vatra' = 'morok') {
   const raw = readFileSync(
     join(themesRoot, 'palettes', `${flavor}.json`),
     'utf8',

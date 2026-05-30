@@ -19,6 +19,14 @@ const copy = {
       off-black ramp.
     </>
   ),
+  vatra: (
+    <>
+      <em>Vatra</em> (pronounced [va-tra]) is a Ukrainian word for the
+      Carpathian hearth fire — the open flame around which highland shepherds
+      gather. Where popil is the ash, vatra is the fire still burning: warmer,
+      more saturated, alive with orange and ember-yellow.
+    </>
+  ),
 } as const
 
 export function FlavorDescription() {

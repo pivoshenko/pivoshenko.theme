@@ -9,7 +9,7 @@ import {
 } from 'react'
 import type { PaletteColor } from './theme-data'
 
-export type Flavor = 'morok' | 'popil'
+export type Flavor = 'morok' | 'popil' | 'vatra'
 
 export type PaletteData = {
   name: string

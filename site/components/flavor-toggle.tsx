@@ -14,6 +14,9 @@ export function FlavorToggle() {
       <Tab active={flavor === 'popil'} onClick={() => setFlavor('popil')}>
         Popil
       </Tab>
+      <Tab active={flavor === 'vatra'} onClick={() => setFlavor('vatra')}>
+        Vatra
+      </Tab>
     </Tabs>
   )
 }

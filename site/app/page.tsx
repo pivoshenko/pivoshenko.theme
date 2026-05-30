@@ -13,9 +13,12 @@ import { SectionHeader } from 'pivoshenko.ui'
 export default async function HomePage() {
   const morok = getPalette('morok')
   const popil = getPalette('popil')
+  const vatra = getPalette('vatra')
   const ports = getPorts()
 
-  // accents + neutrals are identical across flavors — derive once from morok.
+  // accent slot *names* are identical across flavors (14 named slots).
+  // values diverge per flavor — consumers should read hex from the
+  // active palette via useFlavor().palette.map[name].
   const accents = morok.colors
     .filter((c) => c.group === 'accent')
     .map((c) => ({ name: c.name, hex: c.hex }))
@@ -24,10 +27,11 @@ export default async function HomePage() {
   const exampleSets = {
     morok: await renderExamples(morok.map),
     popil: await renderExamples(popil.map),
+    vatra: await renderExamples(vatra.map),
   }
 
   return (
-    <FlavorProvider palettes={{ morok, popil }} defaultFlavor="morok">
+    <FlavorProvider palettes={{ morok, popil, vatra }} defaultFlavor="morok">
       <AccentProvider accents={accents} defaultAccent="mauve">
         <div className="space-y-10">
           <Hero />

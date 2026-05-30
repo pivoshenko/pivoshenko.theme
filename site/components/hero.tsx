@@ -12,23 +12,29 @@ export function Hero() {
           A dark theme
         </a>{' '}
         focused on minimalism, simplicity and cross-tool consistency, shipped in
-        two flavors:
+        three flavors:
       </p>
       <ul className="type-body fg-body space-y-1 list-disc pl-5">
         <li>
-          <strong>Morok</strong> features pitch black — neutral greys on a
-          true-black floor.
+          <strong>Morok</strong> — pitch black, neutral greys on a true-black
+          floor.
         </li>
         <li>
-          <strong>Popil</strong> features warm ash — the same palette lifted off
-          black with a warm tint.
+          <strong>Popil</strong> — warm ash. Claude-grey base with neutral
+          warm-grey subtext and Anthropic-brand-aligned muted terracotta
+          accents.
+        </li>
+        <li>
+          <strong>Vatra</strong> — Carpathian hearth fire. Same warm base as
+          popil, but with golden-tan subtext and gruvbox-material-warm accents.
         </li>
       </ul>
       <p className="type-body fg-body">
-        Both flavors share identical accents, neutrals, and ports — only the
-        background ramp differs (cold black vs warm). Pick{' '}
-        <code className="font-mono">morok</code> for maximum contrast,{' '}
-        <code className="font-mono">popil</code> for a softer, warmer dark.
+        All three flavors share the same 14 named color slots and every port —
+        only the values diverge. Pick <code className="font-mono">morok</code>{' '}
+        for maximum contrast, <code className="font-mono">popil</code> for
+        restrained warm minimalism, <code className="font-mono">vatra</code> for
+        the gruvbox-coded sibling.
       </p>
     </section>
   )
