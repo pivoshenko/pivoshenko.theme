@@ -13,7 +13,7 @@ A dark theme focused on minimalism, simplicity and cross-tool consistency, shipp
 - **`Morok`** features pitch black — neutral greys on a true-black floor.
 - **`Popil`** features warm ash — the same palette lifted off black with a warm tint.
 
-Both flavors share identical accents, neutrals, and ports — only the background ramp differs (cold black vs warm). Pick `morok` for maximum contrast, `popil` for a softer, warmer dark.
+Both flavors share the same 14 named color slots and every port template — but the values diverge: `morok` runs cool Catppuccin-frappe-style accents on pitch black, `popil` runs gruvbox-material-warm accents (orange primary) on Claude-app grey. Pick `morok` for maximum contrast, `popil` for warm, eye-friendly dark.
 
 > Preview the palette, compare both flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**.
 
@@ -156,6 +156,35 @@ For plain-CSS surfaces and design-system docs.
 ```
 
 Every palette token becomes a `--morok-<token>` custom property on `:root`.
+
+#### Design tokens (semantic, switcher-ready)
+
+For Next.js / shadcn / any frontend stack that needs a runtime flavor switcher. Tokens are flavor-agnostic semantic names (`--bg-canvas`, `--fg-default`, `--accent-primary`) scoped to `[data-flavor="<flavor>"]`. Values are space-separated `R G B` triples for `<alpha-value>` support.
+
+```ts
+// globals.css
+@import url('/path/to/themes/dist/tokens/morok.css');
+@import url('/path/to/themes/dist/tokens/popil.css');
+
+// tailwind.config.ts
+import type { Config } from 'tailwindcss'
+import preset from './path/to/themes/dist/tailwind-tokens/morok.js'
+
+export default {
+  presets: [preset],
+  content: ['./app/**/*.{ts,tsx}'],
+} satisfies Config
+```
+
+```tsx
+<html data-flavor="morok"> {/* or popil */}
+  <body className="bg-canvas text-fg-default">
+    <button className="bg-accent-primary text-bg-canvas">Click</button>
+  </body>
+</html>
+```
+
+Flip flavor at runtime by setting `document.documentElement.dataset.flavor`.
 
 ## Userstyles
 

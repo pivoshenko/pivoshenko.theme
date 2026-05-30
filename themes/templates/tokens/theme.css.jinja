@@ -1,0 +1,32 @@
+/* {{ name }} — semantic design tokens (role layer)
+ * Values are space-separated R G B triples for use with
+ * rgb(var(--token) / <alpha-value>) in Tailwind / shadcn-style configs.
+ * Apply by setting `data-flavor="{{ name }}"` on the root element.
+ */
+[data-flavor="{{ name }}"] {
+  /* Background */
+  --bg-canvas: {{ role.bg.canvas | rgb | replace(', ', ' ') }};
+  --bg-surface: {{ role.bg.surface | rgb | replace(', ', ' ') }};
+  --bg-raised: {{ role.bg.raised | rgb | replace(', ', ' ') }};
+  --bg-sunken: {{ role.bg.sunken | rgb | replace(', ', ' ') }};
+  --bg-overlay: {{ role.bg.overlay | rgb | replace(', ', ' ') }};
+
+  /* Foreground */
+  --fg-default: {{ role.fg.default | rgb | replace(', ', ' ') }};
+  --fg-muted: {{ role.fg.muted | rgb | replace(', ', ' ') }};
+  --fg-subtle: {{ role.fg.subtle | rgb | replace(', ', ' ') }};
+  --fg-faint: {{ role.fg.faint | rgb | replace(', ', ' ') }};
+
+  /* Border */
+  --border-subtle: {{ role.border.subtle | rgb | replace(', ', ' ') }};
+  --border-default: {{ role.border.default | rgb | replace(', ', ' ') }};
+  --border-strong: {{ role.border.strong | rgb | replace(', ', ' ') }};
+
+  /* Accent */
+  --accent-primary: {{ role.accent.primary | rgb | replace(', ', ' ') }};
+  --accent-secondary: {{ role.accent.secondary | rgb | replace(', ', ' ') }};
+  --accent-success: {{ role.accent.success | rgb | replace(', ', ' ') }};
+  --accent-warning: {{ role.accent.warning | rgb | replace(', ', ' ') }};
+  --accent-danger: {{ role.accent.danger | rgb | replace(', ', ' ') }};
+  --accent-info: {{ role.accent.info | rgb | replace(', ', ' ') }};
+}

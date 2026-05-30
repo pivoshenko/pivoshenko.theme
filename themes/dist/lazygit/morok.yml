@@ -13,11 +13,11 @@ theme:
   cherryPickedCommitFgColor:
     - "#7f98bf"
   unstagedChangesColor:
-    - "#c98787"
+    - "#d97777"
   defaultFgColor:
     - "#e7e5e4"
   searchingActiveBorderColor:
-    - "#c7b07a"
+    - "#d4b070"
 
 authorColors:
   "*": "#9faece"

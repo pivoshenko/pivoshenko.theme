@@ -15,13 +15,13 @@ k9s:
     bgColor: "#111111"
     sectionColor: "#8ea98c"
     keyColor: "#7f98bf"
-    numKeyColor: "#b97a74"
+    numKeyColor: "#c47068"
   frame:
     title:
       fgColor: "#7ea59d"
       bgColor: "#111111"
       highlightColor: "#d1b2c9"
-      counterColor: "#c7b07a"
+      counterColor: "#d4b070"
       filterColor: "#8ea98c"
     border:
       fgColor: "#a78cc4"
@@ -29,22 +29,22 @@ k9s:
     menu:
       fgColor: "#e7e5e4"
       keyColor: "#7f98bf"
-      numKeyColor: "#b97a74"
+      numKeyColor: "#c47068"
     crumbs:
       fgColor: "#111111"
-      bgColor: "#b97a74"
+      bgColor: "#c47068"
       activeColor: "#d8b8aa"
     status:
       newColor: "#7f98bf"
       modifyColor: "#9faece"
       addColor: "#8ea98c"
-      pendingColor: "#d0a178"
-      errorColor: "#c98787"
+      pendingColor: "#d99a6a"
+      errorColor: "#d97777"
       highlightColor: "#7da2b5"
       killColor: "#a78cc4"
       completedColor: "#57534e"
   info:
-    fgColor: "#d0a178"
+    fgColor: "#d99a6a"
     sectionColor: "#e7e5e4"
   views:
     table:
@@ -54,7 +54,7 @@ k9s:
       cursorBgColor: "#212121"
       markColor: "#e2cfc6"
       header:
-        fgColor: "#c7b07a"
+        fgColor: "#d4b070"
         bgColor: "#111111"
         sorterColor: "#7da2b5"
     xray:
@@ -69,17 +69,17 @@ k9s:
       dialBgColor: "#111111"
       defaultDialColors:
         - "#8ea98c"
-        - "#c98787"
+        - "#d97777"
       defaultChartColors:
         - "#8ea98c"
-        - "#c98787"
+        - "#d97777"
       resourceColors:
         cpu:
           - "#a78cc4"
           - "#7f98bf"
         mem:
-          - "#c7b07a"
-          - "#d0a178"
+          - "#d4b070"
+          - "#d99a6a"
     yaml:
       keyColor: "#7f98bf"
       valueColor: "#e7e5e4"
@@ -93,7 +93,7 @@ k9s:
         toggleOnColor: "#8ea98c"
         toggleOffColor: "#a8a29e"
   dialog:
-    fgColor: "#c7b07a"
+    fgColor: "#d4b070"
     bgColor: "#a8a29e"
     buttonFgColor: "#111111"
     buttonBgColor: "#78716c"

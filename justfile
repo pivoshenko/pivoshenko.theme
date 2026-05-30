@@ -1,7 +1,7 @@
 # Hosted lib.less gists imported by every userstyle. The morok bundle ships the
 # stock URL; popil rewrites it to its own gist (raw URL of themes/userstyles/lib/popil.less).
-morok_lib_url := "https://gist.githubusercontent.com/pivoshenko/a4b48bfdc60be6a6a35ea5f3da732be1/raw/f0a66b5138c45dd5fb91e7fa42b601f2a6b890d6/lib.less"
-popil_lib_url := "https://gist.githubusercontent.com/pivoshenko/ee8090a682bb964031d51705d9ffd697/raw/ccaa0dfd58cff7e9d86088f69389e1c689f17b16/popil.less"
+morok_lib_url := "https://gist.githubusercontent.com/pivoshenko/a4b48bfdc60be6a6a35ea5f3da732be1/raw/2ed629b85e99708d1a937d945b9c255295c1e6ac/lib.less"
+popil_lib_url := "https://gist.githubusercontent.com/pivoshenko/ee8090a682bb964031d51705d9ffd697/raw/1d138395cc167536d5fa2f40f6c0135fb604136d/popil.less"
 
 default:
     @just --list

@@ -1,0 +1,32 @@
+/* popil — semantic design tokens (role layer)
+ * Values are space-separated R G B triples for use with
+ * rgb(var(--token) / <alpha-value>) in Tailwind / shadcn-style configs.
+ * Apply by setting `data-flavor="popil"` on the root element.
+ */
+[data-flavor="popil"] {
+  /* Background */
+  --bg-canvas: 31 31 30;
+  --bg-surface: 38 38 37;
+  --bg-raised: 46 46 44;
+  --bg-sunken: 26 26 25;
+  --bg-overlay: 87 83 78;
+
+  /* Foreground */
+  --fg-default: 228 226 222;
+  --fg-muted: 212 190 152;
+  --fg-subtle: 168 153 132;
+  --fg-faint: 120 113 108;
+
+  /* Border */
+  --border-subtle: 38 38 37;
+  --border-default: 46 46 44;
+  --border-strong: 55 54 52;
+
+  /* Accent */
+  --accent-primary: 236 127 62;
+  --accent-secondary: 224 176 74;
+  --accent-success: 169 182 101;
+  --accent-warning: 224 176 74;
+  --accent-danger: 234 105 98;
+  --accent-info: 137 180 130;
+}

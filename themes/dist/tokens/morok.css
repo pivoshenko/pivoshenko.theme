@@ -1,0 +1,32 @@
+/* morok — semantic design tokens (role layer)
+ * Values are space-separated R G B triples for use with
+ * rgb(var(--token) / <alpha-value>) in Tailwind / shadcn-style configs.
+ * Apply by setting `data-flavor="morok"` on the root element.
+ */
+[data-flavor="morok"] {
+  /* Background */
+  --bg-canvas: 17 17 17;
+  --bg-surface: 25 25 25;
+  --bg-raised: 33 33 33;
+  --bg-sunken: 13 13 13;
+  --bg-overlay: 87 83 78;
+
+  /* Foreground */
+  --fg-default: 231 229 228;
+  --fg-muted: 214 211 209;
+  --fg-subtle: 168 162 158;
+  --fg-faint: 120 113 108;
+
+  /* Border */
+  --border-subtle: 25 25 25;
+  --border-default: 33 33 33;
+  --border-strong: 41 41 41;
+
+  /* Accent */
+  --accent-primary: 127 152 191;
+  --accent-secondary: 159 174 206;
+  --accent-success: 142 169 140;
+  --accent-warning: 212 176 112;
+  --accent-danger: 217 119 119;
+  --accent-info: 126 165 157;
+}

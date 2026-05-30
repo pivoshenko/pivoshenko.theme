@@ -40,7 +40,7 @@ All Python tasks use `uv run`. The render step runs both `scripts/render.py` and
 
 ## Architecture
 
-The repository hosts a single brand theme rendered in two flavors from two palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ in their background ramp **and** foreground neutrals: `morok` (pitch black, near-white text on `#000000`) and `popil` (near-neutral dark-grey base `#1f1f1e`, faintly warm, with softened text). Accents (and every port template) are identical between them — accents are the shared brand thread. Shared Python tooling in `scripts/` renders any palette via `--palette`.
+The repository hosts a single brand theme rendered in two flavors from two palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ in their background ramp, foreground neutrals, **and accents**: `morok` (pitch black, near-white text on `#000000`, cool Catppuccin-frappe-style accents) and `popil` (near-neutral dark-grey base `#1f1f1e`, faintly warm, softened cream text, gruvbox-material-warm accents — orange primary). Both palettes share the same 14 named color slots (`rosewater`/`flamingo`/.../`lavender`) so port templates stay flavor-agnostic; the *values* in those slots differ. Shared Python tooling in `scripts/` renders any palette via `--palette`.
 
 ### Layout
 
@@ -61,20 +61,28 @@ pivoshenko.theme/
 
 ### Palettes
 
-`themes/palettes/morok.json` and `themes/palettes/popil.json` each define all colors with `#rrggbb` hex values (including the `#` prefix). To change colors, edit the relevant palette. The **background ramp** (`surface2 surface1 surface0 base mantle crust`) and the **foreground neutrals** (`text subtext1 subtext0`) are forked between the two; keep **accents** (and `overlay*`) in sync across both unless deliberately forking. `morok` crust is true `#000000` with near-white text; `popil` anchors `base` to Claude-app grey `#1f1f1e` (near-neutral, faintly warm) with softened text (`text #e4e2de`).
+`themes/palettes/morok.json` and `themes/palettes/popil.json` each define all colors with `#rrggbb` hex values (including the `#` prefix). To change colors, edit the relevant palette. Each palette has two top-level blocks:
+
+- **`colors`** — the 14 raw named slots (`rosewater`/`flamingo`/`pink`/`mauve`/`red`/`maroon`/`peach`/`yellow`/`green`/`teal`/`sky`/`sapphire`/`blue`/`lavender`) + `text`/`subtext*` + `overlay*` + `surface*`/`base`/`mantle`/`crust`. Same keys in both flavors; values diverge per flavor. Port templates that target apps with literal-hue slot expectations (zed, discord, obsidian) read these directly.
+- **`roles`** — semantic layer mapping role keys to color names: `bg.{canvas,surface,raised,sunken,overlay}`, `fg.{default,muted,subtle,faint}`, `border.{subtle,default,strong}`, `accent.{primary,secondary,success,warning,danger,info}`. Each value is a `colors` key string (e.g. `"accent.primary": "blue"` for morok, `"peach"` for popil). Roles are how flavor identity gets expressed: same role, different color name per flavor. Web ports + frontend frameworks should consume *only* roles so a flavor swap re-resolves color intent automatically.
+
+`morok` crust is true `#000000` with near-white text and `accent.primary = blue`; `popil` anchors `base` to Claude-app grey `#1f1f1e` (near-neutral, faintly warm), softened text (`text #e4e2de`), and `accent.primary = peach` (gruvbox-warm orange `#ec7f3e`).
 
 ### Templates
 
-`themes/templates/<tool>/theme.<ext>.jinja` — Jinja2 templates that reference palette colors as `{{ color.hex }}` (full `#rrggbb` string) and the flavor name as `{{ name }}`. Available filters: `mix(color=..., amount=0.5)`, `get(key='hex')`, `rgb`. The `iif(cond, t, f)` global is available for conditionals. One template renders both flavors: `morok` → `themes/dist/<tool>/morok.<ext>`, `popil` → `themes/dist/<tool>/popil.<ext>`. Use `{{ name }}` (never a literal `morok`) for any in-file theme identifier (telegram `shortname`, bat scope, obsidian style-settings `id`s) so the shared template stays flavor-correct.
+`themes/templates/<tool>/theme.<ext>.jinja` — Jinja2 templates that reference palette colors as `{{ color.hex }}` (full `#rrggbb` string), roles as `{{ role.<group>.<key>.hex }}` (e.g. `{{ role.accent.primary.hex }}`, `{{ role.bg.canvas.hex }}`), and the flavor name as `{{ name }}`. Available filters: `mix(color=..., amount=0.5)`, `get(key='hex')`, `rgb`. The `iif(cond, t, f)` global is available for conditionals. One template renders both flavors: `morok` → `themes/dist/<tool>/morok.<ext>`, `popil` → `themes/dist/<tool>/popil.<ext>`. Use `{{ name }}` (never a literal `morok`) for any in-file theme identifier (telegram `shortname`, bat scope, obsidian style-settings `id`s) so the shared template stays flavor-correct. Prefer `role` over raw color names in new web/UI templates — it keeps flavor identity intact when colors are retuned.
 
 **Multi-file ports** (a tool with several fixed-name artifacts, e.g. `telegram` → `macos`/`desktop`/`ios`): use the verbatim form `themes/templates/<tool>/<name>.jinja` → `themes/dist/<tool>/<flavor>-<name>` (e.g. `themes/dist/telegram/morok-macos`, no extension). Triggered when the template basename has no dot and isn't `theme`. The `<flavor>-` prefix prevents the two palettes colliding in the shared dir. Tokenize hex literals to `{{ token.hex }}`; keep deliberately port-specific colors (e.g. telegram outgoing-bubble tints) and true-black opacity scrims (`#000000CC`) as literals.
 
 ### Web ports
 
-Two ports target the brand's web stack:
+Four ports target the brand's web stack. Use **tokens** + **tailwind-tokens** for any new frontend work; `tailwind` + `css-vars` remain for legacy raw-color consumers.
 
-- `themes/templates/tailwind/theme.js.jinja` → `themes/dist/tailwind/morok.js` (+ `popil.js`) — Tailwind preset (CommonJS) exposing `colors.<flavor>.<token>` and JetBrains Mono font stack. Consumed by `pivoshenko.ui/tailwind-preset` (vendored on release; sites import via `pivoshenko.ui/tailwind-preset` subpath).
-- `themes/templates/css-vars/theme.css.jinja` → `themes/dist/css-vars/morok.css` (+ `popil.css`) — `:root` custom properties named `--<flavor>-<token>`. Consumed by the `pivoshenko-brand` skill's HTML reference and any plain-CSS surfaces.
+- `themes/templates/tokens/theme.css.jinja` → `themes/dist/tokens/morok.css` (+ `popil.css`) — semantic role-based CSS variables scoped to `[data-flavor="<flavor>"]`. Values are space-separated `R G B` triples (no `rgb()` wrapper) so consumers can use `rgb(var(--accent-primary) / <alpha-value>)` in Tailwind / shadcn configs. Token names are flavor-agnostic (`--bg-canvas`, `--fg-default`, `--accent-primary`); switching flavor = setting `data-flavor` on the root element.
+- `themes/templates/tailwind-tokens/theme.js.jinja` → `themes/dist/tailwind-tokens/morok.js` (+ `popil.js`, identical content) — flavor-agnostic Tailwind preset (CommonJS) consuming the tokens CSS vars. Exposes `colors.bg.{canvas,surface,...}`, `colors.fg.{default,muted,...}`, `colors.border.{subtle,default,strong}`, `colors.accent.{primary,secondary,success,warning,danger,info}` plus a JetBrains Mono font stack. Utilities become `bg-canvas`, `text-fg-muted`, `bg-accent-primary/50`, etc. — independent of flavor.
+- `themes/templates/tailwind/theme.js.jinja` → `themes/dist/tailwind/morok.js` (+ `popil.js`) — *legacy* Tailwind preset exposing `colors.<flavor>.<token>` (raw color names). Still consumed by `pivoshenko.ui/tailwind-preset` (vendored on release; sites import via `pivoshenko.ui/tailwind-preset` subpath). Prefer `tailwind-tokens` for new sites.
+- `themes/templates/css-vars/theme.css.jinja` → `themes/dist/css-vars/morok.css` (+ `popil.css`) — *legacy* `:root` custom properties named `--<flavor>-<token>` (raw color names). Consumed by the `pivoshenko-brand` skill's HTML reference and any plain-CSS surfaces. Prefer `tokens` for new work.
+- `themes/templates/preview/theme.html.jinja` → `themes/dist/preview/morok.html` (+ `popil.html`) — self-contained HTML preview showing role swatches, UI panels (buttons/badges/cards), code sample, and raw palette grid. Open in a browser to eyeball a flavor.
 
 ### Userstyles
 

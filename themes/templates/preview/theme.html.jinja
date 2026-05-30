@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ name }} — preview</title>
+<style>
+  :root {
+    --bg-canvas: {{ role.bg.canvas.hex }};
+    --bg-surface: {{ role.bg.surface.hex }};
+    --bg-raised: {{ role.bg.raised.hex }};
+    --bg-sunken: {{ role.bg.sunken.hex }};
+    --bg-overlay: {{ role.bg.overlay.hex }};
+    --fg-default: {{ role.fg.default.hex }};
+    --fg-muted: {{ role.fg.muted.hex }};
+    --fg-subtle: {{ role.fg.subtle.hex }};
+    --fg-faint: {{ role.fg.faint.hex }};
+    --border-default: {{ role.border.default.hex }};
+    --border-subtle: {{ role.border.subtle.hex }};
+    --border-strong: {{ role.border.strong.hex }};
+    --accent-primary: {{ role.accent.primary.hex }};
+    --accent-secondary: {{ role.accent.secondary.hex }};
+    --accent-success: {{ role.accent.success.hex }};
+    --accent-warning: {{ role.accent.warning.hex }};
+    --accent-danger: {{ role.accent.danger.hex }};
+    --accent-info: {{ role.accent.info.hex }};
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2.5rem;
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    background: var(--bg-canvas);
+    color: var(--fg-default);
+  }
+  code, pre, .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+  h1 { margin: 0 0 .25rem; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.01em; }
+  h2 { margin: 2.25rem 0 .75rem; font-size: 1rem; font-weight: 600; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .meta { color: var(--fg-subtle); font-size: .85rem; }
+  .grid {
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+  .swatch {
+    border: 1px solid var(--border-default);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-surface);
+  }
+  .swatch .chip { height: 64px; }
+  .swatch .lbl {
+    padding: .5rem .65rem;
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+    font-size: .78rem;
+  }
+  .swatch .lbl .name { color: var(--fg-default); font-weight: 500; }
+  .swatch .lbl .hex { color: var(--fg-subtle); }
+  .role .chip { display: flex; align-items: flex-end; padding: .5rem .65rem; color: var(--fg-default); font-size: .72rem; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+  .panels { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: .5rem; }
+  .panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .panel.raised { background: var(--bg-raised); }
+  .panel.sunken { background: var(--bg-sunken); }
+  .panel h3 { margin: 0 0 .5rem; font-size: .9rem; font-weight: 600; }
+  .panel p { margin: 0 0 .5rem; color: var(--fg-muted); }
+  .panel .row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+  .btn {
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: .4rem .8rem;
+    font: inherit;
+    cursor: pointer;
+  }
+  .btn.primary { background: var(--accent-primary); color: var(--bg-canvas); }
+  .btn.secondary { background: transparent; border-color: var(--border-strong); color: var(--fg-default); }
+  .btn.ghost { background: transparent; color: var(--accent-primary); }
+  .badge { display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-size: .72rem; font-weight: 500; }
+  .badge.success { background: color-mix(in srgb, var(--accent-success) 18%, transparent); color: var(--accent-success); }
+  .badge.warning { background: color-mix(in srgb, var(--accent-warning) 18%, transparent); color: var(--accent-warning); }
+  .badge.danger { background: color-mix(in srgb, var(--accent-danger) 18%, transparent); color: var(--accent-danger); }
+  .badge.info { background: color-mix(in srgb, var(--accent-info) 18%, transparent); color: var(--accent-info); }
+  .badge.muted { background: var(--bg-overlay); color: var(--fg-muted); }
+  pre {
+    margin: 0;
+    padding: 1rem;
+    background: var(--bg-sunken);
+    border: 1px solid var(--border-default);
+    border-radius: 10px;
+    color: var(--fg-default);
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+  .kw { color: var(--accent-secondary); }
+  .fn { color: var(--accent-primary); }
+  .str { color: var(--accent-success); }
+  .num { color: var(--accent-warning); }
+  .cm { color: var(--fg-faint); font-style: italic; }
+  .ty { color: var(--accent-info); }
+  .er { color: var(--accent-danger); }
+  a { color: var(--accent-primary); }
+  hr { border: none; border-top: 1px solid var(--border-subtle); margin: 1rem 0; }
+</style>
+</head>
+<body>
+  <h1>{{ name }}</h1>
+  <div class="meta">flavor preview · roles + raw palette</div>
+
+  <h2>Roles</h2>
+  <div class="grid">
+    {% set roles_bg = [('canvas', role.bg.canvas), ('surface', role.bg.surface), ('raised', role.bg.raised), ('sunken', role.bg.sunken), ('overlay', role.bg.overlay)] %}
+    {% set roles_fg = [('default', role.fg.default), ('muted', role.fg.muted), ('subtle', role.fg.subtle), ('faint', role.fg.faint)] %}
+    {% set roles_border = [('subtle', role.border.subtle), ('default', role.border.default), ('strong', role.border.strong)] %}
+    {% set roles_accent = [('primary', role.accent.primary), ('secondary', role.accent.secondary), ('success', role.accent.success), ('warning', role.accent.warning), ('danger', role.accent.danger), ('info', role.accent.info)] %}
+    {% for key, c in roles_bg %}
+    <div class="swatch role"><div class="chip" style="background: {{ c.hex }}">bg.{{ key }}</div><div class="lbl"><span class="name">bg.{{ key }}</span><span class="hex mono">{{ c.hex }}</span></div></div>
+    {% endfor %}
+    {% for key, c in roles_fg %}
+    <div class="swatch role"><div class="chip" style="background: {{ c.hex }}; color: var(--bg-canvas)">fg.{{ key }}</div><div class="lbl"><span class="name">fg.{{ key }}</span><span class="hex mono">{{ c.hex }}</span></div></div>
+    {% endfor %}
+    {% for key, c in roles_border %}
+    <div class="swatch role"><div class="chip" style="background: {{ c.hex }}">border.{{ key }}</div><div class="lbl"><span class="name">border.{{ key }}</span><span class="hex mono">{{ c.hex }}</span></div></div>
+    {% endfor %}
+    {% for key, c in roles_accent %}
+    <div class="swatch role"><div class="chip" style="background: {{ c.hex }}; color: var(--bg-canvas)">accent.{{ key }}</div><div class="lbl"><span class="name">accent.{{ key }}</span><span class="hex mono">{{ c.hex }}</span></div></div>
+    {% endfor %}
+  </div>
+
+  <h2>UI panels</h2>
+  <div class="panels">
+    <div class="panel">
+      <h3>Surface</h3>
+      <p>Default surface with muted body text and subtle border.</p>
+      <div class="row">
+        <button class="btn primary">Primary</button>
+        <button class="btn secondary">Secondary</button>
+        <button class="btn ghost">Ghost</button>
+      </div>
+      <hr>
+      <div class="row">
+        <span class="badge success">success</span>
+        <span class="badge warning">warning</span>
+        <span class="badge danger">danger</span>
+        <span class="badge info">info</span>
+        <span class="badge muted">muted</span>
+      </div>
+    </div>
+    <div class="panel raised">
+      <h3>Raised</h3>
+      <p>Elevated card. <a href="#">Link uses accent.primary</a>.</p>
+      <p style="color: var(--fg-subtle)">Subtle copy for metadata, captions, timestamps.</p>
+      <p style="color: var(--fg-faint)">Faint copy for de-emphasized hints.</p>
+    </div>
+    <div class="panel sunken">
+      <h3>Sunken</h3>
+      <p>Used for code blocks, inputs, inset wells.</p>
+      <pre><span class="cm">// {{ name }} syntax sample</span>
+<span class="kw">def</span> <span class="fn">render</span>(palette: <span class="ty">Path</span>) -&gt; <span class="ty">None</span>:
+    data = json.<span class="fn">loads</span>(palette.<span class="fn">read_text</span>())
+    name = data[<span class="str">"name"</span>]
+    count = <span class="num">14</span>
+    <span class="kw">if</span> <span class="kw">not</span> data:
+        <span class="kw">raise</span> <span class="er">ValueError</span>(<span class="str">"empty"</span>)
+    <span class="kw">return</span> name</pre>
+    </div>
+  </div>
+
+  <h2>Raw palette</h2>
+  <div class="grid">
+    {% for key, c in [
+      ('rosewater', rosewater), ('flamingo', flamingo), ('pink', pink), ('mauve', mauve),
+      ('red', red), ('maroon', maroon), ('peach', peach), ('yellow', yellow),
+      ('green', green), ('teal', teal), ('sky', sky), ('sapphire', sapphire),
+      ('blue', blue), ('lavender', lavender),
+      ('text', text), ('subtext1', subtext1), ('subtext0', subtext0),
+      ('overlay2', overlay2), ('overlay1', overlay1), ('overlay0', overlay0),
+      ('surface2', surface2), ('surface1', surface1), ('surface0', surface0),
+      ('base', base), ('mantle', mantle), ('crust', crust)
+    ] %}
+    <div class="swatch"><div class="chip" style="background: {{ c.hex }}"></div><div class="lbl"><span class="name">{{ key }}</span><span class="hex mono">{{ c.hex }}</span></div></div>
+    {% endfor %}
+  </div>
+</body>
+</html>

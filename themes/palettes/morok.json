@@ -6,10 +6,10 @@
     "flamingo": "#d8b8aa",
     "pink": "#d1b2c9",
     "mauve": "#a78cc4",
-    "red": "#c98787",
-    "maroon": "#b97a74",
-    "peach": "#d0a178",
-    "yellow": "#c7b07a",
+    "red": "#d97777",
+    "maroon": "#c47068",
+    "peach": "#d99a6a",
+    "yellow": "#d4b070",
     "green": "#8ea98c",
     "teal": "#7ea59d",
     "sky": "#7da2b5",
@@ -28,5 +28,33 @@
     "base": "#111111",
     "mantle": "#0d0d0d",
     "crust": "#000000"
+  },
+  "roles": {
+    "bg": {
+      "canvas": "base",
+      "surface": "surface0",
+      "raised": "surface1",
+      "sunken": "mantle",
+      "overlay": "overlay0"
+    },
+    "fg": {
+      "default": "text",
+      "muted": "subtext1",
+      "subtle": "subtext0",
+      "faint": "overlay1"
+    },
+    "border": {
+      "default": "surface1",
+      "subtle": "surface0",
+      "strong": "surface2"
+    },
+    "accent": {
+      "primary": "blue",
+      "secondary": "lavender",
+      "success": "green",
+      "warning": "yellow",
+      "danger": "red",
+      "info": "teal"
+    }
   }
 }

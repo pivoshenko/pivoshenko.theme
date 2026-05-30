@@ -66,8 +66,8 @@
   --text-subtle: #d6d3d1;
 
   --text-feedback-positive: #8ea98c;
-  --text-feedback-critical: #c98787;
-  --text-feedback-warning: #c7b07a;
+  --text-feedback-critical: #d97777;
+  --text-feedback-warning: #d4b070;
   --text-feedback-info: #7f98bf;
 
   --message-reacted-background-default: #7f98bf4d !important;
@@ -117,32 +117,32 @@
 
   --background-feedback-positive: #8ea98c26;
   --icon-feedback-positive: #8ea98c;
-  --background-feedback-warning: #c7b07a26;
-  --icon-feedback-warning: #c7b07a;
-  --background-feedback-critical: #c9878726;
-  --icon-feedback-critical: #c98787;
+  --background-feedback-warning: #d4b07026;
+  --icon-feedback-warning: #d4b070;
+  --background-feedback-critical: #d9777726;
+  --icon-feedback-critical: #d97777;
   --background-feedback-info: #7da2b526;
   --icon-feedback-info: #7da2b5;
-  --background-feedback-notification: #c98787;
-  --icon-feedback-notification: #c98787;
-  --badge-notification-background: #c98787;
+  --background-feedback-notification: #d97777;
+  --icon-feedback-notification: #d97777;
+  --badge-notification-background: #d97777;
 
   --status-positive: #8ea98c;
   --status-positive-background: #8ea98c;
   --status-positive-text: #111111;
-  --status-warning: #c7b07a;
-  --status-warning-background: #c7b07a;
+  --status-warning: #d4b070;
+  --status-warning-background: #d4b070;
   --status-warning-text: #111111;
-  --status-danger: #c98787;
+  --status-danger: #d97777;
 
   --black-500: #000000;
   --green-360: #8ea98c;
   --green-300: #8ea98c;
-  --yellow-360: #c7b07a;
-  --yellow-300: #c7b07a;
-  --red-400: #c98787;
-  --red-430: #b57a7a;
-  --red-500: #ab7373;
+  --yellow-360: #d4b070;
+  --yellow-300: #d4b070;
+  --red-400: #d97777;
+  --red-430: #c36b6b;
+  --red-500: #b86565;
   --blue-500: #7289ac;
   --blue-530: #6c81a2;
   --primary-100: #d6d3d1;
@@ -158,14 +158,14 @@
   --guild-boosting-pink: #d1b2c9;
   --guild-boosting-blue: #7f98bf;
   --guild-boosting-purple: #a78cc4;
-  --premium-perk-yellow: #c7b07a;
+  --premium-perk-yellow: #d4b070;
   --premium-perk-purple: #a78cc4;
   --premium-perk-dark-blue: #7289ac;
   --premium-perk-light-blue: #859dc2;
   --premium-perk-blue: #7f98bf;
   --premium-perk-green: #8ea98c;
   --premium-perk-pink: #d1b2c9;
-  --premium-perk-orange: #d0a178;
+  --premium-perk-orange: #d99a6a;
   --premium-tier-0-blue: #7f98bf;
   --premium-tier-0-purple: #a78cc4;
   --premium-tier-1-blue-for-gradients: #7398ad;
@@ -184,17 +184,17 @@
   --control-secondary-text-default: #e7e5e4 !important;
   --control-secondary-text-hover: #e7e5e4;
 
-  --control-critical-primary-background-default: #c98787;
-  --control-critical-primary-background-hover: #bf8080;
-  --control-critical-primary-background-active: #b57a7a;
+  --control-critical-primary-background-default: #d97777;
+  --control-critical-primary-background-hover: #ce7171;
+  --control-critical-primary-background-active: #c36b6b;
   --control-critical-primary-text-default: #111111;
   --control-critical-primary-text-hover: #111111;
   --control-critical-secondary-background-default: transparent;
-  --control-critical-secondary-background-hover: #c48484;
-  --control-critical-secondary-background-active: #bf8080;
-  --control-critical-secondary-border-default: #c98787;
-  --control-critical-secondary-border-hover: #c48484;
-  --control-critical-secondary-border-active: #c48484;
+  --control-critical-secondary-background-hover: #d47474;
+  --control-critical-secondary-background-active: #ce7171;
+  --control-critical-secondary-border-default: #d97777;
+  --control-critical-secondary-border-hover: #d47474;
+  --control-critical-secondary-border-active: #d47474;
   --control-critical-secondary-text-default: #e7e5e4;
   --control-critical-secondary-text-hover: #111111;
   --control-critical-secondary-text-active: #111111;
@@ -230,8 +230,8 @@
   --mention-foreground: #7f98bf;
   --mention-background: #7f98bf4d;
 
-  --message-mentioned-background-default: #c7b07a1a;
-  --message-mentioned-background-hover: #c7b07a14;
+  --message-mentioned-background-default: #d4b0701a;
+  --message-mentioned-background-hover: #d4b07014;
   --message-background-hover: #0000004d !important;
   --message-automod-background-default: #e2cfc60d;
   --message-automod-background-hover: #e2cfc61a;
@@ -244,7 +244,7 @@
   --channel-text-area-placeholder: #e7e5e480;
   --channeltextarea-background: #0d0d0d;
   --icon-muted: #a09a96 !important;
-  --icon-voice-muted: #c98787;
+  --icon-voice-muted: #d97777;
   --icon-default: #e7e5e4;
   --icon-strong: #e7e5e4;
   --icon-subtle: #d6d3d1;
@@ -272,22 +272,22 @@
   --badge-text-brand: #111111;
 
   --text-status-online: #8ea98c;
-  --text-status-idle: #c7b07a;
-  --text-status-dnd: #c98787;
+  --text-status-idle: #d4b070;
+  --text-status-dnd: #d97777;
   --text-status-offline: #d6d3d1;
   --icon-status-online: #8ea98c;
-  --icon-status-idle: #c7b07a;
-  --icon-status-dnd: #c98787;
+  --icon-status-idle: #d4b070;
+  --icon-status-dnd: #d97777;
   --icon-status-offline: #d6d3d1;
 
   --twitch: #967eb0;
   --playstation: #7289ac;
   --spotify: #8ea98c;
 
-  --notice-background-critical: #c98787;
+  --notice-background-critical: #d97777;
   --notice-background-info: #7f98bf;
   --notice-background-positive: #8ea98c;
-  --notice-background-warning: #c7b07a;
+  --notice-background-warning: #d4b070;
   --notice-text-critical: #000000;
   --notice-text-info: #000000;
   --notice-text-positive: #000000;

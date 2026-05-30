@@ -2,23 +2,23 @@
   "name": "popil",
   "flavor": "dark",
   "colors": {
-    "rosewater": "#e2cfc6",
-    "flamingo": "#d8b8aa",
-    "pink": "#d1b2c9",
-    "mauve": "#a78cc4",
-    "red": "#c98787",
-    "maroon": "#b97a74",
-    "peach": "#d0a178",
-    "yellow": "#c7b07a",
-    "green": "#8ea98c",
-    "teal": "#7ea59d",
-    "sky": "#7da2b5",
-    "sapphire": "#7398ad",
-    "blue": "#7f98bf",
-    "lavender": "#9faece",
+    "rosewater": "#ddc7a1",
+    "flamingo": "#ec7f3e",
+    "pink": "#ec7f3e",
+    "mauve": "#d3869b",
+    "red": "#ea6962",
+    "maroon": "#d65d0e",
+    "peach": "#ec7f3e",
+    "yellow": "#e0b04a",
+    "green": "#a9b665",
+    "teal": "#89b482",
+    "sky": "#7daea3",
+    "sapphire": "#89b482",
+    "blue": "#7daea3",
+    "lavender": "#d3869b",
     "text": "#e4e2de",
-    "subtext1": "#cecbc6",
-    "subtext0": "#a09c97",
+    "subtext1": "#d4be98",
+    "subtext0": "#a89984",
     "overlay2": "#a8a29e",
     "overlay1": "#78716c",
     "overlay0": "#57534e",
@@ -28,5 +28,33 @@
     "base": "#1f1f1e",
     "mantle": "#1a1a19",
     "crust": "#151514"
+  },
+  "roles": {
+    "bg": {
+      "canvas": "base",
+      "surface": "surface0",
+      "raised": "surface1",
+      "sunken": "mantle",
+      "overlay": "overlay0"
+    },
+    "fg": {
+      "default": "text",
+      "muted": "subtext1",
+      "subtle": "subtext0",
+      "faint": "overlay1"
+    },
+    "border": {
+      "default": "surface1",
+      "subtle": "surface0",
+      "strong": "surface2"
+    },
+    "accent": {
+      "primary": "peach",
+      "secondary": "yellow",
+      "success": "green",
+      "warning": "yellow",
+      "danger": "red",
+      "info": "teal"
+    }
   }
 }

@@ -184,9 +184,21 @@ def main() -> None:
         logger.warning(f"Palette {palette_path.name} does not define any colors")
 
     color_ctx = {name: types.SimpleNamespace(hex=value) for name, value in colors.items()}
+
+    def _build_roles(spec: typing.Any) -> typing.Any:
+        if isinstance(spec, dict):
+            return types.SimpleNamespace(**{k: _build_roles(v) for k, v in spec.items()})
+        if isinstance(spec, str) and spec in color_ctx:
+            return color_ctx[spec]
+        return spec
+
+    roles_spec: dict[str, typing.Any] = data.get("roles", {})
+    role_ctx = _build_roles(roles_spec)
+
     context = {
         "name": theme_name,
         "flavor": types.SimpleNamespace(dark=flavor_name == "dark", light=flavor_name == "light"),
+        "role": role_ctx,
         **color_ctx,
     }
 

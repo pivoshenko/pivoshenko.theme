@@ -1414,23 +1414,23 @@ settings:
 .theme-dark.ctp-frappe,
 .theme-dark.ctp-macchiato,
 .theme-dark.ctp-mocha {
-  --ctp-rosewater: 226, 207, 198;
-  --ctp-flamingo: 216, 184, 170;
-  --ctp-pink: 209, 178, 201;
-  --ctp-mauve: 167, 140, 196;
-  --ctp-red: 201, 135, 135;
-  --ctp-maroon: 185, 122, 116;
-  --ctp-peach: 208, 161, 120;
-  --ctp-yellow: 199, 176, 122;
-  --ctp-green: 142, 169, 140;
-  --ctp-teal: 126, 165, 157;
-  --ctp-sky: 125, 162, 181;
-  --ctp-sapphire: 115, 152, 173;
-  --ctp-blue: 127, 152, 191;
-  --ctp-lavender: 159, 174, 206;
+  --ctp-rosewater: 221, 199, 161;
+  --ctp-flamingo: 236, 127, 62;
+  --ctp-pink: 236, 127, 62;
+  --ctp-mauve: 211, 134, 155;
+  --ctp-red: 234, 105, 98;
+  --ctp-maroon: 214, 93, 14;
+  --ctp-peach: 236, 127, 62;
+  --ctp-yellow: 224, 176, 74;
+  --ctp-green: 169, 182, 101;
+  --ctp-teal: 137, 180, 130;
+  --ctp-sky: 125, 174, 163;
+  --ctp-sapphire: 137, 180, 130;
+  --ctp-blue: 125, 174, 163;
+  --ctp-lavender: 211, 134, 155;
   --ctp-text: 228, 226, 222;
-  --ctp-subtext1: 206, 203, 198;
-  --ctp-subtext0: 160, 156, 151;
+  --ctp-subtext1: 212, 190, 152;
+  --ctp-subtext0: 168, 153, 132;
   --ctp-overlay2: 168, 162, 158;
   --ctp-overlay1: 120, 113, 108;
   --ctp-overlay0: 87, 83, 78;
@@ -1440,17 +1440,17 @@ settings:
   --ctp-base: 31, 31, 30;
   --ctp-mantle: 26, 26, 25;
   --ctp-crust: 21, 21, 20;
-  --hex-pink: #d1b2c9;
-  --hex-mauve: #a78cc4;
-  --hex-red: #c98787;
-  --hex-peach: #d0a178;
-  --hex-yellow: #c7b07a;
-  --hex-green: #8ea98c;
-  --hex-teal: #7ea59d;
-  --hex-sky: #7da2b5;
-  --hex-sapphire: #7398ad;
-  --hex-blue: #7f98bf;
-  --hex-lavender: #9faece;
+  --hex-pink: #ec7f3e;
+  --hex-mauve: #d3869b;
+  --hex-red: #ea6962;
+  --hex-peach: #ec7f3e;
+  --hex-yellow: #e0b04a;
+  --hex-green: #a9b665;
+  --hex-teal: #89b482;
+  --hex-sky: #7daea3;
+  --hex-sapphire: #89b482;
+  --hex-blue: #7daea3;
+  --hex-lavender: #d3869b;
 }
 
 .theme-light,
