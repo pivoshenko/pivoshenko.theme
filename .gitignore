@@ -234,3 +234,6 @@ Thumbs.db
 # Misc
 .cache/
 .tmp/
+
+# Userstyle lib sources — hand-maintained mirrors of hosted gists; see CLAUDE.md
+themes/userstyles/lib/
