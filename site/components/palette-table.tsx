@@ -23,7 +23,7 @@ export function PaletteTable({ colors }: Props) {
   }
 
   return (
-    <div className="overflow-x-auto rounded border border-ui bg-white dark:bg-stone-950">
+    <div className="overflow-x-auto rounded border border-ui bg-bg-surface">
       <table className="w-full min-w-[760px] border-collapse">
         <thead>
           <tr className="border-b border-ui">
@@ -129,7 +129,7 @@ function CopyButton({
       aria-label={copied ? 'Copied' : 'Copy value'}
       className={`inline-flex items-center rounded border border-ui p-1 transition-colors disabled:opacity-40 disabled:hover:text-inherit ${
         copied
-          ? 'text-green-600 dark:text-green-400'
+          ? 'text-accent-success'
           : 'fg-muted hover-secondary'
       }`}
     >

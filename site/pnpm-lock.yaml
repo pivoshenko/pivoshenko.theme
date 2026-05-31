@@ -20,12 +20,9 @@ importers:
       next:
         specifier: ^16.2.6
         version: 16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      next-themes:
-        specifier: ^0.4.6
-        version: 0.4.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       pivoshenko.ui:
-        specifier: github:pivoshenko/pivoshenko.ui#v0.6.3
-        version: https://codeload.github.com/pivoshenko/pivoshenko.ui/tar.gz/41b9d712558160acd6d52e34ae05d8bab9b1d3a7(next-themes@0.4.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(tailwindcss@3.4.19)
+        specifier: github:pivoshenko/pivoshenko.ui#v0.8.3
+        version: https://codeload.github.com/pivoshenko/pivoshenko.ui/tar.gz/cb64ceb3f2232e26eae30ec26b3834e7f03d354f(@vercel/analytics@1.6.1(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6))(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(tailwindcss@3.4.19)
       react:
         specifier: ^19.2.6
         version: 19.2.6
@@ -662,12 +659,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  next-themes@0.4.6:
-    resolution: {integrity: sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA==}
-    peerDependencies:
-      react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
-      react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
-
   next@16.2.6:
     resolution: {integrity: sha512-qOVgKJg1+At15NpeUP+eJgCHvTCgXsogweq87Ri/Ix7PkqQHg4sdaXmSFqKlgaIXE4kW0g25LE68W87UANlHtw==}
     engines: {node: '>=20.9.0'}
@@ -730,20 +721,20 @@ packages:
     resolution: {integrity: sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==}
     engines: {node: '>= 6'}
 
-  pivoshenko.ui@https://codeload.github.com/pivoshenko/pivoshenko.ui/tar.gz/41b9d712558160acd6d52e34ae05d8bab9b1d3a7:
-    resolution: {tarball: https://codeload.github.com/pivoshenko/pivoshenko.ui/tar.gz/41b9d712558160acd6d52e34ae05d8bab9b1d3a7}
-    version: 0.6.3
+  pivoshenko.ui@https://codeload.github.com/pivoshenko/pivoshenko.ui/tar.gz/cb64ceb3f2232e26eae30ec26b3834e7f03d354f:
+    resolution: {tarball: https://codeload.github.com/pivoshenko/pivoshenko.ui/tar.gz/cb64ceb3f2232e26eae30ec26b3834e7f03d354f}
+    version: 0.8.3
     engines: {node: '>=22'}
     peerDependencies:
+      '@vercel/analytics': ^1.0.0
       next: ^16.0.0
-      next-themes: ^0.4.0
       react: ^19.0.0
       react-dom: ^19.0.0
       tailwindcss: ^3.4.0
     peerDependenciesMeta:
-      next:
+      '@vercel/analytics':
         optional: true
-      next-themes:
+      next:
         optional: true
       react:
         optional: true
@@ -1442,11 +1433,6 @@ snapshots:
 
   nanoid@3.3.12: {}
 
-  next-themes@0.4.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
-    dependencies:
-      react: 19.2.6
-      react-dom: 19.2.6(react@19.2.6)
-
   next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
       '@next/env': 16.2.6
@@ -1497,10 +1483,10 @@ snapshots:
 
   pirates@4.0.7: {}
 
-  pivoshenko.ui@https://codeload.github.com/pivoshenko/pivoshenko.ui/tar.gz/41b9d712558160acd6d52e34ae05d8bab9b1d3a7(next-themes@0.4.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(tailwindcss@3.4.19):
+  pivoshenko.ui@https://codeload.github.com/pivoshenko/pivoshenko.ui/tar.gz/cb64ceb3f2232e26eae30ec26b3834e7f03d354f(@vercel/analytics@1.6.1(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6))(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(tailwindcss@3.4.19):
     optionalDependencies:
+      '@vercel/analytics': 1.6.1(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6)
       next: 16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      next-themes: 0.4.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
       tailwindcss: 3.4.19

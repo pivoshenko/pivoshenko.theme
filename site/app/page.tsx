@@ -69,7 +69,6 @@ export default async function HomePage() {
                 href="https://github.com/catppuccin/catppuccin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline decoration-current/40 hover:decoration-current underline-offset-2 transition-colors"
               >
                 Catppuccin
               </a>

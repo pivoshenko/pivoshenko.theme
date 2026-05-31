@@ -1,7 +1,1 @@
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
-  transpilePackages: ['pivoshenko.ui'],
-}
-
-export default nextConfig
+export { baseNextConfig as default } from 'pivoshenko.ui/next/config'
