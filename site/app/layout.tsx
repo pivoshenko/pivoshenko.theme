@@ -14,27 +14,32 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://theme.pivoshenko.dev'),
   title: {
     template: '%s — pivoshenko.theme',
-    default: 'pivoshenko.theme — morok',
+    default: 'Morok • Popil • Vatra',
   },
   description:
-    'Morok — a theme focused on minimalism, simplicity, and cross-tool consistency. Palette and ports explorer.',
+    'Themes focused on minimalism, simplicity and cross-tool consistency',
+  authors: [{ name: 'Volodymyr Pivoshenko', url: 'https://pivoshenko.dev' }],
+  creator: 'Volodymyr Pivoshenko',
   icons: {
     icon: '/icon',
+  },
+  alternates: {
+    canonical: '/',
   },
   openGraph: {
     type: 'website',
     url: 'https://theme.pivoshenko.dev',
     siteName: 'pivoshenko.theme',
-    title: 'pivoshenko.theme — morok',
+    title: 'Morok • Popil • Vatra',
     description:
-      'Morok — a theme focused on minimalism, simplicity, and cross-tool consistency. Palette and ports explorer.',
+      'Themes focused on minimalism, simplicity and cross-tool consistency',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'pivoshenko.theme — morok',
+    title: 'Morok • Popil • Vatra',
     description:
-      'Morok — a theme focused on minimalism, simplicity, and cross-tool consistency.',
+      'Themes focused on minimalism, simplicity and cross-tool consistency',
   },
 }
 

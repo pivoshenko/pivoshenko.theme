@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'pivoshenko.theme — morok'
+export const alt = 'Morok • Popil • Vatra'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 export const runtime = 'edge'
@@ -33,13 +33,13 @@ export default async function OpengraphImage() {
         <div
           style={{
             display: 'flex',
-            fontSize: 96,
+            fontSize: 80,
             fontWeight: 700,
             letterSpacing: '-2px',
             color: '#c7b07a',
           }}
         >
-          morok
+          Morok • Popil • Vatra
         </div>
         <div
           style={{
@@ -50,19 +50,17 @@ export default async function OpengraphImage() {
             maxWidth: 980,
           }}
         >
-          a theme focused on minimalism, simplicity, and cross-tool consistency.
+          Themes focused on minimalism, simplicity and cross-tool consistency
         </div>
       </div>
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
           fontSize: 24,
           color: '#8a8a85',
         }}
       >
         <span>theme.pivoshenko.dev</span>
-        <span>palette · ports · examples</span>
       </div>
     </div>,
     {

@@ -8,7 +8,7 @@
 
 ## Overview
 
-A dark theme focused on minimalism, simplicity and cross-tool consistency, shipped in three flavors:
+Themes focused on minimalism, simplicity and cross-tool consistency, shipped in three flavors:
 
 - **`Morok`** — pitch black, neutral greys on a true-black floor, cool Catppuccin-frappe-style accents.
 - **`Popil`** — warm ash. Near-neutral warm-grey base with neutral warm-grey subtext and muted terracotta accents. The "house" flavor for brand surfaces.

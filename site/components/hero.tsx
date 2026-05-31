@@ -9,7 +9,7 @@ export function Hero() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          A dark theme
+          Themes
         </a>{' '}
         focused on minimalism, simplicity and cross-tool consistency, shipped in
         three flavors:
