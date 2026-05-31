@@ -11,16 +11,12 @@
 A dark theme focused on minimalism, simplicity and cross-tool consistency, shipped in three flavors:
 
 - **`Morok`** — pitch black, neutral greys on a true-black floor, cool Catppuccin-frappe-style accents.
-- **`Popil`** — warm ash. Claude-app grey base with neutral warm-grey subtext and Anthropic-brand-aligned muted terracotta accents. The "house" flavor for brand surfaces.
+- **`Popil`** — warm ash. Near-neutral warm-grey base with neutral warm-grey subtext and muted terracotta accents. The "house" flavor for brand surfaces.
 - **`Vatra`** — Carpathian hearth fire. Same warm `#1f1f1e` base as popil but with golden-tan subtext and gruvbox-material-warm accents (orange primary). Punchier, more saturated take on the warm flavor.
 
 All three flavors share the same 14 named color slots and every port template — only the *values* in those slots diverge. Pick `morok` for maximum contrast, `popil` for restrained warm minimalism, `vatra` for the gruvbox-coded sibling.
 
 > Preview the palette, compare both flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**.
-
-Repository contains ports for various terminal applications and userstyles for popular websites. All ports are generated from the source palettes (`themes/palettes/morok.json`, `themes/palettes/popil.json`, `themes/palettes/vatra.json`) against shared templates, ensuring a cohesive look across different tools and platforms. Every port below ships as `themes/dist/<tool>/morok.<ext>`, `themes/dist/<tool>/popil.<ext>`, and `themes/dist/<tool>/vatra.<ext>` — swap the filename to use a different flavor.
-
-See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, and stylus.
 
 **About the names**
 
@@ -30,77 +26,92 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 
 *Vatra* (pronounced [va-tra]) is a Ukrainian word that means "Carpathian hearth fire" or "bonfire" — the open flame around which highland shepherds gather. Where popil is the ash, vatra is the fire still burning: warmer, more saturated, alive with orange and ember-yellow. The two flavors are the same scene at different moments.
 
+## Usage
+
+Repository contains ports for various terminal applications and userstyles for popular websites. All ports are generated from the source palettes (`themes/palettes/morok.json`, `themes/palettes/popil.json`, `themes/palettes/vatra.json`) against shared templates, ensuring a cohesive look across different tools and platforms. Every port below ships as `themes/dist/<tool>/morok.<ext>`, `themes/dist/<tool>/popil.<ext>`, and `themes/dist/<tool>/vatra.<ext>`.
+
+Install steps below use `<flavor>` as a placeholder — substitute `morok`, `popil`, or `vatra` in **both** the source filename and any in-tool identifier the step sets (`theme = "<flavor>"`, `palette = "<flavor>"`, `--theme="<flavor>"`, `skin: <flavor>`, etc.). Telegram is the one exception: it ships per-flavor deep links.
+
+See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, and stylus.
+
 ## Ports
 
 #### Bat
 
-1. Copy [`themes/dist/bat/morok.tmTheme`](themes/dist/bat/morok.tmTheme) to `~/.config/bat/themes/`.
+1. Copy [`themes/dist/bat/<flavor>.tmTheme`](themes/dist/bat/) to `~/.config/bat/themes/`.
 2. Run `bat cache --build`.
-3. Set `--theme="morok"` in `~/.config/bat/config`.
+3. Set `--theme="<flavor>"` in `~/.config/bat/config`.
 
 #### Bottom
 
-1. Copy [`themes/dist/bottom/morok.toml`](themes/dist/bottom/morok.toml) to `~/.config/bottom/bottom.toml`.
+1. Copy [`themes/dist/bottom/<flavor>.toml`](themes/dist/bottom/) to `~/.config/bottom/bottom.toml`.
 2. Start `btm`.
 
 #### Delta
 
-1. Copy [`themes/dist/delta/morok.gitconfig`](themes/dist/delta/morok.gitconfig) to `~/.config/delta/themes/morok.gitconfig`.
-2. Add `include = ~/.config/delta/themes/morok.gitconfig` under `[include]` in `~/.gitconfig`.
-3. Set `features = morok` under `[delta]` in `~/.gitconfig`.
+1. Copy [`themes/dist/delta/<flavor>.gitconfig`](themes/dist/delta/) to `~/.config/delta/themes/<flavor>.gitconfig`.
+2. Add `include = ~/.config/delta/themes/<flavor>.gitconfig` under `[include]` in `~/.gitconfig`.
+3. Set `features = <flavor>` under `[delta]` in `~/.gitconfig`.
 
 #### Discord
 
-1. Copy [`themes/dist/discord/morok.theme.css`](themes/dist/discord/morok.theme.css) to your Discord themes folder (`~/.config/vesktop/themes/` for Vesktop, or BetterDiscord themes directory).
-2. Enable the theme in your Discord client.
+1. Drop [`themes/dist/discord/<flavor>.theme.css`](themes/dist/discord/) into the client's themes folder. Open it from the client itself rather than guessing the path:
+   - **Vesktop**: Settings → Vencord → Themes → "Open Themes Folder" (on macOS the folder lives under `~/Library/Application Support/Vesktop/themes/`, on Linux under `~/.config/vesktop/themes/`).
+   - **BetterDiscord**: Settings → Themes → "Open Themes Folder".
+2. Enable the theme in the client.
+
+#### Fastfetch
+
+1. Copy [`themes/dist/fastfetch/<flavor>.jsonc`](themes/dist/fastfetch/) to `~/.config/fastfetch/config.jsonc` (the dist file is a full `config.jsonc`).
+2. Run `fastfetch`.
 
 #### Fish
 
-1. Copy [`themes/dist/fish/morok.theme`](themes/dist/fish/morok.theme) to `~/.config/fish/themes/`.
-2. Run `fish_config theme save morok`.
+1. Copy [`themes/dist/fish/<flavor>.theme`](themes/dist/fish/) to `~/.config/fish/themes/`.
+2. Run `fish_config theme save <flavor>`.
 
 #### Fzf
 
-1. Copy [`themes/dist/fzf/morok.fish`](themes/dist/fzf/morok.fish) to `~/.config/fish/conf.d/`.
+1. Copy [`themes/dist/fzf/<flavor>.fish`](themes/dist/fzf/) to `~/.config/fish/conf.d/`.
 2. Start a new Fish session, or source the file manually.
-3. Set `FZF_DEFAULT_OPTS="$FZF_MOROK_DARK"` or append `$FZF_MOROK_DARK` to your existing `FZF_DEFAULT_OPTS`.
+3. Set `FZF_DEFAULT_OPTS="$FZF_<FLAVOR>"` (uppercase: `$FZF_MOROK`, `$FZF_POPIL`, `$FZF_VATRA`) or append it to your existing `FZF_DEFAULT_OPTS`.
 
 #### Ghostty
 
-1. Copy [`themes/dist/ghostty/morok.conf`](themes/dist/ghostty/morok.conf) to `~/.config/ghostty/themes/morok`.
-2. Set `theme = morok` in `~/.config/ghostty/config`.
+1. Copy [`themes/dist/ghostty/<flavor>.conf`](themes/dist/ghostty/) to `~/.config/ghostty/themes/<flavor>`.
+2. Set `theme = <flavor>` in `~/.config/ghostty/config`.
 
 #### Helix
 
-1. Copy [`themes/dist/helix/morok.toml`](themes/dist/helix/morok.toml) to `~/.config/helix/themes/morok.toml`.
-2. Set `theme = "morok"` in `~/.config/helix/config.toml`.
+1. Copy [`themes/dist/helix/<flavor>.toml`](themes/dist/helix/) to `~/.config/helix/themes/<flavor>.toml`.
+2. Set `theme = "<flavor>"` in `~/.config/helix/config.toml`.
 
 #### K9s
 
-1. Copy [`themes/dist/k9s/morok.yaml`](themes/dist/k9s/morok.yaml) to `~/.config/k9s/skins/morok.yaml`.
-2. Set `skin: morok` in `~/.config/k9s/config.yaml`.
+1. Copy [`themes/dist/k9s/<flavor>.yaml`](themes/dist/k9s/) to `~/.config/k9s/skins/<flavor>.yaml`.
+2. Set `skin: <flavor>` in `~/.config/k9s/config.yaml`.
 
 #### Lazygit
 
-1. Copy [`themes/dist/lazygit/morok.yml`](themes/dist/lazygit/morok.yml) to `~/.config/lazygit/config.yml`.
+1. Copy [`themes/dist/lazygit/<flavor>.yml`](themes/dist/lazygit/) to `~/.config/lazygit/config.yml`.
 2. Or merge only the `theme:` section into your existing config.
 
 #### Obsidian
 
-1. Copy [`themes/dist/obsidian/morok.css`](themes/dist/obsidian/morok.css) to your Obsidian theme folder and rename it to `theme.css`.
-2. Optionally copy [`themes/dist/obsidian/morok.manifest.json`](themes/dist/obsidian/morok.manifest.json) and rename it to `manifest.json`.
+1. Copy [`themes/dist/obsidian/<flavor>.css`](themes/dist/obsidian/) to your Obsidian theme folder and rename it to `theme.css`.
+2. Optionally copy [`themes/dist/obsidian/<flavor>.manifest.json`](themes/dist/obsidian/) and rename it to `manifest.json`.
 3. Enable the theme in Obsidian Appearance settings.
 
 #### Spicetify
 
-1. Copy [`themes/dist/spicetify/morok.color.ini`](themes/dist/spicetify/morok.color.ini) to `~/.config/spicetify/Themes/morok/color.ini`.
-2. Set `current_theme = morok` in your Spicetify config.
+1. Copy [`themes/dist/spicetify/<flavor>.color.ini`](themes/dist/spicetify/) to `~/.config/spicetify/Themes/<flavor>/color.ini`.
+2. Set `current_theme = <flavor>` in your Spicetify config.
 3. Run `spicetify apply`.
 
 #### Starship
 
-1. Copy the palette from [`themes/dist/starship/morok.toml`](themes/dist/starship/morok.toml) to your [Starship configuration file](https://starship.rs/config/).
-2. Set `palette = "morok"`, preferably near the top of your config.
+1. Copy the palette from [`themes/dist/starship/<flavor>.toml`](themes/dist/starship/) to your [Starship configuration file](https://starship.rs/config/).
+2. Set `palette = "<flavor>"`, preferably near the top of your config.
 3. Save and reload your prompt.
 
 #### Telegram
@@ -108,28 +119,28 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 1. Open the theme deep link in Telegram: [`pivoshenko_theme_morok`](https://t.me/addtheme/pivoshenko_theme_morok) or [`pivoshenko_theme_popil`](https://t.me/addtheme/pivoshenko_theme_popil).
 2. Tap "Apply Theme".
 
-Platform-specific source files live in [`themes/dist/telegram/`](themes/dist/telegram/) (`*-desktop`, `*-ios`, `*-macos`).
+Platform-specific source files for all three flavors live in [`themes/dist/telegram/`](themes/dist/telegram/) as `<flavor>-desktop`, `<flavor>-ios`, and `<flavor>-macos` — use these directly if no deep link is hosted for your flavor.
 
 #### VSCode
 
 1. Install a Catppuccin VSCode theme (for example `Catppuccin Mocha`).
-2. Open the generated override snippet [`themes/dist/vscode/morok.json`](themes/dist/vscode/morok.json).
+2. Open the generated override snippet [`themes/dist/vscode/<flavor>.json`](themes/dist/vscode/).
 3. Merge its `catppuccin.colorOverrides` block into your VSCode `settings.json`.
 
 #### Zed
 
-1. Copy [`themes/dist/zed/morok.json`](themes/dist/zed/morok.json) to a stable location, for example `~/.config/zed/themes/morok.json`.
+1. Copy [`themes/dist/zed/<flavor>.json`](themes/dist/zed/) to a stable location, for example `~/.config/zed/themes/<flavor>.json`.
 2. Open Zed and choose the theme from `Theme Selector` (or set it in your Zed settings).
 
 #### Zen
 
-1. Copy [`themes/dist/zen/morok.userChrome.css`](themes/dist/zen/morok.userChrome.css) and [`themes/dist/zen/morok.userContent.css`](themes/dist/zen/morok.userContent.css) into your Zen profile `chrome/` directory as `userChrome.css` and `userContent.css`.
+1. Copy [`themes/dist/zen/<flavor>.userChrome.css`](themes/dist/zen/) and [`themes/dist/zen/<flavor>.userContent.css`](themes/dist/zen/) into your Zen profile `chrome/` directory as `userChrome.css` and `userContent.css`.
 2. Restart Zen Browser.
 
 #### Zellij
 
-1. Copy the theme block from [`themes/dist/zellij/morok.kdl`](themes/dist/zellij/morok.kdl) into your Zellij config, or place it in a sourced theme file.
-2. Set the active theme to `morok`.
+1. Copy the theme block from [`themes/dist/zellij/<flavor>.kdl`](themes/dist/zellij/) into your Zellij config, or place it in a sourced theme file.
+2. Set the active theme to `<flavor>`.
 
 #### Tailwind
 
@@ -138,27 +149,27 @@ For Next.js / Tailwind 3 sites in the pivoshenko.* ecosystem.
 ```ts
 // tailwind.config.ts
 import type { Config } from 'tailwindcss'
-import morok from './path/to/themes/dist/tailwind/morok.js'
+import flavor from './path/to/themes/dist/tailwind/<flavor>.js' // morok | popil | vatra
 
 export default {
-  presets: [morok],
+  presets: [flavor],
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
 } satisfies Config
 ```
 
-Exposes `colors.morok.<token>` (e.g. `bg-morok-base`, `text-morok-blue`) plus a JetBrains Mono font stack and `darkMode: 'class'`. Consumed in production via [pivoshenko.ui](https://github.com/pivoshenko/pivoshenko.ui) as `@pivoshenko/tailwind-preset`.
+Exposes `colors.<flavor>.<token>` (e.g. `bg-morok-base`, `text-popil-peach`) plus a JetBrains Mono font stack and `darkMode: 'class'`. Consumed in production via [pivoshenko.ui](https://github.com/pivoshenko/pivoshenko.ui) under the `pivoshenko.ui/tailwind-preset` subpath (vendored on release).
 
 #### CSS Variables
 
 For plain-CSS surfaces and design-system docs.
 
 ```css
-@import url('/path/to/themes/dist/css-vars/morok.css');
+@import url('/path/to/themes/dist/css-vars/<flavor>.css'); /* morok | popil | vatra */
 
 .button { background: var(--morok-blue); color: var(--morok-text); }
 ```
 
-Every palette token becomes a `--morok-<token>` custom property on `:root`.
+Every palette token becomes a `--<flavor>-<token>` custom property on `:root`.
 
 #### Design tokens (semantic, switcher-ready)
 
@@ -168,8 +179,9 @@ For Next.js / shadcn / any frontend stack that needs a runtime flavor switcher. 
 // globals.css
 @import url('/path/to/themes/dist/tokens/morok.css');
 @import url('/path/to/themes/dist/tokens/popil.css');
+@import url('/path/to/themes/dist/tokens/vatra.css');
 
-// tailwind.config.ts
+// tailwind.config.ts — preset is flavor-agnostic, any flavor file works
 import type { Config } from 'tailwindcss'
 import preset from './path/to/themes/dist/tailwind-tokens/morok.js'
 
@@ -180,7 +192,7 @@ export default {
 ```
 
 ```tsx
-<html data-flavor="morok"> {/* or popil */}
+<html data-flavor="morok"> {/* or "popil" / "vatra" */}
   <body className="bg-canvas text-fg-default">
     <button className="bg-accent-primary text-bg-canvas">Click</button>
   </body>
@@ -193,9 +205,9 @@ Flip flavor at runtime by setting `document.documentElement.dataset.flavor`.
 
 1. Install the [Stylus browser extension](https://add0n.com/stylus.html).
 2. In Stylus, open the extension popup, go to `Manage`, then `Import`.
-3. Select [`themes/dist/stylus/morok.json`](themes/dist/stylus/morok.json).
+3. Select [`themes/dist/stylus/<flavor>.json`](themes/dist/stylus/) — `morok`, `popil`, or `vatra`.
 
-Default accent color is **blue**.
+Default accent color is **blue** for `morok` and **peach/terracotta** for `popil` / `vatra`.
 
 Browse the available styles under [`themes/userstyles/styles/`](themes/userstyles/styles/).
 

@@ -20,9 +20,8 @@ export function Hero() {
           floor.
         </li>
         <li>
-          <strong>Popil</strong> — warm ash. Claude-grey base with neutral
-          warm-grey subtext and Anthropic-brand-aligned muted terracotta
-          accents.
+          <strong>Popil</strong> — warm ash. Near-neutral warm-grey base with
+          neutral warm-grey subtext and muted terracotta accents.
         </li>
         <li>
           <strong>Vatra</strong> — Carpathian hearth fire. Same warm base as

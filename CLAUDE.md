@@ -13,7 +13,7 @@ just clean
 
 # Render a single flavor
 just render-morok   # pitch black
-just render-popil   # warm ash (Anthropic-aligned)
+just render-popil   # warm ash
 just render-vatra   # warm ash (gruvbox-material)
 
 # Lint Python scripts (ruff + ty)
@@ -47,7 +47,7 @@ All Python tasks use `uv run`. The render step runs both `scripts/render.py` and
 The repository hosts a single brand theme rendered in **three flavors** from three palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ in their background ramp, foreground neutrals, and accents:
 
 - `morok` — pitch black, near-white text on `#000000`, cool Catppuccin-frappe-style accents (`accent.primary = blue`).
-- `popil` — Claude-app grey base `#1f1f1e`, neutral warm-grey subtext, **Anthropic-brand-aligned muted accents** (`accent.primary = terracotta #d97757`). The "house" flavor for brand surfaces.
+- `popil` — warm-grey base `#1f1f1e`, neutral warm-grey subtext, **muted terracotta accents** (`accent.primary = #d97757`). The "house" flavor for brand surfaces.
 - `vatra` — same warm `#1f1f1e` base, golden-tan subtext, **gruvbox-material-warm accents** (`accent.primary = orange #ec7f3e`). Carpathian hearth fire — the warmer, punchier sibling of popil.
 
 All three palettes share the same 14 named color slots (`rosewater`/`flamingo`/.../`lavender`) so port templates stay flavor-agnostic; the *values* in those slots differ. Shared Python tooling in `scripts/` renders any palette via `--palette`.
@@ -76,7 +76,7 @@ pivoshenko.theme/
 - **`colors`** — the 14 raw named slots (`rosewater`/`flamingo`/`pink`/`mauve`/`red`/`maroon`/`peach`/`yellow`/`green`/`teal`/`sky`/`sapphire`/`blue`/`lavender`) + `text`/`subtext*` + `overlay*` + `surface*`/`base`/`mantle`/`crust`. Same keys in both flavors; values diverge per flavor. Port templates that target apps with literal-hue slot expectations (zed, discord, obsidian) read these directly.
 - **`roles`** — semantic layer mapping role keys to color names: `bg.{canvas,surface,raised,sunken,overlay}`, `fg.{default,muted,subtle,faint}`, `border.{subtle,default,strong}`, `accent.{primary,secondary,success,warning,danger,info}`. Each value is a `colors` key string (e.g. `"accent.primary": "blue"` for morok, `"peach"` for popil). Roles are how flavor identity gets expressed: same role, different color name per flavor. Web ports + frontend frameworks should consume *only* roles so a flavor swap re-resolves color intent automatically.
 
-`morok` crust is true `#000000` with near-white text and `accent.primary = blue`; `popil` anchors `base` to Claude-app grey `#1f1f1e` (near-neutral, faintly warm), neutral warm-grey subtext, and `accent.primary = peach` (Anthropic terracotta `#d97757`); `vatra` shares popil's bg ramp but layers golden-tan subtext and `accent.primary = peach` (gruvbox-material orange `#ec7f3e`) for a warmer, more saturated take.
+`morok` crust is true `#000000` with near-white text and `accent.primary = blue`; `popil` anchors `base` to warm-grey `#1f1f1e` (near-neutral, faintly warm), neutral warm-grey subtext, and `accent.primary = peach` (muted terracotta `#d97757`); `vatra` shares popil's bg ramp but layers golden-tan subtext and `accent.primary = peach` (gruvbox-material orange `#ec7f3e`) for a warmer, more saturated take.
 
 ### Templates
 
