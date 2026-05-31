@@ -20,6 +20,8 @@ lint: lint-py lint-next
 
 check: check-py check-next
 
+audit: audit-py audit-next
+
 # Theme's build artifact is the rendered ports
 build: render
 
@@ -39,6 +41,9 @@ lint-py:
 
 check-py: lint-py
 
+audit-py:
+    uv audit
+
 update-py:
     uv lock --upgrade
     uvx uv-upsync
@@ -52,6 +57,9 @@ lint-next:
 check-next:
     pnpm -C site check
     pnpm -C site build
+
+audit-next:
+    pnpm -C site audit
 
 update-next:
     pnpm -C site update
