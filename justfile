@@ -8,7 +8,7 @@ default:
     @just --list
 
 install:
-    uv sync
+    uv sync --all-groups --all-extras
     pnpm -C site install
 
 dev:
@@ -22,7 +22,6 @@ check: check-py check-next
 
 audit: audit-py audit-next
 
-# Theme's build artifact is the rendered ports
 build: render
 
 start:
