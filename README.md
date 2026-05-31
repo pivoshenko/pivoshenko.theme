@@ -55,10 +55,15 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 
 #### Discord
 
-1. Drop [`themes/dist/discord/<flavor>.theme.css`](themes/dist/discord/) into the client's themes folder. Open it from the client itself rather than guessing the path:
-   - **Vesktop**: Settings → Vencord → Themes → "Open Themes Folder" (on macOS the folder lives under `~/Library/Application Support/Vesktop/themes/`, on Linux under `~/.config/vesktop/themes/`).
-   - **BetterDiscord**: Settings → Themes → "Open Themes Folder".
-2. Enable the theme in the client.
+1. In your Discord client (Vesktop / BetterDiscord), open Themes settings and switch to the **Online Themes** tab.
+2. Add the raw URL for the flavor you want, prefixed with `@dark`:
+
+   ```
+   @dark https://raw.githubusercontent.com/pivoshenko/pivoshenko.theme/refs/heads/main/themes/dist/discord/<flavor>.theme.css
+   ```
+
+   Substitute `<flavor>` with `morok`, `popil`, or `vatra`.
+3. Enable the theme in the client.
 
 #### Fastfetch
 
