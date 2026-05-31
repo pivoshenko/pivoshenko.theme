@@ -13,7 +13,8 @@ just clean
 
 # Render a single flavor
 just render-morok   # pitch black
-just render-popil   # warm ash
+just render-popil   # warm ash (Anthropic-aligned)
+just render-vatra   # warm ash (gruvbox-material)
 
 # Lint Python scripts (ruff + ty)
 just lint-py
@@ -32,9 +33,12 @@ just check-next
 
 # Format the site
 just format-next
+
+# Vulnerability scan (uv audit + pnpm audit on the site)
+just audit
 ```
 
-Top-level aggregates fan out to both halves: `just lint` = `lint-py` + `lint-next`, `just check` = `check-py` + `check-next`, `just format` = `format-py` + `format-next`, `just update` = `update-py` + `update-next`. `just build` runs `render`.
+Top-level aggregates fan out to both halves: `just lint` = `lint-py` + `lint-next`, `just check` = `check-py` + `check-next`, `just format` = `format-py` + `format-next`, `just audit` = `audit-py` + `audit-next`, `just update` = `update-py` + `update-next`. `just build` runs `render`.
 
 All Python tasks use `uv run`. The render step runs both `scripts/render.py` and `scripts/bundle.py`.
 
