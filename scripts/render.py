@@ -134,7 +134,7 @@ def _render_target_from_template(
     return output_dir / tool / f"{theme_name}.{extension}"
 
 
-def main() -> None:
+def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Render theme files from palette JSON")
     parser.add_argument(
         "--palette",
@@ -151,7 +151,47 @@ def main() -> None:
         default=None,
         help="Directory for rendered files (default: <palette>/../../dist)",
     )
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+def _build_context(data: dict[str, typing.Any]) -> dict[str, typing.Any]:
+    theme_name = data["name"]
+    flavor_name = data.get("flavor", "dark")
+    colors: dict[str, str] = data.get("colors", {})
+
+    color_ctx = {name: types.SimpleNamespace(hex=value) for name, value in colors.items()}
+
+    def _build_roles(spec: typing.Any) -> typing.Any:
+        if isinstance(spec, dict):
+            return types.SimpleNamespace(**{k: _build_roles(v) for k, v in spec.items()})
+        if isinstance(spec, str) and spec in color_ctx:
+            return color_ctx[spec]
+        return spec
+
+    return {
+        "name": theme_name,
+        "flavor": types.SimpleNamespace(dark=flavor_name == "dark", light=flavor_name == "light"),
+        "role": _build_roles(data.get("roles", {})),
+        **color_ctx,
+    }
+
+
+def _build_env() -> jinja2.Environment:
+    env = jinja2.Environment(
+        undefined=jinja2.StrictUndefined,
+        autoescape=False,  # noqa: S701
+        trim_blocks=False,
+        lstrip_blocks=False,
+    )
+    typing.cast("dict[str, typing.Any]", env.globals)["iif"] = _iif
+    env.filters["mix"] = _mix
+    env.filters["get"] = _get
+    env.filters["rgb"] = _rgb
+    return env
+
+
+def main() -> None:
+    args = _parse_args()
 
     palette_path = pathlib.Path(args.palette)
     palette_root = palette_path.resolve().parent.parent
@@ -176,42 +216,15 @@ def main() -> None:
     logger.info(f"Loading palette from {palette_path.name}")
     data = json.loads(palette_path.read_text())
     theme_name = data["name"]
-    flavor_name = data.get("flavor", "dark")
     colors: dict[str, str] = data.get("colors", {})
-    logger.info(f"Loaded palette name={theme_name} flavor={flavor_name} colors={len(colors)}")
-
+    logger.info(
+        f"Loaded palette name={theme_name} flavor={data.get('flavor', 'dark')} colors={len(colors)}",  # noqa: E501
+    )
     if not colors:
         logger.warning(f"Palette {palette_path.name} does not define any colors")
 
-    color_ctx = {name: types.SimpleNamespace(hex=value) for name, value in colors.items()}
-
-    def _build_roles(spec: typing.Any) -> typing.Any:
-        if isinstance(spec, dict):
-            return types.SimpleNamespace(**{k: _build_roles(v) for k, v in spec.items()})
-        if isinstance(spec, str) and spec in color_ctx:
-            return color_ctx[spec]
-        return spec
-
-    roles_spec: dict[str, typing.Any] = data.get("roles", {})
-    role_ctx = _build_roles(roles_spec)
-
-    context = {
-        "name": theme_name,
-        "flavor": types.SimpleNamespace(dark=flavor_name == "dark", light=flavor_name == "light"),
-        "role": role_ctx,
-        **color_ctx,
-    }
-
-    env = jinja2.Environment(
-        undefined=jinja2.StrictUndefined,
-        autoescape=False,  # noqa: S701
-        trim_blocks=False,
-        lstrip_blocks=False,
-    )
-    typing.cast("dict[str, typing.Any]", env.globals)["iif"] = _iif
-    env.filters["mix"] = _mix
-    env.filters["get"] = _get
-    env.filters["rgb"] = _rgb
+    context = _build_context(data)
+    env = _build_env()
 
     templates = sorted(templates_dir.rglob("*.jinja"))
     if not templates:
