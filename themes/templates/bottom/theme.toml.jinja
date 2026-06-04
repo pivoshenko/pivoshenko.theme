@@ -17,21 +17,21 @@ rx_total_color = "{{ sky.hex }}"
 tx_total_color = "{{ green.hex }}"
 
 [styles.battery]
-high_battery_color = "{{ green.hex }}"
-medium_battery_color = "{{ yellow.hex }}"
-low_battery_color = "{{ red.hex }}"
+high_battery_color = "{{ role.accent.success.hex }}"
+medium_battery_color = "{{ role.accent.warning.hex }}"
+low_battery_color = "{{ role.accent.danger.hex }}"
 
 [styles.tables]
 headers = { color = "{{ rosewater.hex }}" }
 
 [styles.graphs]
-graph_color = "{{ subtext0.hex }}"
-legend_text = { color = "{{ subtext0.hex }}" }
+graph_color = "{{ role.fg.subtle.hex }}"
+legend_text = { color = "{{ role.fg.subtle.hex }}" }
 
 [styles.widgets]
-border_color = "{{ surface2.hex }}"
-selected_border_color = "{{ blue.hex }}"
+border_color = "{{ role.border.strong.hex }}"
+selected_border_color = "{{ role.accent.info.hex }}"
 widget_title = { color = "{{ flamingo.hex }}" }
-text = { color = "{{ text.hex }}" }
-selected_text = { color = "{{ crust.hex }}", bg_color = "{{ blue.hex }}" }
+text = { color = "{{ role.fg.default.hex }}" }
+selected_text = { color = "{{ crust.hex }}", bg_color = "{{ role.accent.info.hex }}" }
 disabled_text = { color = "{{ base.hex }}" }

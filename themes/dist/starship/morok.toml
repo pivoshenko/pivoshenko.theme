@@ -1,6 +1,26 @@
 palette = "morok"
 
 [palettes.morok]
+# Semantic roles
+bg_canvas = "#111111"
+bg_surface = "#191919"
+bg_raised = "#212121"
+bg_sunken = "#0d0d0d"
+bg_overlay = "#57534e"
+fg_default = "#e7e5e4"
+fg_muted = "#d6d3d1"
+fg_subtle = "#a8a29e"
+fg_faint = "#78716c"
+border_subtle = "#191919"
+border_default = "#212121"
+border_strong = "#292929"
+accent_primary = "#7f98bf"
+accent_secondary = "#9faece"
+accent_success = "#8ea98c"
+accent_warning = "#d4b070"
+accent_danger = "#d97777"
+accent_info = "#7ea59d"
+# Raw color slots
 rosewater = "#e2cfc6"
 flamingo = "#d8b8aa"
 pink = "#d1b2c9"

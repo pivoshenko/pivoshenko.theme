@@ -18,25 +18,25 @@
         <key>settings</key>
         <dict>
           <key>background</key>
-          <string>{{ base.hex }}</string>
+          <string>{{ role.bg.canvas.hex }}</string>
           <key>foreground</key>
-          <string>{{ text.hex }}</string>
+          <string>{{ role.fg.default.hex }}</string>
           <key>caret</key>
           <string>{{ rosewater.hex }}</string>
           <key>lineHighlight</key>
-          <string>{{ surface0.hex }}</string>
+          <string>{{ role.bg.surface.hex }}</string>
           <key>misspelling</key>
-          <string>{{ red.hex }}</string>
+          <string>{{ role.accent.danger.hex }}</string>
           <key>accent</key>
           <string>{{ mauve.hex }}</string>
           <key>selection</key>
           <string>{{ overlay2.hex }}40</string>
           <key>activeGuide</key>
-          <string>{{ surface1.hex }}</string>
+          <string>{{ role.border.default.hex }}</string>
           <key>findHighlight</key>
           <string>{{ base | mix(color=sky, amount=0.35) | get(key='hex') }}</string>
           <key>gutterForeground</key>
-          <string>{{ overlay1.hex }}</string>
+          <string>{{ role.fg.faint.hex }}</string>
         </dict>
       </dict>
       <dict>

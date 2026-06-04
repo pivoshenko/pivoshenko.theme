@@ -1,23 +1,23 @@
 theme:
   activeBorderColor:
-    - "{{ blue.hex }}"
+    - "{{ role.accent.info.hex }}"
     - bold
   inactiveBorderColor:
-    - "{{ subtext0.hex }}"
+    - "{{ role.fg.subtle.hex }}"
   optionsTextColor:
-    - "{{ blue.hex }}"
+    - "{{ role.accent.info.hex }}"
   selectedLineBgColor:
-    - "{{ surface0.hex }}"
+    - "{{ role.bg.surface.hex }}"
   cherryPickedCommitBgColor:
-    - "{{ surface1.hex }}"
+    - "{{ role.bg.raised.hex }}"
   cherryPickedCommitFgColor:
-    - "{{ blue.hex }}"
+    - "{{ role.accent.info.hex }}"
   unstagedChangesColor:
-    - "{{ red.hex }}"
+    - "{{ role.accent.danger.hex }}"
   defaultFgColor:
-    - "{{ text.hex }}"
+    - "{{ role.fg.default.hex }}"
   searchingActiveBorderColor:
-    - "{{ yellow.hex }}"
+    - "{{ role.accent.warning.hex }}"
 
 authorColors:
   "*": "{{ lavender.hex }}"

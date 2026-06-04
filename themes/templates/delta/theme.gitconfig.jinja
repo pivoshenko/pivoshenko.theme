@@ -3,14 +3,14 @@ blame-palette = "{{ base.hex }} {{ mantle.hex }} {{ crust.hex }} {{ surface0.hex
 commit-decoration-style = "{{ overlay0.hex }}" bold box ul
 dark = {{ iif(cond=flavor.dark, t='true', f='false') }}
 file-decoration-style = "{{ overlay0.hex }}"
-file-style = "{{ text.hex }}"
+file-style = "{{ role.fg.default.hex }}"
 hunk-header-decoration-style = "{{ overlay0.hex }}" box ul
 hunk-header-file-style = bold
-hunk-header-line-number-style = bold "{{ subtext0.hex }}"
+hunk-header-line-number-style = bold "{{ role.fg.subtle.hex }}"
 hunk-header-style = file line-number syntax
 line-numbers-left-style = "{{ overlay0.hex }}"
-line-numbers-minus-style = bold "{{ red.hex }}"
-line-numbers-plus-style = bold "{{ green.hex }}"
+line-numbers-minus-style = bold "{{ role.accent.danger.hex }}"
+line-numbers-plus-style = bold "{{ role.accent.success.hex }}"
 line-numbers-right-style = "{{ overlay0.hex }}"
 line-numbers-zero-style = "{{ overlay0.hex }}"
 minus-emph-style = bold syntax "{{ base | mix(color=red, amount=0.35) | get(key='hex') }}"

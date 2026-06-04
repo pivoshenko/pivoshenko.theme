@@ -1,24 +1,24 @@
 [{{ name }}]
 # Spicetify
-text = {{ text.hex | replace('#', '') }}
-subtext = {{ text.hex | replace('#', '') }}
-main = {{ base.hex | replace('#', '') }}
-main-elevated = {{ surface0.hex | replace('#', '') }}
+text = {{ role.fg.default.hex | replace('#', '') }}
+subtext = {{ role.fg.default.hex | replace('#', '') }}
+main = {{ role.bg.canvas.hex | replace('#', '') }}
+main-elevated = {{ role.bg.surface.hex | replace('#', '') }}
 highlight = {{ surface0 | mix(color=surface1, amount=0.35) | get(key='hex') | replace('#', '') }}
-highlight-elevated = {{ surface1.hex | replace('#', '') }}
-sidebar = {{ mantle.hex | replace('#', '') }}
+highlight-elevated = {{ role.bg.raised.hex | replace('#', '') }}
+sidebar = {{ role.bg.sunken.hex | replace('#', '') }}
 player = {{ crust.hex | replace('#', '') }}
-card = {{ surface0.hex | replace('#', '') }}
-shadow = {{ mantle.hex | replace('#', '') }}
+card = {{ role.bg.surface.hex | replace('#', '') }}
+shadow = {{ role.bg.sunken.hex | replace('#', '') }}
 selected-row = {{ overlay2.hex | replace('#', '') }}
 button = {{ overlay1.hex | replace('#', '') }}
 button-active = {{ overlay2.hex | replace('#', '') }}
 button-disabled = {{ overlay0.hex | replace('#', '') }}
-tab-active = {{ surface0.hex | replace('#', '') }}
-notification = {{ surface0.hex | replace('#', '') }}
-notification-error = {{ red.hex | replace('#', '') }}
+tab-active = {{ role.bg.surface.hex | replace('#', '') }}
+notification = {{ role.bg.surface.hex | replace('#', '') }}
+notification-error = {{ role.accent.danger.hex | replace('#', '') }}
 equalizer = 000000
-misc = {{ surface1.hex | replace('#', '') }}
+misc = {{ role.bg.raised.hex | replace('#', '') }}
 
 crust = {{ crust.hex | replace('#', '') }}
 mantle = {{ mantle.hex | replace('#', '') }}

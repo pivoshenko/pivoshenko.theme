@@ -14,10 +14,10 @@ palette = 12=#{{ blue.hex }}
 palette = 13=#{{ pink.hex }}
 palette = 14=#{{ teal.hex }}
 palette = 15=#{{ if(cond=flavor.dark, t=subtext1.hex, f=surface1.hex) }}
-background = {{ base.hex }}
-foreground = {{ text.hex }}
+background = {{ role.bg.canvas.hex }}
+foreground = {{ role.fg.default.hex }}
 cursor-color = {{ rosewater.hex }}
 cursor-text = {{ if(cond=flavor.light, t=base.hex, f=crust.hex) }}
 selection-background = {{ overlay2 | mix(color=base, amount=0.45) | get(key="hex") }}
-selection-foreground = {{ text.hex }}
-split-divider-color = {{ surface0.hex }}
+selection-foreground = {{ role.fg.default.hex }}
+split-divider-color = {{ role.border.subtle.hex }}

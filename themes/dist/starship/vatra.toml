@@ -1,6 +1,26 @@
 palette = "vatra"
 
 [palettes.vatra]
+# Semantic roles
+bg_canvas = "#1f1f1e"
+bg_surface = "#262625"
+bg_raised = "#2e2e2c"
+bg_sunken = "#1a1a19"
+bg_overlay = "#57534e"
+fg_default = "#e4e2de"
+fg_muted = "#d4be98"
+fg_subtle = "#a89984"
+fg_faint = "#78716c"
+border_subtle = "#262625"
+border_default = "#2e2e2c"
+border_strong = "#373634"
+accent_primary = "#ec7f3e"
+accent_secondary = "#e0b04a"
+accent_success = "#a9b665"
+accent_warning = "#e0b04a"
+accent_danger = "#ea6962"
+accent_info = "#89b482"
+# Raw color slots
 rosewater = "#ddc7a1"
 flamingo = "#ec7f3e"
 pink = "#ec7f3e"
