@@ -4,8 +4,7 @@ export function Hero() {
       <p className="type-body fg-body">
         <a
           href="https://github.com/pivoshenko/pivoshenko.theme"
-          className="underline decoration-current/40 hover:decoration-current underline-offset-2 transition-colors"
-          style={{ color: '#c7b07a' }}
+          className="text-accent-secondary underline decoration-current/40 hover:decoration-current underline-offset-2 transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >

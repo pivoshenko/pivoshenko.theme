@@ -114,9 +114,9 @@ The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`, `vatra_lib_ur
 
 ### Site
 
-`site/` — Next.js app for visual preview of palette + ports. Managed separately with `pnpm` inside that directory. Renamed from `showcase/` to align with the `me/` repo convention where every web preview lives in `site/`.
+`site/` — Next.js app for visual preview of palette + ports. Managed separately with `pnpm` inside that directory. Renamed from `showcase/` to align with the `sources/` repo convention where every web preview lives in `site/`.
 
-Shell is composed via `<SiteLayout brand="pivoshenko.theme">` from `pivoshenko.ui/next/site-layout`, which owns `<html>`, `<body>`, JetBrains-Mono font loading, `<PageShell>` (`Nav` + `Footer` + `ScrollToTop`), and `<Analytics />`. Metadata comes from `siteMetadata(...)`, viewport from `siteViewport`. The site runs on the single `popil` chrome (no light mode, no `next-themes`); the morok/popil/vatra **content** flavor switcher (`FlavorToggle` → `FlavorProvider`) only drives what the palette grid, examples, and ports preview render — never the chrome. `tailwind.config.ts` / `next.config.ts` / `postcss.config.mjs` / `app/icon.tsx` / `app/opengraph-image.tsx` are all thin wrappers over the shared subpaths in `pivoshenko.ui`. See the shared UI invariant in `me/CLAUDE.md`.
+Shell is composed via `<SiteLayout brand="pivoshenko.theme">` from `pivoshenko.ui/next/site-layout`, which owns `<html>`, `<body>`, JetBrains-Mono font loading, `<PageShell>` (`Nav` + `Footer` + `ScrollToTop`), and `<Analytics />`. Metadata comes from `siteMetadata(...)`, viewport from `siteViewport`. The site runs on the single `popil` chrome (no light mode, no `next-themes`); the morok/popil/vatra **content** flavor switcher (`FlavorToggle` → `FlavorProvider`) only drives what the palette grid, examples, and ports preview render — never the chrome. `tailwind.config.ts` / `next.config.ts` / `postcss.config.mjs` / `app/icon.tsx` / `app/opengraph-image.tsx` are all thin wrappers over the shared subpaths in `pivoshenko.ui`. See the shared UI invariant in `sources/CLAUDE.md`.
 
 ## Key conventions
 
