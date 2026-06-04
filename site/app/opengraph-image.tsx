@@ -8,6 +8,7 @@ export const runtime = 'edge'
 export default createOgImage({
   brand: 'pivoshenko.theme',
   title: 'Morok • Popil • Vatra',
-  subtitle: 'Themes focused on minimalism, simplicity and cross-tool consistency',
+  subtitle:
+    'Themes focused on minimalism, simplicity and cross-tool consistency',
   domain: 'theme.pivoshenko.dev',
 })

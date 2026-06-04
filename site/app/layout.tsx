@@ -1,6 +1,6 @@
 import {
-  siteMetadata,
   SiteLayout,
+  siteMetadata,
   siteViewport,
 } from 'pivoshenko.ui/next/site-layout'
 import './globals.css'

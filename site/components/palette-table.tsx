@@ -128,9 +128,7 @@ function CopyButton({
       disabled={disabled}
       aria-label={copied ? 'Copied' : 'Copy value'}
       className={`inline-flex items-center rounded border border-ui p-1 transition-colors disabled:opacity-40 disabled:hover:text-inherit ${
-        copied
-          ? 'text-accent-success'
-          : 'fg-muted hover-secondary'
+        copied ? 'text-accent-success' : 'fg-muted hover-secondary'
       }`}
     >
       <Copy aria-hidden="true" className="w-3 h-3" />
