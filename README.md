@@ -32,7 +32,7 @@ Repository contains ports for various terminal applications and userstyles for p
 
 Install steps below use `<flavor>` as a placeholder — substitute `morok`, `popil`, or `vatra` in **both** the source filename and any in-tool identifier the step sets (`theme = "<flavor>"`, `palette = "<flavor>"`, `--theme="<flavor>"`, `skin: <flavor>`, etc.). Telegram is the one exception: it ships per-flavor deep links.
 
-See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, and stylus.
+See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, stylus, and tmux.
 
 ## Ports
 
@@ -125,6 +125,12 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 2. Tap "Apply Theme".
 
 Platform-specific source files for all three flavors live in [`themes/dist/telegram/`](themes/dist/telegram/) as `<flavor>-desktop`, `<flavor>-ios`, and `<flavor>-macos` — use these directly if no deep link is hosted for your flavor.
+
+#### Tmux
+
+1. Copy [`themes/dist/tmux/<flavor>.conf`](themes/dist/tmux/) to `~/.config/tmux/themes/<flavor>.conf`.
+2. Add `source-file ~/.config/tmux/themes/<flavor>.conf` to `~/.config/tmux/tmux.conf`.
+3. Reload with `tmux source-file ~/.config/tmux/tmux.conf`.
 
 #### VSCode
 
