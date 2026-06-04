@@ -20,6 +20,7 @@ type Props = {
 }
 
 const portIcons: Record<string, LucideIcon> = {
+  aoe: Terminal,
   bat: Terminal,
   bottom: Activity,
   'css-vars': Palette,

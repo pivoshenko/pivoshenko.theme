@@ -31,6 +31,7 @@ const githubRepo = 'https://github.com/pivoshenko/pivoshenko.theme'
 const githubRaw =
   'https://raw.githubusercontent.com/pivoshenko/pivoshenko.theme/main'
 const readmeAnchors: Record<string, string> = {
+  aoe: 'agent-of-empires',
   bat: 'bat',
   bottom: 'bottom',
   delta: 'delta',
@@ -52,6 +53,7 @@ const readmeAnchors: Record<string, string> = {
 }
 
 const portSwatches: Record<string, [string, string, string]> = {
+  aoe: ['base', 'text', 'peach'],
   bat: ['base', 'text', 'yellow'],
   bottom: ['base', 'green', 'mauve'],
   'css-vars': ['base', 'text', 'lavender'],

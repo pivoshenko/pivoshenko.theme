@@ -32,9 +32,14 @@ Repository contains ports for various terminal applications and userstyles for p
 
 Install steps below use `<flavor>` as a placeholder — substitute `morok`, `popil`, or `vatra` in **both** the source filename and any in-tool identifier the step sets (`theme = "<flavor>"`, `palette = "<flavor>"`, `--theme="<flavor>"`, `skin: <flavor>`, etc.). Telegram is the one exception: it ships per-flavor deep links.
 
-See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, stylus, and tmux.
+See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, stylus, tmux, and agent-of-empires.
 
 ## Ports
+
+#### Agent of Empires
+
+1. Copy [`themes/dist/aoe/<flavor>.toml`](themes/dist/aoe/) to `~/.agent-of-empires/themes/<flavor>.toml`.
+2. Set `[theme] name = "<flavor>"` in your Agent of Empires config.
 
 #### Bat
 
