@@ -118,6 +118,23 @@ The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`, `vatra_lib_ur
 
 Shell is composed via `<SiteLayout brand="pivoshenko.theme">` from `pivoshenko.ui/next/site-layout`, which owns `<html>`, `<body>`, JetBrains-Mono font loading, `<PageShell>` (`Nav` + `Footer` + `ScrollToTop`), and `<Analytics />`. Metadata comes from `siteMetadata(...)`, viewport from `siteViewport`. The site runs on the single `popil` chrome (no light mode, no `next-themes`); the morok/popil/vatra **content** flavor switcher (`FlavorToggle` → `FlavorProvider`) only drives what the palette grid, examples, and ports preview render — never the chrome. `tailwind.config.ts` / `next.config.ts` / `postcss.config.mjs` / `app/icon.tsx` / `app/opengraph-image.tsx` are all thin wrappers over the shared subpaths in `pivoshenko.ui`. See the shared UI invariant in `sources/CLAUDE.md`.
 
+**Components** (`site/components/`):
+- `hero.tsx` — landing intro with link to the GH source; uses `text-accent-secondary` (gold) for the link.
+- `palette-wall.tsx` — clickable swatch grid grouped by role (surface / accent / text); click to pin an accent + copy hex. Renders arbitrary palette colors, so swatch text uses an absolute light/dark contrast pair (the one justified exception to role tokens).
+- `palette-table.tsx` — full 14-slot palette table with hex/name columns.
+- `colors-section.tsx` — wrapper that composes the wall + table.
+- `flavor-toggle.tsx` + `flavor-description.tsx` — morok/popil/vatra switcher driving `FlavorProvider` and the per-flavor blurb (content-only; chrome stays on `popil`).
+- `examples.tsx` / `examples-section.tsx` / `examples-client.tsx` — UI sample tiles (buttons, badges, code, etc.) rendered against the active content flavor.
+- `terminal-preview.tsx` + `window-frame.tsx` — chrome-framed terminal sample showing the flavor's accent ramp.
+- `ports-grid.tsx` — generated downloads grid for every rendered port artifact in `themes/dist/`.
+
+**Lib** (`site/lib/`):
+- `theme-data.ts` — server-side loader; reads `themes/palettes/*.json` and resolves role keys to `PaletteColor[]` (group: surface/accent/text) plus port lists.
+- `flavor-context.tsx` — `FlavorProvider` + `useFlavor()` hook driving the content-flavor switch.
+- `accent-context.tsx` — `useAccent()` hook for the pin/copy interaction on the palette wall.
+- `contrast.ts` — `hexToRgb` helper for the swatch readability calc.
+- `shiki-theme.ts` — Shiki highlighter theme matching the active flavor for code samples.
+
 ## Key conventions
 
 - Hex values in `themes/palettes/*.json` include the `#` prefix — templates do **not** add their own `#`.
