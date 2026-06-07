@@ -24,6 +24,14 @@ lint: lint-py lint-next
 
 check: check-py check-next
 
+test: test-py test-next
+
+test-py:
+    @[ -f .no-tests ] && echo "skipping (.no-tests sentinel)" || { echo "no python tests — add tests or restore .no-tests" >&2; exit 1; }
+
+test-next:
+    @[ -f .no-tests ] && echo "skipping (.no-tests sentinel)" || { echo "no next tests — add tests or restore .no-tests" >&2; exit 1; }
+
 audit: audit-py audit-next
 
 build: render
