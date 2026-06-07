@@ -31,7 +31,7 @@ start:
 update: update-py update-next
 
 format-py:
-    find scripts -type f -name '*.py' | xargs uvx pyupgrade --py313-plus
+    find . -type f -name '*.py' -not -path '*/.venv/*' | xargs uvx pyupgrade --py313-plus
     uvx ruff format .
 
 lint-py:
@@ -44,8 +44,8 @@ audit-py:
     uvx pip-audit
 
 update-py:
+    uv lock --upgrade
     uvx uv-upsync
-    uv sync
 
 format-next:
     pnpm -C site format
