@@ -5,18 +5,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
+# Install all deps (fans out to install-py + install-next)
+just install
+just install-py      # uv sync --all-groups --all-extras
+just install-next    # pnpm -C site install
+
 # Render all dist files from palette + templates
 just render
+just build           # alias for render
 
 # Wipe dist/
 just clean
 
 # Render a single flavor
-just render-morok   # pitch black
-just render-popil   # warm ash
-just render-vatra   # warm ash (gruvbox-material)
+just render-morok    # pitch black
+just render-popil    # warm ash
+just render-vatra    # warm ash (gruvbox-material)
 
-# Lint Python scripts (ruff + ty)
+# Run tests (both honor .no-tests sentinel — currently no-op)
+just test
+just test-py
+just test-next
+
+# Lint Python scripts (ruff check + ty check; no format check)
 just lint-py
 
 # Format Python scripts
@@ -24,6 +35,9 @@ just format-py
 
 # Run the site dev server (Next.js, turbopack)
 just dev
+
+# Build the Next.js site
+just build-next
 
 # Lint the site (Biome lint only)
 just lint-next
@@ -38,9 +52,17 @@ just format-next
 just audit
 ```
 
-Top-level aggregates fan out to both halves: `just lint` = `lint-py` + `lint-next`, `just check` = `check-py` + `check-next`, `just format` = `format-py` + `format-next`, `just audit` = `audit-py` + `audit-next`, `just update` = `update-py` + `update-next`. `just build` runs `render`.
+Top-level aggregates fan out to both halves: `just install` = `install-py` + `install-next`, `just lint` = `lint-py` + `lint-next`, `just check` = `check-py` + `check-next`, `just format` = `format-py` + `format-next`, `just test` = `test-py` + `test-next`, `just audit` = `audit-py` + `audit-next`, `just update` = `update-py` + `update-next`. `just build` is an alias for `just render`.
+
+`test-py` and `test-next` both check for a `.no-tests` sentinel file: if present they print "skipping" and exit 0; if absent they error (forcing you to add real tests or restore the sentinel). The repo ships `.no-tests`, so both recipes are currently no-ops.
+
+`lint-py` runs `ruff check .` + `ty check .` only — no `ruff format --check` (format checking is not part of the lint step).
 
 Python tooling tasks (`format-py`, `lint-py`, `audit-py`) use `uvx` (ephemeral tool invocations: `uvx pyupgrade`, `uvx ruff`, `uvx ty`, `uvx pip-audit`). The render recipes (`render-morok`, `render-popil`, `render-vatra`) use `uv run` because they execute project scripts that need the project venv. The render step runs both `scripts/render.py` and `scripts/bundle.py`.
+
+CI runs two flat parallel jobs on `ubuntu-24.04-arm`:
+- `ci-py`: `install-py` → `lint-py` → `audit-py` → `test-py`
+- `ci-next`: `install-next` → `lint-next` → `audit-next` → `test-next` → `build-next`
 
 ## Architecture
 
@@ -143,4 +165,4 @@ Shell is composed via `<SiteLayout brand="pivoshenko.theme">` from `pivoshenko.u
 - `render.py` derives templates + output dirs from the palette path: `palette.parent.parent / "templates"` and `/ "dist"`. With palettes at `themes/palettes/*.json`, both resolve to `themes/`, so all flavors share `themes/templates/` and write to `themes/dist/`. Pass `--templates-dir` / `--output-dir` to override. Consumers vendor `themes/dist/tailwind/morok.js` into their own repos on tag bumps.
 - Adding a new flavor: drop `themes/palettes/<name>.json` (start from a copy, change `name` + the background ramp), add a `just render-<name>` recipe, and extend `render` to depend on it. Templates are shared — no new template dir.
 - All files in `themes/dist/` are committed to git so downstream consumers don't need to run Python or `uv`.
-- `just lint-py` runs `ruff check` + `ty check` only (no commit-message linting configured).
+- `just lint-py` runs `ruff check .` + `ty check .` only — no `ruff format --check` (format checking is not part of the lint step).
