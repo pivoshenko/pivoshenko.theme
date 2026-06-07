@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 jobs:
-  py-lint:
+  ci-py:
     runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v6
@@ -24,35 +24,11 @@ jobs:
           python-version: "3.13"
       - run: just install-py
       - run: just lint-py
-
-  py-audit:
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - uses: actions/checkout@v6
-      - uses: extractions/setup-just@v4
-      - uses: astral-sh/setup-uv@v8
-        with:
-          python-version: "3.13"
-      - run: just install-py
       - run: just audit-py
-
-  py-test:
-    needs: [py-lint, py-audit]
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - uses: actions/checkout@v6
-      - if: ${{ hashFiles('.no-tests') == '' }}
-        uses: extractions/setup-just@v4
-      - if: ${{ hashFiles('.no-tests') == '' }}
-        uses: astral-sh/setup-uv@v8
-        with:
-          python-version: "3.13"
-      - if: ${{ hashFiles('.no-tests') == '' }}
-        run: just install-py
       - if: ${{ hashFiles('.no-tests') == '' }}
         run: just test-py
 
-  next-lint:
+  ci-next:
     runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v6
@@ -67,58 +43,7 @@ jobs:
           cache-dependency-path: site/pnpm-lock.yaml
       - run: just install-next
       - run: just lint-next
-
-  next-audit:
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - uses: actions/checkout@v6
-      - uses: extractions/setup-just@v4
-      - uses: pnpm/action-setup@v6
-        with:
-          package_json_file: site/package.json
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          cache: pnpm
-          cache-dependency-path: site/pnpm-lock.yaml
-      - run: just install-next
       - run: just audit-next
-
-  next-test:
-    needs: [next-lint, next-audit]
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - uses: actions/checkout@v6
-      - if: ${{ hashFiles('.no-tests') == '' }}
-        uses: extractions/setup-just@v4
-      - if: ${{ hashFiles('.no-tests') == '' }}
-        uses: pnpm/action-setup@v6
-        with:
-          package_json_file: site/package.json
-      - if: ${{ hashFiles('.no-tests') == '' }}
-        uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          cache: pnpm
-          cache-dependency-path: site/pnpm-lock.yaml
-      - if: ${{ hashFiles('.no-tests') == '' }}
-        run: just install-next
       - if: ${{ hashFiles('.no-tests') == '' }}
         run: just test-next
-
-  next-build:
-    needs: [next-test]
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - uses: actions/checkout@v6
-      - uses: extractions/setup-just@v4
-      - uses: pnpm/action-setup@v6
-        with:
-          package_json_file: site/package.json
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          cache: pnpm
-          cache-dependency-path: site/pnpm-lock.yaml
-      - run: just install-next
       - run: just build-next
