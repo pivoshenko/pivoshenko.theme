@@ -34,13 +34,13 @@ just check-next
 # Format the site
 just format-next
 
-# Vulnerability scan (uv audit + pnpm audit on the site)
+# Vulnerability scan (uvx pip-audit on Python deps + pnpm audit on the site)
 just audit
 ```
 
 Top-level aggregates fan out to both halves: `just lint` = `lint-py` + `lint-next`, `just check` = `check-py` + `check-next`, `just format` = `format-py` + `format-next`, `just audit` = `audit-py` + `audit-next`, `just update` = `update-py` + `update-next`. `just build` runs `render`.
 
-All Python tasks use `uv run`. The render step runs both `scripts/render.py` and `scripts/bundle.py`.
+Python tooling tasks (`format-py`, `lint-py`, `audit-py`) use `uvx` (ephemeral tool invocations: `uvx pyupgrade`, `uvx ruff`, `uvx ty`, `uvx pip-audit`). The render recipes (`render-morok`, `render-popil`, `render-vatra`) use `uv run` because they execute project scripts that need the project venv. The render step runs both `scripts/render.py` and `scripts/bundle.py`.
 
 ## Architecture
 

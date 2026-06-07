@@ -31,21 +31,21 @@ start:
 update: update-py update-next
 
 format-py:
-    find scripts -type f -name '*.py' | xargs uv run pyupgrade --py313-plus
-    uv run ruff format .
+    find scripts -type f -name '*.py' | xargs uvx pyupgrade --py313-plus
+    uvx ruff format .
 
 lint-py:
-    uv run ruff check .
-    uv run ty check .
+    uvx ruff check .
+    uvx ty check .
 
 check-py: lint-py
 
 audit-py:
-    uv audit
+    uvx pip-audit
 
 update-py:
-    uv lock --upgrade
     uvx uv-upsync
+    uv sync
 
 format-next:
     pnpm -C site format
