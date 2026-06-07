@@ -7,8 +7,12 @@ vatra_lib_url := "https://gist.githubusercontent.com/pivoshenko/4966a9fda130dbd5
 default:
     @just --list
 
-install:
+install: install-py install-next
+
+install-py:
     uv sync --all-groups --all-extras
+
+install-next:
     pnpm -C site install
 
 dev:
@@ -55,6 +59,9 @@ lint-next:
 
 check-next:
     pnpm -C site check
+    pnpm -C site build
+
+build-next:
     pnpm -C site build
 
 audit-next:

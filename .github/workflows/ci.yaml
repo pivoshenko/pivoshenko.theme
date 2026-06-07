@@ -7,65 +7,118 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 permissions:
   contents: read
 
 jobs:
-  ci-py:
-    runs-on: ubuntu-latest
+  py-lint:
+    runs-on: ubuntu-24.04-arm
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+      - uses: extractions/setup-just@v3
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+      - run: just install-py
+      - run: just lint-py
 
-      - name: Install just
+  py-audit:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v6
+      - uses: extractions/setup-just@v3
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+      - run: just install-py
+      - run: just audit-py
+
+  py-test:
+    needs: [py-lint, py-audit]
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v6
+      - if: ${{ hashFiles('.no-tests') == '' }}
         uses: extractions/setup-just@v3
-
-      - name: Install uv
+      - if: ${{ hashFiles('.no-tests') == '' }}
         uses: astral-sh/setup-uv@v6
         with:
           python-version: "3.13"
+      - if: ${{ hashFiles('.no-tests') == '' }}
+        run: just install-py
+      - if: ${{ hashFiles('.no-tests') == '' }}
+        run: just test-py
 
-      - name: Install dependencies
-        run: uv sync --all-groups --all-extras
-
-      - name: Run linters
-        run: just lint-py
-
-      - name: Run audit
-        run: just audit-py
-
-  ci-next:
-    runs-on: ubuntu-latest
+  next-lint:
+    runs-on: ubuntu-24.04-arm
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+      - uses: extractions/setup-just@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: site/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: site/pnpm-lock.yaml
+      - run: just install-next
+      - run: just lint-next
 
-      - name: Install just
+  next-audit:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v6
+      - uses: extractions/setup-just@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: site/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: site/pnpm-lock.yaml
+      - run: just install-next
+      - run: just audit-next
+
+  next-test:
+    needs: [next-lint, next-audit]
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v6
+      - if: ${{ hashFiles('.no-tests') == '' }}
         uses: extractions/setup-just@v3
-
-      - name: Install pnpm
+      - if: ${{ hashFiles('.no-tests') == '' }}
         uses: pnpm/action-setup@v4
         with:
           package_json_file: site/package.json
-
-      - name: Setup Node
+      - if: ${{ hashFiles('.no-tests') == '' }}
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
           cache-dependency-path: site/pnpm-lock.yaml
+      - if: ${{ hashFiles('.no-tests') == '' }}
+        run: just install-next
+      - if: ${{ hashFiles('.no-tests') == '' }}
+        run: just test-next
 
-      - name: Install dependencies
-        run: pnpm -C site install
-
-      - name: Run linters
-        run: just lint-next
-
-      - name: Run audit
-        run: just audit-next
-
-      - name: Build
-        run: just check-next
+  next-build:
+    needs: [next-test]
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v6
+      - uses: extractions/setup-just@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: site/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: site/pnpm-lock.yaml
+      - run: just install-next
+      - run: just build-next
