@@ -29,11 +29,13 @@ themes {
       emphasis_3 "{{ role.accent.secondary.hex }}"
     }
     // inactive tab: muted chip
+    // emphasis_1 is the tab-bar "alternate tab" colour (zebra striping) -- keep
+    // it a subtle bg step so every other tab doesn't turn a loud accent colour
     ribbon_unselected {
       base "{{ role.fg.muted.hex }}"
       background "{{ role.bg.surface.hex }}"
       emphasis_0 "{{ role.accent.primary.hex }}"
-      emphasis_1 "{{ role.accent.info.hex }}"
+      emphasis_1 "{{ role.bg.raised.hex }}"
       emphasis_2 "{{ role.accent.success.hex }}"
       emphasis_3 "{{ role.accent.secondary.hex }}"
     }
