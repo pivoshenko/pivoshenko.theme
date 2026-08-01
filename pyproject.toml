@@ -15,7 +15,7 @@ target-version = "py313"
 unsafe-fixes = true
 
 [tool.ruff.lint]
-ignore = ["ANN401", "D", "PLR2004", "EM102", "TRY", "G004", "INP001"]
+ignore = ["ANN401", "D", "PLR2004", "EM102", "TRY", "G004", "INP001", "CPY001"]
 select = ["ALL"]
 
 [tool.ruff.lint.isort]
