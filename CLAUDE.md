@@ -2,169 +2,211 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## What this repo is
+
+A single brand color theme, defined as **three flavors** (`morok`, `popil`, `vatra`), rendered from
+palette JSON into **26 tool-specific artifacts** (bat, ghostty, helix, k9s, zed, telegram, tailwind,
+CSS tokens, …) plus a bundled set of browser userstyles. Everything generated is committed under
+`themes/dist/` so consumers never need Python.
+
+Two independent halves:
+- **Python** (`scripts/`, `uv`) — the renderer/bundler. Owns `themes/`.
+- **Next.js** (`site/`, `pnpm`) — the preview site at `theme.pivoshenko.dev`. Reads `themes/` at build time.
+
+`just` recipes fan out to both halves.
+
 ## Commands
 
 ```bash
-# Install all deps (fans out to install-py + install-next)
-just install
-just install-py      # uv sync --all-groups --all-extras
-just install-next    # pnpm -C site install
+just                 # list recipes
 
-# Render all dist files from palette + templates
-just render
-just build           # alias for render
+just install         # install-py (uv sync --all-groups --all-extras) + install-next (pnpm -C site install)
+just render          # regenerate all of themes/dist/ for all three flavors  (alias: just build)
+just render-morok    # single flavor: render.py + bundle.py for that palette
+just render-popil
+just render-vatra
+just clean           # rm -rf themes/dist
 
-# Wipe dist/
-just clean
+just dev             # pnpm -C site dev  (next dev --turbopack)
+just start           # site build + next start
+just build-next      # site production build
 
-# Render a single flavor
-just render-morok    # pitch black
-just render-popil    # warm ash
-just render-vatra    # warm ash (gruvbox-material)
-
-# Run tests (both honor the .no-tests sentinel, so currently a no-op)
-just test
-just test-py
-just test-next
-
-# Lint Python scripts (ruff check + ty check; no format check)
-just lint-py
-
-# Format Python scripts
-just format-py
-
-# Run the site dev server (Next.js, turbopack)
-just dev
-
-# Build the Next.js site
-just build-next
-
-# Lint the site (Biome lint only)
-just lint-next
-
-# Full gate for the site (Biome check + Next build)
-just check-next
-
-# Format the site
-just format-next
-
-# Vulnerability scan (uvx pip-audit on Python deps + pnpm audit on the site)
-just audit
+just lint            # lint-py (ruff check . + ty check .) + lint-next (biome lint .)
+just format          # format-py (pyupgrade --py313-plus + ruff format .) + format-next (biome format --write)
+just check           # check-py (== lint-py) + check-next (biome check --write + next build)
+just audit           # uvx pip-audit + pnpm -C site audit
+just test            # no-op, see below
+just update          # uv lock --upgrade + uvx uv-upsync + pnpm -C site update
 ```
 
-Top-level aggregates fan out to both halves: `just install` = `install-py` + `install-next`, `just lint` = `lint-py` + `lint-next`, `just check` = `check-py` + `check-next`, `just format` = `format-py` + `format-next`, `just test` = `test-py` + `test-next`, `just audit` = `audit-py` + `audit-next`, `just update` = `update-py` + `update-next`. `just build` is an alias for `just render`.
+Render a palette manually (what the `render-*` recipes wrap):
 
-`test-py` and `test-next` both check for a `.no-tests` sentinel file: if present they print "skipping" and exit 0; if absent they error (forcing you to add real tests or restore the sentinel). The repo ships `.no-tests`, so both recipes are currently no-ops.
+```bash
+uv run scripts/render.py --palette themes/palettes/popil.json
+uv run scripts/bundle.py --styles-dir themes/userstyles/styles \
+  --output themes/dist/stylus/popil.json \
+  --rewrite-import "<morok_lib_url>" "<popil_lib_url>"
+```
 
-`lint-py` runs `ruff check .` + `ty check .` only. There is no `ruff format --check` (format checking is not part of the lint step).
+### Testing
 
-Python tooling tasks (`format-py`, `lint-py`, `audit-py`) use `uvx` (ephemeral tool invocations: `uvx pyupgrade`, `uvx ruff`, `uvx ty`, `uvx pip-audit`). The render recipes (`render-morok`, `render-popil`, `render-vatra`) use `uv run` because they execute project scripts that need the project venv. The render step runs both `scripts/render.py` and `scripts/bundle.py`.
+There are no tests. `test-py` and `test-next` check for a `.no-tests` sentinel file at the repo root:
+present → print "skipping" and exit 0; absent → error. The sentinel is committed, so `just test` is
+currently a green no-op. Adding real tests means deleting `.no-tests` and replacing the recipe bodies.
 
-CI runs two flat parallel jobs on `ubuntu-24.04-arm`:
-- `ci-py`: `install-py` -> `lint-py` -> `audit-py` -> `test-py`
-- `ci-next`: `install-next` -> `lint-next` -> `audit-next` -> `test-next` -> `build-next`
+### Tooling notes
+
+- Python lint/format/audit run through `uvx` (ephemeral, no venv needed). Only the render scripts use
+  `uv run` because they import `jinja2` / `loguru` from the project env.
+- `lint-py` is `ruff check` + `ty check` only — there is deliberately **no** `ruff format --check`.
+- Ruff config lives in `pyproject.toml`: `select = ["ALL"]`, line length 100, `fix = true`,
+  `unsafe-fixes = true`, isort forces single-line imports and a required `from __future__ import annotations`.
+- CI (`.github/workflows/ci.yaml`) runs two parallel jobs on `ubuntu-24.04-arm`:
+  `ci-py` = install-py → lint-py → audit-py → test-py; `ci-next` = install-next → lint-next →
+  audit-next → test-next → build-next. **CI never runs `just render`** — regenerating `themes/dist/`
+  and committing it is a manual step after touching a palette or template.
 
 ## Architecture
 
-The repository hosts a single brand theme rendered in **three flavors** from three palette JSON sources against **one shared set of templates**, all under `themes/`. Flavors differ in their background ramp, foreground neutrals, and accents:
+### Render pipeline
 
-- `morok`: pitch black, near-white text on `#000000`, cool Catppuccin-frappe-style accents (`accent.primary = blue`).
-- `popil`: warm-grey base `#1f1f1e`, neutral warm-grey subtext, **muted terracotta accents** (`accent.primary = #d97757`). The "house" flavor for brand surfaces.
-- `vatra`: same warm `#1f1f1e` base, golden-tan subtext, **gruvbox-material-warm accents** (`accent.primary = orange #ec7f3e`). Carpathian hearth fire, the warmer and punchier sibling of popil.
+`scripts/render.py` is the whole engine (~250 lines, no package structure):
 
-All three palettes share the same 14 named color slots (`rosewater`/`flamingo`/.../`lavender`) so port templates stay flavor-agnostic; the *values* in those slots differ. Shared Python tooling in `scripts/` renders any palette via `--palette`.
+1. Loads `--palette <path>.json`.
+2. Derives dirs from the palette path: `<palette>.parent.parent / "templates"` and `/ "dist"`.
+   With palettes at `themes/palettes/*.json`, all flavors share `themes/templates/` and write into
+   `themes/dist/`. Override with `--templates-dir` / `--output-dir`.
+3. Builds a Jinja context: every `colors` key as a top-level `SimpleNamespace(hex=...)`, the `roles`
+   tree as a nested namespace under `role`, plus `name` (flavor name) and `flavor.dark` / `flavor.light`.
+4. `rglob("*.jinja")` over the templates dir, renders each with `StrictUndefined` (a typo in a color
+   name is a hard failure), writes `rstrip() + "\n"`.
 
-### Layout
+**Output path rules** (`_render_target_from_template`):
 
-```
-pivoshenko.theme/
-  scripts/                          # shared render + bundle scripts (Python, uv)
-  pyproject.toml, uv.lock           # one Python env serves all palettes
-  themes/
-    palettes/morok.json             # pitch-black flavor (source of truth)
-    palettes/popil.json             # warm-ash flavor (source of truth)
-    palettes/vatra.json             # warm-ash gruvbox flavor (source of truth)
-    templates/<tool>/               # Jinja templates per port (shared by all flavors)
-    userstyles/styles/<site>/       # Less userstyles (morok bundle only)
-    dist/<tool>/morok.<ext>         # generated artifacts (committed)
-    dist/<tool>/popil.<ext>         #   all flavors land in the same dir
-  site/                             # Next.js port showcase
-  justfile, CLAUDE.md, ...
-```
+| template | output |
+| --- | --- |
+| `templates/<tool>/theme.<ext>.jinja` | `dist/<tool>/<flavor>.<ext>` |
+| `templates/<tool>/<tool>.<ext>.jinja` | `dist/<tool>/<flavor>.<ext>` |
+| `templates/<tool>/<name>.jinja` (no dot, not `theme`) | `dist/<tool>/<flavor>-<name>` (no extension) |
+| `templates/<tool>.<ext>.jinja` (legacy flat) | `dist/<tool>/<flavor>.<ext>` |
+
+The third form is for multi-file ports whose artifacts have fixed names — `telegram/{desktop,ios,macos}.jinja`
+→ `dist/telegram/morok-desktop`, `popil-ios`, …. The `<flavor>-` prefix keeps flavors from colliding in
+the shared `dist/<tool>/` dir. A dotted basename that matches neither `<tool>.` nor `theme.` is used
+whole as the extension — that is how `obsidian/manifest.json.jinja` → `dist/obsidian/<flavor>.manifest.json`
+and `zen/userChrome.css.jinja` → `dist/zen/<flavor>.userChrome.css` emit two files per tool.
 
 ### Palettes
 
-`themes/palettes/morok.json`, `themes/palettes/popil.json`, and `themes/palettes/vatra.json` each define all colors with `#rrggbb` hex values (including the `#` prefix). To change colors, edit the relevant palette. Each palette has two top-level blocks:
+`themes/palettes/{morok,popil,vatra}.json`, each with `name`, `flavor` ("dark"), and two blocks:
 
-- **`colors`**: the 14 raw named slots (`rosewater`/`flamingo`/`pink`/`mauve`/`red`/`maroon`/`peach`/`yellow`/`green`/`teal`/`sky`/`sapphire`/`blue`/`lavender`) + `text`/`subtext*` + `overlay*` + `surface*`/`base`/`mantle`/`crust`. Same keys in every flavor; the values diverge. Port templates that target apps with literal-hue slot expectations (zed, discord, obsidian) read these directly.
-- **`roles`**: a semantic layer mapping role keys to color names: `bg.{canvas,surface,raised,sunken,overlay}`, `fg.{default,muted,subtle,faint}`, `border.{subtle,default,strong}`, `accent.{primary,secondary,success,warning,danger,info}`. Each value is a `colors` key string (e.g. `"accent.primary": "blue"` for morok, `"peach"` for popil). Roles are how flavor identity gets expressed: same role, different color name per flavor. Web ports + frontend frameworks should consume *only* roles so a flavor swap re-resolves color intent automatically.
+- **`colors`** — 26 identical keys across all three flavors: the 14 Catppuccin-style hues
+  (`rosewater` … `lavender`), `text`/`subtext1`/`subtext0`, `overlay2..0`, `surface2..0`,
+  `base`/`mantle`/`crust`. Values are `#rrggbb` **including the `#`** — templates must not add one.
+- **`roles`** — semantic layer, each value is a *string naming a `colors` key*:
+  `bg.{canvas,surface,raised,sunken,overlay}`, `fg.{default,muted,subtle,faint}`,
+  `border.{subtle,default,strong}`, `accent.{primary,secondary,success,warning,danger,info}`.
 
-`morok` crust is true `#000000` with near-white text and `accent.primary = blue`; `popil` anchors `base` to warm-grey `#1f1f1e` (near-neutral, faintly warm), neutral warm-grey subtext, and `accent.primary = peach` (muted terracotta `#d97757`); `vatra` shares popil's bg ramp but layers golden-tan subtext and `accent.primary = peach` (gruvbox-material orange `#ec7f3e`) for a warmer, more saturated take.
+Flavor identity lives in `roles` + the bg ramp:
+
+| flavor | base / crust | accent.primary | character |
+| --- | --- | --- | --- |
+| `morok` | `#111111` / `#000000` | `blue` `#7f98bf` | pitch black, cool Catppuccin-frappe accents |
+| `popil` | `#1f1f1e` / `#151514` | `peach` `#d97757` | warm ash, muted terracotta — the house brand flavor |
+| `vatra` | `#1f1f1e` / `#151514` | `peach` `#ec7f3e` | same ramp as popil, golden-tan subtext, gruvbox-material orange |
+
+Because the slot *names* are shared, one template set serves every flavor.
 
 ### Templates
 
-`themes/templates/<tool>/theme.<ext>.jinja` holds Jinja2 templates that reference palette colors as `{{ color.hex }}` (full `#rrggbb` string), roles as `{{ role.<group>.<key>.hex }}` (e.g. `{{ role.accent.primary.hex }}`, `{{ role.bg.canvas.hex }}`), and the flavor name as `{{ name }}`. Available filters: `mix(color=..., amount=0.5)`, `get(key='hex')`, `rgb`. The `iif(cond, t, f)` global is available for conditionals. One template renders every flavor: `morok` -> `themes/dist/<tool>/morok.<ext>`, `popil` -> `themes/dist/<tool>/popil.<ext>`, and so on. Use `{{ name }}` (never a literal `morok`) for any in-file theme identifier (telegram `shortname`, bat scope, obsidian style-settings `id`s) so the shared template stays flavor-correct. Prefer `role` over raw color names in new web/UI templates; it keeps flavor identity intact when colors are retuned.
+`themes/templates/<tool>/*.jinja`, Jinja2. Available in scope:
 
-**Multi-file ports** (a tool with several fixed-name artifacts, e.g. `telegram` -> `macos`/`desktop`/`ios`): use the verbatim form `themes/templates/<tool>/<name>.jinja` -> `themes/dist/<tool>/<flavor>-<name>` (e.g. `themes/dist/telegram/morok-macos`, no extension). Triggered when the template basename has no dot and isn't `theme`. The `<flavor>-` prefix prevents the palettes colliding in the shared dir. Tokenize hex literals to `{{ token.hex }}`; keep deliberately port-specific colors (e.g. telegram outgoing-bubble tints) and true-black opacity scrims (`#000000CC`) as literals.
+- `{{ <colorname>.hex }}` — e.g. `{{ mauve.hex }}`, `{{ base.hex }}`
+- `{{ role.<group>.<key>.hex }}` — e.g. `{{ role.accent.primary.hex }}`
+- `{{ name }}` — the flavor name; **always use this** for in-file theme identifiers (telegram
+  `shortname`, bat scope, obsidian style-settings ids) so one template stays flavor-correct
+- `{{ flavor.dark }}` / `{{ flavor.light }}`
+- filters `| mix(color=..., amount=0.5)`, `| get(key='hex')`, `| rgb` (returns `"r, g, b"`)
+- global `iif(cond, t, f)`
 
-### Web Ports
+`_normalize_template` rewrites `{{ if(` → `{{ iif(` and `=#{{` → `={{` before compiling — don't write
+`=#{{ color.hex }}`, the `#` is already in the hex value.
 
-Four ports target the brand's web stack. Use **tokens** + **tailwind-tokens** for any new frontend work; `tailwind` + `css-vars` remain for legacy raw-color consumers.
+**Prefer `role.*` over raw color names** in any new web/UI template so a flavor swap re-resolves color
+intent. Ports targeting apps with literal-hue expectations (zed, discord, obsidian) read `colors` directly.
 
-- `themes/templates/tokens/theme.css.jinja` -> `themes/dist/tokens/morok.css` (+ `popil.css`). Semantic role-based CSS variables scoped to `[data-flavor="<flavor>"]`. Values are space-separated `R G B` triples (no `rgb()` wrapper) so consumers can use `rgb(var(--accent-primary) / <alpha-value>)` in Tailwind / shadcn configs. Token names are flavor-agnostic (`--bg-canvas`, `--fg-default`, `--accent-primary`); switching flavor = setting `data-flavor` on the root element.
-- `themes/templates/tailwind-tokens/theme.js.jinja` -> `themes/dist/tailwind-tokens/morok.js` (+ `popil.js`, identical content). A flavor-agnostic Tailwind preset (CommonJS) consuming the tokens CSS vars. Exposes `colors.bg.{canvas,surface,...}`, `colors.fg.{default,muted,...}`, `colors.border.{subtle,default,strong}`, `colors.accent.{primary,secondary,success,warning,danger,info}` plus a JetBrains Mono font stack. Utilities become `bg-canvas`, `text-fg-muted`, `bg-accent-primary/50`, etc., independent of flavor.
-- `themes/templates/tailwind/theme.js.jinja` -> `themes/dist/tailwind/morok.js` (+ `popil.js`). The *legacy* Tailwind preset, exposing `colors.<flavor>.<token>` (raw color names). Still consumed by `pivoshenko.ui/tailwind-preset` (vendored on release; sites import via `pivoshenko.ui/tailwind-preset` subpath). Prefer `tailwind-tokens` for new sites.
-- `themes/templates/css-vars/theme.css.jinja` -> `themes/dist/css-vars/morok.css` (+ `popil.css`). The *legacy* `:root` custom properties named `--<flavor>-<token>` (raw color names). Consumed by the `pivoshenko-brand` skill's HTML reference and any plain-CSS surfaces. Prefer `tokens` for new work.
-- `themes/templates/preview/theme.html.jinja` -> `themes/dist/preview/morok.html` (+ `popil.html`). A self-contained HTML preview showing role swatches, UI panels (buttons/badges/cards), code sample, and raw palette grid. Open it in a browser to eyeball a flavor.
+### Web-facing ports
+
+Four of the 26 targets feed the pivoshenko.* frontend stack. Use the **token** pair for new work:
+
+- `tokens/theme.css.jinja` → `dist/tokens/<flavor>.css` — role-based custom properties
+  (`--bg-canvas`, `--fg-default`, `--accent-primary`) scoped to `[data-flavor="<flavor>"]`, values as
+  space-separated `R G B` triples (no `rgb()` wrapper) for Tailwind `<alpha-value>` support. Switch
+  flavor at runtime via `document.documentElement.dataset.flavor`.
+- `tailwind-tokens/theme.js.jinja` → `dist/tailwind-tokens/<flavor>.js` — flavor-agnostic CommonJS
+  Tailwind preset consuming those vars via `rgb(var(--token) / <alpha-value>)`. The three output files
+  are byte-identical; any one works.
+- `tailwind/theme.js.jinja` → `dist/tailwind/<flavor>.js` — **legacy** preset exposing raw
+  `colors.<flavor>.<token>` (`bg-morok-base`). Still vendored by `pivoshenko.ui/tailwind-preset`.
+- `css-vars/theme.css.jinja` → `dist/css-vars/<flavor>.css` — **legacy** `:root` props named
+  `--<flavor>-<token>`.
+
+`preview/theme.html.jinja` → `dist/preview/<flavor>.html` is a self-contained page for eyeballing a
+flavor in a browser.
 
 ### Userstyles
 
-`themes/userstyles/styles/<site>/style.user.less` holds Less-based userstyles for browser injection via Stylus. Each file has a `==UserStyle==` metadata header. They import the shared palette via a hosted gist URL and use `#lib.palette()` / `#lib.defaults()` mixins. `scripts/bundle.py` collects all `style.user.less` files and produces a Stylus import bundle.
+`themes/userstyles/styles/<site>/style.user.less` — 133 Less userstyles, each with a `==UserStyle==`
+metadata header and a single `@import` of a hosted `lib.less` gist providing `#lib.palette()` /
+`#lib.defaults()`. `scripts/bundle.py` parses those headers (including `@var` lines, where select
+options use `"value:Label*"` and `*` marks the default), computes a SHA-1 `originalDigest`, and emits a
+Stylus import JSON.
 
-All three flavors ship a bundle from the **same** single-copy style sources; they're never duplicated per flavor. The only per-flavor difference is the lib `@import` URL: each flavor hosts its own `lib.less` gist (differing bg ramp, foreground neutrals, and accents, but keeping the `@morok` map name + `#lib` mixins so style files need no other change). The lib sources live at `themes/userstyles/lib/lib.less` (morok), `themes/userstyles/lib/popil.less` (popil), and `themes/userstyles/lib/vatra.less` (vatra). All three are hand-maintained mirrors and **gitignored** (`lib/`): they're the editing source for the hosted gists, not committed. A fresh clone won't have them; the committed artifact is the bundle (`themes/dist/stylus/*.json`), which references the gists by URL. Editing a lib means re-hosting its gist. `bundle.py`'s `--rewrite-import OLD NEW` swaps the morok gist URL for the flavor's own at bundle time:
+**The style sources are single-copy — never duplicated per flavor.** The only per-flavor difference is
+the lib import URL, swapped at bundle time by `--rewrite-import OLD NEW`:
 
-- `morok` -> `themes/dist/stylus/morok.json` (stock gist URL, no rewrite)
-- `popil` -> `themes/dist/stylus/popil.json` (rewrites to the popil lib gist via `--rewrite-import`)
-- `vatra` -> `themes/dist/stylus/vatra.json` (rewrites to the vatra lib gist via `--rewrite-import`)
+| flavor | gist | lib source (gitignored) |
+| --- | --- | --- |
+| morok | `a4b48bfdc60be6a6a35ea5f3da732be1` / `lib.less` | `themes/userstyles/lib/lib.less` |
+| popil | `ee8090a682bb964031d51705d9ffd697` / `popil.less` | `themes/userstyles/lib/popil.less` |
+| vatra | `4966a9fda130dbd531f9884c11ae156b` / `vatra.less` | `themes/userstyles/lib/vatra.less` |
 
-The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`, `vatra_lib_url`). The hosted gists (owner `pivoshenko`):
-
-- `morok` -> gist `a4b48bfdc60be6a6a35ea5f3da732be1`, file `lib.less` (source: `themes/userstyles/lib/lib.less`)
-- `popil` -> gist `ee8090a682bb964031d51705d9ffd697`, file `popil.less` (source: `themes/userstyles/lib/popil.less`)
-- `vatra` -> gist `4966a9fda130dbd531f9884c11ae156b`, file `vatra.less` (source: `themes/userstyles/lib/vatra.less`)
-
-**Each `*_lib_url` must point at a hosted raw URL of its lib file** before `just render-<flavor>` produces a usable bundle. When a lib changes, **re-host that gist** (push the edited local `lib/*.less` to the gist above) and bump the matching justfile var to the new raw URL (the raw URL embeds a commit SHA that changes on every gist edit). The pinned SHA in the URL means the bundle keeps resolving the exact ramp it was built against until you bump it.
+`themes/userstyles/lib/` is **gitignored** (`.gitignore:239`) — those files are hand-maintained local
+mirrors of the gists, not the source of truth. A fresh clone won't have them; the committed artifact is
+`themes/dist/stylus/*.json`, which references the gists by URL. The raw URLs (pinned to a gist commit
+SHA) live as justfile variables `morok_lib_url` / `popil_lib_url` / `vatra_lib_url`. **Editing a lib
+means re-pushing its gist and bumping the matching justfile var to the new SHA-bearing raw URL** — the
+pin is what keeps a bundle resolving the exact ramp it was built against.
 
 ### Site
 
-`site/` is a Next.js app for visual preview of palette + ports. Managed separately with `pnpm` inside that directory. Renamed from `showcase/` to align with the `sources/` repo convention where every web preview lives in `site/`.
+`site/` is a Next.js 16 App Router app (React 19, Tailwind 3, Biome, pnpm), reading `../themes/` from
+disk at build time via `site/lib/theme-data.ts` (`getPalette`, `getPorts`, `getPortContent`). Nearly all
+chrome is delegated to `pivoshenko.ui` (pinned as a GitHub dep): `layout.tsx` renders
+`<SiteLayout brand="pivoshenko.theme">`, and `tailwind.config.ts`, `next.config.ts`,
+`postcss.config.mjs`, `biome.json`, `app/globals.css`, `app/icon.tsx`, `app/opengraph-image.tsx` are all
+one-line re-exports of shared subpaths.
 
-Shell is composed via `<SiteLayout brand="pivoshenko.theme">` from `pivoshenko.ui/next/site-layout`, which owns `<html>`, `<body>`, JetBrains-Mono font loading, `<PageShell>` (`Nav` + `Footer` + `ScrollToTop`), and `<Analytics />`. Metadata comes from `siteMetadata(...)`, viewport from `siteViewport`. The site runs on the single `popil` chrome (no light mode, no `next-themes`); the morok/popil/vatra **content** flavor switcher (`FlavorToggle` -> `FlavorProvider`) only drives what the palette grid, examples, and ports preview render, never the chrome. `tailwind.config.ts` / `next.config.ts` / `postcss.config.mjs` / `app/icon.tsx` / `app/opengraph-image.tsx` are all thin wrappers over the shared subpaths in `pivoshenko.ui`.
+Two independent contexts drive interactivity, both in `site/lib/`:
+- `flavor-context.tsx` — `FlavorProvider` / `useFlavor()`, switches which **content** palette the wall,
+  table, examples, and terminal mock render. The site **chrome is fixed** on the pivoshenko.ui look and
+  never follows this toggle; there is no light mode and no `next-themes`.
+- `accent-context.tsx` — `useAccent()`, the pin + copy-hex interaction on the palette wall.
 
-**Components** (`site/components/`):
-- `hero.tsx`: landing intro with link to the GH source; uses `text-accent-primary` (terracotta) for the link, matching the global `a:not([class])` convention.
-- `palette-wall.tsx`: clickable swatch grid grouped by role (surface / accent / text); click to pin an accent + copy hex. Renders arbitrary palette colors, so swatch text uses an absolute light/dark contrast pair (the one justified exception to role tokens).
-- `palette-table.tsx`: full 14-slot palette table with hex, RGB, and HSL columns.
-- `colors-section.tsx`: wrapper that composes the wall + table.
-- `flavor-toggle.tsx` + `flavor-description.tsx`: morok/popil/vatra switcher driving `FlavorProvider` and the per-flavor blurb (content-only; chrome stays on `popil`).
-- `examples.tsx` / `examples-section.tsx` / `examples-client.tsx`: UI sample tiles (buttons, badges, code, etc.) rendered against the active content flavor.
-- `terminal-preview.tsx` + `window-frame.tsx`: chrome-framed terminal sample showing the flavor's accent ramp.
-- `ports-grid.tsx`: generated downloads grid for every rendered port artifact in `themes/dist/`.
+`components/palette-wall.tsx` renders arbitrary palette hexes, so its swatch labels use an absolute
+light/dark contrast pair computed from `lib/contrast.ts` — the one justified exception to role tokens.
+`components/examples.tsx` pre-renders Shiki HTML per flavor on the server (`lib/shiki-theme.ts` builds a
+theme from a palette map) and hands the three sets to `examples-client.tsx`.
 
-**Lib** (`site/lib/`):
-- `theme-data.ts`: server-side loader; reads `themes/palettes/*.json` and resolves role keys to `PaletteColor[]` (group: surface/accent/text) plus port lists.
-- `flavor-context.tsx`: `FlavorProvider` + `useFlavor()` hook driving the content-flavor switch.
-- `accent-context.tsx`: `useAccent()` hook for the pin/copy interaction on the palette wall.
-- `contrast.ts`: `hexToRgb` helper for the swatch readability calc.
-- `shiki-theme.ts`: Shiki highlighter theme matching the active flavor for code samples.
+## Conventions
 
-## Key Conventions
-
-- Hex values in `themes/palettes/*.json` include the `#` prefix; templates do **not** add their own `#`.
-- `render.py`'s `_normalize_template` replaces `=#{{` -> `={{` to handle a common Tera-style mistake; avoid writing templates with `#{{ color.hex }}`.
-- Userstyle `@var` options use `"value:Label*"` syntax where `*` marks the default.
-- `render.py` derives templates + output dirs from the palette path: `palette.parent.parent / "templates"` and `/ "dist"`. With palettes at `themes/palettes/*.json`, both resolve to `themes/`, so all flavors share `themes/templates/` and write to `themes/dist/`. Pass `--templates-dir` / `--output-dir` to override. Consumers vendor `themes/dist/tailwind/morok.js` into their own repos on tag bumps.
-- Adding a new flavor: drop `themes/palettes/<name>.json` (start from a copy, change `name` + the background ramp), add a `just render-<name>` recipe, and extend `render` to depend on it. Templates are shared, so there's no new template dir.
-- All files in `themes/dist/` are committed to git so downstream consumers don't need to run Python or `uv`.
-- `just lint-py` runs `ruff check .` + `ty check .` only. There is no `ruff format --check` (format checking is not part of the lint step).
-- Python module docstrings in `scripts/` open with `Module that contains ...`; `__init__.py` would open with `Package that contains ...`.
+- Adding a flavor: drop `themes/palettes/<name>.json` (copy an existing one, change `name`, the bg ramp,
+  and `roles.accent`), add a `render-<name>` recipe with its own lib gist + `--rewrite-import`, and add
+  it to the `render` dependency list. No new templates.
+- Adding a port: create `themes/templates/<tool>/theme.<ext>.jinja`, run `just render`, add install
+  steps to the README, and optionally add `<tool>` to `readmeAnchors`/`portSwatches`/`portIcons` in
+  `site/lib/theme-data.ts` and `site/components/ports-grid.tsx`.
+- `themes/dist/` is committed. Re-run `just render` and commit the diff whenever a palette or template
+  changes — nothing in CI does it for you.
+- Python module docstrings in `scripts/` open with `Module that contains ...`.
+- Code comments never end with a period.
