@@ -144,7 +144,7 @@ func (p *Palette) Accent(key string) (string, bool) {
     label: 'fish',
     language: 'fish',
     filename: 'config.fish',
-    code: `# fish config — morok theme
+    code: `# fish config - morok theme
 set -gx EDITOR helix
 set -gx PAGER bat
 set -gx LANG en_US.UTF-8
@@ -170,7 +170,7 @@ abbr -a gco 'git checkout'
     label: 'toml',
     language: 'toml',
     filename: 'starship.toml',
-    code: `# starship config — morok palette
+    code: `# starship config - morok palette
 format = """
 $directory\\
 $git_branch\\
@@ -196,8 +196,7 @@ style = "#d0a178"
   },
 ]
 
-// Pre-render the syntax-highlighted samples for a given flavor's palette.
-// Called once per flavor on the server; the client swaps between the sets.
+// called once per flavor on the server; the client swaps between the sets
 export async function renderExamples(
   map: Record<string, string>,
 ): Promise<CodeExample[]> {

@@ -31,7 +31,6 @@ const githubRepo = 'https://github.com/pivoshenko/pivoshenko.theme'
 const githubRaw =
   'https://raw.githubusercontent.com/pivoshenko/pivoshenko.theme/main'
 const readmeAnchors: Record<string, string> = {
-  aoe: 'agent-of-empires',
   bat: 'bat',
   bottom: 'bottom',
   delta: 'delta',
@@ -40,12 +39,12 @@ const readmeAnchors: Record<string, string> = {
   fzf: 'fzf',
   ghostty: 'ghostty',
   helix: 'helix',
+  herdr: 'herdr',
   k9s: 'k9s',
   lazygit: 'lazygit',
   obsidian: 'obsidian',
   spicetify: 'spicetify',
   starship: 'starship',
-  tmux: 'tmux',
   vscode: 'vscode',
   zed: 'zed',
   zen: 'zen',
@@ -53,7 +52,6 @@ const readmeAnchors: Record<string, string> = {
 }
 
 const portSwatches: Record<string, [string, string, string]> = {
-  aoe: ['base', 'text', 'peach'],
   bat: ['base', 'text', 'yellow'],
   bottom: ['base', 'green', 'mauve'],
   'css-vars': ['base', 'text', 'lavender'],
@@ -63,6 +61,7 @@ const portSwatches: Record<string, [string, string, string]> = {
   fzf: ['base', 'subtext1', 'mauve'],
   ghostty: ['base', 'text', 'mauve'],
   helix: ['base', 'text', 'mauve'],
+  herdr: ['base', 'text', 'peach'],
   k9s: ['base', 'green', 'sapphire'],
   lazygit: ['base', 'green', 'mauve'],
   obsidian: ['crust', 'text', 'mauve'],
@@ -71,7 +70,6 @@ const portSwatches: Record<string, [string, string, string]> = {
   stylus: ['base', 'text', 'lavender'],
   tailwind: ['base', 'text', 'lavender'],
   telegram: ['base', 'text', 'sky'],
-  tmux: ['mantle', 'text', 'peach'],
   vscode: ['base', 'text', 'mauve'],
   zed: ['base', 'text', 'mauve'],
   zellij: ['base', 'text', 'sky'],

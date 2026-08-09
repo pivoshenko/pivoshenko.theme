@@ -16,14 +16,13 @@ export default async function HomePage() {
   const vatra = getPalette('vatra')
   const ports = getPorts()
 
-  // accent slot *names* are identical across flavors (14 named slots).
-  // values diverge per flavor — consumers should read hex from the
-  // active palette via useFlavor().palette.map[name].
+  // slot names are identical across flavors, only the hex values differ, so
+  // consumers read hex from the active palette via useFlavor().palette.map
   const accents = morok.colors
     .filter((c) => c.group === 'accent')
     .map((c) => ({ name: c.name, hex: c.hex }))
 
-  // shiki backgrounds track the bg ramp, so render a set per flavor.
+  // shiki backgrounds track the bg ramp, so render a set per flavor
   const exampleSets = {
     morok: await renderExamples(morok.map),
     popil: await renderExamples(popil.map),
@@ -55,7 +54,7 @@ export default async function HomePage() {
           <section className="space-y-4">
             <SectionHeader title="examples" />
             <p className="type-body fg-muted">
-              Live previews — pick a tab to swap between the terminal mock and
+              Pick a tab to swap between the terminal mock and
               syntax-highlighted samples across languages.
             </p>
             <ExamplesClient sets={exampleSets} />

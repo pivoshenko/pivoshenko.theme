@@ -63,7 +63,7 @@ export function ExamplesSection({ examples, palette }: Props) {
         >
           <div
             className={blockClass}
-            // biome-ignore lint/security/noDangerouslySetInnerHtml: shiki output is trusted.
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: shiki output is trusted
             dangerouslySetInnerHTML={{ __html: current.html }}
           />
         </WindowFrame>

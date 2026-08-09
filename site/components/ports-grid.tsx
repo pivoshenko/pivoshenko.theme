@@ -12,6 +12,7 @@ import {
   Palette,
   Search,
   Send,
+  Server,
   Terminal,
 } from 'lucide-react'
 
@@ -20,7 +21,6 @@ type Props = {
 }
 
 const portIcons: Record<string, LucideIcon> = {
-  aoe: Terminal,
   bat: Terminal,
   bottom: Activity,
   'css-vars': Palette,
@@ -30,6 +30,7 @@ const portIcons: Record<string, LucideIcon> = {
   fzf: Search,
   ghostty: Terminal,
   helix: Code,
+  herdr: Server,
   k9s: Activity,
   lazygit: GitBranch,
   obsidian: BookOpen,
