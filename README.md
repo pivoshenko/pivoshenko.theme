@@ -10,36 +10,31 @@
 
 Themes focused on minimalism, simplicity and cross-tool consistency, shipped in three flavors:
 
-- **`Morok`** — pitch black, neutral greys on a true-black floor, cool Catppuccin-frappe-style accents.
-- **`Popil`** — warm ash. Near-neutral warm-grey base with neutral warm-grey subtext and muted terracotta accents. The "house" flavor for brand surfaces.
-- **`Vatra`** — Carpathian hearth fire. Same warm `#1f1f1e` base as popil but with golden-tan subtext and gruvbox-material-warm accents (orange primary). Punchier, more saturated take on the warm flavor.
+- **`Morok`** is pitch black: neutral greys on a true-black floor, cool Catppuccin-frappe-style accents.
+- **`Popil`** is warm ash: a near-neutral warm-grey base with neutral warm-grey subtext and muted terracotta accents. It's the house flavor for brand surfaces.
+- **`Vatra`** is Carpathian hearth fire: the same warm `#1f1f1e` base as popil, but with golden-tan subtext and gruvbox-material-warm accents (orange primary). A punchier, more saturated take on the warm flavor.
 
-All three flavors share the same 14 named color slots and every port template — only the *values* in those slots diverge. Pick `morok` for maximum contrast, `popil` for restrained warm minimalism, `vatra` for the gruvbox-coded sibling.
+All three flavors share the same 14 named color slots and every port template. Only the *values* in those slots diverge. Pick `morok` for maximum contrast, `popil` for restrained warm minimalism, `vatra` for the gruvbox-coded sibling.
 
-> Preview the palette, compare both flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**.
+> Preview the palette, compare the flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**.
 
 **About the names**
 
 *Morok* (pronounced [mo-rok]) is a Ukrainian word that means "darkness" or "gloom". It is often used to describe a state of melancholy, sadness, or despair, or a dark and gloomy atmosphere.
 
-*Popil* (pronounced [po-pil]) is a Ukrainian word that means "ash". It evokes the warm grey embers smouldering after a fire has burned down — a faint, lingering heat in the dark. It carries a sense of quiet aftermath: of what remains, still warm, once the flame is gone — mirroring this flavor's warm off-black ramp.
+*Popil* (pronounced [po-pil]) is a Ukrainian word that means "ash". It evokes the warm grey embers smouldering after a fire has burned down: a faint lingering heat in the dark, what remains still warm once the flame is gone. The flavor's off-black ramp is that afterglow.
 
-*Vatra* (pronounced [va-tra]) is a Ukrainian word that means "Carpathian hearth fire" or "bonfire" — the open flame around which highland shepherds gather. Where popil is the ash, vatra is the fire still burning: warmer, more saturated, alive with orange and ember-yellow. The two flavors are the same scene at different moments.
+*Vatra* (pronounced [va-tra]) is a Ukrainian word that means "Carpathian hearth fire" or "bonfire", the open flame around which highland shepherds gather. Where popil is the ash, vatra is the fire still burning: warmer, more saturated, alive with orange and ember-yellow. The two flavors are the same scene at different moments.
 
 ## Usage
 
-Repository contains ports for various terminal applications and userstyles for popular websites. All ports are generated from the source palettes (`themes/palettes/morok.json`, `themes/palettes/popil.json`, `themes/palettes/vatra.json`) against shared templates, ensuring a cohesive look across different tools and platforms. Every port below ships as `themes/dist/<tool>/morok.<ext>`, `themes/dist/<tool>/popil.<ext>`, and `themes/dist/<tool>/vatra.<ext>`.
+Repository contains ports for various terminal applications and userstyles for popular websites. All ports are generated from the source palettes (`themes/palettes/morok.json`, `themes/palettes/popil.json`, `themes/palettes/vatra.json`) against shared templates, which keeps the look consistent across tools and platforms. Every port below ships as `themes/dist/<tool>/morok.<ext>`, `themes/dist/<tool>/popil.<ext>`, and `themes/dist/<tool>/vatra.<ext>`.
 
-Install steps below use `<flavor>` as a placeholder — substitute `morok`, `popil`, or `vatra` in **both** the source filename and any in-tool identifier the step sets (`theme = "<flavor>"`, `palette = "<flavor>"`, `--theme="<flavor>"`, `skin: <flavor>`, etc.). Telegram is the one exception: it ships per-flavor deep links.
+Install steps below use `<flavor>` as a placeholder. Substitute `morok`, `popil`, or `vatra` in **both** the source filename and any in-tool identifier the step sets (`theme = "<flavor>"`, `palette = "<flavor>"`, `--theme="<flavor>"`, `skin: <flavor>`, etc.). Telegram is the one exception: it ships per-flavor deep links.
 
-See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, stylus, tmux, and agent-of-empires.
+See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for a real-world setup consuming the theme across fish, starship, helix, ghostty, zed, k9s, bottom, lazygit, zellij, bat, spicetify, and stylus.
 
 ## Ports
-
-#### Agent of Empires
-
-1. Copy [`themes/dist/aoe/<flavor>.toml`](themes/dist/aoe/) to `~/.agent-of-empires/themes/<flavor>.toml`.
-2. Set `[theme] name = "<flavor>"` in your Agent of Empires config.
 
 #### Bat
 
@@ -96,6 +91,11 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 1. Copy [`themes/dist/helix/<flavor>.toml`](themes/dist/helix/) to `~/.config/helix/themes/<flavor>.toml`.
 2. Set `theme = "<flavor>"` in `~/.config/helix/config.toml`.
 
+#### Herdr
+
+1. Copy [`themes/dist/herdr/<flavor>.toml`](themes/dist/herdr/) to `~/.config/herdr/config.toml`, or merge its `[theme]` and `[theme.custom]` blocks into an existing config.
+2. Run `herdr server reload-config` to apply it to a running session.
+
 #### K9s
 
 1. Copy [`themes/dist/k9s/<flavor>.yaml`](themes/dist/k9s/) to `~/.config/k9s/skins/<flavor>.yaml`.
@@ -129,13 +129,7 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 1. Open the theme deep link in Telegram: [`pivoshenko_theme_morok`](https://t.me/addtheme/pivoshenko_theme_morok) or [`pivoshenko_theme_popil`](https://t.me/addtheme/pivoshenko_theme_popil).
 2. Tap "Apply Theme".
 
-Platform-specific source files for all three flavors live in [`themes/dist/telegram/`](themes/dist/telegram/) as `<flavor>-desktop`, `<flavor>-ios`, and `<flavor>-macos` — use these directly if no deep link is hosted for your flavor.
-
-#### Tmux
-
-1. Copy [`themes/dist/tmux/<flavor>.conf`](themes/dist/tmux/) to `~/.config/tmux/themes/<flavor>.conf`.
-2. Add `source-file ~/.config/tmux/themes/<flavor>.conf` to `~/.config/tmux/tmux.conf`.
-3. Reload with `tmux source-file ~/.config/tmux/tmux.conf`.
+Platform-specific source files for all three flavors live in [`themes/dist/telegram/`](themes/dist/telegram/) as `<flavor>-desktop`, `<flavor>-ios`, and `<flavor>-macos`. Use these directly if no deep link is hosted for your flavor.
 
 #### VSCode
 
@@ -187,7 +181,7 @@ For plain-CSS surfaces and design-system docs.
 
 Every palette token becomes a `--<flavor>-<token>` custom property on `:root`.
 
-#### Design tokens (semantic, switcher-ready)
+#### Design Tokens (Semantic, Switcher-Ready)
 
 For Next.js / shadcn / any frontend stack that needs a runtime flavor switcher. Tokens are flavor-agnostic semantic names (`--bg-canvas`, `--fg-default`, `--accent-primary`) scoped to `[data-flavor="<flavor>"]`. Values are space-separated `R G B` triples for `<alpha-value>` support.
 
@@ -197,7 +191,7 @@ For Next.js / shadcn / any frontend stack that needs a runtime flavor switcher. 
 @import url('/path/to/themes/dist/tokens/popil.css');
 @import url('/path/to/themes/dist/tokens/vatra.css');
 
-// tailwind.config.ts — preset is flavor-agnostic, any flavor file works
+// tailwind.config.ts - preset is flavor-agnostic, any flavor file works
 import type { Config } from 'tailwindcss'
 import preset from './path/to/themes/dist/tailwind-tokens/morok.js'
 
@@ -221,7 +215,7 @@ Flip flavor at runtime by setting `document.documentElement.dataset.flavor`.
 
 1. Install the [Stylus browser extension](https://add0n.com/stylus.html).
 2. In Stylus, open the extension popup, go to `Manage`, then `Import`.
-3. Select [`themes/dist/stylus/<flavor>.json`](themes/dist/stylus/) — `morok`, `popil`, or `vatra`.
+3. Select [`themes/dist/stylus/<flavor>.json`](themes/dist/stylus/): `morok`, `popil`, or `vatra`.
 
 Default accent color is **blue** for `morok` and **peach/terracotta** for `popil` / `vatra`.
 
