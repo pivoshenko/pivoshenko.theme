@@ -1,8 +1,3 @@
-/* {{ name }} — semantic design tokens (role layer)
- * Values are space-separated R G B triples for use with
- * rgb(var(--token) / <alpha-value>) in Tailwind / shadcn-style configs.
- * Apply by setting `data-flavor="{{ name }}"` on the root element.
- */
 [data-flavor="{{ name }}"] {
   /* Background */
   --bg-canvas: {{ role.bg.canvas | rgb | replace(', ', ' ') }};

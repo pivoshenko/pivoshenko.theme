@@ -1,19 +1,3 @@
-/**
- * pivoshenko.theme — flavor-agnostic Tailwind preset (role layer)
- *
- * Consumes the CSS variables emitted by `tokens/<flavor>.css`. Import the
- * tokens CSS for each flavor in your global stylesheet and set
- * `data-flavor` on the root element to switch.
- *
- *   import 'pivoshenko.theme/tokens/morok.css'
- *   import 'pivoshenko.theme/tokens/popil.css'
- *
- * The output of this preset is IDENTICAL for every palette — it only
- * references variables. Both `morok.js` and `popil.js` are written for
- * symmetry; consumers may import either.
- *
- * Generated from morok palette (dark).
- */
 const withAlpha = (token) => `rgb(var(--${token}) / <alpha-value>)`
 
 module.exports = {

@@ -1,8 +1,3 @@
-/* vatra — semantic design tokens (role layer)
- * Values are space-separated R G B triples for use with
- * rgb(var(--token) / <alpha-value>) in Tailwind / shadcn-style configs.
- * Apply by setting `data-flavor="vatra"` on the root element.
- */
 [data-flavor="vatra"] {
   /* Background */
   --bg-canvas: 31 31 30;
