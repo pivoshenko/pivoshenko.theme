@@ -1,4 +1,4 @@
-"""Script that bundles userstyles into a Stylus-compatible import JSON."""
+"""Module that contains the script that bundles userstyles into a Stylus-compatible import JSON."""
 
 from __future__ import annotations
 
