@@ -139,7 +139,7 @@ The gist URLs are justfile vars (`morok_lib_url`, `popil_lib_url`, `vatra_lib_ur
 
 `site/` is a Next.js app for visual preview of palette + ports. Managed separately with `pnpm` inside that directory. Renamed from `showcase/` to align with the `sources/` repo convention where every web preview lives in `site/`.
 
-Shell is composed via `<SiteLayout brand="pivoshenko.theme">` from `pivoshenko.ui/next/site-layout`, which owns `<html>`, `<body>`, JetBrains-Mono font loading, `<PageShell>` (`Nav` + `Footer` + `ScrollToTop`), and `<Analytics />`. Metadata comes from `siteMetadata(...)`, viewport from `siteViewport`. The site runs on the single `popil` chrome (no light mode, no `next-themes`); the morok/popil/vatra **content** flavor switcher (`FlavorToggle` -> `FlavorProvider`) only drives what the palette grid, examples, and ports preview render, never the chrome. `tailwind.config.ts` / `next.config.ts` / `postcss.config.mjs` / `app/icon.tsx` / `app/opengraph-image.tsx` are all thin wrappers over the shared subpaths in `pivoshenko.ui`. See the shared UI invariant in `sources/CLAUDE.md`.
+Shell is composed via `<SiteLayout brand="pivoshenko.theme">` from `pivoshenko.ui/next/site-layout`, which owns `<html>`, `<body>`, JetBrains-Mono font loading, `<PageShell>` (`Nav` + `Footer` + `ScrollToTop`), and `<Analytics />`. Metadata comes from `siteMetadata(...)`, viewport from `siteViewport`. The site runs on the single `popil` chrome (no light mode, no `next-themes`); the morok/popil/vatra **content** flavor switcher (`FlavorToggle` -> `FlavorProvider`) only drives what the palette grid, examples, and ports preview render, never the chrome. `tailwind.config.ts` / `next.config.ts` / `postcss.config.mjs` / `app/icon.tsx` / `app/opengraph-image.tsx` are all thin wrappers over the shared subpaths in `pivoshenko.ui`.
 
 **Components** (`site/components/`):
 - `hero.tsx`: landing intro with link to the GH source; uses `text-accent-primary` (terracotta) for the link, matching the global `a:not([class])` convention.
@@ -167,3 +167,4 @@ Shell is composed via `<SiteLayout brand="pivoshenko.theme">` from `pivoshenko.u
 - Adding a new flavor: drop `themes/palettes/<name>.json` (start from a copy, change `name` + the background ramp), add a `just render-<name>` recipe, and extend `render` to depend on it. Templates are shared, so there's no new template dir.
 - All files in `themes/dist/` are committed to git so downstream consumers don't need to run Python or `uv`.
 - `just lint-py` runs `ruff check .` + `ty check .` only. There is no `ruff format --check` (format checking is not part of the lint step).
+- Python module docstrings in `scripts/` open with `Module that contains ...`; `__init__.py` would open with `Package that contains ...`.
