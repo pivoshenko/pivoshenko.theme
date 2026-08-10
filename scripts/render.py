@@ -1,4 +1,4 @@
-"""Module that contains the script that renders theme files from a palette JSON and Jinja templates."""  # noqa: EXE002
+"""Module that contains the script that renders theme files from palette JSON."""  # noqa: EXE002
 
 from __future__ import annotations
 
