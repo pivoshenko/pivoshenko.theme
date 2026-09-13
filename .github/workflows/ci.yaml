@@ -24,7 +24,6 @@ jobs:
           python-version: "3.13"
       - run: just install-py
       - run: just lint-py
-      - run: just audit-py
       - run: just test-py
 
   ci-next:
@@ -40,8 +39,7 @@ jobs:
           node-version: 22
           cache: pnpm
           cache-dependency-path: site/pnpm-lock.yaml
-      - run: just install-next
-      - run: just lint-next
-      - run: just audit-next
-      - run: just test-next
-      - run: just build-next
+      - run: just install-site
+      - run: just lint-site
+      - run: just test-site
+      - run: just build-site

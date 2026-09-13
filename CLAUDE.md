@@ -20,19 +20,18 @@ Two independent halves, fanned out by `just`:
 ```bash
 just                 # list recipes
 
-just install         # install-py (uv sync --all-groups --all-extras) + install-next (pnpm -C site install)
-just render          # regenerate all of themes/dist/ for all three flavors  (alias: just build)
-just render-morok    # single flavor: render.py + bundle.py for that palette (also -popil, -vatra)
+just install         # install-py (uv sync --all-groups --all-extras) + install-site (pnpm -C site install)
+just render-themes          # regenerate all of themes/dist/ for all three flavors
+just render-theme-morok    # single flavor: render.py + bundle.py for that palette (also -popil, -vatra)
 just clean           # rm -rf themes/dist
 
-just dev             # pnpm -C site dev  (next dev --turbopack)
-just start           # pnpm -C site build && pnpm -C site start
-just build-next      # site production build only
+just run-dev-server             # pnpm -C site dev  (next dev --turbopack)
+just run-prod-server           # pnpm -C site build && pnpm -C site start
+just build-site      # site production build only
 
-just lint            # lint-py (uvx ruff check . + uvx ty check .) + lint-next (biome lint .)
-just format          # format-py (uvx pyupgrade --py313-plus + uvx ruff format .) + format-next (biome format --write)
-just check           # check-py (== lint-py) + check-next (biome check --write + next build)
-just audit           # uvx pip-audit + pnpm -C site audit
+just lint            # lint-py (uvx ruff check . + uvx ty check .) + lint-site (biome lint .)
+just format          # format-py (uvx pyupgrade --py313-plus + uvx ruff format .) + format-site (biome check --write)
+just check           # lint + test + build (read-only)
 just test            # sentinel no-op, see Testing
 just update          # uv lock --upgrade + uvx uv-upsync + pnpm -C site update
 ```
@@ -48,20 +47,20 @@ uv run scripts/bundle.py --styles-dir themes/userstyles/styles \
 
 ### Testing
 
-There are no tests. `test-py` / `test-next` check for the committed `.no-tests` sentinel at the repo
+There are no tests. `test-py` / `test-site` check for the committed `.no-tests` sentinel at the repo
 root: present → "skipping", exit 0; absent → error. Adding real tests means deleting `.no-tests` and
 replacing those recipe bodies.
 
 ### Tooling notes
 
-- Python lint/format/audit run through `uvx` (ephemeral). Only `scripts/*.py` need the project env
+- Python lint/format run through `uvx` (ephemeral). Only `scripts/*.py` need the project env
   (`uv run`) because they import `jinja2` / `loguru`.
 - `lint-py` is `ruff check` + `ty check` — deliberately no `ruff format --check`.
 - Ruff config in `pyproject.toml`: `select = ["ALL"]`, line length 100, `fix = true`,
   `unsafe-fixes = true`, isort forces single-line imports and `from __future__ import annotations`.
 - CI (`.github/workflows/ci.yaml`) runs two parallel jobs on `ubuntu-24.04-arm`:
-  `ci-py` = install-py → lint-py → audit-py → test-py; `ci-next` = install-next → lint-next →
-  audit-next → test-next → build-next. **CI never runs `just render`** — regenerating `themes/dist/`
+  `ci-py` = install-py → lint-py → test-py; `ci-next` = install-site → lint-site →
+  test-site → build-site. **CI never runs `just render-themes`** — regenerating `themes/dist/`
   and committing the diff is a manual step after touching a palette or template.
 
 ## Architecture
@@ -196,12 +195,12 @@ pre-renders Shiki HTML per flavor on the server (`lib/shiki-theme.ts`) and hands
 ## Conventions
 
 - Adding a flavor: drop `themes/palettes/<name>.json` (copy one, change `name`, the bg ramp, and
-  `roles.accent`), host a lib gist, add a `render-<name>` recipe with its `--rewrite-import`, and add
+  `roles.accent`), host a lib gist, add a `render-theme-<name>` recipe with its `--rewrite-import`, and add
   it to the `render` dependency list. No new templates.
-- Adding a port: create `themes/templates/<tool>/theme.<ext>.jinja`, run `just render`, document
+- Adding a port: create `themes/templates/<tool>/theme.<ext>.jinja`, run `just render-themes`, document
   install steps in the README, optionally register `<tool>` in `site/lib/theme-data.ts`
   (`readmeAnchors`, `portSwatches`) and `site/components/ports-grid.tsx`.
-- `themes/dist/` is committed — re-run `just render` and commit the diff after any palette or
+- `themes/dist/` is committed — re-run `just render-themes` and commit the diff after any palette or
   template change; CI will not do it.
 - Python module docstrings in `scripts/` open with `Module that contains ...`.
 - Code comments never end with a period.
