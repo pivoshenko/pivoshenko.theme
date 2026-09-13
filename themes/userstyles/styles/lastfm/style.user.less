@@ -715,7 +715,7 @@
 
         .context {
 
-          // Hack using .mask-image() to allow us to mask icons with a background.
+          // Hack using .mask-image() to allow us to mask icons with a background
           &::before {
             border-radius: 50%;
             content: "";
@@ -961,7 +961,7 @@
 // Usage:
 // .maskimage(mask-image, background-color, mask-position, mask-size, mask-repeat);
 // Setting any value to "skip" skips that attribute.
-// We cannot apply filters to psuedo elements with background-images when the pseudo element also has a background(-color), which is when this must be used.
+// We cannot apply filters to psuedo elements with background-images when the pseudo element also has a background(-color), which is when this must be used
 .mask-image(@mask-image: url(""),
   @mask-color: skip,
   @mask-position: skip,
