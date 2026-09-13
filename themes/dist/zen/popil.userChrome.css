@@ -43,8 +43,8 @@
 
   /* macOS: color the titlebar layer behind the native traffic lights so the
      region matches the toolbar. NEVER set a background on .titlebar-buttonbox*
-     on macOS — that clobbers the native button appearance and the close/min/max
-     controls disappear. */
+     on macOS - that clobbers the native button appearance and the close/min/max
+     controls disappear */
   #titlebar,
   #navigator-toolbox-background {
     background-color: #1a1a19 !important;
