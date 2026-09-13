@@ -115,7 +115,7 @@ def _render_target_from_template(
     # -> <output_dir>/<tool>/<theme_name>-<name> (no extension).
     # Used by multi-file ports whose artifacts have fixed names (e.g. telegram
     # macos/desktop/ios) rather than <theme>.<ext>. The theme prefix keeps
-    # multiple palettes from colliding in the shared dist/<tool>/ dir.
+    # multiple palettes from colliding in the shared dist/<tool>/ dir
     if "." not in base and base not in (tool, "theme"):
         return output_dir / tool / f"{theme_name}-{base}"
 

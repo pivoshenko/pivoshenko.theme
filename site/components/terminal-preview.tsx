@@ -32,7 +32,7 @@ export function TerminalPreview({ palette }: Props) {
 
   return (
     <WindowFrame
-      title={`${flavor} — fish`}
+      title={`${flavor} - fish`}
       chromeBg={chrome}
       chromeFg={dim}
       dotColors={[palette.red, palette.yellow, palette.green]}

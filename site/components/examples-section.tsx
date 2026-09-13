@@ -51,7 +51,7 @@ export function ExamplesSection({ examples, palette }: Props) {
         <TerminalPreview palette={palette} />
       ) : current ? (
         <WindowFrame
-          title={`${flavor} — ${current.language}`}
+          title={`${flavor} - ${current.language}`}
           chromeBg={palette.mantle}
           chromeFg={palette.subtext0}
           dotColors={[palette.red, palette.yellow, palette.green]}

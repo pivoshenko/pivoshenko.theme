@@ -10,7 +10,7 @@ export const metadata = {
     url: 'https://theme.pivoshenko.dev',
     brand: 'pivoshenko.theme',
     title: 'Morok • Popil • Vatra',
-    titleTemplate: '%s — pivoshenko.theme',
+    titleTemplate: '%s - pivoshenko.theme',
     description:
       'Themes focused on minimalism, simplicity and cross-tool consistency',
   }),

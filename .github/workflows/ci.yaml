@@ -17,29 +17,55 @@ jobs:
   ci-py:
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v6
-      - uses: extractions/setup-just@v4
-      - uses: astral-sh/setup-uv@v6
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install just
+        uses: extractions/setup-just@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10
         with:
           python-version: "3.13"
-      - run: just install-py
-      - run: just lint-py
-      - run: just test-py
+
+      - name: Install dependencies
+        run: just install-py
+
+      - name: Run linters
+        run: just lint-py
+
+      - name: Run tests
+        run: just test-py
 
   ci-next:
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v6
-      - uses: extractions/setup-just@v4
-      - uses: pnpm/action-setup@v6
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install just
+        uses: extractions/setup-just@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
         with:
           package_json_file: site/package.json
-      - uses: actions/setup-node@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: pnpm
           cache-dependency-path: site/pnpm-lock.yaml
-      - run: just install-site
-      - run: just lint-site
-      - run: just test-site
-      - run: just build-site
+
+      - name: Install dependencies
+        run: just install-site
+
+      - name: Run linters
+        run: just lint-site
+
+      - name: Run tests
+        run: just test-site
+
+      - name: Build
+        run: just build-site
