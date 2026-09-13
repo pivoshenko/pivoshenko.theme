@@ -1,7 +1,7 @@
 palette = "morok"
 
 [palettes.morok]
-# Semantic roles
+# == Semantic Roles ==
 bg_canvas = "#111111"
 bg_surface = "#191919"
 bg_raised = "#212121"
@@ -20,7 +20,7 @@ accent_success = "#8ea98c"
 accent_warning = "#d4b070"
 accent_danger = "#d97777"
 accent_info = "#7ea59d"
-# Raw color slots
+# == Raw Color Slots ==
 rosewater = "#e2cfc6"
 flamingo = "#d8b8aa"
 pink = "#d1b2c9"
