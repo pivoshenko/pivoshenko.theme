@@ -106,6 +106,17 @@ See [pivoshenko.dotfiles](https://github.com/pivoshenko/pivoshenko.dotfiles) for
 1. Copy [`themes/dist/lazygit/<flavor>.yml`](themes/dist/lazygit/) to `~/.config/lazygit/config.yml`
 2. Or merge only the `theme:` section into your existing config
 
+#### LS Colors
+
+1. Copy [`themes/dist/ls-colors/<flavor>.fish`](themes/dist/ls-colors/) to `~/.config/fish/themes/`
+2. Source it from `config.fish`: `source ~/.config/fish/themes/<flavor>.fish`
+3. Colors reach `ls`, `eza`, and anything else reading `LS_COLORS` - fzf previews and shell completion
+   lists included
+
+The file sets `LS_COLORS` (file types and extensions) and `EZA_COLORS` (eza's permission, size, owner,
+date and git columns, prefixed with `reset` so eza's built-in palette does not leak through). For a
+non-Fish shell, lift the two quoted strings into your own `export`.
+
 #### Obsidian
 
 1. Copy [`themes/dist/obsidian/<flavor>.css`](themes/dist/obsidian/) to your Obsidian theme folder and rename it to `theme.css`
