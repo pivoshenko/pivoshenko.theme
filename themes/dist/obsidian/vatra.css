@@ -1414,20 +1414,20 @@ settings:
 .theme-dark.ctp-frappe,
 .theme-dark.ctp-macchiato,
 .theme-dark.ctp-mocha {
-  --ctp-rosewater: 221, 199, 161;
-  --ctp-flamingo: 236, 127, 62;
-  --ctp-pink: 236, 127, 62;
-  --ctp-mauve: 211, 134, 155;
+  --ctp-rosewater: 237, 189, 180;
+  --ctp-flamingo: 244, 118, 126;
+  --ctp-pink: 210, 131, 190;
+  --ctp-mauve: 174, 145, 209;
   --ctp-red: 234, 105, 98;
-  --ctp-maroon: 214, 93, 14;
-  --ctp-peach: 236, 127, 62;
+  --ctp-maroon: 220, 98, 24;
+  --ctp-peach: 237, 132, 56;
   --ctp-yellow: 224, 176, 74;
   --ctp-green: 169, 182, 101;
-  --ctp-teal: 137, 180, 130;
+  --ctp-teal: 103, 188, 176;
   --ctp-sky: 125, 174, 163;
-  --ctp-sapphire: 137, 180, 130;
-  --ctp-blue: 125, 174, 163;
-  --ctp-lavender: 211, 134, 155;
+  --ctp-sapphire: 125, 180, 206;
+  --ctp-blue: 145, 166, 200;
+  --ctp-lavender: 145, 154, 221;
   --ctp-text: 228, 226, 222;
   --ctp-subtext1: 212, 190, 152;
   --ctp-subtext0: 168, 153, 132;
@@ -1440,17 +1440,17 @@ settings:
   --ctp-base: 31, 31, 30;
   --ctp-mantle: 26, 26, 25;
   --ctp-crust: 21, 21, 20;
-  --hex-pink: #ec7f3e;
-  --hex-mauve: #d3869b;
+  --hex-pink: #d283be;
+  --hex-mauve: #ae91d1;
   --hex-red: #ea6962;
-  --hex-peach: #ec7f3e;
+  --hex-peach: #ed8438;
   --hex-yellow: #e0b04a;
   --hex-green: #a9b665;
-  --hex-teal: #89b482;
+  --hex-teal: #67bcb0;
   --hex-sky: #7daea3;
-  --hex-sapphire: #89b482;
-  --hex-blue: #7daea3;
-  --hex-lavender: #d3869b;
+  --hex-sapphire: #7db4ce;
+  --hex-blue: #91a6c8;
+  --hex-lavender: #919add;
 }
 
 .theme-light,

@@ -11,9 +11,9 @@
     "peach": "#d99a6a",
     "yellow": "#d4b070",
     "green": "#8ea98c",
-    "teal": "#7ea59d",
-    "sky": "#7da2b5",
-    "sapphire": "#7398ad",
+    "teal": "#53a6a4",
+    "sky": "#82afb7",
+    "sapphire": "#6f9aa9",
     "blue": "#7f98bf",
     "lavender": "#9faece",
     "text": "#e7e5e4",
@@ -54,7 +54,7 @@
       "success": "green",
       "warning": "yellow",
       "danger": "red",
-      "info": "teal"
+      "info": "sapphire"
     }
   }
 }

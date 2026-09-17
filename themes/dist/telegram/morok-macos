@@ -40,7 +40,7 @@ fileActivityBackgroundBubble_incoming: #d6d3d1
 fileActivityBackgroundBubble_outgoing: #e7e5e4
 fileActivityForeground: #e7e5e4
 fileActivityForegroundBubble_incoming: #191919
-fileActivityForegroundBubble_outgoing: #7da2b5
+fileActivityForegroundBubble_outgoing: #82afb7
 focusAnimationColor: #7f98bf
 grayBackground: #191919
 grayForeground: #191919
@@ -56,8 +56,8 @@ grayUI: #000000
 greenBubble_incoming: #7f98bf
 greenBubble_outgoing: #7f98bf
 greenUI: #8ea98c
-groupPeerNameCyan: #7ea59d
-groupPeerNameGreen: #7ea59d
+groupPeerNameCyan: #53a6a4
+groupPeerNameGreen: #53a6a4
 groupPeerNameLightBlue: #7f98bf
 groupPeerNameOrange: #d99a6a
 groupPeerNameRed: #d97777
@@ -74,9 +74,9 @@ monospacedPre: #7f98bf
 monospacedPreBubble_incoming: #e7e5e4
 monospacedPreBubble_outgoing: #e7e5e4
 peerAvatarBlueBottom: #7f98bf
-peerAvatarBlueTop: #7da2b5
-peerAvatarCyanBottom: #7ea59d
-peerAvatarCyanTop: #7ea59d
+peerAvatarBlueTop: #82afb7
+peerAvatarCyanBottom: #53a6a4
+peerAvatarCyanTop: #53a6a4
 peerAvatarGreenBottom: #7f98bf
 peerAvatarGreenTop: #7f98bf
 peerAvatarOrangeBottom: #d99a6a

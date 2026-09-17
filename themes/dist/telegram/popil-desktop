@@ -28,7 +28,7 @@ activeButtonFgOver: activeButtonFg // default active button text with mouse over
 activeButtonSecondaryFg: #151514 // default active button additional text (selected messages counter in forward / delete buttons)
 activeButtonSecondaryFgOver: activeButtonSecondaryFg // default active button additional text with mouse over
 activeLineFg: #9b958a // default active line (like code input field bottom border when you log in and field is focused)
-activeLineFgError: #c87a72 // default active line for error state (like code input field bottom border when you log in and you've entered incorrect code)
+activeLineFgError: #e05d55 // default active line for error state (like code input field bottom border when you log in and you've entered incorrect code)
 lightButtonBg: windowBg // default light button background (like buttons in boxes)
 lightButtonBgOver: #262625 // default light button background with mouse over
 lightButtonBgRipple: #262625 // default light button ripple effect
@@ -101,7 +101,7 @@ cancelIconFgOver: menuIconFgOver // default for settings close icon and box sear
 boxBg: windowBg // box background
 boxTextFg: windowFg // box text
 boxTextFgGood: #e4e2de // accepted box text (like when choosing username that is not occupied)
-boxTextFgError: #c87a72 // rejecting box text (like when choosing username that is occupied)
+boxTextFgError: #e05d55 // rejecting box text (like when choosing username that is occupied)
 boxTitleFg: #e4e2de // box title text
 boxSearchBg: boxBg // box search field background (like in contacts box)
 boxTitleAdditionalFg: #9b958a // box title additional text (like in create group box when you see chosen members count)
@@ -117,7 +117,7 @@ contactsStatusFgOnline: windowActiveTextFg // contacts (and some other) box row 
 photoCropFadeBg: layerBg // avatar crop box fade background (when choosing a new photo in Settings or for a group)
 photoCropPointFg: #ddc7c2cc // avatar crop box corner rectangles (when choosing a new photo in Settings or for a group)
 callArrowFg: #7ba0c4 // received phone call arrow (in calls list box)
-callArrowMissedFg: #c87a72 // missed phone call arrow (in calls list box)
+callArrowMissedFg: #e05d55 // missed phone call arrow (in calls list box)
 introBg: windowBg // login background
 introTitleFg: windowBoldFg // login title text
 introDescriptionFg: windowSubTextFg // login description text
@@ -225,9 +225,9 @@ historyUnreadBarBorder: shadowFg // new unread messages bar shadow
 historyUnreadBarFg: #9b958a // new unread messages bar text
 historyForwardChooseBg: #080706cc // forwarding messages in a large window size "choose recipient" background
 historyForwardChooseFg: windowFgActive // forwarding messages in a large window size "choose recipient" text
-historyPeer1NameFg: #c87a72 // red group member name
+historyPeer1NameFg: #e05d55 // red group member name
 historyPeer1NameFgSelected: historyPeer1NameFg // red group member name in a selected message
-historyPeer1UserpicBg: #c87a72 // red userpic background
+historyPeer1UserpicBg: #e05d55 // red userpic background
 historyPeer2NameFg: #8a9d68 // green group member name
 historyPeer2NameFgSelected: historyPeer2NameFg // green group member name in a selected message
 historyPeer2UserpicBg: #8a9d68 // green userpic background
@@ -243,9 +243,9 @@ historyPeer5UserpicBg: #b88aa0 // purple userpic background
 historyPeer6NameFg: #c89aa4 // pink group member name
 historyPeer6NameFgSelected: historyPeer6NameFg // pink group member name in a selected message
 historyPeer6UserpicBg: #c89aa4 // pink userpic background
-historyPeer7NameFg: #7ba0c4 // sea group member name
+historyPeer7NameFg: #68a8b3 // sea group member name
 historyPeer7NameFgSelected: historyPeer7NameFg // sea group member name in a selected message
-historyPeer7UserpicBg: #7ba0c4 // sea userpic background
+historyPeer7UserpicBg: #68a8b3 // sea userpic background
 historyPeer8NameFg: #d97757 // orange group member name
 historyPeer8NameFgSelected: historyPeer8NameFg // orange group member name in a selected message
 historyPeer8UserpicBg: #d97757 // orange userpic background
@@ -295,11 +295,11 @@ msgFileThumbLinkInFgSelected: lightButtonFgOver // inbox selected media file mes
 msgFileThumbLinkOutFg: #e4e2de // outbox media file message with thumbnail download / open with button text
 msgFileThumbLinkOutFgSelected: #e4e2de // outbox selected media file message with thumbnail download / open with button text
 msgFileInBg: windowBgActive // inbox audio file download circle background
-msgFileInBgOver: #7ba0c4 // inbox audio file download circle background with mouse over
-msgFileInBgSelected: #7ba0c4 // inbox selected audio file download circle background
-msgFileOutBg: #87a896 // outbox audio file download circle background
-msgFileOutBgOver: #87a896 // outbox audio file download circle background with mouse over
-msgFileOutBgSelected: #87a896 // outbox selected audio file download circle background
+msgFileInBgOver: #68a8b3 // inbox audio file download circle background with mouse over
+msgFileInBgSelected: #68a8b3 // inbox selected audio file download circle background
+msgFileOutBg: #83aaa0 // outbox audio file download circle background
+msgFileOutBgOver: #83aaa0 // outbox audio file download circle background with mouse over
+msgFileOutBgSelected: #83aaa0 // outbox selected audio file download circle background
 msgFile1Bg: #7ba0c4 // blue shared links / files without image square thumbnail
 msgFile1BgDark: #7ba0c4 // blue shared files without image download circle background
 msgFile1BgOver: #7ba0c4 // blue shared files without image download circle background with mouse over
@@ -308,10 +308,10 @@ msgFile2Bg: #8a9d68 // green shared links / shared files without image square th
 msgFile2BgDark: #8a9d68 // green shared files without image download circle background
 msgFile2BgOver: #8a9d68 // green shared files without image download circle background with mouse over
 msgFile2BgSelected: #8a9d68 // green shared files without image download circle background if file is selected
-msgFile3Bg: #c87a72 // red shared links / shared files without image square thumbnail
-msgFile3BgDark: #c87a72 // red shared files without image download circle background
-msgFile3BgOver: #c87a72 // red shared files without image download circle background with mouse over
-msgFile3BgSelected: #c87a72 // red shared files without image download circle background if file is selected
+msgFile3Bg: #e05d55 // red shared links / shared files without image square thumbnail
+msgFile3BgDark: #e05d55 // red shared files without image download circle background
+msgFile3BgOver: #e05d55 // red shared files without image download circle background with mouse over
+msgFile3BgSelected: #e05d55 // red shared files without image download circle background if file is selected
 msgFile4Bg: #d4a85a // yellow shared links / shared files without image square thumbnail
 msgFile4BgDark: #d4a85a // yellow shared files without image download circle background
 msgFile4BgOver: #d4a85a // yellow shared files without image download circle background with mouse over
@@ -373,7 +373,7 @@ historyReplyCancelFgOver: cancelIconFgOver // reply / forward / edit message can
 historyComposeButtonBg: historyComposeAreaBg // unblock / join channel / mute channel button background
 historyComposeButtonBgOver: windowBgOver // unblock / join channel / mute channel button background with mouse over
 historyComposeButtonBgRipple: windowBgRipple // unblock / join channel / mute channel button ripple effect
-mapPointDrop: #c87a72 // geo location marker background
+mapPointDrop: #e05d55 // geo location marker background
 mapPointDot: #e4e2de // geo location marker point
 overviewCheckBg: #080706cc // shared media / files / links checkbox background for not selected rows when some rows are selected
 overviewCheckBgActive: windowBgActive // shared media / files / links checkbox background for selected rows
@@ -408,7 +408,7 @@ mediaPlayerDisabledFg: #9b958a // audio file player loading progress (when you'r
 mediaviewFileBg: windowBg // file rectangle background (when you view a png file in Media Viewer and go to a previous, not loaded yet, file)
 mediaviewFileNameFg: windowFg // file name in file rectangle
 mediaviewFileSizeFg: windowSubTextFg // file size text in file rectangle
-mediaviewFileRedCornerFg: #c87a72 // red file thumbnail placeholder corner in file rectangle (for a file without thumbnail, like .pdf)
+mediaviewFileRedCornerFg: #e05d55 // red file thumbnail placeholder corner in file rectangle (for a file without thumbnail, like .pdf)
 mediaviewFileYellowCornerFg: #d4a85a // yellow file thumbnail placeholder corner in file rectangle (for a file without thumbnail, like .zip)
 mediaviewFileGreenCornerFg: #8a9d68 // green file thumbnail placeholder corner in file rectangle (for a file without thumbnail, like .exe)
 mediaviewFileBlueCornerFg: #7ba0c4 // blue file thumbnail placeholder corner in file rectangle (for a file without thumbnail, like .dmg)
@@ -444,21 +444,21 @@ callIconFg: #151514 // phone call popup answer, hangup and mute mic icon
 callAnswerBg: #8a9d68 // phone call popup answer button background
 callAnswerRipple: #8a9d68 // phone call popup answer button ripple effect
 callAnswerBgOuter: #8a9d68 // phone call popup answer button outer ripple effect
-callHangupBg: #c87a72 // phone call popup hangup button background
+callHangupBg: #e05d55 // phone call popup hangup button background
 callHangupRipple: #c89aa4 // phone call popup hangup button ripple effect
-callCancelBg: #c87a72 // phone call popup line busy cancel button background
+callCancelBg: #e05d55 // phone call popup line busy cancel button background
 callCancelFg: #151514 // phone call popup line busy cancel button icon
 callCancelRipple: #c89aa4 // phone call popup line busy cancel button ripple effect
-callMuteRipple: #c87a72 // phone call popup mute mic ripple effect
+callMuteRipple: #e05d55 // phone call popup mute mic ripple effect
 callBarBg: dialogsBgActive // active phone call bar background
 callBarMuteRipple: dialogsRippleBgActive // active phone call bar mute and hangup button ripple effect
-callBarBgMuted: #c87a72 // phone call bar with muted mic background
-callBarUnmuteRipple: #c87a72 // phone call bar with muted mic mute and hangup button ripple effect
+callBarBgMuted: #e05d55 // phone call bar with muted mic background
+callBarUnmuteRipple: #e05d55 // phone call bar with muted mic mute and hangup button ripple effect
 callBarFg: dialogsNameFgActive // phone call bar text and icons
 importantTooltipBg: toastBg //
 importantTooltipFg: toastFg //
 importantTooltipFgLink: mediaviewTextLinkFg //
 outdatedFg: #e4e2de //
 outdateSoonBg: #d97757 //
-outdatedBg: #c87a72 //
+outdatedBg: #e05d55 //
 wallpaper: t.me/bg/-jI7lnO3DFABAAAA1vXcFaZP_Vo // link to cloud wallpaper

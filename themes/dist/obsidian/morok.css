@@ -1423,9 +1423,9 @@ settings:
   --ctp-peach: 217, 154, 106;
   --ctp-yellow: 212, 176, 112;
   --ctp-green: 142, 169, 140;
-  --ctp-teal: 126, 165, 157;
-  --ctp-sky: 125, 162, 181;
-  --ctp-sapphire: 115, 152, 173;
+  --ctp-teal: 83, 166, 164;
+  --ctp-sky: 130, 175, 183;
+  --ctp-sapphire: 111, 154, 169;
   --ctp-blue: 127, 152, 191;
   --ctp-lavender: 159, 174, 206;
   --ctp-text: 231, 229, 228;
@@ -1446,9 +1446,9 @@ settings:
   --hex-peach: #d99a6a;
   --hex-yellow: #d4b070;
   --hex-green: #8ea98c;
-  --hex-teal: #7ea59d;
-  --hex-sky: #7da2b5;
-  --hex-sapphire: #7398ad;
+  --hex-teal: #53a6a4;
+  --hex-sky: #82afb7;
+  --hex-sapphire: #6f9aa9;
   --hex-blue: #7f98bf;
   --hex-lavender: #9faece;
 }

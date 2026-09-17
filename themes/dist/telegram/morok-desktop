@@ -243,9 +243,9 @@ historyPeer5UserpicBg: #a78cc4 // purple userpic background
 historyPeer6NameFg: #d1b2c9 // pink group member name
 historyPeer6NameFgSelected: historyPeer6NameFg // pink group member name in a selected message
 historyPeer6UserpicBg: #d1b2c9 // pink userpic background
-historyPeer7NameFg: #7da2b5 // sea group member name
+historyPeer7NameFg: #82afb7 // sea group member name
 historyPeer7NameFgSelected: historyPeer7NameFg // sea group member name in a selected message
-historyPeer7UserpicBg: #7da2b5 // sea userpic background
+historyPeer7UserpicBg: #82afb7 // sea userpic background
 historyPeer8NameFg: #d99a6a // orange group member name
 historyPeer8NameFgSelected: historyPeer8NameFg // orange group member name in a selected message
 historyPeer8UserpicBg: #d99a6a // orange userpic background
@@ -295,11 +295,11 @@ msgFileThumbLinkInFgSelected: lightButtonFgOver // inbox selected media file mes
 msgFileThumbLinkOutFg: #e7e5e4 // outbox media file message with thumbnail download / open with button text
 msgFileThumbLinkOutFgSelected: #e7e5e4 // outbox selected media file message with thumbnail download / open with button text
 msgFileInBg: windowBgActive // inbox audio file download circle background
-msgFileInBgOver: #7da2b5 // inbox audio file download circle background with mouse over
-msgFileInBgSelected: #7da2b5 // inbox selected audio file download circle background
-msgFileOutBg: #7ea59d // outbox audio file download circle background
-msgFileOutBgOver: #7ea59d // outbox audio file download circle background with mouse over
-msgFileOutBgSelected: #7ea59d // outbox selected audio file download circle background
+msgFileInBgOver: #82afb7 // inbox audio file download circle background with mouse over
+msgFileInBgSelected: #82afb7 // inbox selected audio file download circle background
+msgFileOutBg: #53a6a4 // outbox audio file download circle background
+msgFileOutBgOver: #53a6a4 // outbox audio file download circle background with mouse over
+msgFileOutBgSelected: #53a6a4 // outbox selected audio file download circle background
 msgFile1Bg: #7f98bf // blue shared links / files without image square thumbnail
 msgFile1BgDark: #7f98bf // blue shared files without image download circle background
 msgFile1BgOver: #7f98bf // blue shared files without image download circle background with mouse over

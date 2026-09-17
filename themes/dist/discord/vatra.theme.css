@@ -12,74 +12,74 @@
 
 .visual-refresh.theme-dark,
 .visual-refresh .theme-dark {
-  --brand-100: #b8d2cc;
-  --brand-130: #b4d0ca;
-  --brand-160: #b1cec8;
-  --brand-200: #aeccc6;
-  --brand-230: #aacac3;
-  --brand-260: #a7c8c1;
-  --brand-300: #a4c6bf;
-  --brand-330: #9ec2ba;
-  --brand-360: #97beb5;
-  --brand-400: #90bab1;
-  --brand-430: #8ab6ac;
-  --brand-460: #84b2a8;
-  --brand-500: #7daea3 !important;
-  --brand-530: #77a59b;
-  --brand-560: #709d93;
-  --brand-600: #6a948b;
-  --brand-630: #648b82;
-  --brand-660: #5e827a;
-  --brand-700: #587a72;
-  --brand-730: #54756e;
-  --brand-760: #51716a;
-  --brand-800: #4e6d66;
-  --brand-830: #4b6862;
-  --brand-860: #48645e;
-  --brand-900: #45605a;
-  --brand-05a: #7daea30d;
-  --brand-10a: #7daea31a;
-  --brand-15a: #7daea326;
-  --brand-20a: #7daea333;
-  --brand-25a: #7daea340;
-  --brand-30a: #7daea34d;
-  --brand-35a: #7daea359;
-  --brand-40a: #7daea366;
-  --brand-45a: #7daea373;
-  --brand-50a: #7daea380;
-  --brand-55a: #7daea38c;
-  --brand-60a: #7daea399;
-  --brand-65a: #7daea3a6;
-  --brand-70a: #7daea3b3;
-  --brand-75a: #7daea3bf;
-  --brand-80a: #7daea3cc;
-  --brand-85a: #7daea3d9;
-  --brand-90a: #7daea3e6;
-  --brand-95a: #7daea3f2;
+  --brand-100: #c2cee1;
+  --brand-130: #c0ccdf;
+  --brand-160: #bdcade;
+  --brand-200: #bac7dd;
+  --brand-230: #b8c5db;
+  --brand-260: #b5c3da;
+  --brand-300: #b2c1d8;
+  --brand-330: #acbcd6;
+  --brand-360: #a7b8d3;
+  --brand-400: #a2b3d0;
+  --brand-430: #9cafce;
+  --brand-460: #96aacb;
+  --brand-500: #91a6c8 !important;
+  --brand-530: #8a9ebe;
+  --brand-560: #8295b4;
+  --brand-600: #7b8daa;
+  --brand-630: #7485a0;
+  --brand-660: #6d7c96;
+  --brand-700: #66748c;
+  --brand-730: #627087;
+  --brand-760: #5e6c82;
+  --brand-800: #5b687d;
+  --brand-830: #576478;
+  --brand-860: #535f73;
+  --brand-900: #505b6e;
+  --brand-05a: #91a6c80d;
+  --brand-10a: #91a6c81a;
+  --brand-15a: #91a6c826;
+  --brand-20a: #91a6c833;
+  --brand-25a: #91a6c840;
+  --brand-30a: #91a6c84d;
+  --brand-35a: #91a6c859;
+  --brand-40a: #91a6c866;
+  --brand-45a: #91a6c873;
+  --brand-50a: #91a6c880;
+  --brand-55a: #91a6c88c;
+  --brand-60a: #91a6c899;
+  --brand-65a: #91a6c8a6;
+  --brand-70a: #91a6c8b3;
+  --brand-75a: #91a6c8bf;
+  --brand-80a: #91a6c8cc;
+  --brand-85a: #91a6c8d9;
+  --brand-90a: #91a6c8e6;
+  --brand-95a: #91a6c8f2;
 
   --__header-bar-background: #1a1a19 !important;
   --text-default: #e4e2de;
   --text-muted: #a89984 !important;
-  --text-link: #7daea3 !important;
-  --text-brand: #7daea3;
+  --text-link: #91a6c8 !important;
+  --text-brand: #91a6c8;
   --text-strong: #e4e2de !important;
   --text-subtle: #d4be98;
 
   --text-feedback-positive: #a9b665;
   --text-feedback-critical: #ea6962;
   --text-feedback-warning: #e0b04a;
-  --text-feedback-info: #7daea3;
+  --text-feedback-info: #91a6c8;
 
-  --message-reacted-background-default: #7daea34d !important;
-  --message-reacted-text-default: #7daea3;
+  --message-reacted-background-default: #91a6c84d !important;
+  --message-reacted-text-default: #91a6c8;
 
-  --opacity-blurple-8: #7daea314;
-  --opacity-blurple-16: #7daea329;
-  --opacity-blurple-24: #7daea33d;
-  --opacity-blurple-32: #7daea352;
-  --opacity-blurple-60: #7daea399;
-  --blurple-50: #7daea3;
-  --blurple-60: #709d93;
+  --opacity-blurple-8: #91a6c814;
+  --opacity-blurple-16: #91a6c829;
+  --opacity-blurple-24: #91a6c83d;
+  --opacity-blurple-32: #91a6c852;
+  --opacity-blurple-60: #91a6c899;
+  --blurple-50: #91a6c8;
+  --blurple-60: #8295b4;
 
   --app-frame-background: #151514;
   --background-secondary-alt: #1f1f1e !important;
@@ -143,8 +143,8 @@
   --red-400: #ea6962;
   --red-430: #d35e58;
   --red-500: #c75953;
-  --blue-500: #709d93;
-  --blue-530: #6a948b;
+  --blue-500: #8295b4;
+  --blue-530: #7b8daa;
   --primary-100: #d4be98;
   --primary-200: #a89984;
   --primary-300: #d4be98;
@@ -155,28 +155,28 @@
   --white: #e4e2de;
   --white-500: #e4e2de;
 
-  --guild-boosting-pink: #ec7f3e;
-  --guild-boosting-blue: #7daea3;
-  --guild-boosting-purple: #d3869b;
+  --guild-boosting-pink: #d283be;
+  --guild-boosting-blue: #91a6c8;
+  --guild-boosting-purple: #ae91d1;
   --premium-perk-yellow: #e0b04a;
-  --premium-perk-purple: #d3869b;
-  --premium-perk-dark-blue: #709d93;
-  --premium-perk-light-blue: #84b2a8;
-  --premium-perk-blue: #7daea3;
+  --premium-perk-purple: #ae91d1;
+  --premium-perk-dark-blue: #8295b4;
+  --premium-perk-light-blue: #96aacb;
+  --premium-perk-blue: #91a6c8;
   --premium-perk-green: #a9b665;
-  --premium-perk-pink: #ec7f3e;
-  --premium-perk-orange: #ec7f3e;
-  --premium-tier-0-blue: #7daea3;
-  --premium-tier-0-purple: #d3869b;
-  --premium-tier-1-blue-for-gradients: #89b482;
-  --premium-tier-1-dark-blue-for-gradients: #7daea3;
-  --premium-tier-2-purple-for-gradients: #be798c;
-  --premium-tier-2-purple-for-gradients-2: #d3869b;
-  --premium-tier-2-pink-for-gradients: #ec7f3e;
+  --premium-perk-pink: #d283be;
+  --premium-perk-orange: #ed8438;
+  --premium-tier-0-blue: #91a6c8;
+  --premium-tier-0-purple: #ae91d1;
+  --premium-tier-1-blue-for-gradients: #7db4ce;
+  --premium-tier-1-dark-blue-for-gradients: #91a6c8;
+  --premium-tier-2-purple-for-gradients: #9d82bc;
+  --premium-tier-2-purple-for-gradients-2: #ae91d1;
+  --premium-tier-2-pink-for-gradients: #d283be;
 
-  --control-primary-background-default: #7daea3;
-  --control-primary-background-hover: #74a197;
-  --control-primary-background-active: #6d988f;
+  --control-primary-background-default: #91a6c8;
+  --control-primary-background-hover: #869ab9;
+  --control-primary-background-active: #7f91af;
   --control-secondary-background-default: #2e2e2c !important;
   --control-secondary-background-hover: #2c2c2a;
   --control-secondary-background-active: #2b2b29;
@@ -208,16 +208,16 @@
 
   --button-outline-primary-text: #e4e2de;
   --button-outline-brand-text: #e4e2de;
-  --button-outline-brand-background-hover: #7aaa9f;
-  --button-outline-brand-border-active: #7aaa9f;
+  --button-outline-brand-background-hover: #8da2c3;
+  --button-outline-brand-border-active: #8da2c3;
 
   --modal-background: #1f1f1e !important;
   --modal-footer-background: #1f1f1e;
-  --scrollbar-thin-thumb: #7daea3;
+  --scrollbar-thin-thumb: #91a6c8;
   --scrollbar-thin-track: transparent;
-  --scrollbar-auto-thumb: #7daea3;
+  --scrollbar-auto-thumb: #91a6c8;
   --scrollbar-auto-track: #151514;
-  --scrollbar-auto-scrollbar-color-thumb: #7daea3;
+  --scrollbar-auto-scrollbar-color-thumb: #91a6c8;
   --scrollbar-auto-scrollbar-color-track: #151514;
 
   --input-background-default: #151514;
@@ -225,18 +225,18 @@
   --input-placeholder-text-default: #d4be98;
   --input-border-default: #57534e;
   --logo-primary: #e4e2de;
-  --control-brand-foreground: #7daea3;
-  --control-brand-foreground-new: #7daea3;
-  --mention-foreground: #7daea3;
-  --mention-background: #7daea34d;
+  --control-brand-foreground: #91a6c8;
+  --control-brand-foreground-new: #91a6c8;
+  --mention-foreground: #91a6c8;
+  --mention-background: #91a6c84d;
 
   --message-mentioned-background-default: #e0b04a1a;
   --message-mentioned-background-hover: #e0b04a14;
   --message-background-hover: #1515144d !important;
-  --message-automod-background-default: #ddc7a10d;
-  --message-automod-background-hover: #ddc7a11a;
-  --message-highlight-background-default: #7daea314;
-  --message-highlight-background-hover: #7daea30f;
+  --message-automod-background-default: #edbdb40d;
+  --message-automod-background-hover: #edbdb41a;
+  --message-highlight-background-default: #91a6c814;
+  --message-highlight-background-hover: #91a6c80f;
 
   --background-code: #1f1f1e;
   --channels-default: #a0917d !important;
@@ -251,7 +251,7 @@
   --textbox-markdown-syntax: #57534e;
   --spoiler-revealed-background: #262625;
   --spoiler-hidden-background: #373634;
-  --__adaptive-focus-ring-color: #7daea3;
+  --__adaptive-focus-ring-color: #91a6c8;
 
   --interactive-icon-default: #e4e2de !important;
   --interactive-icon-hover: #e4e2de;
@@ -280,12 +280,12 @@
   --icon-status-dnd: #ea6962;
   --icon-status-offline: #d4be98;
 
-  --twitch: #be798c;
-  --playstation: #709d93;
+  --twitch: #9d82bc;
+  --playstation: #8295b4;
   --spotify: #a9b665;
 
   --notice-background-critical: #ea6962;
-  --notice-background-info: #7daea3;
+  --notice-background-info: #91a6c8;
   --notice-background-positive: #a9b665;
   --notice-background-warning: #e0b04a;
   --notice-text-critical: #151514;
@@ -296,5 +296,5 @@
 
 .visual-refresh.theme-dark ::selection,
 .visual-refresh .theme-dark ::selection {
-  background-color: #7daea399;
+  background-color: #91a6c899;
 }

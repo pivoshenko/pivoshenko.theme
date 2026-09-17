@@ -66,7 +66,7 @@
   --text-subtle: #b8b3a8;
 
   --text-feedback-positive: #8a9d68;
-  --text-feedback-critical: #c87a72;
+  --text-feedback-critical: #e05d55;
   --text-feedback-warning: #d4a85a;
   --text-feedback-info: #7ba0c4;
 
@@ -119,13 +119,13 @@
   --icon-feedback-positive: #8a9d68;
   --background-feedback-warning: #d4a85a26;
   --icon-feedback-warning: #d4a85a;
-  --background-feedback-critical: #c87a7226;
-  --icon-feedback-critical: #c87a72;
-  --background-feedback-info: #7ba0c426;
-  --icon-feedback-info: #7ba0c4;
-  --background-feedback-notification: #c87a72;
-  --icon-feedback-notification: #c87a72;
-  --badge-notification-background: #c87a72;
+  --background-feedback-critical: #e05d5526;
+  --icon-feedback-critical: #e05d55;
+  --background-feedback-info: #68a8b326;
+  --icon-feedback-info: #68a8b3;
+  --background-feedback-notification: #e05d55;
+  --icon-feedback-notification: #e05d55;
+  --badge-notification-background: #e05d55;
 
   --status-positive: #8a9d68;
   --status-positive-background: #8a9d68;
@@ -133,16 +133,16 @@
   --status-warning: #d4a85a;
   --status-warning-background: #d4a85a;
   --status-warning-text: #1f1f1e;
-  --status-danger: #c87a72;
+  --status-danger: #e05d55;
 
   --black-500: #151514;
   --green-360: #8a9d68;
   --green-300: #8a9d68;
   --yellow-360: #d4a85a;
   --yellow-300: #d4a85a;
-  --red-400: #c87a72;
-  --red-430: #b46e67;
-  --red-500: #aa6861;
+  --red-400: #e05d55;
+  --red-430: #ca544c;
+  --red-500: #be4f48;
   --blue-500: #6f90b0;
   --blue-530: #6988a7;
   --primary-100: #b8b3a8;
@@ -168,7 +168,7 @@
   --premium-perk-orange: #d97757;
   --premium-tier-0-blue: #7ba0c4;
   --premium-tier-0-purple: #b88aa0;
-  --premium-tier-1-blue-for-gradients: #7095b8;
+  --premium-tier-1-blue-for-gradients: #6499b1;
   --premium-tier-1-dark-blue-for-gradients: #7ba0c4;
   --premium-tier-2-purple-for-gradients: #a67c90;
   --premium-tier-2-purple-for-gradients-2: #b88aa0;
@@ -184,17 +184,17 @@
   --control-secondary-text-default: #e4e2de !important;
   --control-secondary-text-hover: #e4e2de;
 
-  --control-critical-primary-background-default: #c87a72;
-  --control-critical-primary-background-hover: #be746c;
-  --control-critical-primary-background-active: #b46e67;
+  --control-critical-primary-background-default: #e05d55;
+  --control-critical-primary-background-hover: #d55851;
+  --control-critical-primary-background-active: #ca544c;
   --control-critical-primary-text-default: #1f1f1e;
   --control-critical-primary-text-hover: #1f1f1e;
   --control-critical-secondary-background-default: transparent;
-  --control-critical-secondary-background-hover: #c3776f;
-  --control-critical-secondary-background-active: #be746c;
-  --control-critical-secondary-border-default: #c87a72;
-  --control-critical-secondary-border-hover: #c3776f;
-  --control-critical-secondary-border-active: #c3776f;
+  --control-critical-secondary-background-hover: #da5b53;
+  --control-critical-secondary-background-active: #d55851;
+  --control-critical-secondary-border-default: #e05d55;
+  --control-critical-secondary-border-hover: #da5b53;
+  --control-critical-secondary-border-active: #da5b53;
   --control-critical-secondary-text-default: #e4e2de;
   --control-critical-secondary-text-hover: #1f1f1e;
   --control-critical-secondary-text-active: #1f1f1e;
@@ -244,7 +244,7 @@
   --channel-text-area-placeholder: #e4e2de80;
   --channeltextarea-background: #1a1a19;
   --icon-muted: #938e83 !important;
-  --icon-voice-muted: #c87a72;
+  --icon-voice-muted: #e05d55;
   --icon-default: #e4e2de;
   --icon-strong: #e4e2de;
   --icon-subtle: #b8b3a8;
@@ -273,18 +273,18 @@
 
   --text-status-online: #8a9d68;
   --text-status-idle: #d4a85a;
-  --text-status-dnd: #c87a72;
+  --text-status-dnd: #e05d55;
   --text-status-offline: #b8b3a8;
   --icon-status-online: #8a9d68;
   --icon-status-idle: #d4a85a;
-  --icon-status-dnd: #c87a72;
+  --icon-status-dnd: #e05d55;
   --icon-status-offline: #b8b3a8;
 
   --twitch: #a67c90;
   --playstation: #6f90b0;
   --spotify: #8a9d68;
 
-  --notice-background-critical: #c87a72;
+  --notice-background-critical: #e05d55;
   --notice-background-info: #7ba0c4;
   --notice-background-positive: #8a9d68;
   --notice-background-warning: #d4a85a;

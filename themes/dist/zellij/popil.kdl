@@ -47,7 +47,7 @@ themes {
       emphasis_0 "#7ba0c4"
       emphasis_1 "#8a9d68"
       emphasis_2 "#d4a85a"
-      emphasis_3 "#c87a72"
+      emphasis_3 "#e05d55"
     }
     table_cell_selected {
       base "#e4e2de"
@@ -91,7 +91,7 @@ themes {
       emphasis_0 "#d4a85a"
       emphasis_1 "#7ba0c4"
       emphasis_2 "#8a9d68"
-      emphasis_3 "#c87a72"
+      emphasis_3 "#e05d55"
     }
     frame_highlight {
       base "#d4a85a"
@@ -99,7 +99,7 @@ themes {
       emphasis_0 "#d97757"
       emphasis_1 "#7ba0c4"
       emphasis_2 "#8a9d68"
-      emphasis_3 "#c87a72"
+      emphasis_3 "#e05d55"
     }
 
     // == Exit codes ==
@@ -109,10 +109,10 @@ themes {
       emphasis_0 "#7ba0c4"
       emphasis_1 "#d97757"
       emphasis_2 "#d4a85a"
-      emphasis_3 "#c87a72"
+      emphasis_3 "#e05d55"
     }
     exit_code_error {
-      base "#c87a72"
+      base "#e05d55"
       background "#1a1a19"
       emphasis_0 "#d4a85a"
       emphasis_1 "#7ba0c4"
@@ -128,9 +128,9 @@ themes {
       player_4 "#c89aa4"
       player_5 "#d4a85a"
       player_6 "#a89bb5"
-      player_7 "#c87a72"
-      player_8 "#87a896"
-      player_9 "#7ba0c4"
+      player_7 "#e05d55"
+      player_8 "#83aaa0"
+      player_9 "#68a8b3"
       player_10 "#ddc7c2"
     }
   }
