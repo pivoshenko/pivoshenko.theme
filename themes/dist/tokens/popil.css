@@ -18,10 +18,10 @@
   --border-strong: 55 54 52;
 
   /* Accent */
-  --accent-primary: 217 119 87;
-  --accent-secondary: 212 168 90;
+  --accent-primary: 123 160 196;
+  --accent-secondary: 168 155 181;
   --accent-success: 138 157 104;
   --accent-warning: 212 168 90;
   --accent-danger: 224 93 85;
-  --accent-info: 123 160 196;
+  --accent-info: 100 153 177;
 }

@@ -4,29 +4,29 @@ themes {
     text_unselected {
       base "#d4be98"
       background "#1a1a19"
-      emphasis_0 "#ed8438"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#91a6c8"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
-      emphasis_3 "#e0b04a"
+      emphasis_3 "#919add"
     }
     text_selected {
       base "#e4e2de"
       background "#2e2e2c"
-      emphasis_0 "#ed8438"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#91a6c8"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
-      emphasis_3 "#e0b04a"
+      emphasis_3 "#919add"
     }
 
     // == Tabs (ribbons) ==
     // active tab: bright accent, prominent
     ribbon_selected {
       base "#1a1a19"
-      background "#ed8438"
+      background "#91a6c8"
       emphasis_0 "#1a1a19"
-      emphasis_1 "#91a6c8"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
-      emphasis_3 "#e0b04a"
+      emphasis_3 "#919add"
     }
     // inactive tab: muted chip
     // emphasis_1 is the tab-bar "alternate tab" colour (zebra striping) -- keep
@@ -34,70 +34,70 @@ themes {
     ribbon_unselected {
       base "#d4be98"
       background "#262625"
-      emphasis_0 "#ed8438"
+      emphasis_0 "#91a6c8"
       emphasis_1 "#2e2e2c"
       emphasis_2 "#a9b665"
-      emphasis_3 "#e0b04a"
+      emphasis_3 "#919add"
     }
 
     // == Tables (session manager, etc.) ==
     table_title {
-      base "#ed8438"
+      base "#91a6c8"
       background "#1a1a19"
-      emphasis_0 "#91a6c8"
+      emphasis_0 "#7db4ce"
       emphasis_1 "#a9b665"
-      emphasis_2 "#e0b04a"
+      emphasis_2 "#919add"
       emphasis_3 "#ea6962"
     }
     table_cell_selected {
       base "#e4e2de"
       background "#2e2e2c"
-      emphasis_0 "#ed8438"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#91a6c8"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
-      emphasis_3 "#e0b04a"
+      emphasis_3 "#919add"
     }
     table_cell_unselected {
       base "#d4be98"
       background "#1a1a19"
-      emphasis_0 "#ed8438"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#91a6c8"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
-      emphasis_3 "#e0b04a"
+      emphasis_3 "#919add"
     }
 
     // == Lists (fuzzy finders, pickers) ==
     list_selected {
       base "#e4e2de"
       background "#2e2e2c"
-      emphasis_0 "#ed8438"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#91a6c8"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
-      emphasis_3 "#e0b04a"
+      emphasis_3 "#919add"
     }
     list_unselected {
       base "#d4be98"
       background "#1a1a19"
-      emphasis_0 "#ed8438"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#91a6c8"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
-      emphasis_3 "#e0b04a"
+      emphasis_3 "#919add"
     }
 
     // == Pane frames ==
     frame_selected {
-      base "#ed8438"
+      base "#91a6c8"
       background "#1a1a19"
-      emphasis_0 "#e0b04a"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#919add"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
       emphasis_3 "#ea6962"
     }
     frame_highlight {
-      base "#e0b04a"
+      base "#919add"
       background "#1a1a19"
-      emphasis_0 "#ed8438"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#91a6c8"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
       emphasis_3 "#ea6962"
     }
@@ -106,27 +106,27 @@ themes {
     exit_code_success {
       base "#a9b665"
       background "#1a1a19"
-      emphasis_0 "#91a6c8"
-      emphasis_1 "#ed8438"
-      emphasis_2 "#e0b04a"
+      emphasis_0 "#7db4ce"
+      emphasis_1 "#91a6c8"
+      emphasis_2 "#919add"
       emphasis_3 "#ea6962"
     }
     exit_code_error {
       base "#ea6962"
       background "#1a1a19"
-      emphasis_0 "#e0b04a"
-      emphasis_1 "#91a6c8"
+      emphasis_0 "#919add"
+      emphasis_1 "#7db4ce"
       emphasis_2 "#a9b665"
-      emphasis_3 "#ed8438"
+      emphasis_3 "#91a6c8"
     }
 
     // == Collaborators ==
     multiplayer_user_colors {
-      player_1 "#ed8438"
-      player_2 "#91a6c8"
+      player_1 "#91a6c8"
+      player_2 "#7db4ce"
       player_3 "#a9b665"
       player_4 "#d283be"
-      player_5 "#e0b04a"
+      player_5 "#919add"
       player_6 "#919add"
       player_7 "#ea6962"
       player_8 "#67bcb0"

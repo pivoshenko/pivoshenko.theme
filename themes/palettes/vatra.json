@@ -49,12 +49,12 @@
       "strong": "surface2"
     },
     "accent": {
-      "primary": "peach",
-      "secondary": "yellow",
+      "primary": "blue",
+      "secondary": "lavender",
       "success": "green",
       "warning": "yellow",
       "danger": "red",
-      "info": "blue"
+      "info": "sapphire"
     }
   }
 }
