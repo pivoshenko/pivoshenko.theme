@@ -83,9 +83,9 @@
 
   --app-frame-background: #151514;
   --background-secondary-alt: #1f1f1e !important;
-  --background-accent: #323232 !important;
-  --background-surface-highest: #292929 !important;
-  --background-surface-higher: #282828 !important;
+  --background-accent: #323231 !important;
+  --background-surface-highest: #292928 !important;
+  --background-surface-higher: #282827 !important;
   --background-surface-high: #1f1f1e !important;
   --background-base-lowest: #151514 !important;
   --background-base-lower: #1a1a19 !important;
@@ -102,18 +102,18 @@
   --checkbox-border-default: #57534e;
   --radio-thumb-background-active: #151514;
 
-  --border-muted: #292929;
+  --border-muted: #292928;
   --border-strong: #1a1a19;
   --border-normal: #151514;
   --border-subtle: #1f1f1e !important;
-  --background-mod-muted: #3d3d3d0d;
-  --background-mod-normal: #3d3d3d26;
-  --background-mod-subtle: #3d3d3d40 !important;
-  --background-mod-strong: #3d3d3d73 !important;
+  --background-mod-muted: #3d3d3c0d;
+  --background-mod-normal: #3d3d3c26;
+  --background-mod-subtle: #3d3d3c40 !important;
+  --background-mod-strong: #3d3d3c73 !important;
   --custom-channel-members-bg: #1a1a19;
   --custom-status-bubble-background: #151514 !important;
   --custom-status-bubble-background-color: #1a1a19 !important;
-  --card-background-default: #292929 !important;
+  --card-background-default: #292928 !important;
 
   --background-feedback-positive: #91ab7826;
   --icon-feedback-positive: #91ab78;
@@ -149,8 +149,8 @@
   --primary-200: #9b958a;
   --primary-300: #b8b3a8;
   --primary-400: #b8b3a8;
-  --primary-630: #292929;
-  --primary-700: #323232;
+  --primary-630: #292928;
+  --primary-700: #323231;
   --primary-800: #151514;
   --white: #e4e2de;
   --white-500: #e4e2de;
@@ -177,10 +177,10 @@
   --control-primary-background-default: #8da7d1;
   --control-primary-background-hover: #829ac1;
   --control-primary-background-active: #7b92b7;
-  --control-secondary-background-default: #323232 !important;
-  --control-secondary-background-hover: #303030;
-  --control-secondary-background-active: #2e2e2e;
-  --control-secondary-border-default: #292929;
+  --control-secondary-background-default: #323231 !important;
+  --control-secondary-background-hover: #30302f;
+  --control-secondary-background-active: #2e2e2d;
+  --control-secondary-border-default: #292928;
   --control-secondary-text-default: #e4e2de !important;
   --control-secondary-text-hover: #e4e2de;
 
@@ -249,8 +249,8 @@
   --icon-strong: #e4e2de;
   --icon-subtle: #b8b3a8;
   --textbox-markdown-syntax: #57534e;
-  --spoiler-revealed-background: #292929;
-  --spoiler-hidden-background: #3d3d3d;
+  --spoiler-revealed-background: #292928;
+  --spoiler-hidden-background: #3d3d3c;
   --__adaptive-focus-ring-color: #8da7d1;
 
   --interactive-icon-default: #e4e2de !important;
@@ -264,10 +264,10 @@
   --interactive-background-selected: #57534e33;
   --interactive-background-active: #e4e2de2b;
 
-  --__spoiler-background-color--hidden: #3d3d3d;
-  --__spoiler-warning-background-color: #474747;
+  --__spoiler-background-color--hidden: #3d3d3c;
+  --__spoiler-warning-background-color: #474746;
   --user-profile-overlay-background: #1a1a19;
-  --user-profile-overlay-background-hover: #292929;
+  --user-profile-overlay-background-hover: #292928;
   --plum-23: #1f1f1e;
   --badge-text-brand: #1f1f1e;
 
