@@ -3,8 +3,8 @@ shortname: pivoshenko_theme_popil
 
 windowBg: #151514 // white: fallback for background
 windowFg: #e4e2de // black: fallback for text
-windowBgOver: #2b2926 // light gray: fallback for background with mouse over
-windowBgRipple: #2b2926 // darker gray: fallback for ripple effect
+windowBgOver: #292929 // light gray: fallback for background with mouse over
+windowBgRipple: #292929 // darker gray: fallback for ripple effect
 windowFgOver: windowFg // black: fallback for text with mouse over
 windowSubTextFg: #9b958a // gray: fallback for additional text
 windowSubTextFgOver: #b8b3a8 // darker gray: fallback for additional text with mouse over
@@ -30,14 +30,14 @@ activeButtonSecondaryFgOver: activeButtonSecondaryFg // default active button ad
 activeLineFg: #9b958a // default active line (like code input field bottom border when you log in and field is focused)
 activeLineFgError: #ec7470 // default active line for error state (like code input field bottom border when you log in and you've entered incorrect code)
 lightButtonBg: windowBg // default light button background (like buttons in boxes)
-lightButtonBgOver: #2b2926 // default light button background with mouse over
-lightButtonBgRipple: #2b2926 // default light button ripple effect
+lightButtonBgOver: #292929 // default light button background with mouse over
+lightButtonBgRipple: #292929 // default light button ripple effect
 lightButtonFg: windowActiveTextFg // default light button text
 lightButtonFgOver: lightButtonFg // default light button text with mouse over
 attentionButtonFg: #e4e2de // default attention button text (like confirm button on log out)
 attentionButtonFgOver: #e4e2de // default attention button text with mouse over
-attentionButtonBgOver: #2b2926cc // default attention button background with mouse over
-attentionButtonBgRipple: #2b2926 // default attention button ripple effect
+attentionButtonBgOver: #292929cc // default attention button background with mouse over
+attentionButtonBgRipple: #292929 // default attention button ripple effect
 menuBg: windowBg // default popup menu background
 menuBgOver: windowBgOver // default popup menu item background with mouse over
 menuBgRipple: windowBgRipple // default popup menu item ripple effect
@@ -45,11 +45,11 @@ menuIconFg: #e4e2de // default popup menu item icon (like main menu)
 menuIconFgOver: #9b958a // default popup menu item icon with mouse over
 menuSubmenuArrowFg: #e4e2de // default popup menu submenu arrow icon (like in message field context menu in case of RTL system language)
 menuFgDisabled: #9b958a // default popup menu item disabled text (like unavailable items in message field context menu)
-menuSeparatorFg: #2b2926 // default popup menu separator (like in message field context menu)
+menuSeparatorFg: #292929 // default popup menu separator (like in message field context menu)
 scrollBarBg: #78716ccc // default scroll bar current rectangle, the bar itself (like in chats list)
-scrollBarBgOver: #3f3d3bcc // default scroll bar current rectangle with mouse over it
-scrollBg: #3f3d3bcc // default scroll bar background
-scrollBgOver: #3f3d3bcc // default scroll bar background with mouse over the scroll bar
+scrollBarBgOver: #3d3d3dcc // default scroll bar current rectangle with mouse over it
+scrollBg: #3d3d3dcc // default scroll bar background
+scrollBgOver: #3d3d3dcc // default scroll bar background with mouse over the scroll bar
 smallCloseIconFg: #9b958a // small X icon (like in Show all sessions box to the right for sessions termination)
 smallCloseIconFgOver: #b8b3a8 // small X icon with mouse over
 radialFg: windowFgActive // default radial loader line (like in Media Viewer when loading a photo)
@@ -64,17 +64,17 @@ checkboxFg: #9b958a // default unchecked checkbox rounded rectangle
 botKbBg: menuBgOver // bot keyboard button background
 botKbDownBg: menuBgRipple // bot keyboard button ripple effect
 botKbColor: windowBoldFgOver // bot keyboard button text
-sliderBgInactive: #2b2926 // default slider not active bar (like in Settings when you choose interface scale or custom notifications count)
+sliderBgInactive: #292929 // default slider not active bar (like in Settings when you choose interface scale or custom notifications count)
 sliderBgActive: windowBgActive // default slider active bar (like in Settings when you choose interface scale or custom notifications count)
-tooltipBg: #2b2926 // tooltip background (like when you put mouse over the message timestamp and wait)
+tooltipBg: #292929 // tooltip background (like when you put mouse over the message timestamp and wait)
 tooltipFg: #b8b3a8 // tooltip text
-tooltipBorderFg: #2b2926 // tooltip border
+tooltipBorderFg: #292929 // tooltip border
 titleShadow: #080706cc // one pixel line shadow at the bottom of custom window title
 titleBg: windowBgOver // custom window title background when window is inactive
 titleBgActive: titleBg // custom window title background when window is active
 titleButtonBg: titleBg // custom window title minimize/maximize/restore button background when window is inactive (Windows only)
 titleButtonFg: #e4e2de // custom window title minimize/maximize/restore button icon when window is inactive (Windows only)
-titleButtonBgOver: #2b2926 // custom window title minimize/maximize/restore button background with mouse over when window is inactive (Windows only)
+titleButtonBgOver: #292929 // custom window title minimize/maximize/restore button background with mouse over when window is inactive (Windows only)
 titleButtonFgOver: #e4e2de // custom window title minimize/maximize/restore button icon with mouse over when window is inactive (Windows only)
 titleButtonBgActive: titleButtonBg // custom window title minimize/maximize/restore button background when window is active (Windows only)
 titleButtonFgActive: titleButtonFg // custom window title minimize/maximize/restore button icon when window is active (Windows only)
@@ -82,7 +82,7 @@ titleButtonBgActiveOver: titleButtonBgOver // custom window title minimize/maxim
 titleButtonFgActiveOver: titleButtonFgOver // custom window title minimize/maximize/restore button icon with mouse over when window is active (Windows only)
 titleButtonCloseBg: titleButtonBg // custom window title close button background when window is inactive (Windows only)
 titleButtonCloseFg: titleButtonFg // custom window title close button icon when window is inactive (Windows only)
-titleButtonCloseBgOver: #3f3d3b // custom window title close button background with mouse over when window is inactive (Windows only)
+titleButtonCloseBgOver: #3d3d3d // custom window title close button background with mouse over when window is inactive (Windows only)
 titleButtonCloseFgOver: windowFgActive // custom window title close button icon with mouse over when window is inactive (Windows only)
 titleButtonCloseBgActive: titleButtonCloseBg // custom window title close button background when window is active (Windows only)
 titleButtonCloseFgActive: titleButtonCloseFg // custom window title close button icon when window is active (Windows only)
@@ -122,8 +122,8 @@ introBg: windowBg // login background
 introTitleFg: windowBoldFg // login title text
 introDescriptionFg: windowSubTextFg // login description text
 introErrorFg: windowSubTextFg // login error text (like when providing a wrong log in code)
-introCoverTopBg: #3f3d3b // intro gradient top (from)
-introCoverBottomBg: #3f3d3b // intro gradient bottom (to)
+introCoverTopBg: #3d3d3d // intro gradient top (from)
+introCoverBottomBg: #3d3d3d // intro gradient bottom (to)
 introCoverIconsFg: #57534e // intro cloud graphics
 introCoverPlaneTrace: #57534e // intro plane traces
 introCoverPlaneInner: #8da7d1 // intro plane part
@@ -164,7 +164,7 @@ dialogsUnreadBgMutedOver: dialogsUnreadBgMuted // chat list unread badge backgro
 dialogsUnreadFgOver: dialogsUnreadFg // chat list unread badge text with mouse over
 dialogsArchiveFgOver: #78716c // chat list archive name text with mouse over
 dialogsScamFgOver: dialogsDraftFgOver // chat list scam label with mouse over
-dialogsBgActive: #2b2926 // chat list background for current (active) chat
+dialogsBgActive: #292929 // chat list background for current (active) chat
 dialogsNameFgActive: windowFgActive // chat list name text for current (active) chat
 dialogsChatIconFgActive: dialogsNameFgActive // chat list group or channel icon for current (active) chat
 dialogsDateFgActive: windowFgActive // chat list date text for current (active) chat
@@ -220,7 +220,7 @@ historyCallArrowMissedInFg: callArrowMissedFg // missed phone call arrow
 historyCallArrowMissedInFgSelected: callArrowMissedFg // missed phone call arrow in a selected message
 historyCallArrowOutFg: historyCallArrowInFg // outgoing phone call arrow
 historyCallArrowOutFgSelected: historyCallArrowInFgSelected // outgoing phone call arrow
-historyUnreadBarBg: #2b2926 // new unread messages bar background
+historyUnreadBarBg: #292929 // new unread messages bar background
 historyUnreadBarBorder: shadowFg // new unread messages bar shadow
 historyUnreadBarFg: #9b958a // new unread messages bar text
 historyForwardChooseBg: #080706cc // forwarding messages in a large window size "choose recipient" background
@@ -253,13 +253,13 @@ historyPeerUserpicFg: windowFgActive // default userpic initials
 historyPeerSavedMessagesBg: historyPeer4UserpicBg // saved messages userpic background
 historyPeerArchiveUserpicBg: dialogsUnreadBgMuted // archive folder userpic background
 historyScrollBarBg: #78716ccc // scroll bar current rectangle, the bar itself in the chat view (adjusted)
-historyScrollBarBgOver: #3f3d3bcc // scroll bar current rectangle with mouse over it in the chat view (adjusted)
-historyScrollBg: #3f3d3bcc // scroll bar background (adjusted)
-historyScrollBgOver: #3f3d3bcc // scroll bar background with mouse over the scroll bar (adjusted)
+historyScrollBarBgOver: #3d3d3dcc // scroll bar current rectangle with mouse over it in the chat view (adjusted)
+historyScrollBg: #3d3d3dcc // scroll bar background (adjusted)
+historyScrollBgOver: #3d3d3dcc // scroll bar background with mouse over the scroll bar (adjusted)
 msgInBg: windowBg // inbox message background
-msgInBgSelected: #2b2926 // inbox selected message background (and background of selected text in those messages)
-msgOutBg: #2b2926 // outbox message background
-msgOutBgSelected: #2b2926 // outbox selected message background (and background of selected text in those messages)
+msgInBgSelected: #292929 // inbox selected message background (and background of selected text in those messages)
+msgOutBg: #292929 // outbox message background
+msgOutBgSelected: #292929 // outbox selected message background (and background of selected text in those messages)
 msgSelectOverlay: #9b958acc // overlay which is filling the media parts of selected messages (like in selected photo message)
 msgStickerOverlay: #9b958acc // overlay which is filling the selected sticker message
 msgInServiceFg: windowActiveTextFg // inbox message information text (like information about a forwarded message original sender)
@@ -275,8 +275,8 @@ msgInDateFgSelected: #9b958a // inbox selected message time text
 msgOutDateFg: #9b958a // outbox message time text
 msgOutDateFgSelected: #9b958a // outbox selected message time text
 msgServiceFg: windowFgActive // service message text (like date dividers or service message about the group title being changed)
-msgServiceBg: #2b2926cc // service message background (like in a service message about group title being changed) (adjusted)
-msgServiceBgSelected: #2b2926 // service message selected text background (like in a service message about group title being changed) (adjusted)
+msgServiceBg: #292929cc // service message background (like in a service message about group title being changed) (adjusted)
+msgServiceBgSelected: #292929 // service message selected text background (like in a service message about group title being changed) (adjusted)
 msgInReplyBarColor: activeLineFg // inbox message reply outline
 msgInReplyBarSelColor: activeLineFg // inbox selected message reply outline
 msgOutReplyBarColor: historyOutIconFg // outbox message reply outline
@@ -289,7 +289,7 @@ msgOutMonoFgSelected: msgOutMonoFg // outbox message monospace text in a selecte
 msgDateImgFg: msgServiceFg // media message time text (like time text in a sent photo)
 msgDateImgBg: #080706cc // media message time bubble background (like time bubble in a sent photo) or file with thumbnail download icon circle background
 msgDateImgBgOver: #080706cc // media message download icon circle background with mouse over (like file with thumbnail download icon)
-msgDateImgBgSelected: #2b2926cc // selected media message time bubble background
+msgDateImgBgSelected: #292929cc // selected media message time bubble background
 msgFileThumbLinkInFg: lightButtonFg // inbox media file message with thumbnail download / open with button text
 msgFileThumbLinkInFgSelected: lightButtonFgOver // inbox selected media file message with thumbnail download / open with button text
 msgFileThumbLinkOutFg: #e4e2de // outbox media file message with thumbnail download / open with button text
@@ -337,9 +337,9 @@ msgWaveformOutActive: #8da7d1 // outbox voice message active waveform lines (lik
 msgWaveformOutActiveSelected: #8da7d1 // outbox selected voice message active waveform lines (like played part of currently playing voice message)
 msgWaveformOutInactive: #57534e // outbox voice message inactive waveform lines (like upcoming part of currently playing voice message)
 msgWaveformOutInactiveSelected: #57534e // outbox selected voice message inactive waveform lines (like upcoming part of currently playing voice message)
-msgBotKbOverBgAdd: #2b2926 // this is painted over a bot inline keyboard button (which has msgServiceBg background) when mouse is over that button
+msgBotKbOverBgAdd: #292929 // this is painted over a bot inline keyboard button (which has msgServiceBg background) when mouse is over that button
 msgBotKbIconFg: msgServiceFg // bot inline keyboard button icon in the top-right corner (like in @vote bot when a poll is ready to be shared)
-msgBotKbRippleBg: #3f3d3b // bot inline keyboard button ripple effect
+msgBotKbRippleBg: #3d3d3d // bot inline keyboard button ripple effect
 mediaInFg: msgInDateFg // inbox media message status text (like in file that is being downloaded)
 mediaInFgSelected: msgInDateFgSelected // inbox selected media message status text (like in file that is being downloaded)
 mediaOutFg: msgOutDateFg // outbox media message status text (like in file that is being downloaded)
@@ -400,7 +400,7 @@ mainMenuBg: windowBg // main menu background
 mainMenuCoverBg: dialogsBgActive // main menu top cover background
 mainMenuCoverFg: windowFgActive // main menu top cover text
 mainMenuCloudFg: activeButtonFg //
-mainMenuCloudBg: #3f3d3b //
+mainMenuCloudBg: #3d3d3d //
 mediaPlayerBg: windowBg // audio file player background
 mediaPlayerActiveFg: windowBgActive // audio file player playback progress already played part
 mediaPlayerInactiveFg: sliderBgInactive // audio file player playback progress upcoming (not played yet) part with mouse over
@@ -413,9 +413,9 @@ mediaviewFileYellowCornerFg: #d4aa5c // yellow file thumbnail placeholder corner
 mediaviewFileGreenCornerFg: #91ab78 // green file thumbnail placeholder corner in file rectangle (for a file without thumbnail, like .exe)
 mediaviewFileBlueCornerFg: #8da7d1 // blue file thumbnail placeholder corner in file rectangle (for a file without thumbnail, like .dmg)
 mediaviewFileExtFg: activeButtonFg // file extension text in file thumbnail placeholder in file rectangle
-mediaviewMenuBg: #2b2926 // context menu in Media Viewer background
-mediaviewMenuBgOver: #2b2926 // context menu item background with mouse over
-mediaviewMenuBgRipple: #3f3d3b // context menu item ripple effect
+mediaviewMenuBg: #292929 // context menu in Media Viewer background
+mediaviewMenuBgOver: #292929 // context menu item background with mouse over
+mediaviewMenuBgRipple: #3d3d3d // context menu item ripple effect
 mediaviewMenuFg: windowFgActive // context menu item text
 mediaviewBg: #000000cc // Media Viewer background
 mediaviewVideoBg: imageBg // Media Viewer background when viewing a video in full screen
@@ -427,9 +427,9 @@ mediaviewTextLinkFg: #8da7d1 // caption text link
 mediaviewSaveMsgBg: toastBg // save to file toast message background in Media Viewer
 mediaviewSaveMsgFg: toastFg // save to file toast message text
 mediaviewPlaybackActive: #78716c // video playback progress already played part
-mediaviewPlaybackInactive: #2b2926 // video playback progress upcoming (not played yet) part
+mediaviewPlaybackInactive: #292929 // video playback progress upcoming (not played yet) part
 mediaviewPlaybackActiveOver: #9b958a // video playback progress already played part with mouse over
-mediaviewPlaybackInactiveOver: #3f3d3b // video playback progress upcoming (not played yet) part with mouse over
+mediaviewPlaybackInactiveOver: #3d3d3d // video playback progress upcoming (not played yet) part with mouse over
 mediaviewPlaybackProgressFg: #e4e2de // video playback progress text
 mediaviewPlaybackIconFg: mediaviewPlaybackActive // video playback controls icon
 mediaviewPlaybackIconFgOver: mediaviewPlaybackActiveOver // video playback controls icon with mouse over

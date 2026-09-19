@@ -1,8 +1,8 @@
 [data-flavor="popil"] {
   /* Background */
   --bg-canvas: 31 31 30;
-  --bg-surface: 43 41 38;
-  --bg-raised: 52 50 48;
+  --bg-surface: 41 41 41;
+  --bg-raised: 50 50 50;
   --bg-sunken: 26 26 25;
   --bg-overlay: 87 83 78;
 
@@ -13,9 +13,9 @@
   --fg-faint: 120 113 108;
 
   /* Border */
-  --border-subtle: 43 41 38;
-  --border-default: 52 50 48;
-  --border-strong: 63 61 59;
+  --border-subtle: 41 41 41;
+  --border-default: 50 50 50;
+  --border-strong: 61 61 61;
 
   /* Accent */
   --accent-primary: 141 167 209;
