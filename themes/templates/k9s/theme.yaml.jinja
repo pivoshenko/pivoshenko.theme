@@ -3,13 +3,17 @@ k9s:
     fgColor: "{{ role.fg.default.hex }}"
     bgColor: "{{ role.bg.canvas.hex }}"
     logoColor: "{{ role.accent.info.hex }}"
+    logoColorMsg: "{{ role.fg.default.hex }}"
+    logoColorInfo: "{{ role.accent.success.hex }}"
+    logoColorWarn: "{{ role.accent.warning.hex }}"
+    logoColorError: "{{ role.accent.danger.hex }}"
   prompt:
     fgColor: "{{ role.fg.default.hex }}"
     bgColor: "{{ role.bg.canvas.hex }}"
     suggestColor: "{{ role.accent.info.hex }}"
     border:
-      defaultColor: "{{ role.fg.faint.hex }}"
-      commandColor: "{{ role.fg.faint.hex }}"
+      default: "{{ role.fg.faint.hex }}"
+      command: "{{ role.accent.primary.hex }}"
   help:
     fgColor: "{{ role.fg.default.hex }}"
     bgColor: "{{ role.bg.canvas.hex }}"
@@ -46,6 +50,9 @@ k9s:
   info:
     fgColor: "{{ role.accent.primary.hex }}"
     sectionColor: "{{ role.fg.default.hex }}"
+    cpuColor: "{{ role.accent.primary.hex }}"
+    memColor: "{{ role.accent.warning.hex }}"
+    k9sRevColor: "{{ role.fg.subtle.hex }}"
   views:
     table:
       fgColor: "{{ role.fg.default.hex }}"
@@ -57,6 +64,7 @@ k9s:
         fgColor: "{{ role.accent.warning.hex }}"
         bgColor: "{{ role.bg.canvas.hex }}"
         sorterColor: "{{ sky.hex }}"
+        selectedSortColumnColor: "{{ role.accent.primary.hex }}"
     xray:
       fgColor: "{{ role.fg.default.hex }}"
       bgColor: "{{ role.bg.canvas.hex }}"
@@ -65,6 +73,8 @@ k9s:
       graphicColor: "{{ pink.hex }}"
     charts:
       bgColor: "{{ role.bg.canvas.hex }}"
+      focusFgColor: "{{ role.bg.canvas.hex }}"
+      focusBgColor: "{{ role.accent.primary.hex }}"
       chartBgColor: "{{ role.bg.canvas.hex }}"
       dialBgColor: "{{ role.bg.canvas.hex }}"
       defaultDialColors:
@@ -80,6 +90,10 @@ k9s:
         mem:
           - "{{ yellow.hex }}"
           - "{{ peach.hex }}"
+    picker:
+      mainColor: "{{ role.fg.default.hex }}"
+      focusColor: "{{ role.accent.primary.hex }}"
+      shortcutColor: "{{ role.accent.info.hex }}"
     yaml:
       keyColor: "{{ role.accent.info.hex }}"
       valueColor: "{{ role.fg.default.hex }}"
