@@ -6,23 +6,23 @@
 <style>
   :root {
     --bg-canvas: #111111;
-    --bg-surface: #191919;
-    --bg-raised: #212121;
+    --bg-surface: #1b1b1b;
+    --bg-raised: #262626;
     --bg-sunken: #0d0d0d;
     --bg-overlay: #57534e;
     --fg-default: #e7e5e4;
     --fg-muted: #d6d3d1;
     --fg-subtle: #a8a29e;
     --fg-faint: #78716c;
-    --border-default: #212121;
-    --border-subtle: #191919;
-    --border-strong: #292929;
-    --accent-primary: #7f98bf;
-    --accent-secondary: #9faece;
-    --accent-success: #8ea98c;
+    --border-default: #262626;
+    --border-subtle: #1b1b1b;
+    --border-strong: #303030;
+    --accent-primary: #8da1c7;
+    --accent-secondary: #babcd8;
+    --accent-success: #8aaf86;
     --accent-warning: #d4b070;
-    --accent-danger: #d97777;
-    --accent-info: #6f9aa9;
+    --accent-danger: #df7c7b;
+    --accent-info: #49a4bf;
   }
   * { box-sizing: border-box; }
   body {
@@ -123,9 +123,9 @@
     
     <div class="swatch role"><div class="chip" style="background: #111111">bg.canvas</div><div class="lbl"><span class="name">bg.canvas</span><span class="hex mono">#111111</span></div></div>
     
-    <div class="swatch role"><div class="chip" style="background: #191919">bg.surface</div><div class="lbl"><span class="name">bg.surface</span><span class="hex mono">#191919</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #1b1b1b">bg.surface</div><div class="lbl"><span class="name">bg.surface</span><span class="hex mono">#1b1b1b</span></div></div>
     
-    <div class="swatch role"><div class="chip" style="background: #212121">bg.raised</div><div class="lbl"><span class="name">bg.raised</span><span class="hex mono">#212121</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #262626">bg.raised</div><div class="lbl"><span class="name">bg.raised</span><span class="hex mono">#262626</span></div></div>
     
     <div class="swatch role"><div class="chip" style="background: #0d0d0d">bg.sunken</div><div class="lbl"><span class="name">bg.sunken</span><span class="hex mono">#0d0d0d</span></div></div>
     
@@ -141,24 +141,24 @@
     <div class="swatch role"><div class="chip" style="background: #78716c; color: var(--bg-canvas)">fg.faint</div><div class="lbl"><span class="name">fg.faint</span><span class="hex mono">#78716c</span></div></div>
     
     
-    <div class="swatch role"><div class="chip" style="background: #191919">border.subtle</div><div class="lbl"><span class="name">border.subtle</span><span class="hex mono">#191919</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #1b1b1b">border.subtle</div><div class="lbl"><span class="name">border.subtle</span><span class="hex mono">#1b1b1b</span></div></div>
     
-    <div class="swatch role"><div class="chip" style="background: #212121">border.default</div><div class="lbl"><span class="name">border.default</span><span class="hex mono">#212121</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #262626">border.default</div><div class="lbl"><span class="name">border.default</span><span class="hex mono">#262626</span></div></div>
     
-    <div class="swatch role"><div class="chip" style="background: #292929">border.strong</div><div class="lbl"><span class="name">border.strong</span><span class="hex mono">#292929</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #303030">border.strong</div><div class="lbl"><span class="name">border.strong</span><span class="hex mono">#303030</span></div></div>
     
     
-    <div class="swatch role"><div class="chip" style="background: #7f98bf; color: var(--bg-canvas)">accent.primary</div><div class="lbl"><span class="name">accent.primary</span><span class="hex mono">#7f98bf</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #8da1c7; color: var(--bg-canvas)">accent.primary</div><div class="lbl"><span class="name">accent.primary</span><span class="hex mono">#8da1c7</span></div></div>
     
-    <div class="swatch role"><div class="chip" style="background: #9faece; color: var(--bg-canvas)">accent.secondary</div><div class="lbl"><span class="name">accent.secondary</span><span class="hex mono">#9faece</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #babcd8; color: var(--bg-canvas)">accent.secondary</div><div class="lbl"><span class="name">accent.secondary</span><span class="hex mono">#babcd8</span></div></div>
     
-    <div class="swatch role"><div class="chip" style="background: #8ea98c; color: var(--bg-canvas)">accent.success</div><div class="lbl"><span class="name">accent.success</span><span class="hex mono">#8ea98c</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #8aaf86; color: var(--bg-canvas)">accent.success</div><div class="lbl"><span class="name">accent.success</span><span class="hex mono">#8aaf86</span></div></div>
     
     <div class="swatch role"><div class="chip" style="background: #d4b070; color: var(--bg-canvas)">accent.warning</div><div class="lbl"><span class="name">accent.warning</span><span class="hex mono">#d4b070</span></div></div>
     
-    <div class="swatch role"><div class="chip" style="background: #d97777; color: var(--bg-canvas)">accent.danger</div><div class="lbl"><span class="name">accent.danger</span><span class="hex mono">#d97777</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #df7c7b; color: var(--bg-canvas)">accent.danger</div><div class="lbl"><span class="name">accent.danger</span><span class="hex mono">#df7c7b</span></div></div>
     
-    <div class="swatch role"><div class="chip" style="background: #6f9aa9; color: var(--bg-canvas)">accent.info</div><div class="lbl"><span class="name">accent.info</span><span class="hex mono">#6f9aa9</span></div></div>
+    <div class="swatch role"><div class="chip" style="background: #49a4bf; color: var(--bg-canvas)">accent.info</div><div class="lbl"><span class="name">accent.info</span><span class="hex mono">#49a4bf</span></div></div>
     
   </div>
 
@@ -206,31 +206,31 @@
     
     <div class="swatch"><div class="chip" style="background: #e2cfc6"></div><div class="lbl"><span class="name">rosewater</span><span class="hex mono">#e2cfc6</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #d8b8aa"></div><div class="lbl"><span class="name">flamingo</span><span class="hex mono">#d8b8aa</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #e6aea0"></div><div class="lbl"><span class="name">flamingo</span><span class="hex mono">#e6aea0</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #d1b2c9"></div><div class="lbl"><span class="name">pink</span><span class="hex mono">#d1b2c9</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #d4a9ca"></div><div class="lbl"><span class="name">pink</span><span class="hex mono">#d4a9ca</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #a78cc4"></div><div class="lbl"><span class="name">mauve</span><span class="hex mono">#a78cc4</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #aa89c2"></div><div class="lbl"><span class="name">mauve</span><span class="hex mono">#aa89c2</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #d97777"></div><div class="lbl"><span class="name">red</span><span class="hex mono">#d97777</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #df7c7b"></div><div class="lbl"><span class="name">red</span><span class="hex mono">#df7c7b</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #c47068"></div><div class="lbl"><span class="name">maroon</span><span class="hex mono">#c47068</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #dc99a4"></div><div class="lbl"><span class="name">maroon</span><span class="hex mono">#dc99a4</span></div></div>
     
     <div class="swatch"><div class="chip" style="background: #d99a6a"></div><div class="lbl"><span class="name">peach</span><span class="hex mono">#d99a6a</span></div></div>
     
     <div class="swatch"><div class="chip" style="background: #d4b070"></div><div class="lbl"><span class="name">yellow</span><span class="hex mono">#d4b070</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #8ea98c"></div><div class="lbl"><span class="name">green</span><span class="hex mono">#8ea98c</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #8aaf86"></div><div class="lbl"><span class="name">green</span><span class="hex mono">#8aaf86</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #53a6a4"></div><div class="lbl"><span class="name">teal</span><span class="hex mono">#53a6a4</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #58aea8"></div><div class="lbl"><span class="name">teal</span><span class="hex mono">#58aea8</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #82afb7"></div><div class="lbl"><span class="name">sky</span><span class="hex mono">#82afb7</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #7fb7bd"></div><div class="lbl"><span class="name">sky</span><span class="hex mono">#7fb7bd</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #6f9aa9"></div><div class="lbl"><span class="name">sapphire</span><span class="hex mono">#6f9aa9</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #49a4bf"></div><div class="lbl"><span class="name">sapphire</span><span class="hex mono">#49a4bf</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #7f98bf"></div><div class="lbl"><span class="name">blue</span><span class="hex mono">#7f98bf</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #8da1c7"></div><div class="lbl"><span class="name">blue</span><span class="hex mono">#8da1c7</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #9faece"></div><div class="lbl"><span class="name">lavender</span><span class="hex mono">#9faece</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #babcd8"></div><div class="lbl"><span class="name">lavender</span><span class="hex mono">#babcd8</span></div></div>
     
     <div class="swatch"><div class="chip" style="background: #e7e5e4"></div><div class="lbl"><span class="name">text</span><span class="hex mono">#e7e5e4</span></div></div>
     
@@ -244,11 +244,11 @@
     
     <div class="swatch"><div class="chip" style="background: #57534e"></div><div class="lbl"><span class="name">overlay0</span><span class="hex mono">#57534e</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #292929"></div><div class="lbl"><span class="name">surface2</span><span class="hex mono">#292929</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #303030"></div><div class="lbl"><span class="name">surface2</span><span class="hex mono">#303030</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #212121"></div><div class="lbl"><span class="name">surface1</span><span class="hex mono">#212121</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #262626"></div><div class="lbl"><span class="name">surface1</span><span class="hex mono">#262626</span></div></div>
     
-    <div class="swatch"><div class="chip" style="background: #191919"></div><div class="lbl"><span class="name">surface0</span><span class="hex mono">#191919</span></div></div>
+    <div class="swatch"><div class="chip" style="background: #1b1b1b"></div><div class="lbl"><span class="name">surface0</span><span class="hex mono">#1b1b1b</span></div></div>
     
     <div class="swatch"><div class="chip" style="background: #111111"></div><div class="lbl"><span class="name">base</span><span class="hex mono">#111111</span></div></div>
     

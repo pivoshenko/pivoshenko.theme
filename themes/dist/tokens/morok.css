@@ -1,8 +1,8 @@
 [data-flavor="morok"] {
   /* Background */
   --bg-canvas: 17 17 17;
-  --bg-surface: 25 25 25;
-  --bg-raised: 33 33 33;
+  --bg-surface: 27 27 27;
+  --bg-raised: 38 38 38;
   --bg-sunken: 13 13 13;
   --bg-overlay: 87 83 78;
 
@@ -13,15 +13,15 @@
   --fg-faint: 120 113 108;
 
   /* Border */
-  --border-subtle: 25 25 25;
-  --border-default: 33 33 33;
-  --border-strong: 41 41 41;
+  --border-subtle: 27 27 27;
+  --border-default: 38 38 38;
+  --border-strong: 48 48 48;
 
   /* Accent */
-  --accent-primary: 127 152 191;
-  --accent-secondary: 159 174 206;
-  --accent-success: 142 169 140;
+  --accent-primary: 141 161 199;
+  --accent-secondary: 186 188 216;
+  --accent-success: 138 175 134;
   --accent-warning: 212 176 112;
-  --accent-danger: 217 119 119;
-  --accent-info: 111 154 169;
+  --accent-danger: 223 124 123;
+  --accent-info: 73 164 191;
 }

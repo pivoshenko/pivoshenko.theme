@@ -48,7 +48,7 @@ from the palette's `roles` block (`{{ role.bg.canvas.hex }}`); `{{ name }}` and 
 
 `_normalize_template` rewrites every template first, for compatibility with the Catppuccin Whiskers
 dialect the templates were written in: `{{ if(` becomes `{{ iif(`, `=#{{` becomes `={{`. The swallowed `#`
-is deliberate - `.hex` carries its own, so ghostty's `palette = 1=#{{ red.hex }}` emits `1=#d97777`.
+is deliberate - `.hex` carries its own, so ghostty's `palette = 1=#{{ red.hex }}` emits `1=#df7c7b`.
 
 `_render_target_from_template` maps template filename to output path. `templates/<tool>/theme.<ext>.jinja`
 -> `dist/<tool>/<flavor>.<ext>` is the normal case; other filenames land differently (multi-file ports like

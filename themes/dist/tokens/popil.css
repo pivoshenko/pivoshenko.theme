@@ -1,8 +1,8 @@
 [data-flavor="popil"] {
   /* Background */
   --bg-canvas: 31 31 30;
-  --bg-surface: 38 38 37;
-  --bg-raised: 46 46 44;
+  --bg-surface: 43 41 38;
+  --bg-raised: 52 50 48;
   --bg-sunken: 26 26 25;
   --bg-overlay: 87 83 78;
 
@@ -13,15 +13,15 @@
   --fg-faint: 120 113 108;
 
   /* Border */
-  --border-subtle: 38 38 37;
-  --border-default: 46 46 44;
-  --border-strong: 55 54 52;
+  --border-subtle: 43 41 38;
+  --border-default: 52 50 48;
+  --border-strong: 63 61 59;
 
   /* Accent */
-  --accent-primary: 123 160 196;
-  --accent-secondary: 168 155 181;
-  --accent-success: 138 157 104;
-  --accent-warning: 212 168 90;
-  --accent-danger: 224 93 85;
-  --accent-info: 100 153 177;
+  --accent-primary: 141 167 209;
+  --accent-secondary: 184 185 215;
+  --accent-success: 145 171 120;
+  --accent-warning: 212 170 92;
+  --accent-danger: 236 116 112;
+  --accent-info: 91 167 197;
 }

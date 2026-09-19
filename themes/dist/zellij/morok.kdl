@@ -4,133 +4,133 @@ themes {
     text_unselected {
       base "#d6d3d1"
       background "#0d0d0d"
-      emphasis_0 "#7f98bf"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#9faece"
+      emphasis_0 "#8da1c7"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#babcd8"
     }
     text_selected {
       base "#e7e5e4"
-      background "#212121"
-      emphasis_0 "#7f98bf"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#9faece"
+      background "#262626"
+      emphasis_0 "#8da1c7"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#babcd8"
     }
 
     // == Tabs (ribbons) ==
     // active tab: bright accent, prominent
     ribbon_selected {
       base "#0d0d0d"
-      background "#7f98bf"
+      background "#8da1c7"
       emphasis_0 "#0d0d0d"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#9faece"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#babcd8"
     }
     // inactive tab: muted chip
     // emphasis_1 is the tab-bar "alternate tab" colour (zebra striping) -- keep
     // it a subtle bg step so every other tab doesn't turn a loud accent colour
     ribbon_unselected {
       base "#d6d3d1"
-      background "#191919"
-      emphasis_0 "#7f98bf"
-      emphasis_1 "#212121"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#9faece"
+      background "#1b1b1b"
+      emphasis_0 "#8da1c7"
+      emphasis_1 "#262626"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#babcd8"
     }
 
     // == Tables (session manager, etc.) ==
     table_title {
-      base "#7f98bf"
+      base "#8da1c7"
       background "#0d0d0d"
-      emphasis_0 "#6f9aa9"
-      emphasis_1 "#8ea98c"
-      emphasis_2 "#9faece"
-      emphasis_3 "#d97777"
+      emphasis_0 "#49a4bf"
+      emphasis_1 "#8aaf86"
+      emphasis_2 "#babcd8"
+      emphasis_3 "#df7c7b"
     }
     table_cell_selected {
       base "#e7e5e4"
-      background "#212121"
-      emphasis_0 "#7f98bf"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#9faece"
+      background "#262626"
+      emphasis_0 "#8da1c7"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#babcd8"
     }
     table_cell_unselected {
       base "#d6d3d1"
       background "#0d0d0d"
-      emphasis_0 "#7f98bf"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#9faece"
+      emphasis_0 "#8da1c7"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#babcd8"
     }
 
     // == Lists (fuzzy finders, pickers) ==
     list_selected {
       base "#e7e5e4"
-      background "#212121"
-      emphasis_0 "#7f98bf"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#9faece"
+      background "#262626"
+      emphasis_0 "#8da1c7"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#babcd8"
     }
     list_unselected {
       base "#d6d3d1"
       background "#0d0d0d"
-      emphasis_0 "#7f98bf"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#9faece"
+      emphasis_0 "#8da1c7"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#babcd8"
     }
 
     // == Pane frames ==
     frame_selected {
-      base "#7f98bf"
+      base "#8da1c7"
       background "#0d0d0d"
-      emphasis_0 "#9faece"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#d97777"
+      emphasis_0 "#babcd8"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#df7c7b"
     }
     frame_highlight {
-      base "#9faece"
+      base "#babcd8"
       background "#0d0d0d"
-      emphasis_0 "#7f98bf"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#d97777"
+      emphasis_0 "#8da1c7"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#df7c7b"
     }
 
     // == Exit codes ==
     exit_code_success {
-      base "#8ea98c"
+      base "#8aaf86"
       background "#0d0d0d"
-      emphasis_0 "#6f9aa9"
-      emphasis_1 "#7f98bf"
-      emphasis_2 "#9faece"
-      emphasis_3 "#d97777"
+      emphasis_0 "#49a4bf"
+      emphasis_1 "#8da1c7"
+      emphasis_2 "#babcd8"
+      emphasis_3 "#df7c7b"
     }
     exit_code_error {
-      base "#d97777"
+      base "#df7c7b"
       background "#0d0d0d"
-      emphasis_0 "#9faece"
-      emphasis_1 "#6f9aa9"
-      emphasis_2 "#8ea98c"
-      emphasis_3 "#7f98bf"
+      emphasis_0 "#babcd8"
+      emphasis_1 "#49a4bf"
+      emphasis_2 "#8aaf86"
+      emphasis_3 "#8da1c7"
     }
 
     // == Collaborators ==
     multiplayer_user_colors {
-      player_1 "#7f98bf"
-      player_2 "#6f9aa9"
-      player_3 "#8ea98c"
-      player_4 "#d1b2c9"
-      player_5 "#9faece"
-      player_6 "#9faece"
-      player_7 "#d97777"
-      player_8 "#53a6a4"
-      player_9 "#82afb7"
+      player_1 "#8da1c7"
+      player_2 "#49a4bf"
+      player_3 "#8aaf86"
+      player_4 "#d4a9ca"
+      player_5 "#babcd8"
+      player_6 "#babcd8"
+      player_7 "#df7c7b"
+      player_8 "#58aea8"
+      player_9 "#7fb7bd"
       player_10 "#e2cfc6"
     }
   }

@@ -95,7 +95,7 @@ export function AccentProvider({
       <div
         style={
           {
-            '--morok-pinned': pinned?.hex ?? '#a78cc4',
+            '--morok-pinned': pinned?.hex ?? '#aa89c2',
           } as React.CSSProperties
         }
       >
