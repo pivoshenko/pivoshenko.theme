@@ -1,6 +1,7 @@
 'use client'
 
 import { useFlavor } from '@/lib/flavor-context'
+import { FLAVORS } from '@/lib/flavors'
 import { Tab, Tabs } from 'pivoshenko.ui'
 
 export function FlavorToggle() {
@@ -8,15 +9,15 @@ export function FlavorToggle() {
 
   return (
     <Tabs>
-      <Tab active={flavor === 'morok'} onClick={() => setFlavor('morok')}>
-        Morok
-      </Tab>
-      <Tab active={flavor === 'popil'} onClick={() => setFlavor('popil')}>
-        Popil
-      </Tab>
-      <Tab active={flavor === 'vatra'} onClick={() => setFlavor('vatra')}>
-        Vatra
-      </Tab>
+      {FLAVORS.map((entry) => (
+        <Tab
+          key={entry.id}
+          active={flavor === entry.id}
+          onClick={() => setFlavor(entry.id)}
+        >
+          {entry.name}
+        </Tab>
+      ))}
     </Tabs>
   )
 }

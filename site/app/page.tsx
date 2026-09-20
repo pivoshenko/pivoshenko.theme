@@ -1,81 +1,98 @@
-import { ColorsSection } from '@/components/colors-section'
-import { renderExamples } from '@/components/examples'
-import { ExamplesClient } from '@/components/examples-client'
-import { FlavorDescription } from '@/components/flavor-description'
-import { FlavorToggle } from '@/components/flavor-toggle'
-import { Hero } from '@/components/hero'
-import { PortsGrid } from '@/components/ports-grid'
-import { AccentProvider } from '@/lib/accent-context'
-import { FlavorProvider } from '@/lib/flavor-context'
+import { Browse } from '@/components/browse'
+import { Flavors } from '@/components/flavors'
 import { getPalette, getPorts } from '@/lib/theme-data'
-import { SectionHeader } from 'pivoshenko.ui'
+import { HeroBand, Highlights, PageBody, SectionHeader } from 'pivoshenko.ui'
 
-export default async function HomePage() {
-  const morok = getPalette('morok')
-  const popil = getPalette('popil')
-  const vatra = getPalette('vatra')
-  const ports = getPorts()
+const highlights = [
+  {
+    title: 'One palette, every tool',
+    body: 'The same 26 named slots dress the terminal, the editor, the git pager and the browser, so a colour means the same thing wherever you meet it.',
+  },
+  {
+    title: 'Three flavors, one shape',
+    body: 'Every port exists for all three flavors and every flavor fills every slot. Switching is a filename, never a different theme with a similar name.',
+  },
+  {
+    title: 'Generated, not hand-tuned',
+    body: 'Each port is rendered from the source palette against a template, so a colour correction reaches every tool in one pass instead of drifting apart.',
+  },
+]
 
-  // slot names are identical across flavors, only the hex values differ, so
-  // consumers read hex from the active palette via useFlavor().palette.map
-  const accents = morok.colors
-    .filter((c) => c.group === 'accent')
-    .map((c) => ({ name: c.name, hex: c.hex }))
-
-  // shiki backgrounds track the bg ramp, so render a set per flavor
-  const exampleSets = {
-    morok: await renderExamples(morok.map),
-    popil: await renderExamples(popil.map),
-    vatra: await renderExamples(vatra.map),
+export default function HomePage() {
+  const palettes = {
+    morok: getPalette('morok'),
+    popil: getPalette('popil'),
+    vatra: getPalette('vatra'),
   }
+  const ports = getPorts()
+  const slots = palettes.morok.colors.length
 
   return (
-    <FlavorProvider palettes={{ morok, popil, vatra }} defaultFlavor="morok">
-      <AccentProvider accents={accents} defaultAccent="mauve">
-        <div className="space-y-10">
-          <Hero />
+    <>
+      <HeroBand
+        field="waves"
+        tintAlt="peach"
+        title={
+          <>
+            <span className="fg-title">pivoshenko</span>
+            <span className="fg-muted">.</span>
+            <span className="text-accent">theme</span>
+          </>
+        }
+        lead="Dark themes focused on minimalism, simplicity and cross-tool consistency."
+      >
+        <p className="type-body fg-body mt-4">
+          Most themes are made one tool at a time, which is why your terminal
+          and your editor never quite agree on what green is. This one starts
+          from a palette and generates the rest.
+        </p>
+      </HeroBand>
 
-          <section className="space-y-4">
-            <SectionHeader title="flavors" />
-            <FlavorToggle />
-            <FlavorDescription />
-          </section>
+      <PageBody className="space-y-12">
+        <section className="space-y-2">
+          <SectionHeader title="Why" />
+          <Highlights items={highlights} className="text-center" />
+        </section>
 
-          <section className="space-y-4">
-            <SectionHeader title="palette" />
-            <ColorsSection />
-          </section>
+        <section id="flavors" className="scroll-mt-24 space-y-2">
+          <SectionHeader title="Flavors" count={3} />
+          <Flavors palettes={palettes} />
+        </section>
 
-          <section className="space-y-4">
-            <SectionHeader title="ports" count={ports.length} />
-            <PortsGrid ports={ports} />
-          </section>
+        <Browse
+          destinations={[
+            {
+              href: '/ports',
+              title: 'Ports',
+              count: ports.length,
+              description:
+                'Every tool the theme dresses, grouped by the kind of application it is, with install steps behind each one',
+            },
+            {
+              href: '/palette',
+              title: 'Palette',
+              count: slots,
+              description:
+                'The named slots of each flavor, side by side with the code samples they render',
+            },
+          ]}
+        />
 
-          <section className="space-y-4">
-            <SectionHeader title="examples" />
-            <p className="type-body fg-muted">
-              Pick a tab to swap between the terminal mock and
-              syntax-highlighted samples across languages.
-            </p>
-            <ExamplesClient sets={exampleSets} />
-          </section>
-
-          <section className="space-y-4">
-            <SectionHeader title="thanks" />
-            <p className="type-body fg-body">
-              Palette structure and token naming inspired by{' '}
-              <a
-                href="https://github.com/catppuccin/catppuccin"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Catppuccin
-              </a>
-              .
-            </p>
-          </section>
-        </div>
-      </AccentProvider>
-    </FlavorProvider>
+        <section className="space-y-2">
+          <SectionHeader title="Thanks" />
+          <p className="type-body fg-body">
+            Palette structure and token naming inspired by{' '}
+            <a
+              href="https://github.com/catppuccin/catppuccin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Catppuccin
+            </a>
+            .
+          </p>
+        </section>
+      </PageBody>
+    </>
   )
 }

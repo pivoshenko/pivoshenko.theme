@@ -1,1 +1,17 @@
 @import "pivoshenko.ui/ui/globals.css";
+
+/* Sub-headings resolve `accent-info` and prose links resolve `--accent`, which
+   on this site is red - too close to the page's own furniture for a link and
+   too cool for a sub-heading. Both go to peach here. `--peach` rather than the
+   literal triple, so a palette correction still reaches them */
+:root {
+  --accent-info: var(--peach);
+}
+
+a:not([class]) {
+  text-decoration-color: rgb(var(--peach));
+}
+
+a:not([class]):hover {
+  color: rgb(var(--peach));
+}

@@ -22,10 +22,25 @@ export const metadata = {
 
 export const viewport = siteViewport
 
+const navLinks = [
+  { href: '/ports', label: 'Ports' },
+  { href: '/palette', label: 'Palette' },
+]
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return <SiteLayout brand="pivoshenko.theme">{children}</SiteLayout>
+  return (
+    <SiteLayout
+      brand="pivoshenko.theme"
+      accent="red"
+      navLinks={navLinks}
+      field="waves"
+      fieldTintAlt="peach"
+    >
+      {children}
+    </SiteLayout>
+  )
 }

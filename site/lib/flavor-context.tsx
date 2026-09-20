@@ -7,9 +7,10 @@ import {
   useMemo,
   useState,
 } from 'react'
+import type { Flavor } from './flavors'
 import type { PaletteColor } from './theme-data'
 
-export type Flavor = 'morok' | 'popil' | 'vatra'
+export type { Flavor }
 
 export type PaletteData = {
   name: string
