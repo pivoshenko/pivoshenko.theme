@@ -15,25 +15,20 @@ export function Hero() {
       </p>
       <ul className="type-body fg-body space-y-1 list-disc pl-5">
         <li>
-          <strong>Morok</strong> is pitch black: neutral greys on a true-black
-          floor.
+          <strong>Morok</strong> is darkness: the starkest of the three, coolest
+          in tone, highest in contrast.
         </li>
         <li>
-          <strong>Popil</strong> is warm ash: a near-neutral warm-grey base with
-          neutral warm-grey subtext and muted terracotta accents.
+          <strong>Popil</strong> is ash: warm, muted and restrained.
         </li>
         <li>
-          <strong>Vatra</strong> is Carpathian hearth fire: the same warm base
-          as popil, but with golden-tan subtext and gruvbox-material-warm
-          accents.
+          <strong>Vatra</strong> is hearth fire: the same warm base as popil,
+          but punchier and more saturated.
         </li>
       </ul>
       <p className="type-body fg-body">
         All three flavors share the same 14 named color slots and every port.
-        Only the values diverge. Pick <code className="font-mono">morok</code>{' '}
-        for maximum contrast, <code className="font-mono">popil</code> for
-        restrained warm minimalism, <code className="font-mono">vatra</code> for
-        the gruvbox-coded sibling.
+        Only the values diverge.
       </p>
     </section>
   )
