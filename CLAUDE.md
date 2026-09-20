@@ -62,9 +62,10 @@ site's port grid like any other.
 2. `just render-themes`
 3. commit the generated `themes/dist/<tool>/{morok,popil,vatra}.<ext>` alongside the template
 4. add an install section to `README.md` under `## Ports`
-5. optionally add `portSwatches` and `readmeAnchors` entries in `site/lib/theme-data.ts` - the site finds
-   ports by listing `themes/dist/`, so a new one appears in the grid regardless, just without swatch
-   colors or a working README anchor
+5. add `portGroups`, `portDescriptions`, `readmeAnchors` and `portSwatches` entries in
+   `site/lib/theme-data.ts`, and an icon in `site/components/port-entry.tsx` - the site finds ports by
+   listing `themes/dist/`, so a new one appears on `/ports` regardless, but it lands in the `cli` group
+   with no description, no install link and a generic icon until those are filled in
 
 ## Userstyles
 
@@ -80,6 +81,12 @@ config file in `site/` is a one-line re-export of something that package supplie
 look usually means bumping that pin, not editing files here. `lib/theme-data.ts` reads
 `../themes/palettes/*.json` and lists `../themes/dist/` **from the filesystem at build time** via `node:fs`,
 which is why the site cannot build against a cleaned `themes/dist` and has to stay in the themes' checkout.
+
+Three routes: `/` is the landing (hero band, the three flavors as cards, links onward), `/ports` is the
+port catalog, and `/palette` carries the flavor toggle, the color grid and the code samples. The catalog
+groups ports by `PORT_GROUPS` in `lib/theme-data.ts`, and `getPorts()` returns them already in that order
+because `Catalog` buckets by first appearance. The grouping and the per-port copy are hand-kept, not
+derived from the template tree.
 
 ## Palettes
 
