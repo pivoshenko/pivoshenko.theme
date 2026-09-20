@@ -59,7 +59,7 @@ Concrete examples, API sketches, UI mockups, or references are helpful when rele
 
 ### Local Development
 
-This repo needs [uv](https://docs.astral.sh/uv) with Python 3.13 for the palette renderer, Node.js 24 with [pnpm](https://pnpm.io) for the site in `site/`, and `just`.
+This repo needs [uv](https://docs.astral.sh/uv) with Python 3.14 for the palette renderer, Node.js 24 with [pnpm](https://pnpm.io) for the site in `site/`, and `just`.
 
 This project uses [`just`](https://github.com/casey/just) as its task runner. Run `just --list` for the full set; these are the ones you need day to day:
 
@@ -94,7 +94,7 @@ Workflows live in `.github/workflows`:
 
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
-| CI | Push to `main`, pull requests, `workflow_dispatch` | Two independent jobs on `ubuntu-24.04-arm`: `ci-py` installs the Python dependencies with uv on Python 3.13, then lints and tests the palette renderer; `ci-next` installs the site dependencies with pnpm on Node.js 24, then lints, tests and builds the site in `site/` |
+| CI | Push to `main`, pull requests, `workflow_dispatch` | Two independent jobs on `ubuntu-24.04-arm`: `ci-py` installs the Python dependencies with uv on Python 3.14, then lints and tests the palette renderer; `ci-next` installs the site dependencies with pnpm on Node.js 24, then lints, tests and builds the site in `site/` |
 
 CI must be green before a pull request is merged.
 
