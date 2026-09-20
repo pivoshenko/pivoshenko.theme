@@ -165,7 +165,7 @@ spicetify, and stylus.
 <details>
 <summary>Install</summary>
 
-1. Copy [`themes/dist/lazygit/<flavor>.yml`](themes/dist/lazygit/) to `~/.config/lazygit/config.yml`
+1. Copy [`themes/dist/lazygit/<flavor>.yaml`](themes/dist/lazygit/) to `~/.config/lazygit/config.yml`
 2. Or merge only the `theme:` section into your existing config
 
 </details>
