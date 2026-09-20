@@ -3,11 +3,12 @@ import { renderExamples } from '@/components/examples'
 import { ExamplesClient } from '@/components/examples-client'
 import { FlavorDescription } from '@/components/flavor-description'
 import { FlavorToggle } from '@/components/flavor-toggle'
+import { SiteHero } from '@/components/site-hero'
 import { AccentProvider } from '@/lib/accent-context'
 import { FlavorProvider } from '@/lib/flavor-context'
 import { getPalette } from '@/lib/theme-data'
 import type { Metadata } from 'next'
-import { HeroBand, PageBody, SectionHeader } from 'pivoshenko.ui'
+import { PageBody, SectionHeader } from 'pivoshenko.ui'
 
 export const metadata: Metadata = {
   title: 'Palette',
@@ -28,19 +29,15 @@ export default async function PalettePage() {
 
   // shiki backgrounds track the bg ramp, so render a set per flavor
   const exampleSets = {
-    morok: await renderExamples(morok.map),
-    popil: await renderExamples(popil.map),
-    vatra: await renderExamples(vatra.map),
+    morok: await renderExamples(morok.map, 'morok'),
+    popil: await renderExamples(popil.map, 'popil'),
+    vatra: await renderExamples(vatra.map, 'vatra'),
   }
 
   return (
     <FlavorProvider palettes={{ morok, popil, vatra }} defaultFlavor="morok">
       <AccentProvider accents={accents} defaultAccent="mauve">
-        <HeroBand
-          field="waves"
-          tintAlt="peach"
-          title={<span className="fg-title">Palette</span>}
-        />
+        <SiteHero title={<span className="fg-title">Palette</span>} />
         <PageBody className="space-y-12">
           <section className="space-y-4">
             <FlavorToggle />

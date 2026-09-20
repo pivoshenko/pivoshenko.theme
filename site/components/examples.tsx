@@ -2,13 +2,22 @@ import { morokShikiTheme } from '@/lib/shiki-theme'
 import { codeToHtml } from 'shiki'
 import type { CodeExample } from './examples-section'
 
-const samples: {
+// fish's set_color takes a bare hex, every other sample takes it with the hash
+const bare = (hex: string) => hex.replace('#', '')
+
+// The snippets are rendered once per flavor, so their colour literals have to
+// come from that flavor's map - hand-written hexes here drifted from every
+// palette the theme actually ships
+const samples = (
+  map: Record<string, string>,
+  flavor: string,
+): {
   id: string
   label: string
   language: string
   filename: string
   code: string
-}[] = [
+}[] => [
   {
     id: 'rust',
     label: 'rust',
@@ -36,8 +45,8 @@ impl Palette {
 }
 
 fn main() {
-    let mut p = Palette::new("morok");
-    p.colors.insert("mauve".into(), "#a78cc4".into());
+    let mut p = Palette::new("${flavor}");
+    p.colors.insert("mauve".into(), "${map.mauve}".into());
     println!("{:?}", p.accent("mauve"));
 }
 `,
@@ -144,18 +153,18 @@ func (p *Palette) Accent(key string) (string, bool) {
     label: 'fish',
     language: 'fish',
     filename: 'config.fish',
-    code: `# fish config - morok theme
+    code: `# fish config - ${flavor} theme
 set -gx EDITOR helix
 set -gx PAGER bat
 set -gx LANG en_US.UTF-8
 
 function fish_prompt
     set -l last_status $status
-    set_color a78cc4
+    set_color ${bare(map.mauve)}
     echo -n "❯ "
-    set_color 7f98bf
+    set_color ${bare(map.blue)}
     echo -n (prompt_pwd)
-    set_color 8ea98c
+    set_color ${bare(map.green)}
     echo -n " ("(git branch --show-current 2>/dev/null)") "
     set_color normal
 end
@@ -170,7 +179,7 @@ abbr -a gco 'git checkout'
     label: 'toml',
     language: 'toml',
     filename: 'starship.toml',
-    code: `# starship config - morok palette
+    code: `# starship config - ${flavor} palette
 format = """
 $directory\\
 $git_branch\\
@@ -179,19 +188,19 @@ $cmd_duration\\
 $character"""
 
 [character]
-success_symbol = "[❯](#a78cc4)"
-error_symbol = "[❯](#c98787)"
+success_symbol = "[❯](${map.mauve})"
+error_symbol = "[❯](${map.red})"
 
 [directory]
-style = "#7f98bf"
+style = "${map.blue}"
 truncation_length = 3
 
 [git_branch]
 symbol = " "
-style = "#8ea98c"
+style = "${map.green}"
 
 [git_status]
-style = "#d0a178"
+style = "${map.peach}"
 `,
   },
 ]
@@ -199,11 +208,12 @@ style = "#d0a178"
 // called once per flavor on the server; the client swaps between the sets
 export async function renderExamples(
   map: Record<string, string>,
+  flavor: string,
 ): Promise<CodeExample[]> {
   const theme = morokShikiTheme(map)
 
   return Promise.all(
-    samples.map(async (s) => {
+    samples(map, flavor).map(async (s) => {
       const html = await codeToHtml(s.code, { lang: s.language, theme })
       return {
         id: s.id,

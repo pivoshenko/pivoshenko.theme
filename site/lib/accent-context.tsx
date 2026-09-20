@@ -91,17 +91,7 @@ export function AccentProvider({
   )
 
   return (
-    <AccentContext.Provider value={value}>
-      <div
-        style={
-          {
-            '--morok-pinned': pinned?.hex ?? '#aa89c2',
-          } as React.CSSProperties
-        }
-      >
-        {children}
-      </div>
-    </AccentContext.Provider>
+    <AccentContext.Provider value={value}>{children}</AccentContext.Provider>
   )
 }
 

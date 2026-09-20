@@ -109,8 +109,9 @@ function Swatch({
 }) {
   const rgb = hexToRgb(color.hex)
   const isLight = rgb ? rgb.r + rgb.g + rgb.b > 380 : false
-  // absolute contrast pair: swatches render arbitrary palette colors, so role tokens don't apply
-  const fg = isLight ? '#0c0a09' : '#e7e5e4'
+  // swatches render arbitrary palette colors, so neither role token applies on
+  // its own - the pair is the palette's own darkest and lightest ends
+  const fg = isLight ? 'rgb(var(--crust))' : 'rgb(var(--fg-default))'
 
   return (
     <button

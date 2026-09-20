@@ -297,7 +297,7 @@ export function getPorts(): Port[] {
         extensions: extensionsOf(files),
         files,
         readmeUrl: `${githubRepo}#${readmeAnchors[entry.name] ?? 'ports'}`,
-        swatches: tokens.map((t) => palette.map[t] ?? '#000000'),
+        swatches: tokens.map((t) => palette.map[t] ?? palette.map.base),
       }
     })
     .sort(

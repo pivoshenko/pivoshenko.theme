@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import {
   SiteLayout,
   siteMetadata,
@@ -23,6 +24,7 @@ export const metadata = {
 export const viewport = siteViewport
 
 const navLinks = [
+  { href: '/', label: 'Home' },
   { href: '/ports', label: 'Ports' },
   { href: '/palette', label: 'Palette' },
 ]
@@ -36,9 +38,11 @@ export default function RootLayout({
     <SiteLayout
       brand="pivoshenko.theme"
       accent="red"
+      subAccent="peach"
       navLinks={navLinks}
       field="waves"
       fieldTintAlt="peach"
+      afterShell={<SpeedInsights />}
     >
       {children}
     </SiteLayout>

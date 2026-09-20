@@ -1,7 +1,8 @@
 import { portEntry } from '@/components/port-entry'
+import { SiteHero } from '@/components/site-hero'
 import { getPorts } from '@/lib/theme-data'
 import type { Metadata } from 'next'
-import { Catalog, HeroBand, PageBody } from 'pivoshenko.ui'
+import { Catalog, PageBody } from 'pivoshenko.ui'
 
 export const metadata: Metadata = {
   title: 'Ports',
@@ -14,11 +15,7 @@ export default function PortsPage() {
 
   return (
     <>
-      <HeroBand
-        field="waves"
-        tintAlt="peach"
-        title={<span className="fg-title">Ports</span>}
-      />
+      <SiteHero title={<span className="fg-title">Ports</span>} />
       <PageBody>
         {/* getPorts already returns the ports in group order, and Catalog
             buckets in first-appearance order, so the sections follow it */}
