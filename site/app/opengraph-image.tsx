@@ -11,4 +11,5 @@ export default createOgImage({
   subtitle:
     'Themes focused on minimalism, simplicity and cross-tool consistency',
   domain: 'theme.pivoshenko.dev',
+  accent: 'red',
 })
