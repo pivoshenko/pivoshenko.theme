@@ -8,7 +8,7 @@ default:
 install: install-py install-site
 
 install-py:
-    uv sync --all-groups --all-extras
+    uv sync --all-groups --all-extras -U
 
 install-site:
     pnpm -C site install
