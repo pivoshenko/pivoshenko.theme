@@ -68,11 +68,4 @@ jobs:
         run: just test-site
 
       - name: Build
-        # the icon and og-image routes prerender through pivoshenko.ui, which
-        # fetches the JetBrains Mono face from fonts.gstatic.com at build time.
-        # Node's happy-eyeballs gives each resolved address 250ms to connect,
-        # which this runner does not always meet, and the build dies on
-        # ETIMEDOUT
         run: just build-site
-        env:
-          NODE_OPTIONS: --network-family-autoselection-attempt-timeout=5000
