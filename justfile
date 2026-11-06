@@ -16,7 +16,7 @@ install-site:
 format: format-py format-site
 
 format-py:
-    find . -type f -name '*.py' -not -path '*/.venv/*' | xargs uvx pyupgrade --py313-plus
+    uvx ruff check --fix .
     uvx ruff format .
 
 format-site:
