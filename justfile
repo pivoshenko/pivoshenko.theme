@@ -46,7 +46,7 @@ update: update-py update-site
 
 update-py:
     uv lock --upgrade
-    uvx uv-upsync
+    uv run uv-upsync
 
 update-site:
     cd site && pnpm update
