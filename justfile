@@ -8,28 +8,29 @@ default:
 install: install-py install-site
 
 install-py:
-    uv sync --all-groups --all-extras -U
+    uv sync --all-groups --all-extras
 
 install-site:
-    pnpm -C site install
+    cd site && pnpm install
 
 format: format-py format-site
 
 format-py:
-    uvx ruff check --fix .
-    uvx ruff format .
+    uv run ruff check --fix .
+    uv run ruff format .
 
 format-site:
-    pnpm -C site check
+    cd site && pnpm format
 
 lint: lint-py lint-site
 
 lint-py:
-    uvx ruff check .
-    uvx ty check .
+    uv run ruff check .
+    uv run ty check .
 
 lint-site:
-    pnpm -C site lint
+    cd site && pnpm lint
+    cd site && pnpm typecheck
 
 test: test-py test-site
 
@@ -37,7 +38,7 @@ test-py:
     @[ -f .no-tests ] && echo "skipping (.no-tests sentinel)" || { echo "no test command, add tests or restore .no-tests" >&2; exit 1; }
 
 test-site:
-    @[ -f .no-tests ] && echo "skipping (.no-tests sentinel)" || { echo "no test command, add tests or restore .no-tests" >&2; exit 1; }
+    @cd site && ([ -f .no-tests ] && echo "skipping (.no-tests sentinel)" || { echo "no test command, add tests or restore .no-tests" >&2; exit 1; })
 
 check: lint test build
 
@@ -48,12 +49,12 @@ update-py:
     uvx uv-upsync
 
 update-site:
-    pnpm -C site update
+    cd site && pnpm update
 
 build: build-site render-themes
 
 build-site:
-    pnpm -C site build
+    cd site && pnpm build
 
 clean:
     rm -rf themes/dist
@@ -73,8 +74,8 @@ render-theme-vatra:
     uv run scripts/bundle.py --styles-dir themes/userstyles/styles --output themes/dist/stylus/vatra.json --rewrite-import "{{ morok_lib_url }}" "{{ vatra_lib_url }}"
 
 run-dev-server:
-    pnpm -C site dev
+    cd site && pnpm dev
 
 run-prod-server:
-    pnpm -C site build
-    pnpm -C site start
+    cd site && pnpm build
+    cd site && pnpm start
