@@ -3,12 +3,11 @@ import { renderExamples } from '@/components/examples'
 import { ExamplesClient } from '@/components/examples-client'
 import { FlavorDescription } from '@/components/flavor-description'
 import { FlavorToggle } from '@/components/flavor-toggle'
-import { SiteHero } from '@/components/site-hero'
 import { AccentProvider } from '@/lib/accent-context'
 import { FlavorProvider } from '@/lib/flavor-context'
 import { getPalette } from '@/lib/theme-data'
 import type { Metadata } from 'next'
-import { PageBody, SectionHeader } from 'pivoshenko.ui'
+import { HeroBand, PageBody, SectionHeader } from 'pivoshenko.ui'
 
 export const metadata: Metadata = {
   title: 'Palette',
@@ -37,7 +36,7 @@ export default async function PalettePage() {
   return (
     <FlavorProvider palettes={{ morok, popil, vatra }} defaultFlavor="morok">
       <AccentProvider accents={accents} defaultAccent="mauve">
-        <SiteHero title={<span className="fg-title">Palette</span>} />
+        <HeroBand title={<span className="fg-title">Palette</span>} />
         <PageBody className="space-y-12">
           <section className="space-y-4">
             <FlavorToggle />

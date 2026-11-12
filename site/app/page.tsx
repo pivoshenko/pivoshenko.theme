@@ -1,8 +1,7 @@
 import { Browse } from '@/components/browse'
 import { Flavors } from '@/components/flavors'
-import { SiteHero } from '@/components/site-hero'
 import { getPalette, getPorts } from '@/lib/theme-data'
-import { Highlights, PageBody, SectionHeader } from 'pivoshenko.ui'
+import { HeroBand, Highlights, PageBody, SectionHeader } from 'pivoshenko.ui'
 
 const highlights = [
   {
@@ -30,12 +29,11 @@ export default function HomePage() {
 
   return (
     <>
-      <SiteHero
+      <HeroBand
         title={
           <>
-            <span className="fg-title">pivoshenko</span>
-            <span className="fg-muted">.</span>
-            <span className="text-accent">theme</span>
+            <span className="fg-title">Theme </span>
+            <span className="text-accent">Hub</span>
           </>
         }
         lead="Dark themes focused on minimalism, simplicity and cross-tool consistency."
@@ -45,7 +43,7 @@ export default function HomePage() {
           and your editor never quite agree on what green is. This one starts
           from a palette and generates the rest.
         </p>
-      </SiteHero>
+      </HeroBand>
 
       <PageBody className="space-y-12">
         <section className="space-y-2">

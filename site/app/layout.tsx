@@ -40,8 +40,7 @@ export default function RootLayout({
       accent="red"
       subAccent="peach"
       navLinks={navLinks}
-      field="waves"
-      fieldTintAlt="peach"
+      field="lake"
       afterShell={<SpeedInsights />}
     >
       {children}
