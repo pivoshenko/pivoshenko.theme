@@ -69,6 +69,7 @@ This project uses [`just`](https://github.com/casey/just) as its task runner. Ru
 | `just install-py` | Installs the Python dependencies, including every group and extra |
 | `just format` | Formats the Python code (`format-py`) |
 | `just lint` | Lints the Python code (`lint-py`) |
+| `just audit` | Checks the dependencies for known vulnerabilities (uv) |
 | `just lint-py` | Lints and type-checks the Python code with Ruff and ty |
 | `just test` | Runs the Python tests (`test-py`) |
 | `just build` | Renders every theme (`render-themes`) |

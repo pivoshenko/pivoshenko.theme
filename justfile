@@ -22,6 +22,11 @@ lint-py:
     uv run ruff check .
     uv run ty check .
 
+audit: audit-py
+
+audit-py:
+    uv audit --preview-features audit-command
+
 test: test-py
 
 test-py:
