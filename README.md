@@ -224,10 +224,10 @@ non-Fish shell, lift the two quoted strings into your own `export`.
 <details>
 <summary>Install</summary>
 
-1. Open the theme deep link in Telegram: [`pivoshenko_theme_morok`](https://t.me/addtheme/pivoshenko_theme_morok) or [`pivoshenko_theme_popil`](https://t.me/addtheme/pivoshenko_theme_popil)
+1. Open the theme deep link in Telegram: [`pivoshenko_theme_morok`](https://t.me/addtheme/pivoshenko_theme_morok), [`pivoshenko_theme_popil`](https://t.me/addtheme/pivoshenko_theme_popil) or [`pivoshenko_theme_vatra`](https://t.me/addtheme/pivoshenko_theme_vatra)
 2. Tap "Apply Theme"
 
-Platform-specific source files for all three flavors live in [`themes/dist/telegram/`](themes/dist/telegram/) as `<flavor>-desktop`, `<flavor>-ios`, and `<flavor>-macos`. Use these directly if no deep link is hosted for your flavor.
+Platform-specific source files for all three flavors live in [`themes/dist/telegram/`](themes/dist/telegram/) as `<flavor>-desktop`, `<flavor>-ios`, and `<flavor>-macos`. The deep links serve copies hosted by Telegram, so after a palette change paste each file into its iOS, TDesktop and macOS tab at [themes.telegram.org](https://themes.telegram.org) and save - the links pick up the new version.
 
 </details>
 
