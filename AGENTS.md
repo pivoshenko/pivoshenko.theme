@@ -3,9 +3,10 @@
 Guidance for Claude Code when working in this repository.
 
 `pivoshenko.theme` renders three dark flavors (`morok`, `popil`, `vatra`) from JSON palettes into per-tool
-ports, plus Stylus userstyles and a Next.js showcase site in `site/`. No runtime library - it is a code
-generator plus its generated output. Python + `uv` for `scripts/`, `pnpm` for `site/`, `just` for both;
-`README.md` covers the flavors and every port, `CONTRIBUTING.md` the `just` table, CI, and commit rules.
+ports, plus Stylus userstyles. No runtime library - it is a code generator plus its generated output.
+Python + `uv` for `scripts/`, `just` as the task runner. The showcase site lives elsewhere, see
+[The Site](#the-site); `README.md` covers the flavors and every port, `CONTRIBUTING.md` the `just`
+table, CI, and commit rules.
 
 ## Landmines
 
@@ -13,8 +14,8 @@ generator plus its generated output. Python + `uv` for `scripts/`, `pnpm` for `s
   same change as any palette or template edit, or stale output ships unnoticed
 - **there are no tests.** `just test` succeeds trivially if the `.no-tests` sentinel is present and fails
   loudly if it is not, so do not delete it unless you are adding a real test command in the same change
-- **after `just clean`, run `just render-themes` before `just build-site`.** `just build` renders themes
-  *after* building the site, but the site reads `themes/dist` from disk, so a cleaned tree fails the build
+- **`themes/dist/` stays committed.** The site in the `pivoshenko.sites` monorepo reads it at build time,
+  so never leave it cleaned; after `just clean`, run `just render-themes` again
 - **`=#{{` is rewritten to `={{` before rendering** (see below), so a literal `#` immediately before an
   expression is silently swallowed
 - **a color slot added to one palette must be added to all three.** The Jinja environment uses
@@ -62,10 +63,10 @@ site's port grid like any other.
 2. `just render-themes`
 3. commit the generated `themes/dist/<tool>/{morok,popil,vatra}.<ext>` alongside the template
 4. add an install section to `README.md` under `## Ports`
-5. add `portGroups`, `portDescriptions`, `readmeAnchors` and `portSwatches` entries in
-   `site/lib/theme-data.ts`, and an icon in `site/components/port-entry.tsx` - the site finds ports by
-   listing `themes/dist/`, so a new one appears on `/ports` regardless, but it lands in the `cli` group
-   with no description, no install link and a generic icon until those are filled in
+5. add `portGroups`, `portDescriptions`, `readmeAnchors` and `portSwatches` entries in the monorepo's
+   `sites/theme/lib/theme-data.ts`, and an icon in `sites/theme/components/port-entry.tsx` - the site finds
+   ports by listing `themes/dist/`, so a new one appears on `/ports` regardless, but it lands in the `cli`
+   group with no description, no install link and a generic icon until those are filled in
 
 ## Userstyles
 
@@ -74,22 +75,16 @@ site's port grid like any other.
 *morok* lib gist, and per-flavor output comes from `--rewrite-import OLD_URL NEW_URL`, which swaps that
 import for the popil or vatra gist.
 
-## The site
+## The Site
 
-`site/` leans heavily on `pivoshenko.ui`, pinned as a GitHub dependency in `site/package.json`; nearly every
-config file in `site/` is a one-line re-export of something that package supplies, so changing the shared
-look usually means bumping that pin, not editing files here. `lib/theme-data.ts` reads
-`../themes/palettes/*.json` and lists `../themes/dist/` **from the filesystem at build time** via `node:fs`,
-which is why the site cannot build against a cleaned `themes/dist` and has to stay in the themes' checkout.
-
-Three routes: `/` is the landing (hero band, the three flavors as cards, links onward), `/ports` is the
-port catalog, and `/palette` carries the flavor toggle, the color grid and the code samples. The catalog
-groups ports by `PORT_GROUPS` in `lib/theme-data.ts`, and `getPorts()` returns them already in that order
-because `Catalog` buckets by first appearance. The grouping and the per-port copy are hand-kept, not
-derived from the template tree.
+The site for theme.pivoshenko.dev lives in the private `pivoshenko.sites` monorepo under `sites/theme`. At
+build time it reads `themes/palettes/*.json` and `themes/dist/` from this repo: locally from the sibling
+checkout, on Vercel from a shallow clone of this public repo. A push to `main` touching `themes/**`
+triggers `.github/workflows/deploy.yaml`, which calls the Vercel deploy hook (repo secret
+`VERCEL_DEPLOY_HOOK`) to rebuild it.
 
 ## Palettes
 
 A palette is `name`, `flavor`, a flat `colors` map, and a `roles` map from semantic names to slot names.
-The site classifies slots by name in `colorGroup()` (`site/lib/theme-data.ts`), so a new slot name has to
-fall into the `text` / `surface` prefix rules there or it is treated as an accent.
+The site classifies slots by name in `colorGroup()` (`sites/theme/lib/theme-data.ts` in the
+monorepo), so a new slot name has to fall into the `text` / `surface` prefix rules there or it is treated as an accent.

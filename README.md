@@ -19,7 +19,7 @@ Dark themes focused on minimalism, simplicity and cross-tool consistency, shippe
 
 All three share the same 14 named slots and every port template - only the values in those slots differ.
 
-> Preview the palette, compare the flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**.
+> Preview the palette, compare the flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**. The site lives in the private `pivoshenko.sites` monorepo and reads `themes/palettes` and `themes/dist` from this repo at build time.
 
 ## Usage
 

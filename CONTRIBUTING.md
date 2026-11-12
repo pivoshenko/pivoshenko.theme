@@ -59,26 +59,22 @@ Concrete examples, API sketches, UI mockups, or references are helpful when rele
 
 ### Local Development
 
-This repo needs [uv](https://docs.astral.sh/uv) with Python 3.14 for the palette renderer, Node.js 24 with [pnpm](https://pnpm.io) for the site in `site/`, and `just`.
+This repo needs [uv](https://docs.astral.sh/uv) with Python 3.14 for the palette renderer, and `just`.
 
 This project uses [`just`](https://github.com/casey/just) as its task runner. Run `just --list` for the full set; these are the ones you need day to day:
 
 | Command | What it does |
 | --- | --- |
-| `just install` | Installs both Python and site dependencies (`install-py`, `install-site`) |
+| `just install` | Installs the Python dependencies (`install-py`) |
 | `just install-py` | Installs the Python dependencies, including every group and extra |
-| `just install-site` | Installs the site dependencies in `site/` |
-| `just format` | Formats both Python and site code (`format-py`, `format-site`) |
-| `just lint` | Lints both Python and site code (`lint-py`, `lint-site`) |
+| `just format` | Formats the Python code (`format-py`) |
+| `just lint` | Lints the Python code (`lint-py`) |
 | `just lint-py` | Lints and type-checks the Python code with Ruff and ty |
-| `just lint-site` | Lints the site |
-| `just test` | Runs both Python and site tests (`test-py`, `test-site`) |
-| `just build` | Builds the site and renders every theme (`build-site`, `render-themes`) |
-| `just build-site` | Builds the production site |
+| `just test` | Runs the Python tests (`test-py`) |
+| `just build` | Renders every theme (`render-themes`) |
 | `just render-themes` | Renders the morok, popil and vatra palettes |
 | `just check` | Runs `lint`, `test`, and `build` in sequence |
-| `just update` | Upgrades both Python and site dependencies (`update-py`, `update-site`) |
-| `just run-dev-server` | Runs the site locally in development mode |
+| `just update` | Upgrades the Python dependencies (`update-py`) |
 | `just clean` | Removes rendered theme output in `themes/dist` |
 
 1. Fork the repository and clone your fork locally
@@ -94,7 +90,8 @@ Workflows live in `.github/workflows`:
 
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
-| CI | Push to `main`, pull requests, `workflow_dispatch` | Two independent jobs on `ubuntu-24.04-arm`: `ci-py` installs the Python dependencies with uv on Python 3.14, then lints and tests the palette renderer; `ci-next` installs the site dependencies with pnpm on Node.js 24, then lints, tests and builds the site in `site/` |
+| CI | Push to `main`, pull requests, `workflow_dispatch` | The `ci-py` job on `ubuntu-24.04-arm` installs the Python dependencies with uv on Python 3.14, then lints and tests the palette renderer |
+| Deploy | Push to `main` touching `themes/**`, `workflow_dispatch` | Calls the Vercel deploy hook (`VERCEL_DEPLOY_HOOK` secret) to rebuild theme.pivoshenko.dev from the `pivoshenko.sites` monorepo |
 
 CI must be green before a pull request is merged.
 

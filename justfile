@@ -5,56 +5,37 @@ vatra_lib_url := "https://gist.githubusercontent.com/pivoshenko/4966a9fda130dbd5
 default:
     @just --list
 
-install: install-py install-site
+install: install-py
 
 install-py:
     uv sync --all-groups --all-extras
 
-install-site:
-    cd site && pnpm install
-
-format: format-py format-site
+format: format-py
 
 format-py:
     uv run ruff check --fix .
     uv run ruff format .
 
-format-site:
-    cd site && pnpm format
-
-lint: lint-py lint-site
+lint: lint-py
 
 lint-py:
     uv run ruff check .
     uv run ty check .
 
-lint-site:
-    cd site && pnpm lint
-    cd site && pnpm typecheck
-
-test: test-py test-site
+test: test-py
 
 test-py:
     @[ -f .no-tests ] && echo "skipping (.no-tests sentinel)" || { echo "no test command, add tests or restore .no-tests" >&2; exit 1; }
 
-test-site:
-    @cd site && ([ -f .no-tests ] && echo "skipping (.no-tests sentinel)" || { echo "no test command, add tests or restore .no-tests" >&2; exit 1; })
-
 check: lint test build
 
-update: update-py update-site
+update: update-py
 
 update-py:
     uv lock --upgrade
     uv run uv-upsync
 
-update-site:
-    cd site && pnpm update
-
-build: build-site render-themes
-
-build-site:
-    cd site && pnpm build
+build: render-themes
 
 clean:
     rm -rf themes/dist
@@ -72,9 +53,3 @@ render-theme-popil:
 render-theme-vatra:
     uv run scripts/render.py --palette themes/palettes/vatra.json
     uv run scripts/bundle.py --styles-dir themes/userstyles/styles --output themes/dist/stylus/vatra.json --rewrite-import "{{ morok_lib_url }}" "{{ vatra_lib_url }}"
-
-run-dev-server:
-    cd site && pnpm dev
-
-run-prod-server: build-site
-    cd site && pnpm start

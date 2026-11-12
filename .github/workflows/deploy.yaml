@@ -1,0 +1,18 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "themes/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Rebuild theme.pivoshenko.dev
+        run: curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}" > /dev/null
