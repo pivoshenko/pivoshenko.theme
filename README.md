@@ -290,7 +290,7 @@ export default {
 } satisfies Config
 ```
 
-Exposes `colors.<flavor>.<token>` (e.g. `bg-morok-base`, `text-popil-peach`) plus a JetBrains Mono font stack and `darkMode: 'class'`. Consumed in production via [pivoshenko.ui](https://github.com/pivoshenko/pivoshenko.ui) under the `pivoshenko.ui/tailwind-preset` subpath (vendored on release).
+Exposes `colors.<flavor>.<token>` (e.g. `bg-morok-base`, `text-popil-peach`) plus a JetBrains Mono font stack and `darkMode: 'class'`. Consumed in production by the `pivoshenko.ui` package in the private `pivoshenko.sites` monorepo, which vendors it with `just vendor-theme-preset`.
 
 </details>
 
