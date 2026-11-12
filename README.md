@@ -19,7 +19,7 @@ Dark themes focused on minimalism, simplicity and cross-tool consistency, shippe
 
 All three share the same 14 named slots and every port template - only the values in those slots differ.
 
-> Preview the palette, compare the flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**. The site lives in the private `pivoshenko.sites` monorepo and reads `themes/palettes` and `themes/dist` from this repo at build time.
+> Preview the palette, compare the flavors, and browse the ports live at **[theme.pivoshenko.dev](https://theme.pivoshenko.dev/)**.
 
 ## Usage
 
@@ -290,7 +290,7 @@ export default {
 } satisfies Config
 ```
 
-Exposes `colors.<flavor>.<token>` (e.g. `bg-morok-base`, `text-popil-peach`) plus a JetBrains Mono font stack and `darkMode: 'class'`. Consumed in production by the `pivoshenko.ui` package in the private `pivoshenko.sites` monorepo, which vendors it with `just vendor-theme-preset`.
+Exposes `colors.<flavor>.<token>` (e.g. `bg-morok-base`, `text-popil-peach`) plus a JetBrains Mono font stack and `darkMode: 'class'`.
 
 </details>
 
