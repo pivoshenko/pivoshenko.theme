@@ -11,7 +11,7 @@ themes {
     }
     text_selected {
       base "#e7e5e4"
-      background "#262626"
+      background "#212121"
       emphasis_0 "#8da1c7"
       emphasis_1 "#49a4bf"
       emphasis_2 "#8aaf86"
@@ -33,9 +33,9 @@ themes {
     // it a subtle bg step so every other tab doesn't turn a loud accent colour
     ribbon_unselected {
       base "#d6d3d1"
-      background "#1b1b1b"
+      background "#181818"
       emphasis_0 "#8da1c7"
-      emphasis_1 "#262626"
+      emphasis_1 "#212121"
       emphasis_2 "#8aaf86"
       emphasis_3 "#babcd8"
     }
@@ -51,7 +51,7 @@ themes {
     }
     table_cell_selected {
       base "#e7e5e4"
-      background "#262626"
+      background "#212121"
       emphasis_0 "#8da1c7"
       emphasis_1 "#49a4bf"
       emphasis_2 "#8aaf86"
@@ -69,7 +69,7 @@ themes {
     // == Lists (fuzzy finders, pickers) ==
     list_selected {
       base "#e7e5e4"
-      background "#262626"
+      background "#212121"
       emphasis_0 "#8da1c7"
       emphasis_1 "#49a4bf"
       emphasis_2 "#8aaf86"

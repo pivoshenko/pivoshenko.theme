@@ -22,9 +22,9 @@
     "overlay2": "#a8a29e",
     "overlay1": "#78716c",
     "overlay0": "#57534e",
-    "surface2": "#303030",
-    "surface1": "#262626",
-    "surface0": "#1b1b1b",
+    "surface2": "#2a2a2a",
+    "surface1": "#212121",
+    "surface0": "#181818",
     "base": "#111111",
     "mantle": "#0d0d0d",
     "crust": "#000000"

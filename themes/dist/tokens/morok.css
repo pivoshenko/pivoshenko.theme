@@ -1,8 +1,8 @@
 [data-flavor="morok"] {
   /* Background */
   --bg-canvas: 17 17 17;
-  --bg-surface: 27 27 27;
-  --bg-raised: 38 38 38;
+  --bg-surface: 24 24 24;
+  --bg-raised: 33 33 33;
   --bg-sunken: 13 13 13;
   --bg-overlay: 87 83 78;
 
@@ -13,9 +13,9 @@
   --fg-faint: 120 113 108;
 
   /* Border */
-  --border-subtle: 27 27 27;
-  --border-default: 38 38 38;
-  --border-strong: 48 48 48;
+  --border-subtle: 24 24 24;
+  --border-default: 33 33 33;
+  --border-strong: 42 42 42;
 
   /* Accent */
   --accent-primary: 141 161 199;
