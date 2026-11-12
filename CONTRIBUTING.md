@@ -92,7 +92,7 @@ Workflows live in `.github/workflows`:
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
 | CI | Push to `main`, pull requests, `workflow_dispatch` | The `ci-py` job on `ubuntu-24.04-arm` installs the Python dependencies with uv on Python 3.14, then lints and tests the palette renderer |
-| Deploy | Push to `main` touching `themes/**`, `workflow_dispatch` | Calls the Vercel deploy hook (`VERCEL_DEPLOY_HOOK` secret) to rebuild theme.pivoshenko.dev from the `pivoshenko.sites` monorepo |
+| Deploy | Push to `main` touching `themes/**`, `workflow_dispatch` | Rebuilds theme.pivoshenko.dev |
 
 CI must be green before a pull request is merged.
 

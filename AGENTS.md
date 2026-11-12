@@ -4,9 +4,8 @@ Guidance for Claude Code when working in this repository.
 
 `pivoshenko.theme` renders three dark flavors (`morok`, `popil`, `vatra`) from JSON palettes into per-tool
 ports, plus Stylus userstyles. No runtime library - it is a code generator plus its generated output.
-Python + `uv` for `scripts/`, `just` as the task runner. The showcase site lives elsewhere, see
-[The Site](#the-site); `README.md` covers the flavors and every port, `CONTRIBUTING.md` the `just`
-table, CI, and commit rules.
+Python + `uv` for `scripts/`, `just` as the task runner. `README.md` covers the flavors and every port,
+`CONTRIBUTING.md` the `just` table, CI, and commit rules.
 
 ## Landmines
 
@@ -14,8 +13,8 @@ table, CI, and commit rules.
   same change as any palette or template edit, or stale output ships unnoticed
 - **there are no tests.** `just test` succeeds trivially if the `.no-tests` sentinel is present and fails
   loudly if it is not, so do not delete it unless you are adding a real test command in the same change
-- **`themes/dist/` stays committed.** The site in the `pivoshenko.sites` monorepo reads it at build time,
-  so never leave it cleaned; after `just clean`, run `just render-themes` again
+- **`themes/dist/` stays committed.** theme.pivoshenko.dev reads it, so never leave it
+  cleaned; after `just clean`, run `just render-themes` again
 - **`=#{{` is rewritten to `={{` before rendering** (see below), so a literal `#` immediately before an
   expression is silently swallowed
 - **a color slot added to one palette must be added to all three.** The Jinja environment uses
@@ -63,10 +62,8 @@ site's port grid like any other.
 2. `just render-themes`
 3. commit the generated `themes/dist/<tool>/{morok,popil,vatra}.<ext>` alongside the template
 4. add an install section to `README.md` under `## Ports`
-5. add `portGroups`, `portDescriptions`, `readmeAnchors` and `portSwatches` entries in the monorepo's
-   `sites/theme/lib/theme-data.ts`, and an icon in `sites/theme/components/port-entry.tsx` - the site finds
-   ports by listing `themes/dist/`, so a new one appears on `/ports` regardless, but it lands in the `cli`
-   group with no description, no install link and a generic icon until those are filled in
+5. update the site's port metadata (group, description, README anchor, swatches, icon) so the new port is
+   not shown as ungrouped
 
 ## Userstyles
 
@@ -75,16 +72,8 @@ site's port grid like any other.
 *morok* lib gist, and per-flavor output comes from `--rewrite-import OLD_URL NEW_URL`, which swaps that
 import for the popil or vatra gist.
 
-## The Site
-
-The site for theme.pivoshenko.dev lives in the private `pivoshenko.sites` monorepo under `sites/theme`. At
-build time it reads `themes/palettes/*.json` and `themes/dist/` from this repo: locally from the sibling
-checkout, on Vercel from a shallow clone of this public repo. A push to `main` touching `themes/**`
-triggers `.github/workflows/deploy.yaml`, which calls the Vercel deploy hook (repo secret
-`VERCEL_DEPLOY_HOOK`) to rebuild it.
-
 ## Palettes
 
 A palette is `name`, `flavor`, a flat `colors` map, and a `roles` map from semantic names to slot names.
-The site classifies slots by name in `colorGroup()` (`sites/theme/lib/theme-data.ts` in the
-monorepo), so a new slot name has to fall into the `text` / `surface` prefix rules there or it is treated as an accent.
+The site classifies slots by name, so a new slot name has to fall into the `text` / `surface` prefix rules
+or it is treated as an accent.
