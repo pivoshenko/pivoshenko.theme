@@ -61,6 +61,19 @@ spicetify, and stylus.
 
 </details>
 
+#### Chrome
+
+<details>
+<summary>Install</summary>
+
+1. Create a folder, for example `~/.config/chrome-themes/<flavor>/`
+2. Copy [`themes/dist/chrome/<flavor>.manifest.json`](themes/dist/chrome/) into it and rename it to `manifest.json`
+3. Open `chrome://extensions`, enable Developer mode, click "Load unpacked" and pick the folder
+
+Works in any Chromium browser that accepts unpacked themes (Brave, Edge, Arc, Vivaldi).
+
+</details>
+
 #### Delta
 
 <details>

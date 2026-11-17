@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "{{ name }}",
+  "version": "1.0.0",
+  "description": "The {{ name }} flavor of pivoshenko.theme",
+  "theme": {
+    "colors": {
+      "frame": [{{ mantle | rgb }}],
+      "frame_inactive": [{{ crust | rgb }}],
+      "frame_incognito": [{{ crust | rgb }}],
+      "frame_incognito_inactive": [{{ crust | rgb }}],
+      "background_tab": [{{ mantle | rgb }}],
+      "background_tab_inactive": [{{ crust | rgb }}],
+      "background_tab_incognito": [{{ crust | rgb }}],
+      "background_tab_incognito_inactive": [{{ crust | rgb }}],
+      "toolbar": [{{ surface0 | rgb }}],
+      "toolbar_text": [{{ text | rgb }}],
+      "toolbar_button_icon": [{{ blue | rgb }}],
+      "tab_text": [{{ text | rgb }}],
+      "tab_background_text": [{{ subtext0 | rgb }}],
+      "tab_background_text_inactive": [{{ overlay1 | rgb }}],
+      "tab_background_text_incognito": [{{ subtext0 | rgb }}],
+      "tab_background_text_incognito_inactive": [{{ overlay1 | rgb }}],
+      "bookmark_text": [{{ subtext1 | rgb }}],
+      "omnibox_background": [{{ base | rgb }}],
+      "omnibox_text": [{{ text | rgb }}],
+      "ntp_background": [{{ base | rgb }}],
+      "ntp_text": [{{ text | rgb }}],
+      "ntp_link": [{{ blue | rgb }}],
+      "ntp_header": [{{ surface0 | rgb }}]
+    },
+    "properties": {
+      "ntp_logo_alternate": 1
+    }
+  }
+}
