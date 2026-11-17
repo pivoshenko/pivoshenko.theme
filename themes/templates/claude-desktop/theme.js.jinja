@@ -1,0 +1,48 @@
+import { makeColors } from './make-colors.js'
+
+const { theme, problems } = makeColors({
+  label: '{{ name }}',
+  only: '{{ iif(cond=flavor.dark, t='dark', f='light') }}',
+  roles: {
+    accent: '{{ role.accent.primary.hex }}',
+    danger: '{{ role.accent.danger.hex }}',
+    success: '{{ role.accent.success.hex }}',
+    warning: '{{ role.accent.warning.hex }}',
+    pro: '{{ mauve.hex }}',
+  },
+  {{ iif(cond=flavor.dark, t='dark', f='light') }}: {
+    gray: {
+      anchors: {
+        'surface-0': '{{ role.bg.canvas.hex }}',
+        'surface-1': '{{ role.bg.surface.hex }}',
+        'surface-2': '{{ role.bg.raised.hex }}',
+        'surface-3': '{{ role.bg.raised.hex }}',
+        'text-primary': '{{ role.fg.default.hex }}',
+        'text-secondary': '{{ role.fg.muted.hex }}',
+        'text-muted': '{{ role.fg.subtle.hex }}',
+      },
+    },
+    git: {
+      added: '{{ green.hex }}',
+      removed: '{{ red.hex }}',
+      modified: '{{ yellow.hex }}',
+      merged: '{{ mauve.hex }}',
+      closed: '{{ red.hex }}',
+      conflicting: '{{ peach.hex }}',
+      draft: '{{ overlay1.hex }}',
+    },
+  },
+})
+
+export function register(on) {
+  on('session.start', async ($, e, next) => {
+    const unpainted = problems.find(line => line.startsWith("Desktop won't paint"))
+    if (unpainted !== undefined) {
+      $.ui.toast(unpainted)
+    }
+
+    await $.theme.set({ colors: theme })
+
+    return next(e)
+  })
+}

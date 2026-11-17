@@ -87,6 +87,26 @@ Applies to the Claude Code CLI only - the Desktop app does not read custom theme
 
 </details>
 
+#### Claude Desktop
+
+<details>
+<summary>Install</summary>
+
+A [mod](https://code.claude.com/docs/en/plugins/mods/overview) that paints the Code tab. Needs Claude Code
+v2.1.324 or later inside the Desktop app (`/status` in a Code tab session shows it). The chat tab keeps the
+app's own colors.
+
+1. Create `~/.claude/skills/pivoshenko-theme/.claude-plugin/plugin.json` with
+   `{ "name": "pivoshenko-theme", "version": "0.1.0" }`
+2. Create `~/.claude/skills/pivoshenko-theme/hooks/hooks.json` with `{ "modules": ["./register.js"] }`
+3. Copy [`themes/dist/claude-desktop/<flavor>.js`](themes/dist/claude-desktop/) to
+   `~/.claude/skills/pivoshenko-theme/hooks/register.js`
+4. Copy `make-colors.js` from Claude Code's `plugin-authoring` skill into the same `hooks/` folder (ask
+   Claude Code to do it)
+5. Start a new local session in the Code tab
+
+</details>
+
 #### Delta
 
 <details>
