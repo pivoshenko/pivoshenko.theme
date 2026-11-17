@@ -74,6 +74,19 @@ Works in any Chromium browser that accepts unpacked themes (Brave, Edge, Arc, Vi
 
 </details>
 
+#### Claude Code
+
+<details>
+<summary>Install</summary>
+
+1. Copy [`themes/dist/claude-code/<flavor>.json`](themes/dist/claude-code/) to `~/.claude/themes/<flavor>.json`
+2. Run `/theme` in Claude Code and pick `<flavor>`, or set `"theme": "custom:<flavor>"` in `~/.claude/settings.json`
+
+Applies to the Claude Code CLI only - the Desktop app does not read custom themes. For the Desktop app, see
+[Claude Desktop](#claude-desktop).
+
+</details>
+
 #### Delta
 
 <details>
