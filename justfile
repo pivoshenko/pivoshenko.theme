@@ -5,44 +5,48 @@ vatra_lib_url := "https://gist.githubusercontent.com/pivoshenko/4966a9fda130dbd5
 default:
     @just --list
 
-install: install-py
+install: install-package
 
-install-py:
+install-package:
     uv sync --all-groups --all-extras
 
-format: format-py
+format: format-package
 
-format-py:
+format-package:
     uv run ruff check --fix .
     uv run ruff format .
 
-lint: lint-py
+lint: lint-package
 
-lint-py:
+lint-package:
     uv run ruff check .
     uv run ty check .
 
-audit: audit-py
+audit: audit-package
 
-audit-py:
+audit-package:
     uv audit --preview-features audit-command
 
-test: test-py
+test: test-package
 
-test-py:
+test-package:
     @[ -f .no-tests ] && echo "skipping (.no-tests sentinel)" || { echo "no test command, add tests or restore .no-tests" >&2; exit 1; }
 
 check: lint test build
 
-update: update-py
+update: update-package
 
-update-py:
+update-package:
     uv lock --upgrade
     uv run uv-upsync
 
-build: render-themes
+build: build-package
 
-clean:
+build-package: render-themes
+
+clean: clean-package
+
+clean-package:
     rm -rf themes/dist
 
 render-themes: render-theme-morok render-theme-popil render-theme-vatra

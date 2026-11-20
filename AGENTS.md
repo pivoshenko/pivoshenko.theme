@@ -28,7 +28,7 @@ Python + `uv` for `scripts/`, `just` as the task runner. `README.md` covers the 
 There are no tests, so the render is the gate. After any palette or template edit run `just render-themes`,
 then `git status themes/dist`: the changed files should be exactly the ones you intended. Unexpected churn
 means you touched something shared by other ports; no churn at all means your edit never reached the
-renderer. Run `just check` before a PR - Python linting runs from the project venv, so run `just install-py`
+renderer. Run `just check` before a PR - Python linting runs from the project venv, so run `just install`
 first.
 
 ## The render pipeline

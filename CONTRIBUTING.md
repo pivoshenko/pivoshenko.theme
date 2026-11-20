@@ -65,18 +65,24 @@ This project uses [`just`](https://github.com/casey/just) as its task runner. Ru
 
 | Command | What it does |
 | --- | --- |
-| `just install` | Installs the Python dependencies (`install-py`) |
-| `just install-py` | Installs the Python dependencies, including every group and extra |
-| `just format` | Formats the Python code (`format-py`) |
-| `just lint` | Lints the Python code (`lint-py`) |
-| `just audit` | Checks the dependencies for known vulnerabilities (uv) |
-| `just lint-py` | Lints and type-checks the Python code with Ruff and ty |
-| `just test` | Runs the Python tests (`test-py`) |
-| `just build` | Renders every theme (`render-themes`) |
+| `just install` | Runs `install-package` |
+| `just install-package` | Installs the Python dependencies, including every group and extra |
+| `just format` | Runs `format-package` |
+| `just format-package` | Formats the Python code with Ruff |
+| `just lint` | Runs `lint-package` |
+| `just lint-package` | Lints and type-checks the Python code with Ruff and ty |
+| `just audit` | Runs `audit-package` |
+| `just audit-package` | Checks the dependencies for known vulnerabilities (uv) |
+| `just test` | Runs `test-package` |
+| `just test-package` | Runs the Python tests |
+| `just build` | Runs `build-package` |
+| `just build-package` | Renders every theme (`render-themes`) |
 | `just render-themes` | Renders the morok, popil and vatra palettes |
 | `just check` | Runs `lint`, `test`, and `build` in sequence |
-| `just update` | Upgrades the Python dependencies (`update-py`) |
-| `just clean` | Removes rendered theme output in `themes/dist` |
+| `just update` | Runs `update-package` |
+| `just update-package` | Upgrades the Python dependencies |
+| `just clean` | Runs `clean-package` |
+| `just clean-package` | Removes rendered theme output in `themes/dist` |
 
 1. Fork the repository and clone your fork locally
 2. Create a branch using the naming pattern described below
@@ -91,7 +97,7 @@ Workflows live in `.github/workflows`:
 
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
-| CI | Push to `main`, pull requests, `workflow_dispatch` | The `ci-py` job on `ubuntu-24.04-arm` installs the Python dependencies with uv on Python 3.14, then lints and tests the palette renderer |
+| CI | Push to `main`, pull requests, `workflow_dispatch` | One job on `ubuntu-24.04-arm`: `ci-package` installs the Python dependencies with uv on Python 3.14, then lints the palette renderer, audits the locked dependencies (`just audit-package`) and tests it through the `*-package` recipes |
 | Deploy | Push to `main` touching `themes/**`, `workflow_dispatch` | Rebuilds theme.pivoshenko.dev |
 
 CI must be green before a pull request is merged.
